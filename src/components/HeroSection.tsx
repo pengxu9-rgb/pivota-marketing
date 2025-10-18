@@ -74,13 +74,13 @@ const HeroSection = () => {
                   <Button 
                     size="lg" 
                     className="w-full btn-hero group bg-accent hover:bg-accent/90"
-                    onClick={() => window.location.href = 'https://merchants.pivota.cc/signup'}
+                    onClick={() => window.location.href = 'https://merchant.pivota.cc/signup'}
                   >
                     Get Started
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                   <button
-                    onClick={() => window.location.href = 'https://merchants.pivota.cc/login'}
+                    onClick={() => window.location.href = 'https://merchant.pivota.cc/login'}
                     className="w-full mt-2 text-sm text-accent hover:underline"
                   >
                     Already onboarded? Sign in

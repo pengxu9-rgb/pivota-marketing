@@ -140,7 +140,7 @@ const Header = () => {
               </Button>
 
               <Button 
-                onClick={() => window.location.href = 'https://merchants.pivota.cc/login'}
+                onClick={() => window.location.href = 'https://merchant.pivota.cc/login'}
                 variant="outline"
                 className="group relative overflow-hidden border-accent/30 hover:border-accent hover:bg-accent/10 transition-all duration-300"
               >
@@ -198,7 +198,7 @@ const Header = () => {
                 </Button>
 
                 <Button 
-                  onClick={() => window.location.href = 'https://merchants.pivota.cc/login'}
+                  onClick={() => window.location.href = 'https://merchant.pivota.cc/login'}
                   variant="outline"
                   className="w-full group relative overflow-hidden border-accent/30 hover:border-accent hover:bg-accent/10 transition-all duration-300"
                 >
