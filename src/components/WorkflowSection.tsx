@@ -67,7 +67,7 @@ const WorkflowSection = () => {
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl">
               <img 
-                src={workflowImage} 
+                src={workflowImage.src} 
                 alt="Pivota workflow visualization showing the 4-step process" 
                 className="w-full h-auto object-cover"
               />

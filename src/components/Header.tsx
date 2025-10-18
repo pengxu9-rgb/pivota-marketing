@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, LogIn } from "lucide-react";
@@ -102,7 +104,7 @@ const Header = () => {
               className="flex items-center gap-2 cursor-pointer group"
               onClick={() => scrollToSection("#home")}
             >
-              <img src={logoImage} alt="Pacifico Logo" className="w-8 h-8 rounded-lg group-hover:shadow-[var(--shadow-neon)] transition-all duration-300" />
+              <img src={logoImage.src} alt="Pacifico Logo" className="w-8 h-8 rounded-lg group-hover:shadow-[var(--shadow-neon)] transition-all duration-300" />
               <span className="text-2xl font-bold text-gradient-primary">Pivota</span>
             </div>
 
@@ -167,7 +169,7 @@ const Header = () => {
               isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
-            <div className="py-4 space-y-2 border-t border-border/30">
+            <div className="py-4 space-y-2 border-t border/30">
               {navLinks.map((link) => (
                 <button
                   key={link.text}

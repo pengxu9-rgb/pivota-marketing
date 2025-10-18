@@ -115,7 +115,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
@@ -127,7 +127,8 @@
 @layer components {
   /* Hero Button Variants */
   .btn-hero {
-    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-[var(--shadow-neon)] hover:scale-105;
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105;
+    box-shadow: var(--shadow-neon);
   }
 
   .btn-secondary {
@@ -136,11 +137,14 @@
 
   /* Card Variants */
   .card-gradient {
-    @apply bg-gradient-to-br from-card to-muted border border-border/50 rounded-xl p-6 shadow-[var(--shadow-card)] backdrop-blur-sm;
+    @apply bg-gradient-to-br from-card to-muted border rounded-xl p-6 backdrop-blur-sm;
+    border-color: hsl(var(--border) / 0.5);
+    box-shadow: var(--shadow-card);
   }
 
   .card-feature {
-    @apply card-gradient transition-all duration-300 hover:shadow-[var(--shadow-neon)] hover:scale-105 hover:border-primary/50;
+    @apply card-gradient transition-all duration-300 hover:scale-105 hover:border-primary/50;
+    box-shadow: var(--shadow-neon);
   }
 
   /* Text Gradients */

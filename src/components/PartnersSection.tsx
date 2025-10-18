@@ -24,7 +24,7 @@ const PartnersSection = () => {
           {partners.map((partner, index) => (
             <div 
               key={partner.name}
-              className="flex flex-col items-center space-y-3 p-6 rounded-xl bg-gradient-to-br from-muted/20 to-muted/10 border border-border/30 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-neon)] group"
+              className="flex flex-col items-center space-y-3 p-6 rounded-xl bg-gradient-to-br from-muted/20 to-muted/10 border border/30 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-neon)] group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="text-4xl group-hover:scale-110 transition-transform duration-300">

@@ -94,7 +94,7 @@ const HeroSection = () => {
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl animate-float">
               <img 
-                src={heroImage} 
+                src={heroImage.src} 
                 alt="Futuristic Pivota dashboard showing agent payment network flows" 
                 className="w-full h-auto object-cover"
               />

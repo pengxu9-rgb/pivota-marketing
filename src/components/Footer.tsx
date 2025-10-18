@@ -2,7 +2,7 @@ import { Linkedin, Twitter, Youtube, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-background to-card border-t border-border/50">
+    <footer className="bg-gradient-to-b from-background to-card border-t border/50">
       <div className="container-max py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
@@ -96,7 +96,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-border/50 mt-12 pt-8 text-center">
+        <div className="border-t border/50 mt-12 pt-8 text-center">
           <p className="text-muted-foreground">
             © 2024 Pivota. All rights reserved. |{" "}
             <span className="text-gradient-primary">Powered by AI</span>

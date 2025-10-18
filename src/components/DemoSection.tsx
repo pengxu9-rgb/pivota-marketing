@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -5,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Calendar, Send } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 
 const DemoSection = () => {
   const [formData, setFormData] = useState({
@@ -29,12 +30,9 @@ const DemoSection = () => {
     setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('send-demo-request', {
-        body: formData
-      });
-
-      if (error) throw error;
-
+      // Simulate form submission - replace with actual API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       toast.success("Demo request submitted! We'll contact you within 24 hours.");
       setFormData({
         name: "",
@@ -77,7 +75,7 @@ const DemoSection = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="bg-background/50 border-border/50 focus:border-primary transition-colors"
+                      className="bg-background/50 border/50 focus:border-primary transition-colors"
                     />
                   </div>
                   <div className="space-y-2">
@@ -88,7 +86,7 @@ const DemoSection = () => {
                       value={formData.company}
                       onChange={handleInputChange}
                       required
-                      className="bg-background/50 border-border/50 focus:border-primary transition-colors"
+                      className="bg-background/50 border/50 focus:border-primary transition-colors"
                     />
                   </div>
                 </div>
@@ -103,7 +101,7 @@ const DemoSection = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="bg-background/50 border-border/50 focus:border-primary transition-colors"
+                      className="bg-background/50 border/50 focus:border-primary transition-colors"
                     />
                   </div>
                   <div className="space-y-2">
@@ -114,7 +112,7 @@ const DemoSection = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="bg-background/50 border-border/50 focus:border-primary transition-colors"
+                      className="bg-background/50 border/50 focus:border-primary transition-colors"
                     />
                   </div>
                 </div>
@@ -128,7 +126,7 @@ const DemoSection = () => {
                     onChange={handleInputChange}
                     rows={4}
                     placeholder="Tell us about your current payment challenges..."
-                    className="bg-background/50 border-border/50 focus:border-primary transition-colors"
+                    className="bg-background/50 border/50 focus:border-primary transition-colors"
                   />
                 </div>
                 

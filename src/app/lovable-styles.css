@@ -115,7 +115,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
@@ -136,7 +136,8 @@
 
   /* Card Variants */
   .card-gradient {
-    @apply bg-gradient-to-br from-card to-muted border border-border/50 rounded-xl p-6 shadow-[var(--shadow-card)] backdrop-blur-sm;
+    @apply bg-gradient-to-br from-card to-muted border rounded-xl p-6 shadow-[var(--shadow-card)] backdrop-blur-sm;
+    border-color: hsl(var(--border) / 0.5);
   }
 
   .card-feature {
