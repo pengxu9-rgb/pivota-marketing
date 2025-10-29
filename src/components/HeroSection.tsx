@@ -11,7 +11,7 @@ const HeroSection = () => {
           <div className="space-y-8 animate-slide-up">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                AI Commerce.{" "}
+                Agentic Commerce.{" "}
                 <span className="text-gradient-primary">Unified.</span>{" "}
                 <span className="text-gradient-primary">Scalable.</span>
               </h1>
