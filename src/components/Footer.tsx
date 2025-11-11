@@ -27,13 +27,6 @@ const Footer = () => {
                 <Mail className="w-4 h-4" />
                 contact@pivota.cc
               </a>
-              <a 
-                href="tel:+1-555-PIVOTA" 
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                +1-555-PIVOTA
-              </a>
             </div>
           </div>
           
