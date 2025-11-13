@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     title: "The API for Agentic Commerce: Connect Agents & Merchants | Pivota",
     description:
       "Pivota is the infrastructure for agentic commerce. A single API to connect AI agents to merchant products, ordering (ACP), and direct payments (AP2).",
+    images: [
+      { url: "/og-home.svg", width: 1200, height: 630, alt: "Pivota – Agentic Commerce API" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
