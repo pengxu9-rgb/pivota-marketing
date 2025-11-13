@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,6 +10,9 @@ import { toast } from "sonner";
 import { Calendar, Send } from "lucide-react";
 
 const DemoSection = () => {
+  const pathname = usePathname();
+  const isZh = pathname?.startsWith("/zh");
+
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -33,7 +37,9 @@ const DemoSection = () => {
       // Simulate form submission - replace with actual API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      toast.success("Demo request submitted! We'll contact you within 24 hours.");
+      toast.success(
+        isZh ? "演示请求已提交！我们会在 24 小时内联系你。" : "Demo request submitted! We'll contact you within 24 hours.",
+      );
       setFormData({
         name: "",
         company: "",
@@ -43,7 +49,7 @@ const DemoSection = () => {
       });
     } catch (error) {
       console.error("Error submitting demo request:", error);
-      toast.error("Failed to submit demo request. Please try again.");
+      toast.error(isZh ? "提交失败，请重试。" : "Failed to submit demo request. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -55,10 +61,16 @@ const DemoSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold">
-              Book a <span className="text-gradient-primary">Demo</span> Today
+              {isZh ? (
+                <>立即<span className="text-gradient-primary">预约演示</span></>
+              ) : (
+                <>Book a <span className="text-gradient-primary">Demo</span> Today</>
+              )}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Experience firsthand how Pivota can simplify your agent payments and boost efficiency
+              {isZh
+                ? "亲身体验 Pivota 如何简化代理支付并提升效率"
+                : "Experience firsthand how Pivota can simplify your agent payments and boost efficiency"}
             </p>
           </div>
           
@@ -68,7 +80,7 @@ const DemoSection = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Full Name *</Label>
+                    <Label htmlFor="name">{isZh ? "全名 *" : "Full Name *"}</Label>
                     <Input
                       id="name"
                       name="name"
@@ -79,7 +91,7 @@ const DemoSection = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="company">Company *</Label>
+                    <Label htmlFor="company">{isZh ? "公司 *" : "Company *"}</Label>
                     <Input
                       id="company"
                       name="company"
@@ -93,7 +105,7 @@ const DemoSection = () => {
                 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email *</Label>
+                    <Label htmlFor="email">{isZh ? "邮箱 *" : "Email *"}</Label>
                     <Input
                       id="email"
                       name="email"
@@ -105,7 +117,7 @@ const DemoSection = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
+                    <Label htmlFor="phone">{isZh ? "电话" : "Phone"}</Label>
                     <Input
                       id="phone"
                       name="phone"
@@ -118,21 +130,23 @@ const DemoSection = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">{isZh ? "留言" : "Message"}</Label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    placeholder="Tell us about your current payment challenges..."
+                    placeholder={
+                      isZh ? "请简单介绍你的支付痛点与场景..." : "Tell us about your current payment challenges..."
+                    }
                     className="bg-background/50 border/50 focus:border-primary transition-colors"
                   />
                 </div>
                 
                 <Button type="submit" className="btn-hero w-full" disabled={isSubmitting}>
                   <Send className="w-5 h-5 mr-2" />
-                  {isSubmitting ? "Sending..." : "Book a Demo"}
+                  {isSubmitting ? (isZh ? "发送中..." : "Sending...") : isZh ? "预约演示" : "Book a Demo"}
                 </Button>
               </form>
             </div>
@@ -140,16 +154,24 @@ const DemoSection = () => {
             {/* Benefits */}
             <div className="space-y-8">
               <div className="space-y-6">
-                <h3 className="text-2xl font-semibold">What to expect in your demo:</h3>
+                <h3 className="text-2xl font-semibold">{isZh ? "演示内容包括：" : "What to expect in your demo:"}</h3>
                 
                 <div className="space-y-4">
-                  {[
-                    "Live walkthrough of the Pivota platform",
-                    "Customized demo based on your business needs", 
-                    "Q&A session with our payment experts",
-                    "Integration roadmap discussion",
-                    "Pricing and implementation timeline"
-                  ].map((item, index) => (
+                  {(isZh
+                    ? [
+                        "平台现场演示",
+                        "基于你的业务定制化演示",
+                        "与支付专家的问答环节",
+                        "集成路线讨论",
+                        "价格与实施时间表",
+                      ]
+                    : [
+                        "Live walkthrough of the Pivota platform",
+                        "Customized demo based on your business needs",
+                        "Q&A session with our payment experts",
+                        "Integration roadmap discussion",
+                        "Pricing and implementation timeline",
+                      ]).map((item, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                       <span className="text-muted-foreground">{item}</span>
@@ -162,9 +184,11 @@ const DemoSection = () => {
                 <div className="flex items-start gap-4">
                   <Calendar className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-semibold mb-2">Schedule Flexibility</h4>
+                    <h4 className="font-semibold mb-2">{isZh ? "排期灵活" : "Schedule Flexibility"}</h4>
                     <p className="text-sm text-muted-foreground">
-                      We accommodate your timezone and schedule. Demo sessions typically last 30-45 minutes.
+                      {isZh
+                        ? "我们会根据你的时区灵活安排。演示通常持续 30-45 分钟。"
+                        : "We accommodate your timezone and schedule. Demo sessions typically last 30-45 minutes."}
                     </p>
                   </div>
                 </div>

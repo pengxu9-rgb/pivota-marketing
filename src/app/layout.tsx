@@ -13,8 +13,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pivota – Unified Agent Payment Network",
-  description: "Connect AI agents to merchants through unified payment infrastructure.",
+  metadataBase: new URL("https://pivota.cc"),
+  title: "The API for Agentic Commerce: Connect Agents & Merchants | Pivota",
+  description:
+    "Pivota is the infrastructure for agentic commerce. A single API to connect AI agents to merchant products, ordering (ACP), and direct payments (AP2).",
+  alternates: {
+    canonical: "https://pivota.cc/",
+    languages: {
+      en: "https://pivota.cc/",
+      "zh-Hans": "https://pivota.cc/zh/",
+      "x-default": "https://pivota.cc/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://pivota.cc/",
+    siteName: "Pivota",
+    title: "The API for Agentic Commerce: Connect Agents & Merchants | Pivota",
+    description:
+      "Pivota is the infrastructure for agentic commerce. A single API to connect AI agents to merchant products, ordering (ACP), and direct payments (AP2).",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The API for Agentic Commerce: Connect Agents & Merchants | Pivota",
+    description:
+      "Pivota is the infrastructure for agentic commerce. A single API to connect AI agents to merchant products, ordering (ACP), and direct payments (AP2).",
+  },
 };
 
 export default function RootLayout({
@@ -24,6 +48,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* hreflang for English and Simplified Chinese */}
+        <link rel="alternate" href="https://pivota.cc/" hrefLang="x-default" />
+        <link rel="alternate" href="https://pivota.cc/" hrefLang="en" />
+        <link rel="alternate" href="https://pivota.cc/zh/" hrefLang="zh-Hans" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

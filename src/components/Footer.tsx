@@ -1,6 +1,11 @@
+"use client";
+
 import { Linkedin, Twitter, Youtube, Mail, Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+  const isZh = pathname?.startsWith("/zh");
   return (
     <footer className="bg-gradient-to-b from-background to-card border-t border/50">
       <div className="container-max py-16">
@@ -12,13 +17,15 @@ const Footer = () => {
               <span className="text-2xl font-bold text-gradient-primary">Pivota</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Future-ready agent payment solutions that simplify transactions and boost business efficiency.
+              {isZh
+                ? "面向未来的智能代理支付方案，简化交易、提升业务效率。"
+                : "Future-ready agent payment solutions that simplify transactions and boost business efficiency."}
             </p>
           </div>
           
           {/* Contact */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Contact</h4>
+            <h4 className="text-lg font-semibold">{isZh ? "联系" : "Contact"}</h4>
             <div className="space-y-3">
               <a 
                 href="mailto:contact@pivota.cc" 
@@ -27,18 +34,25 @@ const Footer = () => {
                 <Mail className="w-4 h-4" />
                 contact@pivota.cc
               </a>
+              <a 
+                href="tel:+1-555-PIVOTA" 
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                {isZh ? "+1-555-PIVOTA（示例）" : "+1-555-PIVOTA"}
+              </a>
             </div>
           </div>
           
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Quick Links</h4>
+            <h4 className="text-lg font-semibold">{isZh ? "快速链接" : "Quick Links"}</h4>
             <div className="space-y-3">
               {[
-                { text: "Features", href: "#features-section" },
-                { text: "How It Works", href: "#workflow-section" },
-                { text: "Book Demo", href: "#demo-section" },
-                { text: "Partners", href: "#partners-section" }
+                { text: isZh ? "产品特性" : "Features", href: "#features-section" },
+                { text: isZh ? "工作原理" : "How It Works", href: "#workflow-section" },
+                { text: isZh ? "预约演示" : "Book Demo", href: "#demo-section" },
+                { text: isZh ? "合作伙伴" : "Partners", href: "#partners-section" }
               ].map((link) => (
                 <a 
                   key={link.text}
@@ -57,7 +71,7 @@ const Footer = () => {
           
           {/* Social & Legal */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Connect</h4>
+            <h4 className="text-lg font-semibold">{isZh ? "关注我们" : "Connect"}</h4>
             <div className="flex gap-4">
               {[
                 { Icon: Linkedin, href: "#", label: "LinkedIn" },
@@ -76,7 +90,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-2 pt-4">
-              {["Privacy Policy", "Terms of Service"].map((text) => (
+              {(isZh ? ["隐私政策", "服务条款"] : ["Privacy Policy", "Terms of Service"]).map((text) => (
                 <a 
                   key={text}
                   href="#" 
@@ -91,8 +105,8 @@ const Footer = () => {
         
         <div className="border-t border/50 mt-12 pt-8 text-center">
           <p className="text-muted-foreground">
-            © 2024 Pivota. All rights reserved. |{" "}
-            <span className="text-gradient-primary">Powered by AI</span>
+            {isZh ? "© 2024 Pivota. 保留所有权利。" : "© 2024 Pivota. All rights reserved."} |{" "}
+            <span className="text-gradient-primary">{isZh ? "由 AI 驱动" : "Powered by AI"}</span>
           </p>
         </div>
       </div>

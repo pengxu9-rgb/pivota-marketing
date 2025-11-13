@@ -1,39 +1,75 @@
+"use client";
+
 import { UserCheck, Building2, CreditCard, PieChart } from "lucide-react";
+import { usePathname } from "next/navigation";
 import workflowImage from "@/assets/workflow-steps.jpg";
 
-const steps = [
-  {
-    icon: UserCheck,
-    title: "Agent Registration",
-    description: "AI-assisted verification process ensures quick and secure agent onboarding with automated KYC checks."
-  },
-  {
-    icon: Building2,
-    title: "Merchant Onboarding", 
-    description: "Quick connection system integrates merchants with minimal setup and instant platform compatibility."
-  },
-  {
-    icon: CreditCard,
-    title: "Payment Flow",
-    description: "Real-time, secure transactions with multi-layer encryption and instant settlement capabilities."
-  },
-  {
-    icon: PieChart,
-    title: "Reporting & Insights",
-    description: "AI-powered dashboards provide clarity with predictive analytics and performance optimization."
-  }
-];
-
 const WorkflowSection = () => {
+  const pathname = usePathname();
+  const isZh = pathname?.startsWith("/zh");
+
+  const steps = isZh
+    ? [
+        {
+          icon: UserCheck,
+          title: "代理注册",
+          description: "AI 辅助校验，自动 KYC，确保快速且安全的代理入驻。",
+        },
+        {
+          icon: Building2,
+          title: "商家接入",
+          description: "快速连接系统，最小化配置，立即兼容平台。",
+        },
+        {
+          icon: CreditCard,
+          title: "支付流程",
+          description: "实时安全交易，多层加密，即时结算能力。",
+        },
+        {
+          icon: PieChart,
+          title: "报表与洞察",
+          description: "AI 驱动面板，提供预测分析与绩效优化建议。",
+        },
+      ]
+    : [
+        {
+          icon: UserCheck,
+          title: "Agent Registration",
+          description:
+            "AI-assisted verification process ensures quick and secure agent onboarding with automated KYC checks.",
+        },
+        {
+          icon: Building2,
+          title: "Merchant Onboarding",
+          description:
+            "Quick connection system integrates merchants with minimal setup and instant platform compatibility.",
+        },
+        {
+          icon: CreditCard,
+          title: "Payment Flow",
+          description:
+            "Real-time, secure transactions with multi-layer encryption and instant settlement capabilities.",
+        },
+        {
+          icon: PieChart,
+          title: "Reporting & Insights",
+          description:
+            "AI-powered dashboards provide clarity with predictive analytics and performance optimization.",
+        },
+      ];
   return (
     <section id="workflow-section" className="section-padding bg-gradient-to-b from-background to-card">
       <div className="container-max">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold">
-            How It <span className="text-gradient-primary">Works</span>
+            {isZh ? (
+              <>工作<span className="text-gradient-primary">原理</span></>
+            ) : (
+              <>How It <span className="text-gradient-primary">Works</span></>
+            )}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Our streamlined process makes agent payment management effortless
+            {isZh ? "精简流程让代理支付管理更轻松" : "Our streamlined process makes agent payment management effortless"}
           </p>
         </div>
         

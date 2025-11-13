@@ -1,11 +1,17 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
 const PartnersSection = () => {
+  const pathname = usePathname();
+  const isZh = pathname?.startsWith("/zh");
   const partners = [
     { name: "Shopify", logo: "🛍️" },
     { name: "Wix", logo: "🌐" },
     { name: "Shopee", logo: "🛒" },
-    { name: "Bank Partners", logo: "🏦" },
-    { name: "Payment Networks", logo: "💳" },
-    { name: "Global Integrations", logo: "🌍" }
+    { name: isZh ? "银行合作" : "Bank Partners", logo: "🏦" },
+    { name: isZh ? "支付网络" : "Payment Networks", logo: "💳" },
+    { name: isZh ? "全球集成" : "Global Integrations", logo: "🌍" }
   ];
 
   return (
@@ -13,10 +19,14 @@ const PartnersSection = () => {
       <div className="container-max">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold">
-            Trusted by <span className="text-gradient-primary">Leading Platforms</span>
+            {isZh ? (
+              <>获得<span className="text-gradient-primary">领先平台</span>的信任</>
+            ) : (
+              <>Trusted by <span className="text-gradient-primary">Leading Platforms</span></>
+            )}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Seamlessly integrate with the platforms your business already uses
+            {isZh ? "无缝对接你已经在用的平台" : "Seamlessly integrate with the platforms your business already uses"}
           </p>
         </div>
         
@@ -39,7 +49,15 @@ const PartnersSection = () => {
         
         <div className="mt-12 text-center">
           <p className="text-muted-foreground">
-            <span className="text-primary font-semibold">50+</span> integrations and growing
+            {isZh ? (
+              <>
+                已支持 <span className="text-primary font-semibold">50+</span> 集成，仍在持续增长
+              </>
+            ) : (
+              <>
+                <span className="text-primary font-semibold">50+</span> integrations and growing
+              </>
+            )}
           </p>
         </div>
       </div>

@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, LogIn } from "lucide-react";
 import logoImage from "@/assets/pacifico-logo.png";
@@ -8,14 +10,38 @@ import logoImage from "@/assets/pacifico-logo.png";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isZh = pathname?.startsWith("/zh");
 
-  const navLinks = [
-    { text: "Home", href: "#home" },
-    { text: "Why Pivota", href: "#features-section" },
-    { text: "How It Works", href: "#workflow-section" },
-    { text: "Partners", href: "#partners-section" },
-    { text: "Case Studies", href: "#testimonials-section" },
-  ];
+  const navLinks = useMemo(
+    () =>
+      isZh
+        ? [
+            { text: "首页", href: "#home" },
+            { text: "为什么选择 Pivota", href: "#features-section" },
+            { text: "工作原理", href: "#workflow-section" },
+            { text: "合作伙伴", href: "#partners-section" },
+            { text: "案例研究", href: "#testimonials-section" },
+          ]
+        : [
+            { text: "Home", href: "#home" },
+            { text: "Why Pivota", href: "#features-section" },
+            { text: "How It Works", href: "#workflow-section" },
+            { text: "Partners", href: "#partners-section" },
+            { text: "Case Studies", href: "#testimonials-section" },
+          ],
+    [isZh],
+  );
+
+  const localeToggleHref = useMemo(() => {
+    if (!pathname) return "/zh/";
+    if (pathname === "/") return "/zh/";
+    if (pathname.startsWith("/zh")) {
+      const rest = pathname.slice(3);
+      return rest.length ? rest : "/";
+    }
+    return pathname === "/" ? "/zh/" : `/zh${pathname}`;
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,13 +126,10 @@ const Header = () => {
         <nav className="container-max px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div 
-              className="flex items-center gap-2 cursor-pointer group"
-              onClick={() => scrollToSection("#home")}
-            >
+            <Link href="/" className="flex items-center gap-2 cursor-pointer group">
               <img src={logoImage.src} alt="Pacifico Logo" className="w-8 h-8 rounded-lg group-hover:shadow-[var(--shadow-neon)] transition-all duration-300" />
               <span className="text-2xl font-bold text-gradient-primary">Pivota</span>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-4">
@@ -121,12 +144,28 @@ const Header = () => {
                   <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
                 </button>
               ))}
+              <Link
+                href="/developers"
+                className="relative text-secondary hover:text-primary transition-all duration-300 font-medium group"
+              >
+                Developers
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
+              </Link>
+              <Link
+                href="/merchants"
+                className="relative text-secondary hover:text-primary transition-all duration-300 font-medium group"
+              >
+                Merchants
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
+              </Link>
               
-              <Button 
+              <Button
                 onClick={() => scrollToSection("#demo-section")}
                 className="btn-hero animate-glow"
               >
-                Book a Demo
+                {isZh ? "预约演示" : "Book a Demo"}
               </Button>
 
               <Button 
@@ -135,7 +174,7 @@ const Header = () => {
                 className="group relative overflow-hidden border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300"
               >
                 <LogIn className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                Agent Login
+                {isZh ? "代理登录" : "Agent Login"}
                 <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
               </Button>
 
@@ -145,9 +184,16 @@ const Header = () => {
                 className="group relative overflow-hidden border-accent/30 hover:border-accent hover:bg-accent/10 transition-all duration-300"
               >
                 <LogIn className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                Merchant Login
+                {isZh ? "商家登录" : "Merchant Login"}
                 <span className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/20 to-accent/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
               </Button>
+
+              <Link
+                href={localeToggleHref}
+                className="ml-2 px-3 py-2 text-sm rounded-md border border-input hover:bg-accent/10"
+              >
+                {isZh ? "EN" : "中文"}
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -179,13 +225,26 @@ const Header = () => {
                   {link.text}
                 </button>
               ))}
+
+              <Link
+                href="/developers"
+                className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
+              >
+                Developers
+              </Link>
+              <Link
+                href="/merchants"
+                className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
+              >
+                Merchants
+              </Link>
               
               <div className="px-4 pt-2 space-y-2">
                 <Button 
                   onClick={() => scrollToSection("#demo-section")}
                   className="btn-hero w-full"
                 >
-                  Book a Demo
+                  {isZh ? "预约演示" : "Book a Demo"}
                 </Button>
                 
                 <Button 
@@ -194,7 +253,7 @@ const Header = () => {
                   className="w-full group relative overflow-hidden border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300"
                 >
                   <LogIn className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                  Agent Login
+                  {isZh ? "代理登录" : "Agent Login"}
                 </Button>
 
                 <Button 
@@ -203,8 +262,15 @@ const Header = () => {
                   className="w-full group relative overflow-hidden border-accent/30 hover:border-accent hover:bg-accent/10 transition-all duration-300"
                 >
                   <LogIn className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                  Merchant Login
+                  {isZh ? "商家登录" : "Merchant Login"}
                 </Button>
+
+                <Link
+                  href={localeToggleHref}
+                  className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
+                >
+                  {isZh ? "EN" : "中文"}
+                </Link>
               </div>
             </div>
           </div>
