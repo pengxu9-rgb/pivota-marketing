@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Bot, Store, ArrowRight } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import heroImage from "@/assets/hero-dashboard.jpg";
 
 const HeroSection = () => {
@@ -18,7 +19,7 @@ const HeroSection = () => {
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
                 {isZh ? (
                   <>
-                    智能商业!<span className="text-gradient-primary">统一</span>，<span className="text-gradient-primary">可扩展</span>。
+                    智能商业。<span className="text-gradient-primary">统一</span>。<span className="text-gradient-primary">可扩展</span>。
                   </>
                 ) : (
                   <>
@@ -44,20 +45,18 @@ const HeroSection = () => {
                       <Bot className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold">{isZh ? "面向 AI 代理" : "For AI Agents"}</h3>
+                      <h3 className="text-lg font-bold">{isZh ? "面向开发者" : "For Developers"}</h3>
                       <p className="text-sm text-muted-foreground">{isZh ? "开发者与集成商" : "Developers & Integrators"}</p>
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">
                     {isZh ? "基于统一 API，数分钟内接入商品、下单与支付" : "Integrate payment infrastructure in minutes with our unified API"}
                   </p>
-                  <Button 
-                    size="lg" 
-                    className="w-full btn-hero group"
-                    onClick={() => window.location.href = 'https://agents.pivota.cc/signup'}
-                  >
-                    {isZh ? "开始构建" : "Start Building"}
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <Button size="lg" className="w-full btn-hero group" asChild>
+                    <Link href="/developers">
+                      {isZh ? "开始构建" : "Start Building"}
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </Button>
                   <button
                     onClick={() => window.location.href = 'https://agents.pivota.cc/login'}
@@ -84,13 +83,11 @@ const HeroSection = () => {
                   <p className="text-sm text-muted-foreground mb-4">
                     {isZh ? "连接 AI 经济，触达新增用户" : "Open your store to the AI economy and reach new customers"}
                   </p>
-                  <Button 
-                    size="lg" 
-                    className="w-full btn-hero group bg-accent hover:bg-accent/90"
-                    onClick={() => window.location.href = 'https://merchant.pivota.cc/signup'}
-                  >
-                    {isZh ? "立即开始" : "Get Started"}
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <Button size="lg" className="w-full btn-hero group bg-accent hover:bg-accent/90" asChild>
+                    <Link href="/merchants">
+                      {isZh ? "连接你的店铺" : "Connect Your Store"}
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </Button>
                   <button
                     onClick={() => window.location.href = 'https://merchant.pivota.cc/login'}

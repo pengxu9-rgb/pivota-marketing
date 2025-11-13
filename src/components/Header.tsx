@@ -6,6 +6,12 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, LogIn } from "lucide-react";
 import logoImage from "@/assets/pacifico-logo.png";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -144,22 +150,6 @@ const Header = () => {
                   <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
                 </button>
               ))}
-              <Link
-                href="/developers"
-                className="relative text-secondary hover:text-primary transition-all duration-300 font-medium group"
-              >
-                Developers
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full"></span>
-                <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
-              </Link>
-              <Link
-                href="/merchants"
-                className="relative text-secondary hover:text-primary transition-all duration-300 font-medium group"
-              >
-                Merchants
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full"></span>
-                <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
-              </Link>
               
               <Button
                 onClick={() => scrollToSection("#demo-section")}
@@ -168,25 +158,25 @@ const Header = () => {
                 {isZh ? "预约演示" : "Book a Demo"}
               </Button>
 
-              <Button 
-                onClick={() => window.location.href = 'https://agents.pivota.cc/login'}
-                variant="outline"
-                className="group relative overflow-hidden border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300"
-              >
-                <LogIn className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                {isZh ? "代理登录" : "Agent Login"}
-                <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
-              </Button>
-
-              <Button 
-                onClick={() => window.location.href = 'https://merchant.pivota.cc/login'}
-                variant="outline"
-                className="group relative overflow-hidden border-accent/30 hover:border-accent hover:bg-accent/10 transition-all duration-300"
-              >
-                <LogIn className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                {isZh ? "商家登录" : "Merchant Login"}
-                <span className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/20 to-accent/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="group relative overflow-hidden border-input hover:border-primary/60 hover:bg-primary/5 transition-all duration-300"
+                  >
+                    <LogIn className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                    {isZh ? "登录" : "Log in"}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem asChild>
+                    <a href="https://agents.pivota.cc/login">{isZh ? "代理登录" : "Agent Login"}</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="https://merchant.pivota.cc/login">{isZh ? "商家登录" : "Merchant Login"}</a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
 
               <Link
                 href={localeToggleHref}
@@ -210,34 +200,21 @@ const Header = () => {
           </div>
 
           {/* Mobile Navigation */}
-          <div 
-            className={`md:hidden transition-all duration-300 overflow-hidden ${
-              isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-            }`}
-          >
-            <div className="py-4 space-y-2 border-t border/30">
-              {navLinks.map((link) => (
-                <button
-                  key={link.text}
-                  onClick={() => scrollToSection(link.href)}
-                  className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
-                >
-                  {link.text}
-                </button>
-              ))}
-
-              <Link
-                href="/developers"
-                className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
-              >
-                Developers
-              </Link>
-              <Link
-                href="/merchants"
-                className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
-              >
-                Merchants
-              </Link>
+            <div 
+              className={`md:hidden transition-all duration-300 overflow-hidden ${
+                isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="py-4 space-y-2 border-t border/30">
+                {navLinks.map((link) => (
+                  <button
+                    key={link.text}
+                    onClick={() => scrollToSection(link.href)}
+                    className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
+                  >
+                    {link.text}
+                  </button>
+                ))}
               
               <div className="px-4 pt-2 space-y-2">
                 <Button 
@@ -246,24 +223,20 @@ const Header = () => {
                 >
                   {isZh ? "预约演示" : "Book a Demo"}
                 </Button>
-                
-                <Button 
-                  onClick={() => window.location.href = 'https://agents.pivota.cc/login'}
-                  variant="outline"
-                  className="w-full group relative overflow-hidden border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300"
-                >
-                  <LogIn className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                  {isZh ? "代理登录" : "Agent Login"}
-                </Button>
-
-                <Button 
-                  onClick={() => window.location.href = 'https://merchant.pivota.cc/login'}
-                  variant="outline"
-                  className="w-full group relative overflow-hidden border-accent/30 hover:border-accent hover:bg-accent/10 transition-all duration-300"
-                >
-                  <LogIn className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                  {isZh ? "商家登录" : "Merchant Login"}
-                </Button>
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href="https://agents.pivota.cc/login"
+                    className="block text-center px-4 py-3 rounded-lg border border-input hover:bg-primary/10 transition"
+                  >
+                    {isZh ? "代理登录" : "Agent Login"}
+                  </a>
+                  <a
+                    href="https://merchant.pivota.cc/login"
+                    className="block text-center px-4 py-3 rounded-lg border border-input hover:bg-accent/10 transition"
+                  >
+                    {isZh ? "商家登录" : "Merchant Login"}
+                  </a>
+                </div>
 
                 <Link
                   href={localeToggleHref}
