@@ -15,6 +15,14 @@ export const metadata: Metadata = {
       "x-default": "/developers",
     },
   },
+  openGraph: {
+    title: "智能商业 API：整合 MCP、ACP 与 AP2 | Pivota",
+    description:
+      "使用 Pivota API 集成 MCP（商品数据）、ACP（下单）与 AP2（支付）。",
+    images: [
+      { url: "/og-developers-zh.svg", width: 1200, height: 630, alt: "Pivota – 智能商业 API" },
+    ],
+  },
 };
 
 export default function DevelopersZhPage() {

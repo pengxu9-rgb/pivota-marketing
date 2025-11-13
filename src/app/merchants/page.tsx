@@ -15,6 +15,14 @@ export const metadata: Metadata = {
       "x-default": "/merchants",
     },
   },
+  openGraph: {
+    title: "Sell Through AI: Connect Your Store to the Agentic Network | Pivota",
+    description:
+      "Open a new sales channel. Connect your store to Pivota and let AI agents sell your products.",
+    images: [
+      { url: "/og-merchants.svg", width: 1200, height: 630, alt: "Pivota – Sell Through AI" },
+    ],
+  },
 };
 
 export default function MerchantsPage() {

@@ -15,6 +15,13 @@ export const metadata: Metadata = {
       "x-default": "/merchants",
     },
   },
+  openGraph: {
+    title: "通过 AI 销售：把你的店铺接入智能代理网络 | Pivota",
+    description: "连接店铺到 Pivota 的代理网络，获取海外增量订单。",
+    images: [
+      { url: "/og-merchants-zh.svg", width: 1200, height: 630, alt: "Pivota – 面向商家" },
+    ],
+  },
 };
 
 export default function MerchantsZhPage() {
@@ -122,4 +129,3 @@ export default function MerchantsZhPage() {
     </div>
   );
 }
-

@@ -15,6 +15,19 @@ export const metadata: Metadata = {
       "x-default": "/developers",
     },
   },
+  openGraph: {
+    title: "Agentic Commerce API: MCP, ACP & AP2 Integration | Pivota",
+    description:
+      "Build e-commerce into your AI. Use Pivota's API to integrate MCP (product data), ACP (orders), and AP2 (payments) in minutes.",
+    images: [
+      {
+        url: "/og-developers.svg",
+        width: 1200,
+        height: 630,
+        alt: "Pivota – Agentic Commerce API (MCP, ACP, AP2)",
+      },
+    ],
+  },
 };
 
 export default function DevelopersPage() {

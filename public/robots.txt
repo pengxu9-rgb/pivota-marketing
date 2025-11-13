@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://pivota.cc/sitemap.xml
-
+Sitemap: https://pivota.cc/sitemap-zh.xml

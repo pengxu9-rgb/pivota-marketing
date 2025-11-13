@@ -20,6 +20,14 @@ export const metadata: Metadata = {
       "x-default": "/",
     },
   },
+  openGraph: {
+    title: "面向智能商业的 API：连接代理与商家 | Pivota",
+    description:
+      "Pivota 提供智能商业基础设施：一个 API 连接 AI 代理与商家商品、下单（ACP）、以及直接支付（AP2）。",
+    images: [
+      { url: "/og-home-zh.svg", width: 1200, height: 630, alt: "Pivota – 智能商业 API" },
+    ],
+  },
 };
 
 export default function HomeZh() {
@@ -37,4 +45,3 @@ export default function HomeZh() {
     </div>
   );
 }
-

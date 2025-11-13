@@ -2,9 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import { Bot, Store, ArrowRight } from "lucide-react";
+import { usePathname } from "next/navigation";
 import heroImage from "@/assets/hero-dashboard.jpg";
 
 const HeroSection = () => {
+  const pathname = usePathname();
+  const isZh = pathname?.startsWith("/zh");
   return (
     <section id="home" className="section-padding bg-gradient-to-b from-background to-card relative overflow-hidden">
       <div className="container-max">
@@ -13,12 +16,20 @@ const HeroSection = () => {
           <div className="space-y-8 animate-slide-up">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                Agentic Commerce.{" "}
-                <span className="text-gradient-primary">Unified.</span>{" "}
-                <span className="text-gradient-primary">Scalable.</span>
+                {isZh ? (
+                  <>
+                    智能商业。<span className="text-gradient-primary">统一</span>。<span className="text-gradient-primary">可扩展</span>。
+                  </>
+                ) : (
+                  <>
+                    Agentic Commerce. <span className="text-gradient-primary">Unified.</span> <span className="text-gradient-primary">Scalable.</span>
+                  </>
+                )}
               </h1>
                <p className="text-xl text-muted-foreground max-w-lg">
-                  Empowering AI agents and merchants to transact seamlessly across the globe.
+                  {isZh
+                    ? "通过统一的基础设施连接 AI 代理与商家，打通商品、下单与支付。"
+                    : "Empowering AI agents and merchants to transact seamlessly across the globe."}
                </p>
             </div>
             
@@ -33,26 +44,26 @@ const HeroSection = () => {
                       <Bot className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold">For AI Agents</h3>
-                      <p className="text-sm text-muted-foreground">Developers & Integrators</p>
+                      <h3 className="text-lg font-bold">{isZh ? "面向 AI 代理" : "For AI Agents"}</h3>
+                      <p className="text-sm text-muted-foreground">{isZh ? "开发者与集成商" : "Developers & Integrators"}</p>
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Integrate payment infrastructure in minutes with our unified API
+                    {isZh ? "基于统一 API，数分钟内接入商品、下单与支付" : "Integrate payment infrastructure in minutes with our unified API"}
                   </p>
                   <Button 
                     size="lg" 
                     className="w-full btn-hero group"
                     onClick={() => window.location.href = 'https://agents.pivota.cc/signup'}
                   >
-                    Start Building
+                    {isZh ? "开始构建" : "Start Building"}
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                   <button
                     onClick={() => window.location.href = 'https://agents.pivota.cc/login'}
                     className="w-full mt-2 text-sm text-primary hover:underline"
                   >
-                    Already have an account? Sign in
+                    {isZh ? "已有账号？登录" : "Already have an account? Sign in"}
                   </button>
                 </div>
               </div>
@@ -66,26 +77,26 @@ const HeroSection = () => {
                       <Store className="w-6 h-6 text-accent" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold">For Merchants</h3>
-                      <p className="text-sm text-muted-foreground">Brands & Retailers</p>
+                      <h3 className="text-lg font-bold">{isZh ? "面向商家" : "For Merchants"}</h3>
+                      <p className="text-sm text-muted-foreground">{isZh ? "品牌与零售商" : "Brands & Retailers"}</p>
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Open your store to the AI economy and reach new customers
+                    {isZh ? "连接 AI 经济，触达新增用户" : "Open your store to the AI economy and reach new customers"}
                   </p>
                   <Button 
                     size="lg" 
                     className="w-full btn-hero group bg-accent hover:bg-accent/90"
                     onClick={() => window.location.href = 'https://merchant.pivota.cc/signup'}
                   >
-                    Get Started
+                    {isZh ? "立即开始" : "Get Started"}
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                   <button
                     onClick={() => window.location.href = 'https://merchant.pivota.cc/login'}
                     className="w-full mt-2 text-sm text-accent hover:underline"
                   >
-                    Already onboarded? Sign in
+                    {isZh ? "已完成接入？登录" : "Already onboarded? Sign in"}
                   </button>
                 </div>
               </div>
