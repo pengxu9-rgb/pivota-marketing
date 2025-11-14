@@ -170,7 +170,7 @@ const Header = () => {
                 <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
               </Link>
               
-              <Link href={sectionHref('#demo-section')} className="btn-hero animate-glow">
+              <Link href={sectionHref('#demo-section')} className="btn-hero btn-hero-nav animate-glow">
                 {isZh ? "预约演示" : "Book a Demo"}
               </Link>
 
@@ -255,7 +255,7 @@ const Header = () => {
                 <Link 
                   href={sectionHref('#demo-section')}
                   onClick={() => setIsOpen(false)}
-                  className="btn-hero w-full inline-block text-center"
+                  className="btn-hero btn-hero-nav w-full inline-block text-center"
                 >
                   {isZh ? "预约演示" : "Book a Demo"}
                 </Link>

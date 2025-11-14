@@ -131,6 +131,15 @@
     box-shadow: var(--shadow-neon);
   }
 
+  /* Header-specific, subtler CTA: smaller padding + lighter glow */
+  .btn-hero-nav {
+    @apply px-5 py-2.5; /* reduce size */
+    box-shadow: 0 0 12px hsl(170 100% 50% / 0.18);
+  }
+  .btn-hero-nav:hover {
+    transform: scale(1.02);
+  }
+
   .btn-secondary {
     @apply bg-secondary/20 border border-secondary text-secondary font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary/30 hover:scale-105;
   }
