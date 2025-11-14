@@ -123,9 +123,11 @@ const Header = () => {
       {/* Header */}
       <header 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled 
-            ? 'bg-background/80 backdrop-blur-xl shadow-lg shadow-primary/10' 
-            : 'bg-background/60 backdrop-blur-md'
+          isOpen
+            ? 'bg-background/95 backdrop-blur-xl shadow-lg shadow-primary/10'
+            : scrolled
+              ? 'bg-background/80 backdrop-blur-xl shadow-lg shadow-primary/10'
+              : 'bg-background/60 backdrop-blur-md'
         }`}
       >
         {/* Glow trail effect */}
@@ -219,7 +221,7 @@ const Header = () => {
           {/* Backdrop overlay below header when menu is open */}
           {isOpen && (
             <div
-              className="fixed left-0 right-0 top-16 bottom-0 z-40 bg-black/60 backdrop-blur-md md:hidden"
+              className="fixed left-0 right-0 top-16 bottom-0 z-40 bg-black/70 backdrop-blur-md md:hidden"
               onClick={() => setIsOpen(false)}
             />
           )}
@@ -228,7 +230,7 @@ const Header = () => {
             className={`md:hidden ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} transition-opacity duration-300`}
           >
             <div
-              className={`fixed left-0 right-0 top-16 z-50 bg-background/98 border-t border-input/60 ring-1 ring-black/10 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto`}
+              className={`fixed left-0 right-0 top-16 z-50 bg-background border-t border-input/80 ring-1 ring-black/10 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto`}
             >
               <div className="py-3 space-y-1">
                 {navLinks.map((link) => (
