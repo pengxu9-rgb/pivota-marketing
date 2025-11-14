@@ -219,7 +219,7 @@ const Header = () => {
           {/* Backdrop overlay below header when menu is open */}
           {isOpen && (
             <div
-              className="fixed left-0 right-0 top-16 bottom-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
+              className="fixed left-0 right-0 top-16 bottom-0 z-40 bg-black/60 backdrop-blur-md md:hidden"
               onClick={() => setIsOpen(false)}
             />
           )}
@@ -228,15 +228,15 @@ const Header = () => {
             className={`md:hidden ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} transition-opacity duration-300`}
           >
             <div
-              className={`fixed left-0 right-0 top-16 z-50 bg-background/95 backdrop-blur-xl border-t border-input max-h-[calc(100vh-4rem)] overflow-y-auto shadow-lg`}
+              className={`fixed left-0 right-0 top-16 z-50 bg-background/98 border-t border-input/60 ring-1 ring-black/10 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto`}
             >
-              <div className="py-4 space-y-2">
+              <div className="py-3 space-y-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.text}
                     href={sectionHref(link.href)}
                     onClick={() => setIsOpen(false)}
-                    className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
+                    className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-200 rounded-md"
                   >
                     {link.text}
                   </Link>
@@ -276,7 +276,7 @@ const Header = () => {
 
                 <Link
                   href={localeToggleHref}
-                  className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
+                  className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-200 rounded-md"
                 >
                   {isZh ? "EN" : "中文"}
                 </Link>
