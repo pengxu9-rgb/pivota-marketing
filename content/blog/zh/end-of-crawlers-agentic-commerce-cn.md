@@ -1,6 +1,6 @@
 ---
 id: end-of-crawlers
-title: 爬虫时代的终结：为什么 MCP、ACP、AP2 将成为 Agentic Commerce 的底层基础设施
+title: 爬虫时代的终结：什么将成为 Agentic Commerce 的底层基础设施
 description: 爬虫与浏览器自动化已无法支撑 Agentic Commerce；MCP、ACP、AP2 与 Pivota 共同为机器经济提供干净的商家数据、可验证的权限与可编排的支付结算。
 date: 2025-11-14
 author: Pivota 工程团队
@@ -8,7 +8,7 @@ tags: [MCP, ACP, AP2, Agentic Commerce, 爬虫]
 ogImage: /og-developers-zh.svg
 ---
 
-# 爬虫时代的终结：为什么 MCP、ACP、AP2 将成为 Agentic Commerce 的底层基础设施
+# 爬虫时代的终结：什么将成为 Agentic Commerce 的底层基础设施
 
 *Pivota 工程团队*
 
