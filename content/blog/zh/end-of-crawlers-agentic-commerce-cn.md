@@ -8,8 +8,6 @@ tags: [MCP, ACP, AP2, Agentic Commerce, 爬虫]
 ogImage: /og-developers-zh.svg
 ---
 
-# 爬虫时代的终结：什么将成为 Agentic Commerce 的底层基础设施
-
 *Pivota 工程团队*
 
 AI Agent 不再只是一个聊天接口，而正在变成**自主的商业行为体**。
