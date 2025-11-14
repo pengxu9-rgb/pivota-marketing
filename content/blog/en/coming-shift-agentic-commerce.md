@@ -89,7 +89,7 @@ Agents will do all of these, but they will:
 - ✔ operate **across the entire internet**
 - ✔ stay **continuously updated**
 - ✔ personalize to **each individual user**
-- ✔ run with **zero疲劳, 24/7**
+- ✔ run with **zero fatigue, 24/7**
 
 A livestream host can test 10 products a month.
 
@@ -345,10 +345,3 @@ The only question is:
 > Will you be ahead of the wave — or behind it?
 > 
 
----
-
----
-
-## 
-
-[走向 Agentic Commerce：商家为什么必须现在就开始准备？](https://www.notion.so/Agentic-Commerce-2abe4ae984ab8030af9bdc6bab2c7e2d?pvs=21)
