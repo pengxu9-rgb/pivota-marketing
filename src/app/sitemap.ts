@@ -8,6 +8,43 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const enFs = await loadMarkdownPosts("en").catch(() => []);
   const zhFs = await loadMarkdownPosts("zh").catch(() => []);
 
+  // Build a map of FS posts by stable id to attach alternates
+  const byId = new Map<string, { en?: typeof enFs[number]; zh?: typeof zhFs[number] }>();
+  for (const p of enFs) byId.set(p.id, { ...(byId.get(p.id) || {}), en: p });
+  for (const p of zhFs) byId.set(p.id, { ...(byId.get(p.id) || {}), zh: p });
+
+  const blogWithAlternates: MetadataRoute.Sitemap = [];
+  for (const entry of byId.values()) {
+    if (entry.en) {
+      blogWithAlternates.push({
+        url: `${base}/blog/${entry.en.slug}`,
+        lastModified,
+        changeFrequency: "monthly",
+        priority: 0.65,
+        alternates: {
+          languages: {
+            en: `${base}/blog/${entry.en.slug}`,
+            "zh-Hans": entry.zh ? `${base}/zh/blog/${entry.zh.slug}` : undefined,
+          },
+        },
+      });
+    }
+    if (entry.zh) {
+      blogWithAlternates.push({
+        url: `${base}/zh/blog/${entry.zh.slug}`,
+        lastModified,
+        changeFrequency: "monthly",
+        priority: 0.65,
+        alternates: {
+          languages: {
+            en: entry.en ? `${base}/blog/${entry.en.slug}` : undefined,
+            "zh-Hans": `${base}/zh/blog/${entry.zh.slug}`,
+          },
+        },
+      });
+    }
+  }
+
   return [
     {
       url: `${base}/`,
@@ -87,13 +124,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
       },
     },
-    // Blog EN (FS first, then in-memory)
-    ...enFs.map((p) => ({
-      url: `${base}/blog/${p.slug}`,
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.65,
-    })),
+    // Blog FS posts with alternates
+    ...blogWithAlternates,
     ...posts
       .filter((p) => p.locale === "en")
       .map((p) => ({
@@ -102,13 +134,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: "monthly" as const,
         priority: 0.6,
       })),
-    // Blog ZH
-    ...zhFs.map((p) => ({
-      url: `${base}/zh/blog/${p.slug}`,
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.65,
-    })),
     ...posts
       .filter((p) => p.locale === "zh")
       .map((p) => ({
