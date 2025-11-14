@@ -8,8 +8,6 @@ tags: ["Agentic Commerce", "Merchants", "Strategy"]
 ogImage: /og-merchants.svg
 ---
 
-# The Coming Shift to Agentic Commerce: Why Merchants Must Prepare Now
-
 **By Pivota Marketing**
 
 For the past decade, whether you sell physical goods, digital content, or subscriptions, your business has relied on platforms.
