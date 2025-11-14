@@ -58,6 +58,17 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [isOpen]);
+
   // Build a cross-page section link. If user is not on home, this navigates to home with hash.
   const sectionHref = (hash: string) => {
     const h = hash.startsWith('#') ? hash : `#${hash}`;
@@ -205,12 +216,21 @@ const Header = () => {
           </div>
 
           {/* Mobile Navigation */}
-            <div 
-              className={`md:hidden transition-all duration-300 overflow-hidden ${
-                isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-              }`}
+          {/* Backdrop overlay below header when menu is open */}
+          {isOpen && (
+            <div
+              className="fixed left-0 right-0 top-16 bottom-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
+              onClick={() => setIsOpen(false)}
+            />
+          )}
+
+          <div
+            className={`md:hidden ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} transition-opacity duration-300`}
+          >
+            <div
+              className={`fixed left-0 right-0 top-16 z-50 bg-background/95 backdrop-blur-xl border-t border-input max-h-[calc(100vh-4rem)] overflow-y-auto shadow-lg`}
             >
-              <div className="py-4 space-y-2 border-t border/30">
+              <div className="py-4 space-y-2">
                 {navLinks.map((link) => (
                   <Link
                     key={link.text}
@@ -262,6 +282,7 @@ const Header = () => {
                 </Link>
               </div>
             </div>
+          </div>
           </div>
         </nav>
       </header>
