@@ -58,12 +58,10 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false);
-    }
+  // Build a cross-page section link. If user is not on home, this navigates to home with hash.
+  const sectionHref = (hash: string) => {
+    const h = hash.startsWith('#') ? hash : `#${hash}`;
+    return (isZh ? '/zh' : '') + h;
   };
 
   return (
@@ -140,15 +138,15 @@ const Header = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-4">
               {navLinks.map((link) => (
-                <button
+                <Link
                   key={link.text}
-                  onClick={() => scrollToSection(link.href)}
-                  className="relative text-secondary hover:text-primary transition-all duration-300 font-medium group"
+                  href={sectionHref(link.href)}
+                  className="relative text-secondary hover:text-primary transition-all duration-300 font-medium group px-2 py-1 rounded-lg"
                 >
                   {link.text}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full"></span>
                   <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
-                </button>
+                </Link>
               ))}
 
               {/* Blog entry (route link) */}
@@ -161,12 +159,9 @@ const Header = () => {
                 <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
               </Link>
               
-              <Button
-                onClick={() => scrollToSection("#demo-section")}
-                className="btn-hero animate-glow"
-              >
+              <Link href={sectionHref('#demo-section')} className="btn-hero animate-glow">
                 {isZh ? "预约演示" : "Book a Demo"}
-              </Button>
+              </Link>
 
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -217,13 +212,14 @@ const Header = () => {
             >
               <div className="py-4 space-y-2 border-t border/30">
                 {navLinks.map((link) => (
-                  <button
+                  <Link
                     key={link.text}
-                    onClick={() => scrollToSection(link.href)}
+                    href={sectionHref(link.href)}
+                    onClick={() => setIsOpen(false)}
                     className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
                   >
                     {link.text}
-                  </button>
+                  </Link>
                 ))}
 
                 {/* Blog entry (route link) */}
@@ -236,12 +232,13 @@ const Header = () => {
                 </Link>
               
               <div className="px-4 pt-2 space-y-2">
-                <Button 
-                  onClick={() => scrollToSection("#demo-section")}
-                  className="btn-hero w-full"
+                <Link 
+                  href={sectionHref('#demo-section')}
+                  onClick={() => setIsOpen(false)}
+                  className="btn-hero w-full inline-block text-center"
                 >
                   {isZh ? "预约演示" : "Book a Demo"}
-                </Button>
+                </Link>
                 <div className="grid grid-cols-2 gap-2">
                   <a
                     href="https://agents.pivota.cc/login"
