@@ -8,8 +8,6 @@ tags: ["Agentic Commerce", "商家", "策略"]
 ogImage: /og-merchants-zh.svg
 ---
 
-# 走向 Agentic Commerce：商家为什么必须现在就开始准备？
-
 **作者：Pivota 市场团队**
 
 过去十多年里，无论你卖的是实物商品、数字内容，还是订阅服务，你的生意几乎都在依赖「平台」。
