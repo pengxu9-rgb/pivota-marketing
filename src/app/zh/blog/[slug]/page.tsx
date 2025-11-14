@@ -44,7 +44,7 @@ export default async function BlogPostZh({ params }: ParamsPromise) {
   return (
     <main className="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <Script id="article-jsonld-zh" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <article className="prose max-w-3xl bg-white text-black rounded-xl p-6 sm:p-8 shadow prose-headings:text-black prose-p:text-black prose-li:text-black prose-strong:text-black prose-a:text-blue-600 prose-code:text-black">
+      <article className="prose max-w-3xl bg-white text-black rounded-xl p-6 sm:p-8 shadow prose-headings:text-black prose-p:text-black prose-li:text-black prose-strong:text-black prose-a:text-blue-600 prose-code:text-black prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-100 prose-pre:text-gray-900 prose-pre:border prose-pre:border-gray-200">
         <h1>{post.title}</h1>
         <p className="text-sm text-gray-600">
           {new Date(post.date).toLocaleDateString()} · {(post.readingMinutes ?? 3)} 分钟阅读

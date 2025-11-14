@@ -1,10 +1,10 @@
 ---
 id: end-of-crawlers
-title: The End of Crawlers: Why Developer-Ready Merchant APIs and Payment Rails Will Define Agentic Commerce
-description: Why scraping and browser automation fail for agentic commerce, and how MCP, ACP, and AP2 with Pivota enable a clean, scalable, machine-native economy.
+title: "The End of Crawlers: Why Developer-Ready Merchant APIs and Payment Rails Will Define Agentic Commerce"
+description: "Why scraping and browser automation fail for agentic commerce, and how MCP, ACP, and AP2 with Pivota enable a clean, scalable, machine-native economy."
 date: 2025-11-14
-author: Pivota Engineering
-tags: [MCP, ACP, AP2, Agentic Commerce, Crawlers]
+author: "Pivota Engineering"
+tags: ["MCP", "ACP", "AP2", "Agentic Commerce", "Crawlers"]
 ogImage: /og-developers.svg
 ---
 
