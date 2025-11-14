@@ -8,6 +8,8 @@ tags: [MCP, ACP, AP2, Agentic Commerce, Crawlers]
 ogImage: /og-developers.svg
 ---
 
+# The End of Crawlers: Why Developer-Ready Merchant APIs and Payment Rails Will Define Agentic Commerce
+
 *By Pivota Engineering*
 
 AI Agents are evolving from chat interfaces into **autonomous economic actors**.
