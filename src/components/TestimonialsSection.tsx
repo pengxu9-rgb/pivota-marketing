@@ -76,7 +76,7 @@ const TestimonialsSection = () => {
               
               <div className="space-y-6">
                 <blockquote className="text-lg leading-relaxed">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
                 
                 <div className="flex items-center gap-4">

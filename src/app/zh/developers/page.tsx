@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 import Script from "next/script";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "智能商业 API：整合 MCP、ACP 与 AP2 | Pivota",
@@ -85,6 +86,13 @@ export default function DevelopersZhPage() {
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
             统一接入 MCP（商品数据）、ACP（下单）与 AP2（支付），让你的 AI 代理可搜索商品、创建订单与完成支付。
+          </p>
+          <p className="mt-6 text-sm text-muted-foreground max-w-3xl">
+            想看这些能力如何在大模型里落地？可以从{" "}
+            <Link href="/zh/shopping-agent" className="underline underline-offset-4">
+              Pivota Shopping Agent 入口页
+            </Link>
+            {" "}开始了解，它是面向 LLM 的统一购物层。
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-xl border border-border p-6 bg-card">

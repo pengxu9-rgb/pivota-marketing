@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 import Script from "next/script";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Sell Through AI: Connect Your Store to the Agentic Network | Pivota",
@@ -88,6 +89,14 @@ export default function MerchantsPage() {
             Connect your store to the agentic network and open a new sales
             channel. Let AI agents and chatbots discover your products and sell
             them to users—while you stay merchant of record.
+          </p>
+          <p className="mt-6 text-sm text-muted-foreground max-w-3xl">
+            The{" "}
+            <Link href="/shopping-agent" className="underline underline-offset-4">
+              Pivota Shopping Agent
+            </Link>
+            {" "}is the AI-facing entry point that makes your products discoverable by ChatGPT, Claude,
+            Perplexity, Gemini and other LLMs.
           </p>
 
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,0 +1,85 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0A1F44"/>
+      <stop offset="1" stop-color="#102B5C"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00FFC3"/>
+      <stop offset="1" stop-color="#00D1A0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Grid / network motif -->
+  <g opacity="0.25">
+    <path d="M120 120H1080V510H120Z" stroke="#1D3B73" stroke-width="1"/>
+    <path d="M240 120V510" stroke="#1D3B73" stroke-width="1"/>
+    <path d="M360 120V510" stroke="#1D3B73" stroke-width="1"/>
+    <path d="M480 120V510" stroke="#1D3B73" stroke-width="1"/>
+    <path d="M600 120V510" stroke="#1D3B73" stroke-width="1"/>
+    <path d="M720 120V510" stroke="#1D3B73" stroke-width="1"/>
+    <path d="M840 120V510" stroke="#1D3B73" stroke-width="1"/>
+    <path d="M960 120V510" stroke="#1D3B73" stroke-width="1"/>
+    <path d="M120 210H1080" stroke="#1D3B73" stroke-width="1"/>
+    <path d="M120 300H1080" stroke="#1D3B73" stroke-width="1"/>
+    <path d="M120 390H1080" stroke="#1D3B73" stroke-width="1"/>
+    <path d="M120 480H1080" stroke="#1D3B73" stroke-width="1"/>
+  </g>
+
+  <!-- Accent circles -->
+  <circle cx="260" cy="220" r="6" fill="#00FFC3"/>
+  <circle cx="540" cy="180" r="4" fill="#00FFC3" opacity="0.7"/>
+  <circle cx="880" cy="260" r="5" fill="#00FFC3" opacity="0.7"/>
+  <circle cx="720" cy="420" r="6" fill="#00FFC3" opacity="0.7"/>
+
+  <!-- Brand / title -->
+  <text x="160" y="220" fill="#E5F0FF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="26" font-weight="600" letter-spacing="0.18em">
+    PIVOTA
+  </text>
+
+  <text x="160" y="290" fill="#FFFFFF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="64" font-weight="700">
+    Pivota Shopping Agent
+  </text>
+
+  <text x="160" y="340" fill="#C3D3FF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="28" font-weight="500">
+    AI-ready shopping layer for LLMs
+  </text>
+
+  <!-- Subtitle -->
+  <text x="160" y="392" fill="#8FA3D9" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="20">
+    Normalized product catalog APIs and ordering flows
+  </text>
+
+  <text x="160" y="424" fill="#8FA3D9" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="20">
+    for ChatGPT, Claude, Perplexity, Gemini and more.
+  </text>
+
+  <!-- Pill -->
+  <rect x="160" y="452" rx="24" width="360" height="48" fill="rgba(5, 20, 60, 0.85)" stroke="#00FFC3" stroke-width="1.5"/>
+  <text x="180" y="482" fill="#B7FBEA" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="18">
+    AI-facing entry point for agentic commerce
+  </text>
+
+  <!-- Right side abstract "cards" -->
+  <g transform="translate(720,200)">
+    <rect x="0" y="0" width="260" height="70" rx="16" fill="rgba(9, 30, 80, 0.95)" stroke="#1F417A"/>
+    <rect x="0" y="90" width="260" height="70" rx="16" fill="rgba(9, 30, 80, 0.9)" stroke="#1F417A"/>
+    <rect x="0" y="180" width="260" height="70" rx="16" fill="rgba(9, 30, 80, 0.85)" stroke="#1F417A"/>
+
+    <circle cx="32" cy="35" r="10" fill="url(#accentGradient)"/>
+    <circle cx="32" cy="125" r="10" fill="url(#accentGradient)" opacity="0.9"/>
+    <circle cx="32" cy="215" r="10" fill="url(#accentGradient)" opacity="0.8"/>
+
+    <text x="56" y="42" fill="#E5F0FF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="16" font-weight="600">
+      LLM-friendly catalog JSON
+    </text>
+    <text x="56" y="132" fill="#E5F0FF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="16" font-weight="600">
+      Stable product, price & stock
+    </text>
+    <text x="56" y="222" fill="#E5F0FF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="16" font-weight="600">
+      Deep links to checkout flows
+    </text>
+  </g>
+</svg>
+

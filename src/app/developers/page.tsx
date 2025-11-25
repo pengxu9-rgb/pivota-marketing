@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 import Script from "next/script";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Agentic Commerce API: MCP, ACP & AP2 Integration | Pivota",
@@ -117,6 +118,14 @@ export default function DevelopersPage() {
               </p>
             </div>
           </div>
+          <p className="mt-6 text-sm text-muted-foreground max-w-3xl">
+            If you want to see how this Agentic Commerce stack shows up inside LLMs,
+            explore the{" "}
+            <Link href="/shopping-agent" className="underline underline-offset-4">
+              Pivota Shopping Agent entry point
+            </Link>
+            {" "}to understand the AI-facing shopping layer.
+          </p>
           <div className="mt-10 flex gap-3">
             <a
               href="https://agents.pivota.cc/integration"

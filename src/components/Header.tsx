@@ -162,6 +162,16 @@ const Header = () => {
                 </Link>
               ))}
 
+              {/* Shopping Agent entry (route link) */}
+              <Link
+                href={isZh ? "/zh/shopping-agent" : "/shopping-agent"}
+                className="relative text-secondary hover:text-primary transition-all duration-300 font-medium group px-2 py-1 rounded-lg"
+              >
+                {isZh ? "Shopping Agent" : "Shopping Agent"}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
+              </Link>
+
               {/* Blog entry (route link) */}
               <Link
                 href={isZh ? "/zh/blog" : "/blog"}
@@ -243,6 +253,15 @@ const Header = () => {
                     {link.text}
                   </Link>
                 ))}
+
+                {/* Shopping Agent entry (route link) */}
+                <Link
+                  href={isZh ? "/zh/shopping-agent" : "/shopping-agent"}
+                  className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {isZh ? "Shopping Agent" : "Shopping Agent"}
+                </Link>
 
                 {/* Blog entry (route link) */}
                 <Link

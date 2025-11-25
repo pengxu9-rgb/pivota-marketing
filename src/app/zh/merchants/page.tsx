@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 import Script from "next/script";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "通过 AI 销售：把你的店铺接入智能代理网络 | Pivota",
@@ -85,6 +86,13 @@ export default function MerchantsZhPage() {
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
             将你的店铺接入智能代理网络，开拓海外客户。让 AI 代理和聊天机器人自动发现并销售你的产品，你仍然是商家主体（Merchant of Record）。
+          </p>
+          <p className="mt-6 text-sm text-muted-foreground max-w-3xl">
+            其中，{" "}
+            <Link href="/zh/shopping-agent" className="underline underline-offset-4">
+              Pivota Shopping Agent
+            </Link>
+            {" "}是面向 AI 的统一入口，让你的商品可以被 ChatGPT、Claude、Perplexity、Gemini 等大模型理解和推荐。
           </p>
 
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

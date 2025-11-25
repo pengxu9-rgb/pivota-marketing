@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { Store, ArrowRight } from 'lucide-react';
 
 export default function MerchantSignup() {
@@ -187,9 +188,9 @@ export default function MerchantSignup() {
 
             {/* Terms */}
             <p className="text-xs text-gray-500 text-center">
-              By registering, you agree to Pivota's{' '}
+              By registering, you agree to Pivota&apos;s{" "}
               <a href="#" className="text-blue-600 hover:underline">Terms of Service</a>
-              {' '}and{' '}
+              {" "}and{" "}
               <a href="#" className="text-blue-600 hover:underline">Privacy Policy</a>
             </p>
           </form>
@@ -197,18 +198,17 @@ export default function MerchantSignup() {
 
         {/* Back to home */}
         <div className="text-center mt-6">
-          <a
+          <Link
             href="/"
             className="text-sm text-gray-600 hover:text-gray-900"
           >
             ← Back to Homepage
-          </a>
+          </Link>
         </div>
       </div>
     </div>
   );
 }
-
 
 
 
