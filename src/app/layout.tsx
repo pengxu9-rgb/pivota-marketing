@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import ShoppingAgentBadge from "@/components/ShoppingAgentBadge";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -95,6 +96,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+        <ShoppingAgentBadge />
         {children}
       </body>
     </html>
