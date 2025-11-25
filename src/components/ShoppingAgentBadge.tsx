@@ -19,14 +19,14 @@ const ShoppingAgentBadge = () => {
   return (
     <div className="fixed bottom-6 right-4 sm:bottom-8 sm:right-8 z-50 pointer-events-none">
       {/* Glowing aura */}
-      <div className="absolute inset-0 rounded-full blur-xl bg-primary/30 animate-glow pointer-events-none" />
+      <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.7),rgba(147,51,234,0))] blur-2xl opacity-80 animate-glow pointer-events-none" />
 
       <Link
         href={href}
-        className="relative inline-flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground text-sm font-semibold shadow-[var(--shadow-neon)] hover:scale-105 transition-transform duration-300 pointer-events-auto"
+        className="relative inline-flex items-center gap-2 px-4 py-3 rounded-full bg-[linear-gradient(135deg,#22d3ee,#a855f7)] text-white text-sm font-semibold shadow-[0_0_30px_rgba(56,189,248,0.45)] hover:scale-105 transition-transform duration-300 pointer-events-auto"
       >
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-background/20">
-          <Sparkles className="h-4 w-4" />
+        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-950/40 border border-cyan-300/60">
+          <Sparkles className="h-4 w-4 text-cyan-300" />
         </span>
         <span className="flex flex-col text-left leading-tight">
           <span>
@@ -42,4 +42,3 @@ const ShoppingAgentBadge = () => {
 };
 
 export default ShoppingAgentBadge;
-
