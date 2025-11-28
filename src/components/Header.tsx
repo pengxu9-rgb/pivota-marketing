@@ -18,10 +18,13 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isZh = pathname?.startsWith("/zh");
+  const isLandingPage = !pathname || pathname === "/" || pathname === "/zh" || pathname === "/zh/";
 
   const navLinks = useMemo(
     () =>
-      isZh
+      !isLandingPage
+        ? []
+        : isZh
         ? [
             { text: "首页", href: "#home" },
             { text: "为什么选择 Pivota", href: "#features-section" },
@@ -36,7 +39,7 @@ const Header = () => {
             { text: "Partners", href: "#partners-section" },
             { text: "Case Studies", href: "#testimonials-section" },
           ],
-    [isZh],
+    [isZh, isLandingPage],
   );
 
   const localeToggleHref = useMemo(() => {
@@ -172,9 +175,11 @@ const Header = () => {
                 <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
               </Link>
               
-              <Link href={sectionHref('#demo-section')} className="btn-hero btn-hero-nav animate-glow">
-                {isZh ? "预约演示" : "Book a Demo"}
-              </Link>
+              {isLandingPage && (
+                <Link href={sectionHref('#demo-section')} className="btn-hero btn-hero-nav animate-glow">
+                  {isZh ? "预约演示" : "Book a Demo"}
+                </Link>
+              )}
 
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -254,13 +259,15 @@ const Header = () => {
                 </Link>
               
               <div className="px-4 pt-2 space-y-2">
-                <Link 
-                  href={sectionHref('#demo-section')}
-                  onClick={() => setIsOpen(false)}
-                  className="btn-hero btn-hero-nav w-full inline-block text-center"
-                >
-                  {isZh ? "预约演示" : "Book a Demo"}
-                </Link>
+                {isLandingPage && (
+                  <Link 
+                    href={sectionHref('#demo-section')}
+                    onClick={() => setIsOpen(false)}
+                    className="btn-hero btn-hero-nav w-full inline-block text-center"
+                  >
+                    {isZh ? "预约演示" : "Book a Demo"}
+                  </Link>
+                )}
                 <div className="grid grid-cols-2 gap-2">
                   <a
                     href="https://agents.pivota.cc/login"
