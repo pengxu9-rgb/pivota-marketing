@@ -1,5 +1,5 @@
 ---
-id: agentic-commerce-creators-amazon
+id: agentic-commerce-creators-own-amazon
 title: "Agentic Commerce: Turning Creators into Their Own Amazon"
 description: "How agentic commerce lets creators operate like their own Amazon, with AI agents in front and an open, Amazon-class commerce backend behind."
 date: 2025-12-05
