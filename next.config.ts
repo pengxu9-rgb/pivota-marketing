@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/blog/agentic-commerce-creators-amazon",
+        destination: "/blog/agentic-commerce-creators-own-amazon",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
