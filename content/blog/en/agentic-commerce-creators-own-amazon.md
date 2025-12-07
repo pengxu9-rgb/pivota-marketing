@@ -1,6 +1,6 @@
 ---
 id: agentic-commerce-creators-own-amazon
-title: "Agentic Commerce: Turning Creators into Their Own Amazon"
+title: "Turning Creators into Their Own Amazon in Agentic Era"
 description: "How agentic commerce lets creators operate like their own Amazon, with AI agents in front and an open, Amazon-class commerce backend behind."
 date: 2025-12-05
 author: "Pivota Team"
@@ -10,7 +10,7 @@ ogImage: /og-merchants.svg
 
 **By Pivota Marketing**
 
-# Agentic Commerce: Turning Creators into Their Own Amazon
+# Turning Creators into Their Own Amazon in Agentic Era
 
 For the last two decades, Amazon has done one big thing extremely well:
 
@@ -179,4 +179,3 @@ Pivota is building for this future.
 
 We’re here to explore what it means for **every creator to operate like a mini-Amazon** –  
 with their own agent, their own logic, and access to a powerful, open commerce backend.
-

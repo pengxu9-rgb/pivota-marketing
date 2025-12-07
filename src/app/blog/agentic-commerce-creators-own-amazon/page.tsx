@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Agentic Commerce: Turning Creators into Their Own Amazon",
+  title: "Turning Creators into Their Own Amazon in Agentic Era",
   description:
     "How agentic commerce lets creators operate like their own Amazon, with AI agents in front and an open, Amazon-class commerce backend behind.",
   alternates: {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Agentic Commerce: Turning Creators into Their Own Amazon",
+    title: "Turning Creators into Their Own Amazon in Agentic Era",
     description:
       "How agentic commerce lets creators operate like their own Amazon, with AI agents in front and an open, Amazon-class commerce backend behind.",
     images: [{ url: "/og-merchants.svg", width: 1200, height: 630 }],
@@ -24,7 +24,7 @@ export default function CreatorsOwnAmazonPost() {
   return (
     <main className="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <article className="prose max-w-3xl bg-white text-black rounded-xl p-6 sm:p-8 shadow prose-headings:text-black prose-p:text-black prose-li:text-black prose-strong:text-black prose-a:text-blue-600 prose-code:text-black prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-100 prose-pre:text-gray-900 prose-pre:border prose-pre:border-gray-200">
-        <h1>Agentic Commerce: Turning Creators into Their Own Amazon</h1>
+        <h1>Turning Creators into Their Own Amazon in Agentic Era</h1>
         <p className="text-sm text-gray-600">12/5/2025 · 4 min read</p>
         <p className="mt-2 text-xs text-gray-600">
           <span className="inline-block mr-2 px-2 py-0.5 rounded bg-gray-100 text-gray-700">#Agentic Commerce</span>
@@ -287,4 +287,3 @@ export default function CreatorsOwnAmazonPost() {
     </main>
   );
 }
-

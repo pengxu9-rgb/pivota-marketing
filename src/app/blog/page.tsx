@@ -21,7 +21,7 @@ export default async function BlogIndex() {
     id: "agentic-commerce-creators-own-amazon",
     locale: "en" as const,
     slug: creatorAmazonSlug,
-    title: "Agentic Commerce: Turning Creators into Their Own Amazon",
+    title: "Turning Creators into Their Own Amazon in Agentic Era",
     description:
       "How agentic commerce lets creators operate like their own Amazon, with AI agents in front and an open, Amazon-class commerce backend behind.",
     date: "2025-12-05",
