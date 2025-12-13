@@ -144,7 +144,7 @@ const Header = () => {
         </div>
 
         <nav className="container-max px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-14 sm:h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 cursor-pointer group">
               <img src={logoImage.src} alt="Pacifico Logo" className="w-8 h-8 rounded-lg group-hover:shadow-[var(--shadow-neon)] transition-all duration-300" />
@@ -226,7 +226,7 @@ const Header = () => {
           {/* Backdrop overlay below header when menu is open */}
           {isOpen && (
             <div
-              className="fixed left-0 right-0 top-16 bottom-0 z-40 bg-black/70 backdrop-blur-md md:hidden"
+              className="fixed left-0 right-0 top-14 bottom-0 z-40 bg-black/70 backdrop-blur-md md:hidden sm:top-16"
               onClick={() => setIsOpen(false)}
             />
           )}
@@ -235,7 +235,7 @@ const Header = () => {
             className={`md:hidden ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} transition-opacity duration-300`}
           >
             <div
-              className={`fixed left-0 right-0 top-16 z-50 bg-background border-t border-input/80 ring-1 ring-black/10 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto`}
+              className={`fixed left-0 right-0 top-14 z-50 bg-background border-t border-input/80 ring-1 ring-black/10 shadow-2xl max-h-[calc(100vh-3.5rem)] overflow-y-auto sm:top-16 sm:max-h-[calc(100vh-4rem)]`}
             >
               <div className="py-3 space-y-1">
                 {navLinks.map((link) => (
@@ -297,7 +297,7 @@ const Header = () => {
       </header>
 
       {/* Spacer to prevent content from hiding behind fixed header */}
-      <div className="h-16"></div>
+      <div className="h-14 sm:h-16"></div>
     </>
   );
 };

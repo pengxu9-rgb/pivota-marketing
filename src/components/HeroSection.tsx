@@ -10,13 +10,16 @@ const HeroSection = () => {
   const pathname = usePathname();
   const isZh = pathname?.startsWith("/zh");
   return (
-    <section id="home" className="section-padding bg-gradient-to-b from-background to-card relative overflow-hidden">
+    <section
+      id="home"
+      className="bg-gradient-to-b from-background to-card relative overflow-hidden px-4 sm:px-6 lg:px-8 pt-10 pb-14 sm:pt-14 sm:pb-16 lg:pt-16 lg:pb-20"
+    >
       <div className="container-max">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="space-y-8 animate-slide-up">
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+          <div className="space-y-6 animate-slide-up">
+            <div className="space-y-3">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
                 {isZh ? (
                   <>
                     智能商业。<span className="text-gradient-primary">统一</span>。<span className="text-gradient-primary">可扩展</span>。
@@ -27,7 +30,7 @@ const HeroSection = () => {
                   </>
                 )}
               </h1>
-               <p className="text-xl text-muted-foreground max-w-lg">
+               <p className="text-lg sm:text-xl text-muted-foreground max-w-lg">
                   {isZh
                     ? "通过统一的基础设施连接 AI 代理与商家，打通商品、下单与支付。"
                     : "Empowering AI agents and merchants to transact seamlessly across the globe."}
@@ -35,7 +38,7 @@ const HeroSection = () => {
             </div>
             
             {/* Two Entry Points */}
-            <div className="grid sm:grid-cols-2 gap-6 mt-8">
+            <div className="grid sm:grid-cols-2 gap-5 mt-6">
               {/* For Agents */}
               <div className="group relative overflow-hidden rounded-xl border-2 border-primary/20 hover:border-primary/50 transition-all duration-300 bg-card p-6 hover:shadow-xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -60,7 +63,7 @@ const HeroSection = () => {
                   </Button>
                   <button
                     onClick={() => window.location.href = 'https://agents.pivota.cc/login'}
-                    className="w-full mt-2 text-sm text-primary hover:underline"
+                    className="w-full mt-1.5 text-sm text-primary hover:underline"
                   >
                     {isZh ? "已有账号？登录" : "Already have an account? Sign in"}
                   </button>
@@ -91,7 +94,7 @@ const HeroSection = () => {
                   </Button>
                   <button
                     onClick={() => window.location.href = 'https://merchant.pivota.cc/login'}
-                    className="w-full mt-2 text-sm text-accent hover:underline"
+                    className="w-full mt-1.5 text-sm text-accent hover:underline"
                   >
                     {isZh ? "已完成接入？登录" : "Already onboarded? Sign in"}
                   </button>
