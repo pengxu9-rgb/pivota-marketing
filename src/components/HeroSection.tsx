@@ -19,7 +19,7 @@ const HeroSection = () => {
           {/* Content */}
           <div className="space-y-6 animate-slide-up">
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
                 {isZh ? (
                   <>
                     智能商业。<span className="text-gradient-primary">统一</span>。<span className="text-gradient-primary">可扩展</span>。
