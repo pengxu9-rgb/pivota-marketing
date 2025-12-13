@@ -1,8 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AgentSurfacesSwitcher from "@/components/AgentSurfacesSwitcher";
 import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
+import { creatorAgentDemos } from "@/config/creatorAgentDemos";
+import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Pivota Shopping Agent: AI-Ready Shopping Layer for LLMs",
@@ -92,6 +95,10 @@ const shoppingAgentFaqSchema = {
 } as const;
 
 export default function ShoppingAgentPage() {
+  const ninaDemo =
+    creatorAgentDemos.find((d) => d.slug === "nina-studio")?.url ??
+    "https://creator.pivota.cc/creator/nina-studio";
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -111,6 +118,7 @@ export default function ShoppingAgentPage() {
       />
 
       <main className="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+        <AgentSurfacesSwitcher className="mb-2" />
         {/* Hero Section */}
         <section className="grid gap-10 lg:grid-cols-2 items-center">
           <div className="space-y-6">
@@ -154,6 +162,40 @@ export default function ShoppingAgentPage() {
               <li>• Stable IDs, prices and availability for LLMs</li>
               <li>• Direct links to product detail and checkout URLs</li>
             </ul>
+          </div>
+        </section>
+
+        {/* Creator Agents promo */}
+        <section className="card-gradient border border-border">
+          <div className="grid gap-6 lg:grid-cols-2 items-center">
+            <div className="space-y-2">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                Creator Agents
+              </h2>
+              <p className="text-muted-foreground max-w-2xl">
+                Creator Agents bring Shopping Agent capabilities into creator-first storefronts:
+                browse categories, highlight deals, and let AI convert with chat + browse.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 lg:justify-end">
+              <Link
+                href="/creator-agents"
+                className="btn-hero inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold"
+              >
+                Learn about Creator Agents
+              </Link>
+              <a
+                href={ninaDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold border border-primary/40 hover:border-primary bg-primary/10 text-primary transition"
+                // TODO: track("creator_agents_open_nina_click")
+              >
+                Open Nina Studio demo
+                <ArrowUpRight className="ml-2 h-4 w-4" />
+                <span className="sr-only">Opens in a new tab</span>
+              </a>
+            </div>
           </div>
         </section>
 

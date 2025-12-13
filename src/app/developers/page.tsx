@@ -125,6 +125,11 @@ export default function DevelopersPage() {
               Pivota Shopping Agent entry point
             </Link>
             {" "}to understand the AI-facing shopping layer.
+            {" "}Want a creator-facing surface?{" "}
+            <Link href="/creator-agents" className="underline underline-offset-4">
+              Explore Creator Agents
+            </Link>
+            .
           </p>
           <div className="mt-10 flex gap-3">
             <a

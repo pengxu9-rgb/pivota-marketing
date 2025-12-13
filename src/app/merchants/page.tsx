@@ -97,6 +97,11 @@ export default function MerchantsPage() {
             </Link>
             {" "}is the AI-facing entry point that makes your products discoverable by ChatGPT, Claude,
             Perplexity, Gemini and other LLMs.
+            {" "}Looking to activate creators with AI storefronts?{" "}
+            <Link href="/creator-agents" className="underline underline-offset-4">
+              Explore Creator Agents
+            </Link>
+            .
           </p>
 
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

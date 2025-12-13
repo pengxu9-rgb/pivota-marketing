@@ -124,6 +124,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
       },
     },
+    {
+      url: `${base}/creator-agents/`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.75,
+      alternates: {
+        languages: {
+          en: `${base}/creator-agents/`,
+          "zh-Hans": `${base}/zh/creator-agents/`,
+          "x-default": `${base}/creator-agents/`,
+        },
+      },
+    },
+    {
+      url: `${base}/zh/creator-agents/`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.65,
+      alternates: {
+        languages: {
+          en: `${base}/creator-agents/`,
+          "zh-Hans": `${base}/zh/creator-agents/`,
+          "x-default": `${base}/creator-agents/`,
+        },
+      },
+    },
     // Blog FS posts with alternates
     ...blogWithAlternates,
     ...posts
