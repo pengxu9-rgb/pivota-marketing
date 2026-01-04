@@ -24,5 +24,13 @@ export const creatorAgentDemos: CreatorAgentDemo[] = [
     status: "live",
     ctaLabel: "Open demo",
   },
+  {
+    name: "Beauty Look Replicator (Beta)",
+    slug: "look-replicator",
+    description: "Upload a look → get a routine → compare offers",
+    url: "https://look-replicator.pivota.cc/?utm_source=pivota_cc&utm_medium=web&utm_campaign=agents&utm_content=live_demos_card",
+    tags: ["beauty", "routine", "offers"],
+    status: "live",
+    ctaLabel: "Open demo",
+  },
 ];
-
