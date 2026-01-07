@@ -8,7 +8,7 @@ tags: ["Agentic Commerce", "Monetization", "Vertical AI", "AI Agents", "Commerce
 ogImage: /og-home.svg
 ---
 
-### Opening: Your users are already making buying decisions—inside your product
+### Your users are already making buying decisions—inside your product
 
 Picture a pet-focused agentic tool. A user uploads a photo of their dog’s neck—red marks from a collar—and asks: “What collar would fit better? Something breathable, not abrasive, and good for rainy walks.”
 
