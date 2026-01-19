@@ -138,6 +138,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
     },
     {
+      url: `${base}/privacy/merchant-app`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.35,
+    },
+    {
+      url: `${base}/help/merchant-app`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
+    {
+      url: `${base}/help/merchant-app/faq`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.35,
+    },
+    {
+      url: `${base}/help/merchant-app/troubleshooting`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.35,
+    },
+    {
+      url: `${base}/terms`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
+    {
       url: `${base}/zh/creator-agents/`,
       lastModified,
       changeFrequency: "monthly",

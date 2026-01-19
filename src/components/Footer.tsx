@@ -86,15 +86,18 @@ const Footer = () => {
             </div>
             
             <div className="space-y-2 pt-4">
-              {(isZh ? ["隐私政策", "服务条款"] : ["Privacy Policy", "Terms of Service"]).map((text) => (
-                <a 
-                  key={text}
-                  href="#" 
-                  className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {text}
-                </a>
-              ))}
+              <a
+                href={isZh ? "/zh/privacy" : "/privacy/merchant-app"}
+                className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {isZh ? "隐私政策" : "Privacy Policy"}
+              </a>
+              <a
+                href={isZh ? "/zh/terms" : "/terms"}
+                className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {isZh ? "服务条款" : "Terms of Service"}
+              </a>
             </div>
           </div>
         </div>
