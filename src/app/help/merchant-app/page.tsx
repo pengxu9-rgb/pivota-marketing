@@ -20,7 +20,7 @@ export default function MerchantAppHelpPage() {
           <h1 className="text-4xl font-bold tracking-tight">Pivota Merchant App — Help &amp; Resources</h1>
           <p className="mt-3 text-sm text-muted-foreground">Last updated: 2026-01-19</p>
 
-          <div className="prose prose-neutral mt-10 max-w-none dark:prose-invert prose-a:text-primary">
+          <div className="prose prose-invert mt-10 max-w-none prose-a:text-primary">
             <h2>Quickstart</h2>
             <ol>
               <li>Connect your store in the Pivota Merchant Portal → Integrations.</li>
@@ -55,4 +55,3 @@ export default function MerchantAppHelpPage() {
     </div>
   );
 }
-
