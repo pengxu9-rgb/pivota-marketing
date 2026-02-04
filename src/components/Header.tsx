@@ -149,7 +149,7 @@ const Header = () => {
               <img
                 src="/pivota-logo.svg"
                 alt="Pivota logo"
-                className="w-8 h-8 rounded-lg group-hover:shadow-[var(--shadow-neon)] transition-all duration-300"
+                className="w-8 h-8 rounded-lg object-contain group-hover:shadow-[var(--shadow-neon)] transition-all duration-300"
               />
               <span className="text-2xl font-bold text-gradient-primary">Pivota</span>
             </Link>

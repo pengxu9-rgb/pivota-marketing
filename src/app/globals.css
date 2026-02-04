@@ -9,30 +9,31 @@
 @layer base {
   :root {
     /* Core Brand Colors */
-    --background: 213 100% 16%; /* Dark blue #0A1F44 */
-    --foreground: 0 0% 98%; /* Near white text */
+    --background: 220 20% 6%; /* Ink black */
+    --foreground: 210 20% 96%; /* Near white text */
 
     /* Card & Surface Colors */
-    --card: 213 90% 20%; /* Slightly lighter dark blue */
-    --card-foreground: 0 0% 98%;
+    --card: 220 18% 9%; /* Slightly lifted surface */
+    --card-foreground: 210 20% 96%;
 
-    --popover: 213 90% 20%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 220 18% 9%;
+    --popover-foreground: 210 20% 96%;
 
-    /* Brand Primary - Neon Teal */
-    --primary: 170 100% 50%; /* Neon teal #00FFC3 */
-    --primary-foreground: 213 100% 16%;
+    /* Brand Primary - Muted Teal (infra/dev-first) */
+    --primary: 174 78% 46%;
+    --primary-foreground: 220 20% 6%;
 
-    /* Secondary - Metallic Silver */
-    --secondary: 0 0% 75%; /* Metallic silver #C0C0C0 */
-    --secondary-foreground: 213 100% 16%;
+    /* Secondary - Cool gray */
+    --secondary: 220 10% 72%;
+    --secondary-foreground: 220 20% 6%;
 
     /* Muted & Accents */
-    --muted: 213 80% 25%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 220 14% 14%;
+    --muted-foreground: 215 14% 70%;
 
-    --accent: 170 100% 50%; /* Neon teal accent */
-    --accent-foreground: 213 100% 16%;
+    /* Accent - Low-sat violet */
+    --accent: 264 62% 62%;
+    --accent-foreground: 220 20% 6%;
 
     /* Status Colors */
     --destructive: 0 84.2% 60.2%;
@@ -42,18 +43,18 @@
     --success-foreground: 0 0% 98%;
 
     /* Borders & Inputs */
-    --border: 213 50% 30%;
-    --input: 213 50% 25%;
-    --ring: 170 100% 50%;
+    --border: 220 12% 18%;
+    --input: 220 12% 16%;
+    --ring: 174 78% 46%;
 
     /* Brand Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(170 100% 50%), hsl(170 100% 40%));
-    --gradient-hero: linear-gradient(135deg, hsl(213 100% 16%), hsl(213 90% 20%));
-    --gradient-card: linear-gradient(145deg, hsl(213 90% 20%), hsl(213 80% 25%));
+    --gradient-primary: linear-gradient(135deg, hsl(174 78% 46%), hsl(264 62% 62%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 20% 6%), hsl(220 16% 9%));
+    --gradient-card: linear-gradient(145deg, hsl(220 18% 9%), hsl(220 14% 14%));
 
     /* Shadows & Effects */
-    --shadow-neon: 0 0 30px hsl(170 100% 50% / 0.3);
-    --shadow-card: 0 10px 30px -15px hsl(0 0% 0% / 0.3);
+    --shadow-neon: 0 0 26px hsl(174 78% 46% / 0.22);
+    --shadow-card: 0 14px 36px -18px hsl(220 30% 2% / 0.55);
 
     --radius: 0.5rem;
 

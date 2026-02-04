@@ -1,27 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-label="Pivota logo">
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Pivota logo">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f6b7e8" />
-      <stop offset="55%" stop-color="#f7c8ee" />
-      <stop offset="100%" stop-color="#f9e6f4" />
+      <stop offset="0%" stop-color="#f0b6e6" />
+      <stop offset="55%" stop-color="#f3c8ee" />
+      <stop offset="100%" stop-color="#f7e6f2" />
     </linearGradient>
   </defs>
-  <rect width="640" height="640" fill="url(#bg)" />
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bg)" />
   <path
-    d="M260 170
-       C215 245 195 370 260 465
-       C325 560 470 520 485 395
-       C500 275 365 255 300 285
-       C235 315 235 365 270 380
-       C305 395 330 375 345 345
-       C365 305 365 250 345 210
-       C325 170 285 160 260 170"
-    fill="none"
-    stroke="#000"
-    stroke-width="84"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-  <circle cx="520" cy="450" r="56" fill="#000" />
-</svg>
+    fill="#0b0c10"
+    fill-rule="evenodd"
+    d="
+      M26 14
+      a6 6 0 0 1 6 6
+      v6.2
+      a16 16 0 1 1 0 31.6
+      v0.2
+      a6 6 0 0 1-12 0
+      v-38
+      a6 6 0 0 1 6-6
+      Z
 
+      M36 30
+      a8.5 8.5 0 1 0 0 17
+      a8.5 8.5 0 1 0 0-17
+      Z
+    "
+  />
+  <circle cx="49.5" cy="49" r="5.2" fill="#0b0c10" />
+</svg>
