@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, LogIn } from "lucide-react";
-import logoImage from "@/assets/pacifico-logo.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -147,7 +146,11 @@ const Header = () => {
           <div className="flex items-center justify-between h-14 sm:h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 cursor-pointer group">
-              <img src={logoImage.src} alt="Pacifico Logo" className="w-8 h-8 rounded-lg group-hover:shadow-[var(--shadow-neon)] transition-all duration-300" />
+              <img
+                src="/pivota-logo.svg"
+                alt="Pivota logo"
+                className="w-8 h-8 rounded-lg group-hover:shadow-[var(--shadow-neon)] transition-all duration-300"
+              />
               <span className="text-2xl font-bold text-gradient-primary">Pivota</span>
             </Link>
 
