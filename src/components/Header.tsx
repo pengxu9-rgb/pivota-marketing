@@ -147,7 +147,7 @@ const Header = () => {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 cursor-pointer group">
               <img
-                src="/pivota-logo.svg"
+                src="/pivota-logo-v2.svg"
                 alt="Pivota logo"
                 className="w-8 h-8 rounded-lg object-contain group-hover:shadow-[var(--shadow-neon)] transition-all duration-300"
               />
