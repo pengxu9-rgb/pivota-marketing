@@ -31,8 +31,8 @@
     --muted: 220 14% 14%;
     --muted-foreground: 215 14% 70%;
 
-    /* Accent - Low-sat violet */
-    --accent: 264 62% 62%;
+    /* Accent - Low-sat magenta (ties to logo) */
+    --accent: 320 66% 70%;
     --accent-foreground: 220 20% 6%;
 
     /* Status Colors */
