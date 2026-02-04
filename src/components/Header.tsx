@@ -15,6 +15,7 @@ import {
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoSrc, setLogoSrc] = useState("/pivota-logo.png");
   const pathname = usePathname();
   const isZh = pathname?.startsWith("/zh");
   const isLandingPage = !pathname || pathname === "/" || pathname === "/zh" || pathname === "/zh/";
@@ -147,9 +148,10 @@ const Header = () => {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 cursor-pointer group">
               <img
-                src="/pivota-logo-v2.svg"
+                src={logoSrc}
                 alt="Pivota logo"
                 className="w-8 h-8 rounded-lg object-contain group-hover:shadow-[var(--shadow-neon)] transition-all duration-300"
+                onError={() => setLogoSrc("/pivota-logo-v2.svg")}
               />
               <span className="text-2xl font-bold text-gradient-primary">Pivota</span>
             </Link>
