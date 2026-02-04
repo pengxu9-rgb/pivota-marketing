@@ -12,7 +12,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="bg-gradient-to-b from-background to-card relative overflow-hidden px-4 sm:px-6 lg:px-8 pt-6 pb-12 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16"
+      className="bg-gradient-to-b from-background to-card relative overflow-hidden px-4 sm:px-6 lg:px-8 pt-2 pb-10 sm:pt-6 sm:pb-12 lg:pt-8 lg:pb-14"
     >
       <div className="container-max">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
