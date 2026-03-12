@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Insights on agentic commerce, developer guides and merchant strategy.",
   alternates: {
     canonical: "/blog",
-    languages: { en: "/blog", "zh-Hans": "/zh/blog", "x-default": "/blog" },
+    languages: { en: "/blog", "x-default": "/blog" },
   },
 };
 

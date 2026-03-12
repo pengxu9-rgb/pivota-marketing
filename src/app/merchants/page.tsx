@@ -12,7 +12,6 @@ export const metadata: Metadata = {
     canonical: "/merchants",
     languages: {
       en: "/merchants",
-      "zh-Hans": "/zh/merchants",
       "x-default": "/merchants",
     },
   },

@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     canonical: "/creator-agents",
     languages: {
       en: "/creator-agents",
-      "zh-Hans": "/zh/creator-agents",
       "x-default": "/creator-agents",
     },
   },

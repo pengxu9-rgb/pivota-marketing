@@ -42,16 +42,6 @@ const Header = () => {
     [isZh, isLandingPage],
   );
 
-  const localeToggleHref = useMemo(() => {
-    if (!pathname) return "/zh/";
-    if (pathname === "/") return "/zh/";
-    if (pathname.startsWith("/zh")) {
-      const rest = pathname.slice(3);
-      return rest.length ? rest : "/";
-    }
-    return pathname === "/" ? "/zh/" : `/zh${pathname}`;
-  }, [pathname]);
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -172,10 +162,10 @@ const Header = () => {
 
               {/* Blog entry (route link) */}
               <Link
-                href={isZh ? "/zh/blog" : "/blog"}
+                href="/blog"
                 className="relative text-secondary hover:text-primary transition-all duration-300 font-medium group px-2 py-1 rounded-lg"
               >
-                {isZh ? "博客" : "Blog"}
+                Blog
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full"></span>
                 <span className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
               </Link>
@@ -206,12 +196,6 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Link
-                href={localeToggleHref}
-                className="ml-2 px-3 py-2 text-sm rounded-md border border-input hover:bg-accent/10"
-              >
-                {isZh ? "EN" : "中文"}
-              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -256,11 +240,11 @@ const Header = () => {
 
                 {/* Blog entry (route link) */}
                 <Link
-                  href={isZh ? "/zh/blog" : "/blog"}
+                  href="/blog"
                   className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 rounded-lg"
                   onClick={() => setIsOpen(false)}
                 >
-                  {isZh ? "博客" : "Blog"}
+                  Blog
                 </Link>
               
               <div className="px-4 pt-2 space-y-2">
@@ -287,13 +271,6 @@ const Header = () => {
                     {isZh ? "商家登录" : "Merchant Login"}
                   </a>
                 </div>
-
-                <Link
-                  href={localeToggleHref}
-                  className="block w-full text-left px-4 py-3 text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-200 rounded-md"
-                >
-                  {isZh ? "EN" : "中文"}
-                </Link>
               </div>
             </div>
           </div>

@@ -15,7 +15,6 @@ export const metadata: Metadata = {
     canonical: "/shopping-agent",
     languages: {
       en: "/shopping-agent",
-      "zh-Hans": "/zh/shopping-agent",
       "x-default": "/shopping-agent",
     },
   },

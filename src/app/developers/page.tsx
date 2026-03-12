@@ -12,7 +12,6 @@ export const metadata: Metadata = {
     canonical: "/developers",
     languages: {
       en: "/developers",
-      "zh-Hans": "/zh/developers",
       "x-default": "/developers",
     },
   },

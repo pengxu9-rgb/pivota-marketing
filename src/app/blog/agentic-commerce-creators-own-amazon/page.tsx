@@ -8,7 +8,6 @@ export const metadata: Metadata = {
     canonical: "/blog/agentic-commerce-creators-own-amazon",
     languages: {
       en: "/blog/agentic-commerce-creators-own-amazon",
-      "zh-Hans": "/zh/blog",
     },
   },
   openGraph: {

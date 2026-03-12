@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { getPostBySlug, getAltSlug } from "@/lib/blog";
+import { getPostBySlug } from "@/lib/blog";
 
 type ParamsPromise = { params: Promise<{ slug: string }> };
 
@@ -8,13 +8,12 @@ export async function generateMetadata({ params }: ParamsPromise): Promise<Metad
   const { slug } = await params;
   const post = await getPostBySlug("en", slug);
   if (!post) return { title: "Not found" };
-  const alt = await getAltSlug(post.id, "en");
   return {
     title: post.title,
     description: post.description,
     alternates: {
       canonical: `/blog/${post.slug}`,
-      languages: { en: `/blog/${post.slug}`, "zh-Hans": alt ? `/zh/blog/${alt}` : undefined },
+      languages: { en: `/blog/${post.slug}` },
     },
     openGraph: {
       title: post.title,

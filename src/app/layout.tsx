@@ -43,7 +43,6 @@ export const metadata: Metadata = {
     canonical: "https://pivota.cc/",
     languages: {
       en: "https://pivota.cc/",
-      "zh-Hans": "https://pivota.cc/zh/",
       "x-default": "https://pivota.cc/",
     },
   },
@@ -74,10 +73,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* hreflang for English and Simplified Chinese */}
+        {/* hreflang for English */}
         <link rel="alternate" href="https://pivota.cc/" hrefLang="x-default" />
         <link rel="alternate" href="https://pivota.cc/" hrefLang="en" />
-        <link rel="alternate" href="https://pivota.cc/zh/" hrefLang="zh-Hans" />
         {/* Baidu site verification */}
         <meta name="baidu-site-verification" content="codeva-Z2nSoSL8VM" />
       </head>

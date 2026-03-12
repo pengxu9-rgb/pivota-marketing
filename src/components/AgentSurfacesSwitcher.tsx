@@ -12,19 +12,17 @@ type Surface = {
 
 export default function AgentSurfacesSwitcher({ className }: { className?: string }) {
   const pathname = usePathname() ?? "";
-  const isZh = pathname.startsWith("/zh");
-  const prefix = isZh ? "/zh" : "";
 
   const surfaces: Surface[] = [
     {
       label: "Shopping Agent",
-      href: `${prefix}/shopping-agent`,
-      active: pathname === `${prefix}/shopping-agent`,
+      href: "/shopping-agent",
+      active: pathname === "/shopping-agent" || pathname === "/zh/shopping-agent",
     },
     {
       label: "Creator Agents",
-      href: `${prefix}/creator-agents`,
-      active: pathname === `${prefix}/creator-agents`,
+      href: "/creator-agents",
+      active: pathname === "/creator-agents" || pathname === "/zh/creator-agents",
     },
   ];
 
@@ -50,4 +48,3 @@ export default function AgentSurfacesSwitcher({ className }: { className?: strin
     </div>
   );
 }
-

@@ -1,6 +1,6 @@
 "use client";
 
-import { Linkedin, Twitter, Youtube, Mail, Phone } from "lucide-react";
+import { Linkedin, Twitter, Youtube, Mail } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const Footer = () => {
@@ -46,7 +46,7 @@ const Footer = () => {
                 { text: isZh ? "工作原理" : "How It Works", href: "#workflow-section" },
                 { text: isZh ? "预约演示" : "Book Demo", href: "#demo-section" },
                 { text: isZh ? "合作伙伴" : "Partners", href: "#partners-section" },
-                { text: isZh ? "博客" : "Blog", href: isZh ? "/zh/blog" : "/blog" }
+                { text: "Blog", href: "/blog" }
               ].map((link) => (
                 <a 
                   key={link.text}
