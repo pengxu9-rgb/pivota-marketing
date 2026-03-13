@@ -62,7 +62,7 @@ const HeroSection = () => {
                     </Link>
                   </Button>
                   <button
-                    onClick={() => window.location.href = 'https://agents.pivota.cc/login'}
+                    onClick={() => window.location.href = 'https://developer.pivota.cc/login'}
                     className="w-full mt-1.5 text-sm text-primary hover:underline"
                   >
                     {isZh ? "已有账号？登录" : "Already have an account? Sign in"}

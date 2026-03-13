@@ -188,7 +188,7 @@ const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem asChild>
-                    <a href="https://agents.pivota.cc/login">{isZh ? "开发者登录" : "Developer Login"}</a>
+                    <a href="https://developer.pivota.cc/login">{isZh ? "开发者登录" : "Developer Login"}</a>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <a href="https://merchant.pivota.cc/login">{isZh ? "商家登录" : "Merchant Login"}</a>
@@ -259,7 +259,7 @@ const Header = () => {
                 )}
                 <div className="grid grid-cols-2 gap-2">
                   <a
-                    href="https://agents.pivota.cc/login"
+                    href="https://developer.pivota.cc/login"
                     className="block text-center px-4 py-3 rounded-lg border border-input hover:bg-primary/10 transition"
                   >
                     {isZh ? "开发者登录" : "Developer Login"}
