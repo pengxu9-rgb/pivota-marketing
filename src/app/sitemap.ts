@@ -1,10 +1,30 @@
 import type { MetadataRoute } from "next";
 import { posts } from "@/lib/blog";
 import { loadMarkdownPosts } from "@/lib/markdown";
+import { siteUrl } from "@/lib/marketing";
+
+const primaryRoutes = [
+  { path: "/", changeFrequency: "weekly" as const, priority: 1 },
+  { path: "/merchant-gateway", changeFrequency: "weekly" as const, priority: 0.9 },
+  { path: "/how-it-works", changeFrequency: "weekly" as const, priority: 0.85 },
+  { path: "/merchant-native-checkout", changeFrequency: "weekly" as const, priority: 0.85 },
+  { path: "/faq", changeFrequency: "monthly" as const, priority: 0.7 },
+  { path: "/about", changeFrequency: "monthly" as const, priority: 0.65 },
+  { path: "/blog", changeFrequency: "weekly" as const, priority: 0.7 },
+  { path: "/privacy/merchant-app", changeFrequency: "yearly" as const, priority: 0.35 },
+  { path: "/help/merchant-app", changeFrequency: "monthly" as const, priority: 0.4 },
+  { path: "/help/merchant-app/faq", changeFrequency: "monthly" as const, priority: 0.35 },
+  { path: "/help/merchant-app/troubleshooting", changeFrequency: "monthly" as const, priority: 0.35 },
+  { path: "/terms", changeFrequency: "yearly" as const, priority: 0.2 },
+] as const;
+
+function absoluteUrl(path: string): string {
+  if (path === "/") return `${siteUrl}/`;
+  return `${siteUrl}${path}`;
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
-  const base = "https://pivota.cc";
   const fsPosts = await loadMarkdownPosts("en").catch(() => []);
 
   const blogPosts = [...fsPosts, ...posts.filter((post) => post.locale === "en")].filter(
@@ -12,113 +32,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   return [
-    {
-      url: `${base}/`,
+    ...primaryRoutes.map((route) => ({
+      url: absoluteUrl(route.path),
       lastModified,
-      changeFrequency: "weekly",
-      priority: 1,
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
       alternates: {
         languages: {
-          en: `${base}/`,
-          "x-default": `${base}/`,
+          en: absoluteUrl(route.path),
+          "x-default": absoluteUrl(route.path),
         },
       },
-    },
-    {
-      url: `${base}/developers/`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-      alternates: {
-        languages: {
-          en: `${base}/developers/`,
-          "x-default": `${base}/developers/`,
-        },
-      },
-    },
-    {
-      url: `${base}/merchants/`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-      alternates: {
-        languages: {
-          en: `${base}/merchants/`,
-          "x-default": `${base}/merchants/`,
-        },
-      },
-    },
-    {
-      url: `${base}/shopping-agent/`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.75,
-      alternates: {
-        languages: {
-          en: `${base}/shopping-agent/`,
-          "x-default": `${base}/shopping-agent/`,
-        },
-      },
-    },
-    {
-      url: `${base}/creator-agents/`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.75,
-      alternates: {
-        languages: {
-          en: `${base}/creator-agents/`,
-          "x-default": `${base}/creator-agents/`,
-        },
-      },
-    },
-    {
-      url: `${base}/blog/`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.7,
-      alternates: {
-        languages: {
-          en: `${base}/blog/`,
-          "x-default": `${base}/blog/`,
-        },
-      },
-    },
-    {
-      url: `${base}/privacy/merchant-app`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.35,
-    },
-    {
-      url: `${base}/help/merchant-app`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
-    {
-      url: `${base}/help/merchant-app/faq`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.35,
-    },
-    {
-      url: `${base}/help/merchant-app/troubleshooting`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.35,
-    },
-    {
-      url: `${base}/terms`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
+    })),
     ...blogPosts.map((post) => ({
-      url: `${base}/blog/${post.slug}`,
+      url: absoluteUrl(`/blog/${post.slug}`),
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.6,
+      alternates: {
+        languages: {
+          en: absoluteUrl(`/blog/${post.slug}`),
+          "x-default": absoluteUrl(`/blog/${post.slug}`),
+        },
+      },
     })),
   ];
 }

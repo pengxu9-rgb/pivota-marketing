@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
-import ShoppingAgentBadge from "@/components/ShoppingAgentBadge";
+import {
+  defaultOgDescription,
+  defaultOgTitle,
+  homepageMetaDescription,
+  homepageTitle,
+  siteName,
+  siteUrl,
+} from "@/lib/marketing";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,51 +24,46 @@ const geistMono = Geist_Mono({
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Pivota",
-  url: "https://pivota.cc",
-  logo: "https://pivota.cc/og-home.svg",
+  name: siteName,
+  url: siteUrl,
+  description: homepageMetaDescription,
+  logo: `${siteUrl}/og-home.svg`,
 } as const;
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Pivota",
-  url: "https://pivota.cc",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://pivota.cc/?q={search_term}",
-    "query-input": "required name=search_term",
-  },
+  name: siteName,
+  url: siteUrl,
+  description: homepageMetaDescription,
 } as const;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pivota.cc"),
-  title: "The API for Agentic Commerce: Connect Agents & Merchants | Pivota",
-  description:
-    "Pivota is the infrastructure for agentic commerce. A single API to connect AI agents to merchant products, ordering (ACP), and direct payments (AP2).",
+  metadataBase: new URL(siteUrl),
+  title: homepageTitle,
+  description: homepageMetaDescription,
   alternates: {
-    canonical: "https://pivota.cc/",
+    canonical: `${siteUrl}/`,
     languages: {
-      en: "https://pivota.cc/",
-      "x-default": "https://pivota.cc/",
+      en: `${siteUrl}/`,
+      "x-default": `${siteUrl}/`,
     },
   },
   openGraph: {
     type: "website",
-    url: "https://pivota.cc/",
-    siteName: "Pivota",
-    title: "The API for Agentic Commerce: Connect Agents & Merchants | Pivota",
-    description:
-      "Pivota is the infrastructure for agentic commerce. A single API to connect AI agents to merchant products, ordering (ACP), and direct payments (AP2).",
+    url: `${siteUrl}/`,
+    siteName,
+    title: defaultOgTitle,
+    description: defaultOgDescription,
     images: [
-      { url: "/og-home.svg", width: 1200, height: 630, alt: "Pivota – Agentic Commerce API" },
+      { url: "/og-home.svg", width: 1200, height: 630, alt: defaultOgTitle },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The API for Agentic Commerce: Connect Agents & Merchants | Pivota",
-    description:
-      "Pivota is the infrastructure for agentic commerce. A single API to connect AI agents to merchant products, ordering (ACP), and direct payments (AP2).",
+    title: defaultOgTitle,
+    description: defaultOgDescription,
+    images: ["/og-home.svg"],
   },
 };
 
@@ -74,8 +76,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* hreflang for English */}
-        <link rel="alternate" href="https://pivota.cc/" hrefLang="x-default" />
-        <link rel="alternate" href="https://pivota.cc/" hrefLang="en" />
+        <link rel="alternate" href={`${siteUrl}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${siteUrl}/`} hrefLang="en" />
         {/* Baidu site verification */}
         <meta name="baidu-site-verification" content="codeva-Z2nSoSL8VM" />
       </head>
@@ -94,7 +96,6 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        <ShoppingAgentBadge />
         {children}
       </body>
     </html>

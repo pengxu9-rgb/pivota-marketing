@@ -1,45 +1,50 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
+import { buildMarketingMetadata } from "@/lib/marketing";
 
-export const metadata: Metadata = {
-  title: "Pivota Blog: Agentic Commerce, MCP/ACP/AP2, and AI Commerce",
-  description: "Insights on agentic commerce, developer guides and merchant strategy.",
-  alternates: {
-    canonical: "/blog",
-    languages: { en: "/blog", "x-default": "/blog" },
-  },
-};
+export const metadata = buildMarketingMetadata({
+  title: "Blog | Pivota Merchant Gateway for Agent-Native Commerce",
+  description:
+    "Notes on the merchant gateway for agent-native commerce, merchant-native transactions, and the execution layer behind LLM and agent traffic.",
+  path: "/blog",
+});
 
 export default async function BlogIndex() {
   const posts = await getAllPosts("en");
 
-  const creatorAmazonSlug = "agentic-commerce-creators-own-amazon";
-  const hasCreatorAmazon = posts.some((p) => p.slug === creatorAmazonSlug);
-
-  const creatorAmazonPost = {
-    id: "agentic-commerce-creators-own-amazon",
-    locale: "en" as const,
-    slug: creatorAmazonSlug,
-    title: "Turning Creators into Their Own Amazon in Agentic Era",
-    description:
-      "How agentic commerce lets creators operate like their own Amazon, with AI agents in front and an open, Amazon-class commerce backend behind.",
-    date: "2025-12-05",
-    author: "Pivota Team",
-    ogImage: "/og-merchants.svg",
-    tags: ["Agentic Commerce", "Creators", "Influencers", "KOLs", "Monetization", "AI Agents"],
-    body: "",
-    readingMinutes: 4,
-  };
-
-  const finalPosts = hasCreatorAmazon ? posts : [creatorAmazonPost, ...posts];
-
   return (
-    <main className="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-8">Pivota Blog</h1>
-      <div className="grid md:grid-cols-2 gap-8">
-        {finalPosts.map((p) => (
-          <article key={p.slug} className="bg-white text-black border border-gray-200 rounded-xl p-6 shadow">
+    <main className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mb-12 max-w-4xl space-y-4">
+        <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+          Pivota Blog
+        </h1>
+        <p className="text-lg text-muted-foreground">
+          Writing about the merchant gateway for agent-native commerce, merchant-native
+          transactions, and the execution layer behind LLM and agent traffic.
+        </p>
+        <p className="text-sm text-muted-foreground">
+          Start with{" "}
+          <Link href="/merchant-gateway" className="text-primary hover:underline">
+            what a merchant gateway is
+          </Link>
+          , see{" "}
+          <Link href="/how-it-works" className="text-primary hover:underline">
+            how Pivota works
+          </Link>
+          , or review the{" "}
+          <Link href="/faq" className="text-primary hover:underline">
+            FAQ
+          </Link>
+          .
+        </p>
+      </section>
+
+      <div className="grid gap-8 md:grid-cols-2">
+        {posts.map((p) => (
+          <article
+            key={p.slug}
+            className="rounded-2xl border border-border/70 bg-card p-6 shadow-[var(--shadow-card)]"
+          >
             <h2 className="text-2xl font-semibold mb-2">
               <Link href={`/blog/${p.slug}`} className="hover:underline">
                 {p.title}
@@ -53,7 +58,9 @@ export default async function BlogIndex() {
               {p.tags && p.tags.length > 0 && (
                 <p className="mb-2 text-xs text-gray-600">
                   {p.tags.map((t) => (
-                    <span key={t} className="inline-block mr-2 px-2 py-0.5 rounded bg-gray-100 text-gray-700">#{t}</span>
+                    <span key={t} className="mr-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-gray-700">
+                      #{t}
+                    </span>
                   ))}
                 </p>
               )}

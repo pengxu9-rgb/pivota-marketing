@@ -1,17 +1,5 @@
-import type { Metadata } from "next";
-import type { ReactNode } from "react";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
-
-export default function ZhLayout({
-  children,
-}: Readonly<{
-  children: ReactNode;
-}>) {
-  return children;
+export default function ZhLayout(): never {
+  redirect("/");
 }

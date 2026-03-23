@@ -1,145 +1,107 @@
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import type { Metadata } from "next";
-import Script from "next/script";
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { buildMarketingMetadata } from "@/lib/marketing";
 
-export const metadata: Metadata = {
-  title: "Sell Through AI: Connect Your Store to the Agentic Network | Pivota",
+const merchantStages = [
+  {
+    title: "Discovery / Link-out",
+    body: "Start fast, make merchant demand paths clearer, and measure incrementality across LLM surfaces.",
+  },
+  {
+    title: "Feeds",
+    body: "Improve match accuracy, attribution, and execution controls with more structured catalog inputs.",
+  },
+  {
+    title: "Merchant-native checkout",
+    body: "Increase conversion while keeping storefront, payment, fulfillment, and customer operations merchant-native.",
+  },
+] as const;
+
+const merchantBoundaries = [
+  "No inventory",
+  "No warehousing",
+  "No last-mile logistics",
+  "No subsidy-driven GMV",
+  "No rebuilding merchant ops",
+] as const;
+
+export const metadata = buildMarketingMetadata({
+  title: "Merchants | Pivota Merchant Gateway for Agent-Native Commerce",
   description:
-    "Open a new sales channel. Connect your e-commerce store to Pivota and let hundreds of AI agents and chatbots sell your products for you.",
-  alternates: {
-    canonical: "/merchants",
-    languages: {
-      en: "/merchants",
-      "x-default": "/merchants",
-    },
-  },
-  openGraph: {
-    title: "Sell Through AI: Connect Your Store to the Agentic Network | Pivota",
-    description:
-      "Open a new sales channel. Connect your store to Pivota and let AI agents sell your products.",
-    images: [
-      { url: "/og-merchants.svg", width: 1200, height: 630, alt: "Pivota – Sell Through AI" },
-    ],
-  },
-};
+    "Connect merchant systems so LLM and agent traffic can route into merchant-native transactions without rebuilding your stack.",
+  path: "/merchants",
+});
 
 export default function MerchantsPage() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What is 'Agentic Commerce'?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "It's a new sales channel. Agentic Commerce allows AI-powered agents (like advanced chatbots) to discover your products and sell them to users. Pivota connects your store to this new network.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How do I connect my store to Pivota?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "We provide simple plugins for major platforms like Shopify, Magento, and WooCommerce. For custom stores, you can use our lightweight Merchant API. Setup is typically under 30 minutes.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Who handles shipping and customer service?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "You do. You remain the merchant of record. Orders from AI agents appear in your existing dashboard just like any other sale. You ship the product and handle after-sale service as normal.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How do I get paid?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Instantly. When a user buys your product through an AI agent, the payment flows directly into your connected merchant account. There is no 'payout' delay.",
-        },
-      },
-    ],
-  } as const;
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <Script
-        id="faq-jsonld-merchants"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
 
-      <main className="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <section className="py-10">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-4">
-            Sell Through AI
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl">
-            Connect your store to the agentic network and open a new sales
-            channel. Let AI agents and chatbots discover your products and sell
-            them to users—while you stay merchant of record.
-          </p>
-          <p className="mt-6 text-sm text-muted-foreground max-w-3xl">
-            The{" "}
-            <Link href="/shopping-agent" className="underline underline-offset-4">
-              Pivota Shopping Agent
-            </Link>
-            {" "}is the AI-facing entry point that makes your products discoverable by ChatGPT, Claude,
-            Perplexity, Gemini and other LLMs.
-            {" "}Looking to activate creators with AI storefronts?{" "}
-            <Link href="/creator-agents" className="underline underline-offset-4">
-              Explore Creator Agents
-            </Link>
-            .
-          </p>
-
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-xl border border-border p-6 bg-card">
-              <h3 className="font-semibold text-foreground mb-2">New Demand</h3>
-              <p className="text-sm text-muted-foreground">
-                Tap into AI-native traffic from assistants and agents integrating
-                Pivota’s API.
-              </p>
+      <main className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        <section className="grid gap-10 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div className="space-y-6">
+            <p className="text-sm uppercase tracking-[0.24em] text-primary">Merchant surface</p>
+            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+              Connect merchant systems to LLM and agent demand.
+            </h1>
+            <p className="max-w-3xl text-lg text-muted-foreground">
+              Pivota is the merchant gateway for agent-native commerce. It helps merchants become
+              more discoverable, more executable, and more measurable across LLM surfaces.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild className="btn-hero">
+                <a href="https://merchant.pivota.cc/login">Merchant Login</a>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/#contact">Talk to us</Link>
+              </Button>
             </div>
-            <div className="rounded-xl border border-border p-6 bg-card">
-              <h3 className="font-semibold text-foreground mb-2">No New Tools</h3>
-              <p className="text-sm text-muted-foreground">
-                Orders appear in your existing dashboard and workflows. You ship
-                and support customers as usual.
-              </p>
-            </div>
-            <div className="rounded-xl border border-border p-6 bg-card">
-              <h3 className="font-semibold text-foreground mb-2">Instant Payment</h3>
-              <p className="text-sm text-muted-foreground">
-                Payment flows directly into your merchant account—no payout
-                delays.
-              </p>
-            </div>
+            <p className="max-w-3xl text-sm text-muted-foreground">
+              See{" "}
+              <Link href="/merchant-gateway" className="text-primary hover:underline">
+                what the merchant gateway does
+              </Link>
+              , how it{" "}
+              <Link href="/how-it-works" className="text-primary hover:underline">
+                works
+              </Link>
+              , and why{" "}
+              <Link href="/merchant-native-checkout" className="text-primary hover:underline">
+                merchant-native checkout
+              </Link>{" "}
+              matters.
+            </p>
           </div>
 
-          <div className="mt-10 flex gap-3">
-            <a
-              href="https://merchant.pivota.cc/signup"
-              className="btn-hero inline-flex items-center justify-center rounded-lg px-5 py-3"
-            >
-              Connect Your Store
-            </a>
-            <a
-              href="https://merchant.pivota.cc/login"
-              className="inline-flex items-center justify-center rounded-lg px-5 py-3 border border-accent/40 hover:border-accent bg-accent/10 text-accent transition"
-            >
-              Go to Dashboard
-            </a>
+          <div className="card-gradient space-y-4">
+            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+              Built on top of merchant systems
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Merchants keep their storefront, fulfillment, and customer operations. Pivota writes
+              orders and payment state back into existing systems.
+            </p>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              {merchantBoundaries.map((item) => (
+                <li key={item}>• {item}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">
+            A practical path to merchant-native transactions
+          </h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            {merchantStages.map((stage) => (
+              <div key={stage.title} className="rounded-2xl border border-border/70 bg-card p-6 shadow-[var(--shadow-card)]">
+                <h3 className="text-xl font-semibold text-foreground">{stage.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground">{stage.body}</p>
+              </div>
+            ))}
           </div>
         </section>
       </main>

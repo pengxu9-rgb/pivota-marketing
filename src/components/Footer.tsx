@@ -1,112 +1,64 @@
-"use client";
-
-import { Linkedin, Twitter, Youtube, Mail } from "lucide-react";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { Mail } from "lucide-react";
+import { footerDescriptor, primaryNavItems } from "@/lib/marketing";
 
 const Footer = () => {
-  const pathname = usePathname();
-  const isZh = pathname?.startsWith("/zh");
   return (
-    <footer className="bg-gradient-to-b from-background to-card border-t border/50">
-      <div className="container-max py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand */}
+    <footer className="border-t border-border/70 bg-gradient-to-b from-background to-card">
+      <div className="container-max px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.9fr_0.8fr]">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg"></div>
-              <span className="text-2xl font-bold text-gradient-primary">Pivota</span>
+              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-accent" />
+              <span className="text-2xl font-semibold tracking-tight text-foreground">Pivota</span>
             </div>
-            <p className="text-muted-foreground leading-relaxed">
-              {isZh
-                ? "面向未来的智能代理支付方案，简化交易、提升业务效率。"
-                : "Future-ready agent payment solutions that simplify transactions and boost business efficiency."}
-            </p>
+            <p className="max-w-xl text-sm leading-7 text-muted-foreground">{footerDescriptor}</p>
           </div>
-          
-          {/* Contact */}
+
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">{isZh ? "联系" : "Contact"}</h4>
-            <div className="space-y-3">
-              <a 
-                href="mailto:contact@pivota.cc" 
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                contact@pivota.cc
-              </a>
-            </div>
-          </div>
-          
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold">{isZh ? "快速链接" : "Quick Links"}</h4>
-            <div className="space-y-3">
-              {[
-                { text: isZh ? "产品特性" : "Features", href: "#features-section" },
-                { text: isZh ? "工作原理" : "How It Works", href: "#workflow-section" },
-                { text: isZh ? "预约演示" : "Book Demo", href: "#demo-section" },
-                { text: isZh ? "合作伙伴" : "Partners", href: "#partners-section" },
-                { text: "Blog", href: "/blog" }
-              ].map((link) => (
-                <a 
-                  key={link.text}
-                  href={link.href} 
-                  className="block text-muted-foreground hover:text-primary transition-colors"
-                  onClick={(e) => {
-                    if (link.href.startsWith('#')) {
-                      e.preventDefault();
-                      document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
+            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground">
+              Explore
+            </h2>
+            <div className="grid gap-2 text-sm">
+              {primaryNavItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  {link.text}
-                </a>
+                  {item.label}
+                </Link>
               ))}
+              <Link href="/blog" className="text-muted-foreground transition-colors hover:text-foreground">
+                Blog
+              </Link>
             </div>
           </div>
-          
-          {/* Social & Legal */}
+
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">{isZh ? "关注我们" : "Connect"}</h4>
-            <div className="flex gap-4">
-              {[
-                { Icon: Linkedin, href: "#", label: "LinkedIn" },
-                { Icon: Twitter, href: "#", label: "Twitter" },
-                { Icon: Youtube, href: "#", label: "YouTube" }
-              ].map(({ Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="w-10 h-10 bg-muted/20 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-[var(--shadow-neon)]"
-                  aria-label={label}
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
-            
-            <div className="space-y-2 pt-4">
-              <a
-                href={isZh ? "/zh/privacy" : "/privacy/merchant-app"}
-                className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                {isZh ? "隐私政策" : "Privacy Policy"}
-              </a>
-              <a
-                href={isZh ? "/zh/terms" : "/terms"}
-                className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                {isZh ? "服务条款" : "Terms of Service"}
-              </a>
+            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground">
+              Contact
+            </h2>
+            <a
+              href="mailto:contact@pivota.cc"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <Mail className="h-4 w-4" />
+              contact@pivota.cc
+            </a>
+            <div className="grid gap-2 text-sm">
+              <Link href="/privacy/merchant-app" className="text-muted-foreground transition-colors hover:text-foreground">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-muted-foreground transition-colors hover:text-foreground">
+                Terms of Service
+              </Link>
             </div>
           </div>
         </div>
-        
-        <div className="border-t border/50 mt-12 pt-8 text-center">
-          <p className="text-muted-foreground">
-            {isZh ? "© 2024 Pivota. 保留所有权利。" : "© 2024 Pivota. All rights reserved."} |{" "}
-            <span className="text-gradient-primary">{isZh ? "由 AI 驱动" : "Powered by AI"}</span>
-          </p>
+
+        <div className="mt-12 border-t border-border/60 pt-6 text-sm text-muted-foreground">
+          © 2026 Pivota. All rights reserved.
         </div>
       </div>
     </footer>

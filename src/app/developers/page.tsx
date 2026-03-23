@@ -1,149 +1,90 @@
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import type { Metadata } from "next";
-import Script from "next/script";
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { buildMarketingMetadata } from "@/lib/marketing";
 
-export const metadata: Metadata = {
-  title: "Agentic Commerce API: MCP, ACP & AP2 Integration | Pivota",
+const developerCapabilities = [
+  {
+    title: "Catalog and offer queryability",
+    body: "Work with structured products, offers, and variants so LLM and agent traffic can resolve into an executable merchant path.",
+  },
+  {
+    title: "Merchant-native execution",
+    body: "Route demand into merchant-native checkout and payment flows instead of pushing merchants into a separate commerce stack.",
+  },
+  {
+    title: "Authorization and write-back",
+    body: "Keep merchant systems in control with order authorization, payment-state sync, and execution state written back into existing systems.",
+  },
+] as const;
+
+export const metadata = buildMarketingMetadata({
+  title: "Developers | Pivota Merchant Gateway for Agent-Native Commerce",
   description:
-    "Build e-commerce into your AI. Use Pivota's API to integrate MCP (product data), ACP (orders), and AP2 (payments) in minutes. Get started now.",
-  alternates: {
-    canonical: "/developers",
-    languages: {
-      en: "/developers",
-      "x-default": "/developers",
-    },
-  },
-  openGraph: {
-    title: "Agentic Commerce API: MCP, ACP & AP2 Integration | Pivota",
-    description:
-      "Build e-commerce into your AI. Use Pivota's API to integrate MCP (product data), ACP (orders), and AP2 (payments) in minutes.",
-    images: [
-      {
-        url: "/og-developers.svg",
-        width: 1200,
-        height: 630,
-        alt: "Pivota – Agentic Commerce API (MCP, ACP, AP2)",
-      },
-    ],
-  },
-};
+    "Build on Pivota's merchant gateway for agent-native commerce across catalog, checkout, payment, and post-purchase systems.",
+  path: "/developers",
+});
 
 export default function DevelopersPage() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What is Pivota? How is it different from a payment API?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Pivota is a complete Agentic Commerce API, not just payments. We provide the full stack: AI agent access to product data (MCP), unified ordering (ACP), and direct-to-merchant payment settlement (AP2).",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Which Agentic Commerce protocols do you support?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "We are built on the new industry standards. Our APIs unify MCP (Model Context Protocol), ACP (Agentic Commerce Protocol), and AP2 (Agent Payments Protocol) into a single, easy-to-use integration.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How do I get access to merchant products for my AI agent?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Once you integrate the Pivota API, you get access to our entire network of federated merchants. You can pull product details, check inventory, and place orders with any merchant on our platform.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How does the payment flow work?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "The user pays within your agent portal. Pivota's API (using AP2) handles the transaction, which flows directly to the merchant's account. The merchant is the seller of record; Pivota is the infrastructure.",
-        },
-      },
-    ],
-  } as const;
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      <Script
-        id="faq-jsonld-developers"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <main className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        <section className="grid gap-10 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div className="space-y-6">
+            <p className="text-sm uppercase tracking-[0.24em] text-primary">Developer surface</p>
+            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+              Build on the merchant gateway for agent-native commerce.
+            </h1>
+            <p className="max-w-3xl text-lg text-muted-foreground">
+              Pivota connects LLM and agent traffic to merchant-native transactions across
+              catalog, checkout, payment, and post-purchase systems.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild className="btn-hero">
+                <a href="https://developer.pivota.cc/login">Developer Login</a>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/how-it-works">See how it works</Link>
+              </Button>
+            </div>
+            <p className="max-w-3xl text-sm text-muted-foreground">
+              Start with the{" "}
+              <Link href="/merchant-gateway" className="text-primary hover:underline">
+                merchant gateway definition
+              </Link>
+              , then review{" "}
+              <Link href="/merchant-native-checkout" className="text-primary hover:underline">
+                merchant-native checkout
+              </Link>{" "}
+              and the{" "}
+              <Link href="/faq" className="text-primary hover:underline">
+                FAQ
+              </Link>
+              .
+            </p>
+          </div>
 
-      <main className="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <section className="py-10">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-4">
-            Agentic Commerce API
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl">
-            Integrate MCP (product data), ACP (orders), and AP2 (payments) to
-            enable AI agents to discover products, place orders, and process
-            payments—through one unified API.
-          </p>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-xl border border-border p-6 bg-card">
-              <h3 className="font-semibold text-foreground mb-2">MCP</h3>
-              <p className="text-sm text-muted-foreground">
-                Product catalog, inventory, and pricing—normalized across Shopify,
-                WooCommerce, and custom stores.
-              </p>
-            </div>
-            <div className="rounded-xl border border-border p-6 bg-card">
-              <h3 className="font-semibold text-foreground mb-2">ACP</h3>
-              <p className="text-sm text-muted-foreground">
-                Create carts, place and track orders with built-in fraud checks
-                and fulfillment events.
-              </p>
-            </div>
-            <div className="rounded-xl border border-border p-6 bg-card">
-              <h3 className="font-semibold text-foreground mb-2">AP2</h3>
-              <p className="text-sm text-muted-foreground">
-                Direct, compliant payments between agents and merchants with
-                payouts and reconciliations.
-              </p>
-            </div>
+          <div className="card-gradient space-y-4">
+            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+              What developers work with
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              The developer surface is the execution layer behind merchant-native transactions.
+              It keeps catalog, checkout, payment, and post-purchase systems aligned.
+            </p>
           </div>
-          <p className="mt-6 text-sm text-muted-foreground max-w-3xl">
-            If you want to see how this Agentic Commerce stack shows up inside LLMs,
-            explore the{" "}
-            <Link href="/shopping-agent" className="underline underline-offset-4">
-              Pivota Shopping Agent entry point
-            </Link>
-            {" "}to understand the AI-facing shopping layer.
-            {" "}Want a creator-facing surface?{" "}
-            <Link href="/creator-agents" className="underline underline-offset-4">
-              Explore Creator Agents
-            </Link>
-            .
-          </p>
-          <div className="mt-10 flex gap-3">
-            <a
-              href="https://agents.pivota.cc/integration"
-              className="btn-hero inline-flex items-center justify-center rounded-lg px-5 py-3"
-            >
-              Read the Integration Guide
-            </a>
-            <a
-              href="https://agents.pivota.cc/signup"
-              className="inline-flex items-center justify-center rounded-lg px-5 py-3 border border-primary/40 hover:border-primary bg-primary/10 text-primary transition"
-            >
-              Get API Access
-            </a>
-          </div>
+        </section>
+
+        <section className="grid gap-6 md:grid-cols-3">
+          {developerCapabilities.map((capability) => (
+            <div key={capability.title} className="rounded-2xl border border-border/70 bg-card p-6 shadow-[var(--shadow-card)]">
+              <h2 className="text-xl font-semibold text-foreground">{capability.title}</h2>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">{capability.body}</p>
+            </div>
+          ))}
         </section>
       </main>
 

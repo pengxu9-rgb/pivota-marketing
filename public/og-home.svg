@@ -11,13 +11,19 @@
     <circle cx="1050" cy="520" r="8"/>
     <circle cx="900" cy="180" r="5"/>
   </g>
-  <text x="80" y="200" fill="#00FFC3" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="700">
-    The API for Agentic Commerce
+  <text x="80" y="132" fill="#00FFC3" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700">
+    Pivota
   </text>
-  <text x="80" y="270" fill="#E6F7F3" font-family="Inter, Arial, sans-serif" font-size="30">
-    Connect AI agents to merchant products, orders (ACP) and payments (AP2)
+  <text x="80" y="228" fill="#E6F7F3" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="700">
+    The merchant gateway
   </text>
-  <text x="80" y="350" fill="#C0C0C0" font-family="Inter, Arial, sans-serif" font-size="28">
-    Pivota • https://pivota.cc
+  <text x="80" y="298" fill="#E6F7F3" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="700">
+    for agent-native commerce
+  </text>
+  <text x="80" y="390" fill="#C0C0C0" font-family="Inter, Arial, sans-serif" font-size="28">
+    Turn LLM and agent traffic into merchant-native transactions
+  </text>
+  <text x="80" y="440" fill="#C0C0C0" font-family="Inter, Arial, sans-serif" font-size="28">
+    across catalog, checkout, payment, and post-purchase systems
   </text>
 </svg>

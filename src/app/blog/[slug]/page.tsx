@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: ParamsPromise): Promise<Metad
     description: post.description,
     alternates: {
       canonical: `/blog/${post.slug}`,
-      languages: { en: `/blog/${post.slug}` },
+      languages: { en: `/blog/${post.slug}`, "x-default": `/blog/${post.slug}` },
     },
     openGraph: {
       title: post.title,
