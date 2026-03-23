@@ -128,8 +128,8 @@
 @layer components {
   /* Hero Button Variants */
   .btn-hero {
-    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105;
-    box-shadow: var(--shadow-neon);
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+    box-shadow: 0 0 18px hsl(174 78% 46% / 0.16);
   }
 
   /* Header-specific, subtler CTA: smaller padding + lighter glow */
@@ -147,14 +147,13 @@
 
   /* Card Variants */
   .card-gradient {
-    @apply bg-gradient-to-br from-card to-muted border rounded-xl p-6 backdrop-blur-sm;
+    @apply bg-gradient-to-br from-card to-muted border rounded-xl p-5 backdrop-blur-sm;
     border-color: hsl(var(--border) / 0.5);
     box-shadow: var(--shadow-card);
   }
 
   .card-feature {
-    @apply card-gradient transition-all duration-300 hover:scale-105 hover:border-primary/50;
-    box-shadow: var(--shadow-neon);
+    @apply card-gradient transition-all duration-300 hover:border-primary/50;
   }
 
   .section-frame {
@@ -166,7 +165,7 @@
     background-image:
       linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
       linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
-    background-size: 36px 36px;
+    background-size: 44px 44px;
     background-position: center;
   }
 
@@ -194,11 +193,11 @@
 
   /* Section Spacing */
   .section-padding {
-    @apply py-20 px-4 sm:px-6 lg:px-8;
+    @apply py-14 px-4 sm:px-6 lg:px-8;
   }
 
   .container-max {
-    @apply max-w-7xl mx-auto;
+    @apply mx-auto max-w-6xl;
   }
 }
 

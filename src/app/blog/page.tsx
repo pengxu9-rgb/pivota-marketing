@@ -1,75 +1,102 @@
 import Link from "next/link";
+import AnswerBlock from "@/components/AnswerBlock";
+import PageChrome from "@/components/PageChrome";
 import { getAllPosts } from "@/lib/blog";
-import { buildMarketingMetadata } from "@/lib/marketing";
+import {
+  buildMarketingMetadata,
+  demotedBlogSlugs,
+  lastUpdatedLabel,
+  routePaths,
+} from "@/lib/marketing";
 
 export const metadata = buildMarketingMetadata({
   title: "Blog | Pivota Merchant Gateway for Agent-Native Commerce",
   description:
     "Notes on the merchant gateway for agent-native commerce, merchant-native transactions, and the execution layer behind LLM and agent traffic.",
-  path: "/blog",
+  path: routePaths.blog,
 });
 
 export default async function BlogIndex() {
-  const posts = await getAllPosts("en");
+  const posts = (await getAllPosts("en")).filter(
+    (post) => !demotedBlogSlugs.includes(post.slug as (typeof demotedBlogSlugs)[number]),
+  );
 
   return (
-    <main className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
-      <section className="mb-12 max-w-4xl space-y-4">
-        <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-          Pivota Blog
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Writing about the merchant gateway for agent-native commerce, merchant-native
-          transactions, and the execution layer behind LLM and agent traffic.
-        </p>
-        <p className="text-sm text-muted-foreground">
-          Start with{" "}
-          <Link href="/merchant-gateway" className="text-primary hover:underline">
-            what a merchant gateway is
-          </Link>
-          , see{" "}
-          <Link href="/how-it-works" className="text-primary hover:underline">
-            how Pivota works
-          </Link>
-          , or review the{" "}
-          <Link href="/faq" className="text-primary hover:underline">
-            FAQ
-          </Link>
-          .
-        </p>
-      </section>
+    <main className="relative bg-gradient-to-b from-background via-background to-card">
+      <div className="bg-site-grid absolute inset-0 opacity-15" />
 
-      <div className="grid gap-8 md:grid-cols-2">
-        {posts.map((p) => (
-          <article
-            key={p.slug}
-            className="rounded-2xl border border-border/70 bg-card p-6 shadow-[var(--shadow-card)]"
-          >
-            <h2 className="text-2xl font-semibold mb-2">
-              <Link href={`/blog/${p.slug}`} className="hover:underline">
-                {p.title}
+      <div className="section-padding relative">
+        <div className="container-max space-y-8">
+          <PageChrome
+            items={[
+              { label: "Home", href: routePaths.home },
+              { label: "Blog" },
+            ]}
+            updatedLabel={lastUpdatedLabel}
+          />
+
+          <section className="max-w-4xl space-y-5">
+            <p className="text-sm uppercase tracking-[0.18em] text-primary">Blog</p>
+            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+              Pivota Blog
+            </h1>
+            <AnswerBlock className="max-w-3xl">
+              <p>
+                Notes on the merchant gateway for agent-native commerce, merchant-native
+                transactions, and the execution layer behind LLM and agent traffic.
+              </p>
+            </AnswerBlock>
+            <p className="text-sm text-muted-foreground">
+              Start with{" "}
+              <Link href={routePaths.merchantGateway} className="text-primary hover:underline">
+                what a merchant gateway is
               </Link>
-            </h2>
-            <p className="text-sm text-gray-600 mb-2">
-              {new Date(p.date).toLocaleDateString()} · {(p.readingMinutes ?? 3)} min read
+              , see{" "}
+              <Link href={routePaths.howPivotaWorks} className="text-primary hover:underline">
+                how Pivota works
+              </Link>
+              , or review the{" "}
+              <Link href={routePaths.faq} className="text-primary hover:underline">
+                FAQ
+              </Link>
+              .
             </p>
-            <p className="text-gray-700">{p.description}</p>
-            <div className="mt-4">
-              {p.tags && p.tags.length > 0 && (
-                <p className="mb-2 text-xs text-gray-600">
-                  {p.tags.map((t) => (
-                    <span key={t} className="mr-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-gray-700">
-                      #{t}
-                    </span>
-                  ))}
+          </section>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {posts.map((p) => (
+              <article key={p.slug} className="section-frame px-6 py-6 sm:px-7">
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  <Link href={`/blog/${p.slug}`} className="hover:underline">
+                    {p.title}
+                  </Link>
+                </h2>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {new Date(p.date).toLocaleDateString()} · {(p.readingMinutes ?? 3)} min read
                 </p>
-              )}
-              <Link href={`/blog/${p.slug}`} className="text-blue-600 hover:underline">
-                Read more →
-              </Link>
-            </div>
-          </article>
-        ))}
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{p.description}</p>
+                {p.tags && p.tags.length > 0 ? (
+                  <p className="mt-4 text-xs text-muted-foreground">
+                    {p.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="mr-2 inline-block rounded bg-background/70 px-2 py-0.5"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </p>
+                ) : null}
+                <Link
+                  href={`/blog/${p.slug}`}
+                  className="mt-4 inline-block text-sm text-primary hover:underline"
+                >
+                  Read more
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </main>
   );

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
+import JsonLd from "@/components/JsonLd";
 import {
   defaultOgDescription,
   defaultOgTitle,
@@ -84,18 +84,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Script
-          id="pivota-organization-jsonld"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-        <Script
-          id="pivota-website-jsonld"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
+        <JsonLd id="pivota-organization-jsonld" data={organizationJsonLd} />
+        <JsonLd id="pivota-website-jsonld" data={websiteJsonLd} />
         {children}
       </body>
     </html>

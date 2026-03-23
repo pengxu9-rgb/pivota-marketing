@@ -48,7 +48,7 @@ export default function ShoppingAgentPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Button asChild className="btn-hero">
-                <Link href="/how-it-works">See how it works</Link>
+                <Link href="/how-pivota-works">See how it works</Link>
               </Button>
               <Button asChild variant="outline">
                 <Link href="/merchant-native-checkout">Merchant-native checkout</Link>
@@ -82,12 +82,15 @@ export default function ShoppingAgentPage() {
           </h2>
           <p className="text-sm text-muted-foreground">
             See the core category definition on{" "}
-            <Link href="/merchant-gateway" className="text-primary hover:underline">
-              /merchant-gateway
+            <Link
+              href="/merchant-gateway-for-agent-native-commerce"
+              className="text-primary hover:underline"
+            >
+              /merchant-gateway-for-agent-native-commerce
             </Link>
             , then follow the execution model on{" "}
-            <Link href="/how-it-works" className="text-primary hover:underline">
-              /how-it-works
+            <Link href="/how-pivota-works" className="text-primary hover:underline">
+              /how-pivota-works
             </Link>
             .
           </p>

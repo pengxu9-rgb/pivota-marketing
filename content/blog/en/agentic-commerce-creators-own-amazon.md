@@ -1,7 +1,7 @@
 ---
 id: agentic-commerce-creators-own-amazon
-title: "Turning Creators into Their Own Amazon in Agentic Era"
-description: "How agentic commerce lets creators operate like their own Amazon, with AI agents in front and an open, Amazon-class commerce backend behind."
+title: "Creator agents still need a merchant gateway"
+description: "Creator-facing agents can generate demand, but they still need a merchant gateway that routes agent-native demand into merchant-native transactions."
 date: 2025-12-05
 author: "Pivota Team"
 tags: ["Agentic Commerce", "Creators", "Influencers", "KOLs", "Monetization", "AI Agents"]

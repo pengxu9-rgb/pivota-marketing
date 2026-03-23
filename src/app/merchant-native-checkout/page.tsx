@@ -1,25 +1,30 @@
-import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  CreditCard,
-  RefreshCw,
-  ShieldCheck,
-  Store,
-  Wallet,
-} from "lucide-react";
-import Header from "@/components/Header";
+import { ArrowRight, CreditCard, RefreshCw, ShieldCheck, Store, Wallet } from "lucide-react";
+import AnswerBlock from "@/components/AnswerBlock";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import JsonLd from "@/components/JsonLd";
+import PageChrome from "@/components/PageChrome";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-dashboard.jpg";
-import { buildMarketingMetadata, merchantSignupPath } from "@/lib/marketing";
+import {
+  buildMarketingMetadata,
+  lastUpdatedLabel,
+  merchantSignupPath,
+  routePaths,
+} from "@/lib/marketing";
+import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = buildMarketingMetadata({
   title: "Merchant-Native Checkout for LLM and Agent Traffic | Pivota",
   description:
     "Pivota helps merchants convert LLM and agent demand through merchant-native checkout and payment flows.",
-  path: "/merchant-native-checkout",
+  path: routePaths.merchantNativeCheckout,
 });
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Home", path: routePaths.home },
+  { name: "Merchant-native checkout", path: routePaths.merchantNativeCheckout },
+]);
 
 const supports = [
   {
@@ -74,63 +79,61 @@ export default function MerchantNativeCheckoutPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <JsonLd id="merchant-native-checkout-breadcrumb-jsonld" data={breadcrumbJsonLd} />
 
       <main className="overflow-hidden">
-        <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-card">
-          <div className="bg-site-grid absolute inset-0 opacity-20" />
-          <div className="absolute left-[8%] top-20 h-64 w-64 rounded-full bg-primary/12 blur-3xl" />
-          <div className="absolute right-[10%] top-12 h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
+        <section className="relative bg-gradient-to-b from-background via-background to-card">
+          <div className="bg-site-grid absolute inset-0 opacity-15" />
 
           <div className="section-padding relative">
-            <div className="container-max grid gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-              <div className="space-y-6">
-                <p className="text-sm uppercase tracking-[0.24em] text-primary">Checkout layer</p>
-                <h1 className="max-w-4xl text-5xl font-bold tracking-tight sm:text-6xl">
-                  Merchant-native checkout for{" "}
-                  <span className="text-gradient-primary">LLM and agent traffic</span>
-                </h1>
-                <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-                  Pivota helps merchants convert LLM and agent demand through merchant-native
-                  checkout and payment flows.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button asChild className="btn-hero h-12 px-6 text-sm">
-                    <Link href={merchantSignupPath}>
-                      Merchant signup
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" className="h-12 px-6 text-sm">
-                    <Link href="/#contact">Talk to us</Link>
-                  </Button>
+            <div className="container-max space-y-8">
+              <PageChrome
+                items={[
+                  { label: "Home", href: routePaths.home },
+                  { label: "Merchant-native checkout" },
+                ]}
+                updatedLabel={lastUpdatedLabel}
+              />
+
+              <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+                <div className="space-y-5">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">Checkout layer</p>
+                  <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
+                    Merchant-native checkout for LLM and agent traffic
+                  </h1>
+                  <AnswerBlock className="max-w-3xl">
+                    <p>
+                      Pivota helps merchants convert LLM and agent demand through merchant-native
+                      checkout and payment flows.
+                    </p>
+                    <p className="mt-2">
+                      Merchant-native checkout keeps the transaction path inside merchant-controlled
+                      systems instead of forcing merchants into a separate marketplace-owned flow.
+                    </p>
+                  </AnswerBlock>
+                  <div className="flex flex-wrap gap-3">
+                    <Button asChild className="btn-hero h-11 px-5 text-sm">
+                      <Link href={merchantSignupPath}>
+                        Merchant signup
+                        <ArrowRight className="ml-1 h-4 w-4" />
+                      </Link>
+                    </Button>
+                    <Button asChild variant="outline" className="h-11 px-5 text-sm">
+                      <Link href="/#contact">Talk to us</Link>
+                    </Button>
+                  </div>
                 </div>
-              </div>
 
-              <div className="relative">
-                <div className="section-frame relative overflow-hidden p-3 sm:p-4">
-                  <div className="relative overflow-hidden rounded-[1.35rem] border border-white/10">
-                    <Image
-                      src={heroImage}
-                      alt="Merchant-native checkout dashboard"
-                      priority
-                      className="h-[420px] w-full object-cover sm:h-[500px]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
-                  </div>
-
-                  <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                    <div className="rounded-2xl border border-border/70 bg-background/60 p-4">
-                      <p className="text-sm font-semibold text-foreground">
-                        Merchant-native checkout
-                      </p>
+                <div className="grid gap-4 md:grid-cols-3">
+                  {[
+                    "Merchant-native checkout",
+                    "Existing PSP routing",
+                    "Order and payment write-back",
+                  ].map((item) => (
+                    <div key={item} className="section-frame px-5 py-5">
+                      <p className="text-sm font-semibold text-foreground">{item}</p>
                     </div>
-                    <div className="rounded-2xl border border-border/70 bg-background/60 p-4">
-                      <p className="text-sm font-semibold text-foreground">Existing PSP routing</p>
-                    </div>
-                    <div className="rounded-2xl border border-border/70 bg-background/60 p-4">
-                      <p className="text-sm font-semibold text-foreground">Write-back</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -197,6 +200,10 @@ export default function MerchantNativeCheckoutPage() {
                   <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
                     Merchant-native means merchant-controlled.
                   </h2>
+                  <p className="text-base leading-8 text-muted-foreground">
+                    Merchants keep their storefront, fulfillment stack, customer operations, and
+                    existing payment relationships while Pivota connects the execution path.
+                  </p>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -225,7 +232,7 @@ export default function MerchantNativeCheckoutPage() {
                   <Link href="/#contact" className="text-primary hover:underline">
                     Talk to us
                   </Link>
-                  <Link href="/faq" className="text-primary hover:underline">
+                  <Link href={routePaths.faq} className="text-primary hover:underline">
                     Read the FAQ
                   </Link>
                 </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import JsonLd from "@/components/JsonLd";
 import { getPostBySlug } from "@/lib/blog";
+import { demotedBlogSlugs } from "@/lib/marketing";
 
 type ParamsPromise = { params: Promise<{ slug: string }> };
 
@@ -8,9 +9,11 @@ export async function generateMetadata({ params }: ParamsPromise): Promise<Metad
   const { slug } = await params;
   const post = await getPostBySlug("en", slug);
   if (!post) return { title: "Not found" };
+  const isDemoted = demotedBlogSlugs.includes(slug as (typeof demotedBlogSlugs)[number]);
   return {
     title: post.title,
     description: post.description,
+    robots: isDemoted ? { index: false, follow: true } : undefined,
     alternates: {
       canonical: `/blog/${post.slug}`,
       languages: { en: `/blog/${post.slug}`, "x-default": `/blog/${post.slug}` },
@@ -42,7 +45,7 @@ export default async function BlogPostPage({ params }: ParamsPromise) {
 
   return (
     <main className="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <Script id="article-jsonld" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <JsonLd id="article-jsonld" data={jsonLd} />
       <article className="prose max-w-3xl bg-white text-black rounded-xl p-6 sm:p-8 shadow prose-headings:text-black prose-p:text-black prose-li:text-black prose-strong:text-black prose-a:text-blue-600 prose-code:text-black prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-100 prose-pre:text-gray-900 prose-pre:border prose-pre:border-gray-200">
         <h1>{post.title}</h1>
         <p className="text-sm text-gray-600">

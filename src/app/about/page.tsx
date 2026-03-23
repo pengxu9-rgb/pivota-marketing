@@ -1,25 +1,29 @@
-import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  GitBranch,
-  ShieldCheck,
-  Target,
-  TrendingUp,
-  Workflow,
-} from "lucide-react";
-import Header from "@/components/Header";
+import { ArrowRight, GitBranch, ShieldCheck, Target, TrendingUp, Workflow } from "lucide-react";
+import AnswerBlock from "@/components/AnswerBlock";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import JsonLd from "@/components/JsonLd";
+import PageChrome from "@/components/PageChrome";
 import { Button } from "@/components/ui/button";
-import networkFlowImage from "@/assets/network-flow.jpg";
-import { buildMarketingMetadata } from "@/lib/marketing";
+import {
+  buildMarketingMetadata,
+  lastUpdatedLabel,
+  routePaths,
+} from "@/lib/marketing";
+import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = buildMarketingMetadata({
   title: "About Pivota | Merchant Gateway for Agent-Native Commerce",
   description:
     "Pivota is building the merchant gateway for agent-native commerce. Our focus is simple: help merchants turn LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
-  path: "/about",
+  path: routePaths.about,
 });
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Home", path: routePaths.home },
+  { name: "About", path: routePaths.about },
+]);
 
 const optimizationPoints = [
   {
@@ -48,67 +52,64 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <JsonLd id="about-breadcrumb-jsonld" data={breadcrumbJsonLd} />
 
       <main className="overflow-hidden">
-        <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-card">
-          <div className="bg-site-grid absolute inset-0 opacity-20" />
-          <div className="absolute left-[8%] top-20 h-64 w-64 rounded-full bg-primary/12 blur-3xl" />
-          <div className="absolute right-[10%] top-12 h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
+        <section className="relative bg-gradient-to-b from-background via-background to-card">
+          <div className="bg-site-grid absolute inset-0 opacity-15" />
 
           <div className="section-padding relative">
-            <div className="container-max grid gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-              <div className="space-y-6">
-                <p className="text-sm uppercase tracking-[0.24em] text-primary">About Pivota</p>
-                <h1 className="max-w-4xl text-5xl font-bold tracking-tight sm:text-6xl">
-                  Building the <span className="text-gradient-primary">merchant gateway</span> for
-                  agent-native commerce.
-                </h1>
-                <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-                  Pivota is building the merchant gateway for agent-native commerce. Our focus is
-                  simple: help merchants turn LLM and agent traffic into merchant-native
-                  transactions across catalog, checkout, payment, and post-purchase systems.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button asChild className="btn-hero h-12 px-6 text-sm">
-                    <Link href="/#contact">
-                      Contact us
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" className="h-12 px-6 text-sm">
-                    <Link href="/how-it-works">How Pivota works</Link>
-                  </Button>
-                </div>
-              </div>
+            <div className="container-max space-y-8">
+              <PageChrome
+                items={[
+                  { label: "Home", href: routePaths.home },
+                  { label: "About" },
+                ]}
+                updatedLabel={lastUpdatedLabel}
+              />
 
-              <div className="relative">
-                <div className="section-frame relative overflow-hidden p-3 sm:p-4">
-                  <div className="relative overflow-hidden rounded-[1.35rem] border border-white/10">
-                    <Image
-                      src={networkFlowImage}
-                      alt="Pivota infrastructure network"
-                      priority
-                      className="h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 grid gap-3 p-6 sm:grid-cols-2 sm:p-8">
-                      <div className="rounded-2xl border border-white/10 bg-background/80 p-4 backdrop-blur">
-                        <p className="text-xs uppercase tracking-[0.18em] text-primary">
-                          Merchant control
-                        </p>
-                        <p className="mt-2 text-sm text-foreground">
-                          Built on top of merchant systems instead of replacing them.
-                        </p>
-                      </div>
-                      <div className="rounded-2xl border border-white/10 bg-background/80 p-4 backdrop-blur">
-                        <p className="text-xs uppercase tracking-[0.18em] text-primary">
-                          Reliable execution
-                        </p>
-                        <p className="mt-2 text-sm text-foreground">
-                          A clearer path from LLM and agent traffic to merchant-native
-                          transactions.
-                        </p>
-                      </div>
+              <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+                <div className="space-y-5">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">About Pivota</p>
+                  <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
+                    About Pivota
+                  </h1>
+                  <AnswerBlock className="max-w-3xl">
+                    <p>
+                      Pivota is building the merchant gateway for agent-native commerce.
+                    </p>
+                    <p className="mt-2">
+                      Our focus is simple: help merchants turn LLM and agent traffic into
+                      merchant-native transactions across catalog, checkout, payment, and
+                      post-purchase systems.
+                    </p>
+                  </AnswerBlock>
+                  <div className="flex flex-wrap gap-3">
+                    <Button asChild className="btn-hero h-11 px-5 text-sm">
+                      <Link href="/#contact">
+                        Talk to us
+                        <ArrowRight className="ml-1 h-4 w-4" />
+                      </Link>
+                    </Button>
+                    <Button asChild variant="outline" className="h-11 px-5 text-sm">
+                      <Link href={routePaths.howPivotaWorks}>How Pivota works</Link>
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="section-frame px-6 py-6 sm:px-7">
+                  <h2 className="text-xl font-semibold tracking-tight text-foreground">
+                    Press-ready definition
+                  </h2>
+                  <div className="mt-4 grid gap-3 text-sm">
+                    <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
+                      Category: merchant gateway for agent-native commerce
+                    </div>
+                    <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
+                      Role: execution layer between LLM and agent demand and merchant systems
+                    </div>
+                    <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
+                      Boundary: not a marketplace, not an inventory holder, not a checkout-only tool
                     </div>
                   </div>
                 </div>
@@ -179,14 +180,14 @@ export default function AboutPage() {
           <div className="container-max">
             <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
               <div className="flex flex-wrap gap-4 text-sm">
-                <Link href="/merchant-gateway" className="text-primary hover:underline">
-                  What is a merchant gateway?
+                <Link href={routePaths.merchantGateway} className="text-primary hover:underline">
+                  Category page
                 </Link>
-                <Link href="/how-it-works" className="text-primary hover:underline">
+                <Link href={routePaths.howPivotaWorks} className="text-primary hover:underline">
                   How Pivota works
                 </Link>
-                <Link href="/#contact" className="text-primary hover:underline">
-                  Contact us
+                <Link href={routePaths.developers} className="text-primary hover:underline">
+                  Docs home
                 </Link>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { routePaths } from "@/lib/marketing";
 
 export const metadata: Metadata = {
   title: "Creator agents still need a merchant gateway | Pivota",
@@ -107,9 +108,11 @@ export default function CreatorsOwnAmazonPost() {
 
           <p>
             If you want the core category definition, start with{" "}
-            <Link href="/merchant-gateway">what a merchant gateway is</Link>, then see{" "}
-            <Link href="/merchant-native-checkout">why merchant-native checkout matters</Link> and{" "}
-            <Link href="/about">what Pivota is building</Link>.
+            <Link href={routePaths.merchantGateway}>what a merchant gateway is</Link>, then see{" "}
+            <Link href={routePaths.merchantNativeCheckout}>
+              why merchant-native checkout matters
+            </Link>{" "}
+            and <Link href={routePaths.about}>what Pivota is building</Link>.
           </p>
         </div>
       </article>

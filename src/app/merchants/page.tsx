@@ -60,11 +60,14 @@ export default function MerchantsPage() {
             </div>
             <p className="max-w-3xl text-sm text-muted-foreground">
               See{" "}
-              <Link href="/merchant-gateway" className="text-primary hover:underline">
+              <Link
+                href="/merchant-gateway-for-agent-native-commerce"
+                className="text-primary hover:underline"
+              >
                 what the merchant gateway does
               </Link>
               , how it{" "}
-              <Link href="/how-it-works" className="text-primary hover:underline">
+              <Link href="/how-pivota-works" className="text-primary hover:underline">
                 works
               </Link>
               , and why{" "}

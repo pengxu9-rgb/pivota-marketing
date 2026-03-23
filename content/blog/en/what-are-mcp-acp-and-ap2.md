@@ -1,30 +1,30 @@
 ---
 id: mcp-acp-ap2-overview
-title: What are MCP, ACP and AP2?
-description: A clear overview of MCP (Model Context Protocol), ACP (Agentic Commerce Protocol), and AP2 (Agent Payments Protocol) and how they work together.
+title: What do MCP, ACP, and AP2 mean for the merchant gateway for agent-native commerce?
+description: A developer overview of MCP, ACP, and AP2 in the merchant gateway for agent-native commerce, and how they support merchant-native transactions.
 date: 2025-11-14
 author: Pivota Team
 tags: [MCP, ACP, AP2, Standards]
 ogImage: /og-developers.svg
 ---
 
-# What are MCP, ACP, and AP2?
+# What do MCP, ACP, and AP2 mean for the merchant gateway for agent-native commerce?
 
-### A Developer's Guide to Integrating Pivota's Agentic Commerce API
+### A developer guide to the workflow behind merchant-native transactions
 
-In the emerging world of agentic commerce, developers keep running into three acronyms: **MCP**, **ACP**, and **AP2**.
+Pivota is the **merchant gateway for agent-native commerce**. **MCP**, **ACP**, and **AP2** are the protocol layers behind that execution model across catalog, checkout, payment, and post-purchase systems.
 
-If you’re building AI agents that can buy, sell, or handle transactions autonomously, these three protocols are the backbone of how Pivota helps you:
+If you are building AI agents that need to connect to merchant-native transactions, these three protocols explain how Pivota helps you:
 
 - Connect with merchants
 - Process payments
 - Build trust across the network
 
-Let’s break down what each of them does, why they exist, and how you can use them in your next agentic app or integration.
+Let’s break down what each of them does, why they exist, and how they fit into the merchant gateway workflow.
 
 ⸻
 
-## 1. Why Agentic Commerce Needs New Protocols
+## 1. Why the merchant gateway needs protocol layers
 
 Before we unpack the acronyms, it helps to look at the problem.
 

@@ -1,16 +1,20 @@
 import type { MetadataRoute } from "next";
 import { posts } from "@/lib/blog";
 import { loadMarkdownPosts } from "@/lib/markdown";
-import { siteUrl } from "@/lib/marketing";
+import { demotedBlogSlugs, lastUpdatedIso, routePaths, siteUrl } from "@/lib/marketing";
 
 const primaryRoutes = [
   { path: "/", changeFrequency: "weekly" as const, priority: 1 },
-  { path: "/merchant-gateway", changeFrequency: "weekly" as const, priority: 0.9 },
-  { path: "/how-it-works", changeFrequency: "weekly" as const, priority: 0.85 },
-  { path: "/merchant-native-checkout", changeFrequency: "weekly" as const, priority: 0.85 },
-  { path: "/faq", changeFrequency: "monthly" as const, priority: 0.7 },
-  { path: "/about", changeFrequency: "monthly" as const, priority: 0.65 },
-  { path: "/blog", changeFrequency: "weekly" as const, priority: 0.7 },
+  { path: routePaths.whatIsAgentNativeCommerce, changeFrequency: "weekly" as const, priority: 0.9 },
+  { path: routePaths.merchantGateway, changeFrequency: "weekly" as const, priority: 0.95 },
+  { path: routePaths.howPivotaWorks, changeFrequency: "weekly" as const, priority: 0.9 },
+  { path: routePaths.merchantNativeCheckout, changeFrequency: "weekly" as const, priority: 0.85 },
+  { path: routePaths.developers, changeFrequency: "weekly" as const, priority: 0.8 },
+  { path: routePaths.apiOverview, changeFrequency: "weekly" as const, priority: 0.75 },
+  { path: routePaths.faq, changeFrequency: "weekly" as const, priority: 0.8 },
+  { path: routePaths.useCases, changeFrequency: "weekly" as const, priority: 0.75 },
+  { path: routePaths.about, changeFrequency: "monthly" as const, priority: 0.65 },
+  { path: routePaths.blog, changeFrequency: "weekly" as const, priority: 0.65 },
   { path: "/privacy/merchant-app", changeFrequency: "yearly" as const, priority: 0.35 },
   { path: "/help/merchant-app", changeFrequency: "monthly" as const, priority: 0.4 },
   { path: "/help/merchant-app/faq", changeFrequency: "monthly" as const, priority: 0.35 },
@@ -24,17 +28,22 @@ function absoluteUrl(path: string): string {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const lastModified = new Date();
+  const siteLastModified = new Date(lastUpdatedIso);
   const fsPosts = await loadMarkdownPosts("en").catch(() => []);
 
-  const blogPosts = [...fsPosts, ...posts.filter((post) => post.locale === "en")].filter(
-    (post, index, allPosts) => allPosts.findIndex((candidate) => candidate.slug === post.slug) === index,
-  );
+  const blogPosts = [...fsPosts, ...posts.filter((post) => post.locale === "en")]
+    .filter(
+      (post, index, allPosts) =>
+        allPosts.findIndex((candidate) => candidate.slug === post.slug) === index,
+    )
+    .filter(
+      (post) => !demotedBlogSlugs.includes(post.slug as (typeof demotedBlogSlugs)[number]),
+    );
 
   return [
     ...primaryRoutes.map((route) => ({
       url: absoluteUrl(route.path),
-      lastModified,
+      lastModified: siteLastModified,
       changeFrequency: route.changeFrequency,
       priority: route.priority,
       alternates: {
@@ -46,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     ...blogPosts.map((post) => ({
       url: absoluteUrl(`/blog/${post.slug}`),
-      lastModified,
+      lastModified: new Date(post.date),
       changeFrequency: "monthly" as const,
       priority: 0.6,
       alternates: {

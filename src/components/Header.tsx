@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LogIn, Menu, X } from "lucide-react";
@@ -11,7 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { merchantSignupPath, primaryNavItems } from "@/lib/marketing";
+import { primaryNavItems } from "@/lib/marketing";
 
 function normalizePath(pathname: string | null): string {
   if (!pathname) return "/";
@@ -22,7 +23,6 @@ function normalizePath(pathname: string | null): string {
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [logoSrc, setLogoSrc] = useState("/pivota-logo.png");
   const pathname = normalizePath(usePathname());
 
   useEffect(() => {
@@ -57,22 +57,24 @@ const Header = () => {
       <header
         className={`sticky top-0 z-50 border-b transition-all duration-300 ${
           scrolled
-            ? "border-border/80 bg-background/88 backdrop-blur-xl"
-            : "border-transparent bg-background/70 backdrop-blur-md"
+            ? "border-border/80 bg-background/92 backdrop-blur-xl"
+            : "border-transparent bg-background/78 backdrop-blur-md"
         }`}
       >
-        <nav className="container-max flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <nav className="container-max flex h-14 items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-2">
-            <img
-              src={logoSrc}
+            <Image
+              src="/pivota-logo.png"
               alt="Pivota logo"
+              width={32}
+              height={32}
               className="h-8 w-8 rounded-lg object-contain"
-              onError={() => setLogoSrc("/pivota-logo-v2.svg")}
+              priority
             />
-            <span className="text-xl font-semibold tracking-tight text-foreground">Pivota</span>
+            <span className="text-lg font-semibold tracking-tight text-foreground">Pivota</span>
           </Link>
 
-          <div className="hidden items-center gap-6 md:flex">
+          <div className="hidden items-center gap-5 lg:flex">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -86,15 +88,12 @@ const Header = () => {
             ))}
           </div>
 
-          <div className="hidden items-center gap-3 md:flex">
-            <Button asChild className="btn-hero h-10 px-5 text-sm">
-              <Link href={merchantSignupPath}>Merchant signup</Link>
-            </Button>
+          <div className="hidden items-center gap-3 lg:flex">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="outline"
-                  className="border-input bg-background/40 transition-colors hover:border-primary/60 hover:bg-primary/5"
+                  className="h-9 border-input bg-background/30 px-4 transition-colors hover:border-primary/50 hover:bg-primary/5"
                 >
                   <LogIn className="mr-2 h-4 w-4" />
                   Log in
@@ -114,7 +113,7 @@ const Header = () => {
           <button
             type="button"
             onClick={() => setIsOpen((open) => !open)}
-            className="inline-flex items-center justify-center rounded-lg border border-input bg-background/40 p-2 text-foreground md:hidden"
+            className="inline-flex items-center justify-center rounded-lg border border-input bg-background/30 p-2 text-foreground lg:hidden"
             aria-label={isOpen ? "Close navigation" : "Open navigation"}
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -122,7 +121,7 @@ const Header = () => {
         </nav>
 
         {isOpen ? (
-          <div className="border-t border-border bg-background/95 px-4 py-4 md:hidden">
+          <div className="border-t border-border bg-background/95 px-4 py-4 lg:hidden">
             <div className="container-max space-y-2">
               {navItems.map((item) => (
                 <Link
@@ -138,14 +137,6 @@ const Header = () => {
                   {item.label}
                 </Link>
               ))}
-
-              <Link
-                href={merchantSignupPath}
-                onClick={() => setIsOpen(false)}
-                className="block rounded-lg bg-primary px-3 py-3 text-center text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                Merchant signup
-              </Link>
 
               <div className="grid grid-cols-2 gap-3 pt-3">
                 <a

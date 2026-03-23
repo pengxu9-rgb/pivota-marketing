@@ -74,7 +74,10 @@ export default function CreatorAgentsContent() {
           </h2>
           <p className="text-sm text-muted-foreground">
             Start with{" "}
-            <Link href="/merchant-gateway" className="text-primary hover:underline">
+            <Link
+              href="/merchant-gateway-for-agent-native-commerce"
+              className="text-primary hover:underline"
+            >
               what the merchant gateway is
             </Link>
             , then review{" "}
