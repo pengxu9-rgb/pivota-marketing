@@ -1,5 +1,5 @@
-import CreatorAgentsPage from "@/app/creator-agents/page";
 import type { Metadata } from "next";
+import CreatorAgentsContent from "@/components/CreatorAgentsContent";
 
 export const metadata: Metadata = {
   title: "Creator Agents that convert | Pivota",
@@ -24,5 +24,5 @@ export const metadata: Metadata = {
 };
 
 export default function CreatorAgentsZhPage() {
-  return <CreatorAgentsPage localePrefix="/zh" />;
+  return <CreatorAgentsContent />;
 }

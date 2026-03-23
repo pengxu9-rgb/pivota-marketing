@@ -157,6 +157,19 @@
     box-shadow: var(--shadow-neon);
   }
 
+  .section-frame {
+    @apply rounded-[1.75rem] border border-border/70 bg-card/60 backdrop-blur-xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  .bg-site-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 36px 36px;
+    background-position: center;
+  }
+
   /* Text Gradients */
   .text-gradient-primary {
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
