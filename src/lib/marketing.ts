@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 export const siteName = "Pivota";
 export const siteUrl = "https://pivota.cc";
+export const merchantSignupPath = "/merchant/signup";
 
 export const footerDescriptor = "Pivota is the merchant gateway for agent-native commerce.";
 

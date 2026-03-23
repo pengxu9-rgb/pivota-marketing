@@ -13,7 +13,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import networkFlowImage from "@/assets/network-flow.jpg";
-import { buildMarketingMetadata } from "@/lib/marketing";
+import { buildMarketingMetadata, merchantSignupPath } from "@/lib/marketing";
 
 export const metadata = buildMarketingMetadata({
   title: "What Is a Merchant Gateway for Agent-Native Commerce? | Pivota",
@@ -93,13 +93,13 @@ export default function MerchantGatewayPage() {
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Button asChild className="btn-hero h-12 px-6 text-sm">
-                    <Link href="/how-it-works">
-                      See how it works
+                    <Link href={merchantSignupPath}>
+                      Merchant signup
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="h-12 px-6 text-sm">
-                    <Link href="/#contact">Talk to us</Link>
+                    <Link href="/how-it-works">See how it works</Link>
                   </Button>
                 </div>
               </div>
@@ -111,38 +111,27 @@ export default function MerchantGatewayPage() {
                       src={networkFlowImage}
                       alt="Merchant gateway network visualization"
                       priority
-                      className="h-full w-full object-cover"
+                      className="h-[420px] w-full object-cover sm:h-[500px]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
                     <div className="absolute left-6 top-6 inline-flex items-center rounded-full border border-white/10 bg-background/80 px-4 py-2 text-xs uppercase tracking-[0.22em] text-primary backdrop-blur">
                       Execution layer
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 grid gap-3 p-6 sm:grid-cols-2 sm:p-8">
-                      <div className="rounded-2xl border border-white/10 bg-background/80 p-4 backdrop-blur">
-                        <p className="text-xs uppercase tracking-[0.18em] text-primary">
-                          Merchant-native transactions
-                        </p>
-                        <p className="mt-2 text-sm text-foreground">
-                          The gateway between LLM or agent demand and merchant systems.
-                        </p>
-                      </div>
-                      <div className="rounded-2xl border border-white/10 bg-background/80 p-4 backdrop-blur">
-                        <p className="text-xs uppercase tracking-[0.18em] text-primary">
-                          Reliable routing
-                        </p>
-                        <p className="mt-2 text-sm text-foreground">
-                          The missing layer that merchants and agents can reliably route through.
-                        </p>
-                      </div>
+                  </div>
+
+                  <div className="mt-4 grid gap-4 sm:grid-cols-3">
+                    <div className="rounded-2xl border border-border/70 bg-background/60 p-4">
+                      <p className="text-sm font-semibold text-foreground">
+                        Merchant-native transactions
+                      </p>
+                    </div>
+                    <div className="rounded-2xl border border-border/70 bg-background/60 p-4">
+                      <p className="text-sm font-semibold text-foreground">Reliable routing</p>
+                    </div>
+                    <div className="rounded-2xl border border-border/70 bg-background/60 p-4">
+                      <p className="text-sm font-semibold text-foreground">Shared authorization</p>
                     </div>
                   </div>
-                </div>
-
-                <div className="absolute -left-4 bottom-10 hidden w-56 rounded-2xl border border-primary/20 bg-card/90 p-4 shadow-[var(--shadow-neon)] backdrop-blur lg:block">
-                  <p className="text-sm font-semibold text-foreground">Shared authorization</p>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    One orchestration layer across catalog, checkout, payment, and write-back.
-                  </p>
                 </div>
               </div>
             </div>

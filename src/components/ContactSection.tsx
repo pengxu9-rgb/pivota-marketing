@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { merchantSignupPath } from "@/lib/marketing";
 
 const initialForm = {
   name: "",
@@ -80,9 +81,18 @@ const ContactSection = () => {
                   merchant-native transactions.
                 </p>
                 <p className="text-sm text-muted-foreground max-w-2xl">
-                  Tell us where you are on the path from discovery to merchant-native checkout, and
-                  we will follow up with the right next conversation.
+                  If you are ready to onboard, start merchant signup. If you want to talk through
+                  the execution model first, use the form.
                 </p>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Button asChild className="btn-hero h-12 px-6 text-sm">
+                  <Link href={merchantSignupPath}>Merchant signup</Link>
+                </Button>
+                <Button asChild variant="outline" className="h-12 px-6 text-sm">
+                  <a href="mailto:contact@pivota.cc">Email us</a>
+                </Button>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
@@ -95,23 +105,17 @@ const ContactSection = () => {
                   </ul>
                 </div>
                 <div className="card-gradient">
-                  <h3 className="text-lg font-semibold">Prefer email?</h3>
+                  <h3 className="text-lg font-semibold">Need direct onboarding?</h3>
                   <p className="mt-4 text-sm text-muted-foreground">
-                    Reach us at{" "}
-                    <a href="mailto:contact@pivota.cc" className="text-primary hover:underline">
-                      contact@pivota.cc
-                    </a>
-                    .
+                    Merchants can register directly through the merchant signup flow and keep
+                    storefront, payment, and customer operations in place.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                    <Link href="/merchant-gateway" className="text-primary hover:underline">
-                      Product
+                    <Link href={merchantSignupPath} className="text-primary hover:underline">
+                      Open merchant signup
                     </Link>
                     <Link href="/faq" className="text-primary hover:underline">
-                      FAQ
-                    </Link>
-                    <Link href="/about" className="text-primary hover:underline">
-                      About
+                      Read the FAQ
                     </Link>
                   </div>
                 </div>
@@ -119,6 +123,12 @@ const ContactSection = () => {
             </div>
 
             <div className="card-gradient">
+              <div className="mb-5">
+                <h3 className="text-xl font-semibold text-foreground">Contact form</h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Tell us where you are today: discovery, feeds, or merchant-native checkout.
+                </p>
+              </div>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
@@ -174,7 +184,7 @@ const ContactSection = () => {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us where you are today: discovery, feeds, or merchant-native checkout."
+                    placeholder="Discovery, feeds, merchant-native checkout, or merchant onboarding."
                   />
                 </div>
 

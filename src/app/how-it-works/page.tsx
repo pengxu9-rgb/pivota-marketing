@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import workflowImage from "@/assets/workflow-steps.jpg";
-import { buildMarketingMetadata } from "@/lib/marketing";
+import { buildMarketingMetadata, merchantSignupPath } from "@/lib/marketing";
 
 export const metadata = buildMarketingMetadata({
   title: "How Pivota Works | Merchant Gateway for LLM and Agent Transactions",
@@ -81,13 +81,13 @@ export default function HowItWorksPage() {
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Button asChild className="btn-hero h-12 px-6 text-sm">
-                    <Link href="/merchant-native-checkout">
-                      See the checkout layer
+                    <Link href={merchantSignupPath}>
+                      Merchant signup
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="h-12 px-6 text-sm">
-                    <Link href="/#contact">Talk to us</Link>
+                    <Link href="/merchant-native-checkout">See the checkout layer</Link>
                   </Button>
                 </div>
               </div>
@@ -99,31 +99,26 @@ export default function HowItWorksPage() {
                       src={workflowImage}
                       alt="Pivota execution workflow"
                       priority
-                      className="h-full w-full object-cover"
+                      className="h-[420px] w-full object-cover sm:h-[500px]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                   </div>
 
-                  <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                    {steps.slice(0, 2).map((step, index) => (
+                  <div className="mt-4 grid gap-4 sm:grid-cols-3">
+                    {[
+                      { title: "Queryable catalogs", label: "Step 1" },
+                      { title: "Merchant-native checkout", label: "Step 2" },
+                      { title: "Write-back", label: "Step 3" },
+                    ].map((step) => (
                       <div
                         key={step.title}
                         className="rounded-2xl border border-border/70 bg-background/60 p-4"
                       >
-                        <p className="text-xs uppercase tracking-[0.18em] text-primary">
-                          Step {index + 1}
-                        </p>
+                        <p className="text-xs uppercase tracking-[0.18em] text-primary">{step.label}</p>
                         <p className="mt-2 text-sm font-semibold text-foreground">{step.title}</p>
                       </div>
                     ))}
                   </div>
-                </div>
-
-                <div className="absolute -left-5 bottom-10 hidden w-64 rounded-2xl border border-primary/20 bg-card/90 p-4 backdrop-blur lg:block">
-                  <p className="text-sm font-semibold text-foreground">Shared gateway</p>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    The same execution layer connects catalog, checkout, payment, and write-back.
-                  </p>
                 </div>
               </div>
             </div>

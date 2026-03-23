@@ -12,7 +12,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-dashboard.jpg";
-import { buildMarketingMetadata } from "@/lib/marketing";
+import { buildMarketingMetadata, merchantSignupPath } from "@/lib/marketing";
 
 export const metadata = buildMarketingMetadata({
   title: "Merchant-Native Checkout for LLM and Agent Traffic | Pivota",
@@ -95,13 +95,13 @@ export default function MerchantNativeCheckoutPage() {
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Button asChild className="btn-hero h-12 px-6 text-sm">
-                    <Link href="/#contact">
-                      Talk to us
+                    <Link href={merchantSignupPath}>
+                      Merchant signup
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="h-12 px-6 text-sm">
-                    <Link href="/faq">Read the FAQ</Link>
+                    <Link href="/#contact">Talk to us</Link>
                   </Button>
                 </div>
               </div>
@@ -113,35 +113,24 @@ export default function MerchantNativeCheckoutPage() {
                       src={heroImage}
                       alt="Merchant-native checkout dashboard"
                       priority
-                      className="h-full w-full object-cover"
+                      className="h-[420px] w-full object-cover sm:h-[500px]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 grid gap-3 p-6 sm:grid-cols-2 sm:p-8">
-                      <div className="rounded-2xl border border-white/10 bg-background/80 p-4 backdrop-blur">
-                        <p className="text-xs uppercase tracking-[0.18em] text-primary">
-                          Merchant-native checkout
-                        </p>
-                        <p className="mt-2 text-sm text-foreground">
-                          Keep checkout and payment inside merchant-controlled systems.
-                        </p>
-                      </div>
-                      <div className="rounded-2xl border border-white/10 bg-background/80 p-4 backdrop-blur">
-                        <p className="text-xs uppercase tracking-[0.18em] text-primary">
-                          Existing PSP routing
-                        </p>
-                        <p className="mt-2 text-sm text-foreground">
-                          Preserve payment relationships while routing LLM and agent traffic.
-                        </p>
-                      </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
+                  </div>
+
+                  <div className="mt-4 grid gap-4 sm:grid-cols-3">
+                    <div className="rounded-2xl border border-border/70 bg-background/60 p-4">
+                      <p className="text-sm font-semibold text-foreground">
+                        Merchant-native checkout
+                      </p>
+                    </div>
+                    <div className="rounded-2xl border border-border/70 bg-background/60 p-4">
+                      <p className="text-sm font-semibold text-foreground">Existing PSP routing</p>
+                    </div>
+                    <div className="rounded-2xl border border-border/70 bg-background/60 p-4">
+                      <p className="text-sm font-semibold text-foreground">Write-back</p>
                     </div>
                   </div>
-                </div>
-
-                <div className="absolute -left-5 bottom-10 hidden w-60 rounded-2xl border border-primary/20 bg-card/90 p-4 backdrop-blur lg:block">
-                  <p className="text-sm font-semibold text-foreground">Write-back</p>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    Orders and payment state sync back into existing merchant systems.
-                  </p>
                 </div>
               </div>
             </div>

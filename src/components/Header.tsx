@@ -11,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { primaryNavItems } from "@/lib/marketing";
+import { merchantSignupPath, primaryNavItems } from "@/lib/marketing";
 
 function normalizePath(pathname: string | null): string {
   if (!pathname) return "/";
@@ -87,6 +87,9 @@ const Header = () => {
           </div>
 
           <div className="hidden items-center gap-3 md:flex">
+            <Button asChild className="btn-hero h-10 px-5 text-sm">
+              <Link href={merchantSignupPath}>Merchant signup</Link>
+            </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -135,6 +138,14 @@ const Header = () => {
                   {item.label}
                 </Link>
               ))}
+
+              <Link
+                href={merchantSignupPath}
+                onClick={() => setIsOpen(false)}
+                className="block rounded-lg bg-primary px-3 py-3 text-center text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                Merchant signup
+              </Link>
 
               <div className="grid grid-cols-2 gap-3 pt-3">
                 <a

@@ -16,35 +16,42 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-dashboard.jpg";
 import networkFlowImage from "@/assets/network-flow.jpg";
 import workflowImage from "@/assets/workflow-steps.jpg";
-import { buildMarketingMetadata, defaultOgDescription, defaultOgTitle, homepageMetaDescription, homepageTitle } from "@/lib/marketing";
+import {
+  buildMarketingMetadata,
+  defaultOgDescription,
+  defaultOgTitle,
+  homepageMetaDescription,
+  homepageTitle,
+  merchantSignupPath,
+} from "@/lib/marketing";
 
 const heroSignals = [
   {
     title: "Merchant discovery",
-    body: "Make catalogs queryable to LLMs and agents.",
+    body: "Queryable catalogs for LLM surfaces.",
   },
   {
     title: "Merchant-native checkout",
-    body: "Route demand into merchant-controlled checkout and payment flows.",
+    body: "Merchant-controlled checkout flows.",
   },
   {
     title: "Payment and write-back",
-    body: "Sync execution state back into existing merchant systems.",
+    body: "Payment-state sync and write-back.",
   },
 ] as const;
 
 const problemPoints = [
   {
     title: "Catalog fragmentation",
-    body: "Product catalogs are fragmented and not agent-ready.",
+    body: "Catalogs are fragmented and not agent-ready.",
   },
   {
     title: "Surface fragmentation",
-    body: "Merchants are not uniformly queryable across agent surfaces.",
+    body: "Merchants are not uniformly queryable.",
   },
   {
     title: "Execution brittleness",
-    body: "Checkout, payments, and post-purchase flows remain brittle for LLM- and agent-initiated transactions.",
+    body: "Checkout and post-purchase flows stay brittle.",
   },
 ] as const;
 
@@ -52,32 +59,32 @@ const pillars = [
   {
     icon: Search,
     title: "Merchant discovery",
-    body: "Make catalogs queryable to LLMs and agents. Structure products, offers, and variants so demand can resolve into an executable merchant path.",
+    body: "Make catalogs queryable and structure products, offers, and variants into an executable merchant path.",
   },
   {
     icon: CreditCard,
     title: "Execution rails",
-    body: "Route demand into merchant-native checkout and payment flows, with order authorization and write-back that keep merchant systems in control.",
+    body: "Route demand into merchant-native checkout and payment flows with order authorization and write-back.",
   },
   {
     icon: RefreshCw,
     title: "Unified infra",
-    body: "Normalize catalogs and offers, sync payment state, route through existing PSPs, and build reliability signals over time.",
+    body: "Normalize offers, sync payment state, route through existing PSPs, and build reliability over time.",
   },
 ] as const;
 
 const valueSignals = [
   {
     title: "More discoverable",
-    body: "Make merchant products easier for LLMs and agents to query across surfaces.",
+    body: "Make merchant products easier to query.",
   },
   {
     title: "More executable",
-    body: "Resolve demand into merchant-native transactions instead of brittle link hops.",
+    body: "Resolve demand into merchant-native transactions.",
   },
   {
     title: "More measurable",
-    body: "Build a clearer execution trail across catalog, checkout, payment, and write-back.",
+    body: "Build a clearer execution trail.",
   },
 ] as const;
 
@@ -85,17 +92,17 @@ const experienceSteps = [
   {
     icon: Network,
     title: "Unified product view",
-    body: "Normalize fragmented product information and variants so the best merchant path is easier to understand and act on.",
+    body: "Normalize fragmented product information into a clearer merchant path.",
   },
   {
     icon: ShieldCheck,
     title: "Confidence layer",
-    body: "Add the context needed to reduce mismatch risk before checkout.",
+    body: "Add context to reduce mismatch risk before checkout.",
   },
   {
     icon: GitBranch,
     title: "Merchant-native checkout",
-    body: "Use merchants’ existing payment rails and systems to improve conversion while keeping execution merchant-native.",
+    body: "Use merchant payment rails and systems while keeping execution merchant-native.",
   },
 ] as const;
 
@@ -171,31 +178,24 @@ export default function Home() {
 
                 <div className="flex flex-wrap gap-4">
                   <Button asChild className="btn-hero h-12 px-6 text-sm">
-                    <Link href="/#contact">
-                      Talk to us
+                    <Link href={merchantSignupPath}>
+                      Merchant signup
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="h-12 px-6 text-sm">
-                    <Link href="/how-it-works">See how it works</Link>
+                    <Link href="/#contact">Talk to us</Link>
                   </Button>
                 </div>
 
-                <p className="max-w-3xl text-sm text-muted-foreground">
-                  Built for merchants that want LLM and agent demand to route into merchant-native
-                  execution.
-                </p>
-
-                <div className="grid gap-4 sm:grid-cols-3">
-                  {heroSignals.map((signal) => (
-                    <div
-                      key={signal.title}
-                      className="rounded-2xl border border-border/70 bg-card/70 p-5 backdrop-blur"
-                    >
-                      <p className="text-sm font-semibold text-foreground">{signal.title}</p>
-                      <p className="mt-2 text-sm leading-6 text-muted-foreground">{signal.body}</p>
-                    </div>
-                  ))}
+                <div className="flex flex-wrap items-center gap-4 text-sm">
+                  <Link href="/how-it-works" className="text-primary hover:underline">
+                    See how it works
+                  </Link>
+                  <span className="text-muted-foreground">
+                    Built for merchants that want agent demand to route into merchant-native
+                    execution.
+                  </span>
                 </div>
               </div>
 
@@ -213,37 +213,22 @@ export default function Home() {
                       src={heroImage}
                       alt="Pivota execution dashboard visualizing merchant-native commerce flows"
                       priority
-                      className="h-full w-full object-cover"
+                      className="h-[420px] w-full object-cover sm:h-[500px]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-
-                    <div className="absolute bottom-0 left-0 right-0 grid gap-3 p-6 sm:grid-cols-2 sm:p-8">
-                      <div className="rounded-2xl border border-white/10 bg-background/80 p-4 backdrop-blur">
-                        <p className="text-xs uppercase tracking-[0.2em] text-primary">
-                          Merchant-native transactions
-                        </p>
-                        <p className="mt-2 text-sm text-foreground">
-                          A shared gateway across catalog, checkout, payment, and post-purchase
-                          systems.
-                        </p>
-                      </div>
-                      <div className="rounded-2xl border border-white/10 bg-background/80 p-4 backdrop-blur">
-                        <p className="text-xs uppercase tracking-[0.2em] text-primary">
-                          LLM and agent traffic
-                        </p>
-                        <p className="mt-2 text-sm text-foreground">
-                          Route demand into merchant systems without rebuilding the merchant stack.
-                        </p>
-                      </div>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
                   </div>
-                </div>
 
-                <div className="absolute -right-3 top-20 hidden w-56 rounded-2xl border border-primary/25 bg-card/90 p-4 shadow-[var(--shadow-neon)] backdrop-blur lg:block">
-                  <p className="text-sm font-semibold text-foreground">Merchant gateway</p>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    One gateway from fragmented demand to merchant-native transactions.
-                  </p>
+                  <div className="mt-4 grid gap-4 sm:grid-cols-3">
+                    {heroSignals.map((signal) => (
+                      <div
+                        key={signal.title}
+                        className="rounded-2xl border border-border/70 bg-background/60 p-4"
+                      >
+                        <p className="text-sm font-semibold text-foreground">{signal.title}</p>
+                        <p className="mt-2 text-sm leading-6 text-muted-foreground">{signal.body}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -436,13 +421,13 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              </div>
 
-              <div className="absolute -left-4 bottom-10 hidden w-56 rounded-2xl border border-primary/20 bg-card/90 p-4 backdrop-blur lg:block">
-                <p className="text-sm font-semibold text-foreground">Lower mismatch risk</p>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                  Add the context needed before checkout while keeping merchant systems in control.
-                </p>
+                <div className="mt-4 rounded-2xl border border-border/70 bg-background/60 p-4">
+                  <p className="text-sm font-semibold text-foreground">Lower mismatch risk</p>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    Add context before checkout while keeping merchant systems in control.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
