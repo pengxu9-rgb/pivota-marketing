@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -139,10 +139,6 @@
   }
   .btn-hero-nav:hover {
     transform: scale(1.02);
-  }
-
-  .font-nav-display {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
   }
 
   .btn-secondary {
