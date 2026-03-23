@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteName = "Pivota";
 export const siteUrl = "https://pivota.cc";
 export const categoryAnchor = "merchant gateway for agent-native commerce";
-export const merchantSignupPath = "/merchant/signup";
+export const merchantSignupPath = "https://merchant.pivota.cc/signup?source=marketing";
 export const lastUpdatedIso = "2026-03-23";
 export const lastUpdatedLabel = "Updated March 23, 2026";
 
