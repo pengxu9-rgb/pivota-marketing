@@ -62,7 +62,7 @@ const Header = () => {
         }`}
       >
         <nav className="container-max flex h-12 items-center justify-between px-4 sm:h-[3.25rem] sm:px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="group flex items-center gap-2">
             <Image
               src="/pivota-logo.png"
               alt="Pivota logo"
@@ -71,7 +71,7 @@ const Header = () => {
               className="h-8 w-8 rounded-lg object-contain"
               priority
             />
-            <span className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-lg font-semibold tracking-tight text-foreground transition-all duration-300 group-hover:text-transparent sm:text-xl">
               Pivota
             </span>
           </Link>
@@ -81,11 +81,15 @@ const Header = () => {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`text-sm font-medium tracking-tight transition-colors ${
-                  item.active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                }`}
+                className="group"
               >
-                {item.label}
+                <span
+                  className={`bg-gradient-to-r from-primary to-accent bg-clip-text text-sm font-medium tracking-tight transition-all duration-300 group-hover:text-transparent ${
+                    item.active ? "text-foreground" : "text-muted-foreground"
+                  }`}
+                >
+                  {item.label}
+                </span>
               </Link>
             ))}
           </div>
@@ -95,10 +99,12 @@ const Header = () => {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="outline"
-                  className="h-8 border-input bg-background/30 px-3.5 text-sm font-medium tracking-tight transition-colors hover:border-primary/50 hover:bg-primary/5"
+                  className="group h-8 border-input bg-background/30 px-3.5 text-sm font-medium tracking-tight text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 hover:text-foreground"
                 >
-                  <LogIn className="mr-2 h-4 w-4" />
-                  Log in
+                  <LogIn className="mr-2 h-4 w-4 transition-colors group-hover:text-primary" />
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text transition-all duration-300 group-hover:text-transparent">
+                    Log in
+                  </span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
