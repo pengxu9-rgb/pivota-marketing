@@ -71,7 +71,7 @@ const Header = () => {
               className="h-8 w-8 rounded-lg object-contain"
               priority
             />
-            <span className="font-nav-display text-sm font-semibold uppercase tracking-[0.28em] text-foreground sm:text-[0.95rem]">
+            <span className="font-nav-display text-[0.95rem] font-semibold uppercase tracking-[0.26em] text-foreground sm:text-[1.02rem]">
               Pivota
             </span>
           </Link>
@@ -81,7 +81,7 @@ const Header = () => {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`font-nav-display text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors ${
+                className={`font-nav-display text-xs font-semibold uppercase tracking-[0.16em] transition-colors ${
                   item.active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -95,7 +95,7 @@ const Header = () => {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="outline"
-                  className="font-nav-display h-8 border-input bg-background/30 px-3.5 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors hover:border-primary/50 hover:bg-primary/5"
+                  className="font-nav-display h-8 border-input bg-background/30 px-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:border-primary/50 hover:bg-primary/5"
                 >
                   <LogIn className="mr-2 h-4 w-4" />
                   Log in
@@ -130,7 +130,7 @@ const Header = () => {
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`font-nav-display block rounded-lg px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors ${
+                  className={`font-nav-display block rounded-lg px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
                     item.active
                       ? "bg-primary/10 text-foreground"
                       : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
@@ -143,13 +143,13 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-3 pt-3">
                 <a
                   href="https://developer.pivota.cc/login"
-                  className="font-nav-display rounded-lg border border-input px-3 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:border-primary/60 hover:bg-primary/5"
+                  className="font-nav-display rounded-lg border border-input px-3 py-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-colors hover:border-primary/60 hover:bg-primary/5"
                 >
                   Developer Login
                 </a>
                 <a
                   href="https://merchant.pivota.cc/login"
-                  className="font-nav-display rounded-lg border border-input px-3 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:border-primary/60 hover:bg-primary/5"
+                  className="font-nav-display rounded-lg border border-input px-3 py-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-colors hover:border-primary/60 hover:bg-primary/5"
                 >
                   Merchant Login
                 </a>
