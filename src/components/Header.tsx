@@ -61,7 +61,7 @@ const Header = () => {
             : "border-transparent bg-background/78 backdrop-blur-md"
         }`}
       >
-        <nav className="container-max flex h-14 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <nav className="container-max flex h-12 items-center justify-between px-4 sm:h-[3.25rem] sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/pivota-logo.png"
@@ -71,15 +71,17 @@ const Header = () => {
               className="h-8 w-8 rounded-lg object-contain"
               priority
             />
-            <span className="text-lg font-semibold tracking-tight text-foreground">Pivota</span>
+            <span className="font-nav-display text-sm font-semibold uppercase tracking-[0.28em] text-foreground sm:text-[0.95rem]">
+              Pivota
+            </span>
           </Link>
 
-          <div className="hidden items-center gap-5 lg:flex">
+          <div className="hidden items-center gap-4 lg:flex">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`font-nav-display text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors ${
                   item.active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -93,7 +95,7 @@ const Header = () => {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="outline"
-                  className="h-9 border-input bg-background/30 px-4 transition-colors hover:border-primary/50 hover:bg-primary/5"
+                  className="font-nav-display h-8 border-input bg-background/30 px-3.5 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors hover:border-primary/50 hover:bg-primary/5"
                 >
                   <LogIn className="mr-2 h-4 w-4" />
                   Log in
@@ -128,7 +130,7 @@ const Header = () => {
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`font-nav-display block rounded-lg px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors ${
                     item.active
                       ? "bg-primary/10 text-foreground"
                       : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
@@ -141,13 +143,13 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-3 pt-3">
                 <a
                   href="https://developer.pivota.cc/login"
-                  className="rounded-lg border border-input px-3 py-3 text-center text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:bg-primary/5"
+                  className="font-nav-display rounded-lg border border-input px-3 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:border-primary/60 hover:bg-primary/5"
                 >
                   Developer Login
                 </a>
                 <a
                   href="https://merchant.pivota.cc/login"
-                  className="rounded-lg border border-input px-3 py-3 text-center text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:bg-primary/5"
+                  className="font-nav-display rounded-lg border border-input px-3 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:border-primary/60 hover:bg-primary/5"
                 >
                   Merchant Login
                 </a>

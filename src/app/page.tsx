@@ -12,14 +12,14 @@ import heroImage from "@/assets/hero-dashboard.jpg";
 import workflowImage from "@/assets/workflow-steps.jpg";
 import {
   buildMarketingMetadata,
-  coreAnswerBlock,
   defaultOgDescription,
   defaultOgTitle,
   homepageFaqItems,
+  homepageFaqPreviewItems,
+  homepageHeroAnswerBlock,
   homepageMetaDescription,
   homepageResultStatements,
   homepageTitle,
-  lastUpdatedLabel,
   merchantSignupPath,
   routePaths,
 } from "@/lib/marketing";
@@ -51,30 +51,27 @@ export default function Home() {
       <JsonLd id="homepage-faq-jsonld" data={homepageFaqJsonLd} />
 
       <main className="overflow-hidden">
-        <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-card pt-4 sm:pt-6">
+        <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-card pt-1 sm:pt-2">
           <div className="bg-site-grid absolute inset-0 opacity-20" />
           <div className="absolute left-[8%] top-14 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
           <div className="absolute right-[10%] top-8 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
 
           <div className="section-padding relative">
-            <div className="container-max grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-              <div className="space-y-6">
+            <div className="container-max grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+              <div className="space-y-5">
                 <div className="flex flex-wrap items-center gap-3 text-sm">
                   <span className="rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 uppercase tracking-[0.2em] text-primary">
                     Agent-native commerce infrastructure
                   </span>
-                  <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                    {lastUpdatedLabel}
-                  </span>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                     The merchant gateway for agent-native commerce.
                   </h1>
                   <AnswerBlock className="max-w-3xl">
-                    <p>{coreAnswerBlock[0]}</p>
-                    <p className="mt-2">{coreAnswerBlock[1]}</p>
+                    <p>{homepageHeroAnswerBlock[0]}</p>
+                    <p className="mt-2">{homepageHeroAnswerBlock[1]}</p>
                   </AnswerBlock>
                 </div>
 
@@ -109,7 +106,7 @@ export default function Home() {
                     src={heroImage}
                     alt="Pivota dashboard for merchant-native transactions"
                     priority
-                    className="h-[280px] w-full object-cover sm:h-[340px] lg:h-[380px]"
+                    className="h-[240px] w-full object-cover sm:h-[300px] lg:h-[340px]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/15 to-transparent" />
                   <div className="absolute bottom-4 left-4 rounded-2xl border border-white/10 bg-background/80 px-4 py-3 backdrop-blur">
@@ -124,7 +121,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="container-max mt-8 grid gap-4 lg:grid-cols-3">
+            <div className="container-max mt-6 grid gap-4 lg:grid-cols-3">
               {homepageResultStatements.map((item) => (
                 <div key={item.title} className="section-frame px-5 py-5">
                   <p className="text-sm font-semibold text-foreground">{item.title}</p>
@@ -182,8 +179,8 @@ export default function Home() {
         </section>
 
         <section className="section-padding bg-gradient-to-b from-background to-card">
-          <div className="container-max space-y-8">
-            <div className="space-y-4">
+          <div className="container-max space-y-6">
+            <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.18em] text-primary">How it works</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 One execution path from demand to merchant-native transactions.
@@ -222,19 +219,19 @@ export default function Home() {
         </section>
 
         <section className="section-padding bg-gradient-to-b from-card to-background">
-          <div className="container-max space-y-8">
-            <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.18em] text-primary">Visible answers</p>
+          <div className="container-max space-y-6">
+            <div className="space-y-3">
+              <p className="text-sm uppercase tracking-[0.18em] text-primary">Common questions</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Five questions this site answers directly in HTML.
+                Five short answers for merchants and AI systems.
               </h2>
               <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                These answer blocks stay visible, crawlable, and consistent with the category
-                definition.
+                Short answers stay readable on the page, while fuller category definitions remain
+                available in the FAQ, metadata, and structured HTML.
               </p>
             </div>
 
-            <QuestionAnswerList items={homepageFaqItems} columns={2} />
+            <QuestionAnswerList items={homepageFaqPreviewItems} columns={2} />
 
             <div className="flex flex-wrap gap-4 text-sm">
               <Link href={routePaths.faq} className="inline-flex items-center text-primary hover:underline">

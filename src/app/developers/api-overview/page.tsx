@@ -8,7 +8,6 @@ import PageChrome from "@/components/PageChrome";
 import { Button } from "@/components/ui/button";
 import {
   buildMarketingMetadata,
-  lastUpdatedLabel,
   routePaths,
 } from "@/lib/marketing";
 import { buildBreadcrumbJsonLd, buildSoftwareApplicationJsonLd } from "@/lib/schema";
@@ -74,14 +73,13 @@ export default function ApiOverviewPage() {
           <div className="bg-site-grid absolute inset-0 opacity-15" />
 
           <div className="section-padding relative">
-            <div className="container-max space-y-8">
+            <div className="container-max space-y-6">
               <PageChrome
                 items={[
                   { label: "Home", href: routePaths.home },
                   { label: "Docs", href: routePaths.developers },
                   { label: "API overview" },
                 ]}
-                updatedLabel={lastUpdatedLabel}
               />
 
               <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">

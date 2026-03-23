@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -141,6 +141,10 @@
     transform: scale(1.02);
   }
 
+  .font-nav-display {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+  }
+
   .btn-secondary {
     @apply bg-secondary/20 border border-secondary text-secondary font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary/30 hover:scale-105;
   }
@@ -193,7 +197,7 @@
 
   /* Section Spacing */
   .section-padding {
-    @apply py-14 px-4 sm:px-6 lg:px-8;
+    @apply px-4 py-10 sm:px-6 sm:py-11 lg:px-8 lg:py-12;
   }
 
   .container-max {

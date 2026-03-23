@@ -8,7 +8,6 @@ import PageChrome from "@/components/PageChrome";
 import { Button } from "@/components/ui/button";
 import {
   buildMarketingMetadata,
-  lastUpdatedLabel,
   routePaths,
   useCases,
 } from "@/lib/marketing";
@@ -37,13 +36,12 @@ export default function UseCasesPage() {
           <div className="bg-site-grid absolute inset-0 opacity-15" />
 
           <div className="section-padding relative">
-            <div className="container-max space-y-8">
+            <div className="container-max space-y-6">
               <PageChrome
                 items={[
                   { label: "Home", href: routePaths.home },
                   { label: "Use cases" },
                 ]}
-                updatedLabel={lastUpdatedLabel}
               />
 
               <div className="space-y-5">

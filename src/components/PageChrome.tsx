@@ -16,12 +16,12 @@ type PageChromeItem = {
 
 type PageChromeProps = {
   items: PageChromeItem[];
-  updatedLabel: string;
+  updatedLabel?: string;
 };
 
-const PageChrome = ({ items, updatedLabel }: PageChromeProps) => {
+const PageChrome = ({ items }: PageChromeProps) => {
   return (
-    <div className="flex flex-col gap-3 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+    <div className="text-sm text-muted-foreground">
       <Breadcrumb>
         <BreadcrumbList>
           {items.map((item, index) => (
@@ -40,7 +40,6 @@ const PageChrome = ({ items, updatedLabel }: PageChromeProps) => {
           ))}
         </BreadcrumbList>
       </Breadcrumb>
-      <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{updatedLabel}</p>
     </div>
   );
 };

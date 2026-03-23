@@ -5,7 +5,6 @@ import { getAllPosts } from "@/lib/blog";
 import {
   buildMarketingMetadata,
   demotedBlogSlugs,
-  lastUpdatedLabel,
   routePaths,
 } from "@/lib/marketing";
 
@@ -26,13 +25,12 @@ export default async function BlogIndex() {
       <div className="bg-site-grid absolute inset-0 opacity-15" />
 
       <div className="section-padding relative">
-        <div className="container-max space-y-8">
+        <div className="container-max space-y-6">
           <PageChrome
             items={[
               { label: "Home", href: routePaths.home },
               { label: "Blog" },
             ]}
-            updatedLabel={lastUpdatedLabel}
           />
 
           <section className="max-w-4xl space-y-5">

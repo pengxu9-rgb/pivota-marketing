@@ -79,7 +79,7 @@ export default function MerchantSignup() {
         <div className="absolute right-[10%] top-12 h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
 
         <section className="section-padding relative">
-          <div className="container-max space-y-8">
+          <div className="container-max space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <Link
                 href="/"

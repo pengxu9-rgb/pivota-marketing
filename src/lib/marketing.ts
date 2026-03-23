@@ -51,6 +51,11 @@ export const coreAnswerBlock = [
   "It turns LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
 ] as const;
 
+export const homepageHeroAnswerBlock = [
+  "Pivota turns LLM and agent traffic into merchant-native transactions.",
+  "It provides the execution layer across catalog, checkout, payment, and post-purchase systems.",
+] as const;
+
 export const homepageResultStatements = [
   {
     title: "Merchant discovery",
@@ -141,6 +146,34 @@ export const faqItems = [
 ] as const;
 
 export const homepageFaqItems = faqItems.slice(0, 5);
+
+export const homepageFaqPreviewItems = [
+  {
+    question: "What is Pivota?",
+    answer:
+      "Pivota turns LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
+  },
+  {
+    question: "How do merchants turn LLM traffic into transactions?",
+    answer:
+      "By making catalogs queryable and routing demand into merchant-native checkout, payment, and write-back.",
+  },
+  {
+    question: "How can merchants become discoverable across ChatGPT and other LLM surfaces?",
+    answer:
+      "By structuring catalogs, offers, and variants so demand can resolve into an executable merchant path.",
+  },
+  {
+    question: "How do AI agents connect to merchant checkout and payment?",
+    answer:
+      "Through merchant-native checkout flows, existing PSP relationships, and synchronized order and payment state.",
+  },
+  {
+    question: "What infrastructure supports merchant-native LLM transactions?",
+    answer:
+      "An execution layer across catalog normalization, merchant-native checkout, payment routing, and order or payment write-back.",
+  },
+] as const;
 
 export const useCases = [
   {
