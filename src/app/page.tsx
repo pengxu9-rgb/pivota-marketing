@@ -162,6 +162,11 @@ export default function Home() {
                   className="h-[260px] w-full object-cover sm:h-[320px]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+                <div className="absolute left-4 top-4 rounded-2xl border border-white/10 bg-background/80 px-4 py-3 backdrop-blur">
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-primary">
+                    Celestial Pivot Engine
+                  </p>
+                </div>
               </div>
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {[
