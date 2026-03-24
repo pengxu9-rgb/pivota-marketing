@@ -15,7 +15,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/schema";
 export const metadata = buildMarketingMetadata({
   title: "About Pivota | Merchant Gateway for Agent-Native Commerce",
   description:
-    "Pivota is building the merchant gateway for agent-native commerce. Our focus is simple: help merchants turn LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
+    "Pivota is the merchant gateway for agent-native commerce. Pivota is building the execution layer that helps merchants turn LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
   path: routePaths.about,
 });
 
@@ -74,12 +74,12 @@ export default function AboutPage() {
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      Pivota is building the merchant gateway for agent-native commerce.
+                      Pivota is the merchant gateway for agent-native commerce.
                     </p>
                     <p className="mt-2">
-                      Our focus is simple: help merchants turn LLM and agent traffic into
-                      merchant-native transactions across catalog, checkout, payment, and
-                      post-purchase systems.
+                      Pivota is building the execution layer that helps merchants turn LLM and
+                      agent traffic into merchant-native transactions across catalog, checkout,
+                      payment, and post-purchase systems.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">

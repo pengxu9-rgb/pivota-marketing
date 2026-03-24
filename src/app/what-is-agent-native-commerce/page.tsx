@@ -81,6 +81,10 @@ export default function WhatIsAgentNativeCommercePage() {
                       checkout, payment, and post-purchase systems.
                     </p>
                   </AnswerBlock>
+                  <p className="max-w-3xl text-sm leading-7 text-foreground/90">
+                    Shopify is merchants&apos; shopping layer for search. Pivota is merchants&apos;
+                    gateway for LLMs and agents.
+                  </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
                       <Link href={routePaths.merchantGateway}>

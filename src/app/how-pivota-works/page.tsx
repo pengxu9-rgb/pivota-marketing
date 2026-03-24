@@ -53,7 +53,7 @@ const merchantControls = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "How Pivota Works | Merchant Gateway for LLM and Agent Transactions",
+  title: "How Pivota Works | Pivota Merchant Gateway for Agent-Native Commerce",
   description:
     "Pivota connects agent-native demand to merchant-native execution through a shared gateway across catalog, checkout, payment, and post-purchase systems.",
   path: routePaths.howPivotaWorks,
@@ -101,6 +101,10 @@ export default function HowPivotaWorksPage() {
                       to measurement, while merchant systems stay in control.
                     </p>
                   </AnswerBlock>
+                  <p className="max-w-3xl text-sm leading-7 text-foreground/90">
+                    Shopify is merchants&apos; shopping layer for search. Pivota is merchants&apos;
+                    gateway for LLMs and agents.
+                  </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
                       <Link href={merchantSignupPath}>

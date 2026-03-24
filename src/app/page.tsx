@@ -73,6 +73,10 @@ export default function Home() {
                     <p>{homepageHeroAnswerBlock[0]}</p>
                     <p className="mt-2">{homepageHeroAnswerBlock[1]}</p>
                   </AnswerBlock>
+                  <p className="max-w-3xl text-sm leading-7 text-foreground/90">
+                    Shopify is merchants&apos; shopping layer for search. Pivota is merchants&apos;
+                    gateway for LLMs and agents.
+                  </p>
                 </div>
 
                 <div className="flex flex-wrap gap-3">
