@@ -112,7 +112,8 @@ export default function DevelopersPage() {
                   </div>
                   <p className="mt-4 text-sm leading-7 text-muted-foreground">
                     Core definitions, workflow explanations, and API framing stay public so LLMs,
-                    agents, and human readers can inspect the execution model directly in raw HTML.
+                    agents, and human readers can inspect the execution model behind agentic
+                    commerce directly in raw HTML.
                   </p>
                   <div className="mt-5 flex flex-wrap gap-4 text-sm">
                     <Link href={routePaths.merchantGateway} className="text-primary hover:underline">

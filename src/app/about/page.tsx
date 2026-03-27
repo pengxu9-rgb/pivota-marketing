@@ -125,8 +125,9 @@ export default function AboutPage() {
               </h2>
               <p className="mt-4 text-base leading-8 text-muted-foreground">
                 LLMs and agents can generate demand, but merchant execution still lacks a reliable
-                middle layer. The long-term opportunity is not just traffic generation. It is
-                creating the gateway that makes agent-native commerce work for merchants.
+                middle layer. Agentic commerce only becomes credible for merchants when execution
+                stays merchant-native. The long-term opportunity is not just traffic generation. It
+                is creating the gateway that makes agent-native commerce work for merchants.
               </p>
             </div>
 
@@ -138,6 +139,8 @@ export default function AboutPage() {
               <p className="mt-4 text-base leading-8 text-muted-foreground">
                 Pivota is building the execution layer across catalog normalization,
                 merchant-native checkout, payment orchestration, and order or payment write-back.
+                In market language, that is the infrastructure layer behind agentic commerce for
+                merchants.
               </p>
             </div>
           </div>

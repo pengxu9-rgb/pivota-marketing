@@ -103,7 +103,8 @@ export default function HowPivotaWorksPage() {
                   </AnswerBlock>
                   <p className="max-w-3xl text-sm leading-7 text-foreground/90">
                     Shopify is merchants&apos; shopping layer for search. Pivota is merchants&apos;
-                    gateway for LLMs and agents.
+                    gateway for LLMs and agents, and this is how agentic commerce becomes
+                    executable and measurable for merchants.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
@@ -141,6 +142,10 @@ export default function HowPivotaWorksPage() {
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                     Demand to discovery to execution to checkout to payment to measurement
                   </h2>
+                  <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                    This sequence is the merchant-controlled workflow that turns agentic commerce
+                    into an execution model instead of a buzzword.
+                  </p>
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

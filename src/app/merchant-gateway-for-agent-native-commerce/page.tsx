@@ -103,6 +103,9 @@ export default function MerchantGatewayCategoryPage() {
                     Shopify is merchants&apos; shopping layer for search. Pivota is merchants&apos;
                     gateway for LLMs and agents.
                   </p>
+                  <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                    In brand-facing language, this is the execution layer behind agentic commerce.
+                  </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
                       <Link href={merchantSignupPath}>
@@ -148,6 +151,11 @@ export default function MerchantGatewayCategoryPage() {
                     <p className="text-foreground/90">
                       The missing layer is a merchant gateway that merchants and agents can
                       reliably route through.
+                    </p>
+                    <p>
+                      In market language, that is the infrastructure layer that makes agentic
+                      commerce executable for merchants instead of leaving demand stranded at the
+                      interface layer.
                     </p>
                   </div>
                 </div>

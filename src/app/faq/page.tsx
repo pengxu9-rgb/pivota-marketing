@@ -20,7 +20,7 @@ import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/schema";
 export const metadata = buildMarketingMetadata({
   title: "FAQ | Pivota Merchant Gateway for Agent-Native Commerce",
   description:
-    "Answers about the merchant gateway for agent-native commerce, merchant-native transactions, and how Pivota fits into merchant systems.",
+    "Answers about the merchant gateway for agent-native commerce, agentic commerce, merchant-native transactions, and how Pivota fits into merchant systems.",
   path: routePaths.faq,
 });
 
@@ -103,8 +103,8 @@ export default function FaqPage() {
                     More questions
                   </h2>
                   <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                    The full FAQ keeps the same anchor language while expanding on comparison,
-                    measurement, and systems boundaries.
+                    The full FAQ keeps the same anchor language while expanding on agentic
+                    commerce, comparison, measurement, and systems boundaries.
                   </p>
                 </div>
                 <Accordion type="single" collapsible>
@@ -119,6 +119,15 @@ export default function FaqPage() {
                     </AccordionItem>
                   ))}
                 </Accordion>
+              </div>
+
+              <div className="flex flex-wrap gap-4 text-sm">
+                <Link href={routePaths.whatIsAgenticCommerce} className="text-primary hover:underline">
+                  What is agentic commerce?
+                </Link>
+                <Link href={routePaths.whatIsAgentNativeCommerce} className="text-primary hover:underline">
+                  What is agent-native commerce?
+                </Link>
               </div>
             </div>
           </div>

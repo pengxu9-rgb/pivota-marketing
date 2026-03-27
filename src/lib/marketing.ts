@@ -9,6 +9,7 @@ export const lastUpdatedLabel = "Updated March 23, 2026";
 
 export const routePaths = {
   home: "/",
+  whatIsAgenticCommerce: "/what-is-agentic-commerce",
   whatIsAgentNativeCommerce: "/what-is-agent-native-commerce",
   merchantGateway: "/merchant-gateway-for-agent-native-commerce",
   howPivotaWorks: "/how-pivota-works",
@@ -124,6 +125,21 @@ export const faqItems = [
       "Pivota is the merchant gateway for agent-native commerce. It provides the execution layer across catalog normalization, merchant-native checkout, payment routing, and order or payment write-back.",
   },
   {
+    question: "What is agentic commerce?",
+    answer:
+      "Pivota is the merchant gateway for agent-native commerce, and agentic commerce is the broader market term for commerce shaped by LLMs and agents. For merchants, that broader shift only becomes useful when demand can resolve into merchant-native transactions.",
+  },
+  {
+    question: "How is agentic commerce different from agent-native commerce?",
+    answer:
+      "Pivota is the merchant gateway for agent-native commerce, which is the more specific execution and category framing. Agentic commerce is the broader market term, while agent-native commerce describes the merchant-controlled path that connects demand to catalog, checkout, payment, and post-purchase systems.",
+  },
+  {
+    question: "What infrastructure supports agentic commerce for merchants?",
+    answer:
+      "Pivota is the merchant gateway for agent-native commerce, so it provides the execution layer that makes agentic commerce work for merchants. That layer spans catalog queryability, merchant-native checkout, payment routing, payment-state sync, and order or payment write-back.",
+  },
+  {
     question: "How can merchants measure transactions from AI agents?",
     answer:
       "Pivota is the merchant gateway for agent-native commerce, so measurement is tied to execution rather than to vague traffic alone. Catalog events, checkout progress, payment state, and write-back create a clearer merchant transaction pathway.",
@@ -179,7 +195,7 @@ export const useCases = [
   {
     slug: "merchant-discovery",
     title: "Merchant discovery across LLM surfaces",
-    prompt: "How can merchants become discoverable across ChatGPT and other LLM surfaces?",
+    prompt: "How can merchants become discoverable across ChatGPT and other LLM surfaces in agentic commerce?",
     summary:
       "Pivota is the merchant gateway for agent-native commerce, so it helps merchants structure catalogs, offers, and variants into a clearer merchant discovery layer for LLM and agent traffic.",
   },
@@ -193,7 +209,7 @@ export const useCases = [
   {
     slug: "payment-and-write-back",
     title: "Payment routing and execution write-back",
-    prompt: "What infrastructure supports merchant-native LLM transactions?",
+    prompt: "What infrastructure supports agentic commerce for merchants?",
     summary:
       "Pivota is the merchant gateway for agent-native commerce, and it keeps payment-state sync, order authorization, and write-back connected to merchant systems.",
   },

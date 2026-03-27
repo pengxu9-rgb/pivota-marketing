@@ -152,6 +152,10 @@ export default function Home() {
                 The missing layer is a merchant gateway that LLMs and agents can reliably route
                 through.
               </p>
+              <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
+                For merchants, agentic commerce only works when demand routes into merchant-native
+                transactions.
+              </p>
             </div>
 
             <div className="section-frame overflow-hidden p-3 sm:p-4">
@@ -249,6 +253,9 @@ export default function Home() {
               </Link>
               <Link href={routePaths.whatIsAgentNativeCommerce} className="text-primary hover:underline">
                 What is agent-native commerce?
+              </Link>
+              <Link href={routePaths.whatIsAgenticCommerce} className="text-primary hover:underline">
+                What is agentic commerce?
               </Link>
             </div>
           </div>

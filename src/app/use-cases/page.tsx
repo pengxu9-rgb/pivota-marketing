@@ -16,7 +16,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/schema";
 export const metadata = buildMarketingMetadata({
   title: "Use Cases | Pivota Merchant Gateway for Agent-Native Commerce",
   description:
-    "Use cases for the merchant gateway for agent-native commerce across merchant discovery, merchant-native checkout, payment routing, write-back, and measurement.",
+    "Use cases for the merchant gateway for agent-native commerce across merchant discovery, merchant-native checkout, payment routing, write-back, and measurement in agentic commerce.",
   path: routePaths.useCases,
 });
 
@@ -56,7 +56,11 @@ export default function UseCasesPage() {
                   <p className="mt-2">
                     These use cases show how the gateway supports merchant discovery,
                     merchant-native checkout, payment routing, write-back, and measurement across
-                    LLM surfaces.
+                    LLM surfaces in agentic commerce.
+                  </p>
+                  <p className="mt-2">
+                    In merchant-facing language, these are the execution patterns that make
+                    agentic commerce workable for brands and merchants.
                   </p>
                 </AnswerBlock>
               </div>

@@ -5,7 +5,7 @@ import { routePaths } from "@/lib/marketing";
 export const metadata: Metadata = {
   title: "Creator agents still need a merchant gateway | Pivota",
   description:
-    "Creator-facing agents can generate demand, but they still need a merchant gateway that routes agent-native demand into merchant-native transactions.",
+    "What agentic commerce means for creator agents, and why they still need a merchant gateway that routes agent-native demand into merchant-native transactions.",
   alternates: {
     canonical: "/blog/agentic-commerce-creators-own-amazon",
     languages: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Creator agents still need a merchant gateway | Pivota",
     description:
-      "Creator-facing agents can generate demand, but they still need a merchant gateway that routes agent-native demand into merchant-native transactions.",
+      "What agentic commerce means for creator agents, and why they still need a merchant gateway that routes agent-native demand into merchant-native transactions.",
     images: [{ url: "/og-home.svg", width: 1200, height: 630 }],
     type: "article",
   },
@@ -53,9 +53,9 @@ export default function CreatorsOwnAmazonPost() {
           </p>
 
           <p>
-            Creator-facing agents can become important entry points across LLM surfaces, but an
-            entry point is not the same thing as execution. Demand still has to resolve into
-            merchant-native transactions across catalog, checkout, payment, and post-purchase
+            In market language, creator agents are one surface inside agentic commerce. But the
+            product category is more specific: merchants still need a gateway that turns demand
+            into merchant-native transactions across catalog, checkout, payment, and post-purchase
             systems.
           </p>
 

@@ -11,7 +11,7 @@ import {
 export const metadata = buildMarketingMetadata({
   title: "Blog | Pivota Merchant Gateway for Agent-Native Commerce",
   description:
-    "Notes on the merchant gateway for agent-native commerce, merchant-native transactions, and the execution layer behind LLM and agent traffic.",
+    "Notes on the merchant gateway for agent-native commerce, what agentic commerce means for merchants, and the execution layer behind LLM and agent traffic.",
   path: routePaths.blog,
 });
 
@@ -40,14 +40,22 @@ export default async function BlogIndex() {
             </h1>
             <AnswerBlock className="max-w-3xl">
               <p>
-                Notes on the merchant gateway for agent-native commerce, merchant-native
-                transactions, and the execution layer behind LLM and agent traffic.
+                Notes on the merchant gateway for agent-native commerce, what agentic commerce
+                means for merchants, and the execution layer behind LLM and agent traffic.
               </p>
             </AnswerBlock>
             <p className="text-sm text-muted-foreground">
               Start with{" "}
               <Link href={routePaths.merchantGateway} className="text-primary hover:underline">
                 what a merchant gateway is
+              </Link>
+              , read{" "}
+              <Link href={routePaths.whatIsAgenticCommerce} className="text-primary hover:underline">
+                what agentic commerce means for merchants
+              </Link>
+              , see{" "}
+              <Link href={routePaths.whatIsAgentNativeCommerce} className="text-primary hover:underline">
+                what agent-native commerce means
               </Link>
               , see{" "}
               <Link href={routePaths.howPivotaWorks} className="text-primary hover:underline">

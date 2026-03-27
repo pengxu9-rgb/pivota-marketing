@@ -105,8 +105,9 @@ export default function MerchantNativeCheckoutPage() {
                       checkout and payment flows.
                     </p>
                     <p className="mt-2">
-                      Merchant-native checkout keeps the transaction path inside merchant-controlled
-                      systems instead of forcing merchants into a separate marketplace-owned flow.
+                      In agentic commerce, merchant-native checkout keeps the official checkout path
+                      inside merchant-controlled systems instead of forcing merchants into a
+                      separate marketplace-owned flow.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">

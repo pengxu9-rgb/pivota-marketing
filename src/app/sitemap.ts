@@ -5,6 +5,7 @@ import { demotedBlogSlugs, lastUpdatedIso, routePaths, siteUrl } from "@/lib/mar
 
 const primaryRoutes = [
   { path: "/", changeFrequency: "weekly" as const, priority: 1 },
+  { path: routePaths.whatIsAgenticCommerce, changeFrequency: "weekly" as const, priority: 0.8 },
   { path: routePaths.whatIsAgentNativeCommerce, changeFrequency: "weekly" as const, priority: 0.9 },
   { path: routePaths.merchantGateway, changeFrequency: "weekly" as const, priority: 0.95 },
   { path: routePaths.howPivotaWorks, changeFrequency: "weekly" as const, priority: 0.9 },

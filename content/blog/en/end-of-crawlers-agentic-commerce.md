@@ -1,7 +1,7 @@
 ---
 id: end-of-crawlers
 title: "Why merchant gateways need APIs instead of crawlers | Pivota"
-description: "Why scraping and browser automation fail for the merchant gateway for agent-native commerce, and why structured APIs, permissions, and payment rails matter."
+description: "Why agentic commerce still needs the merchant gateway for agent-native commerce instead of scraping, browser automation, and brittle website flows."
 date: 2025-11-14
 author: "Pivota Engineering"
 tags: ["MCP", "ACP", "AP2", "Agentic Commerce", "Crawlers"]
@@ -11,6 +11,8 @@ ogImage: /og-developers.svg
 *By Pivota Engineering*
 
 Pivota is the **merchant gateway for agent-native commerce**. That category only works if the execution layer is built on structured APIs, merchant permissions, and payment rails instead of crawling websites or automating browsers.
+
+In market language, this is the execution layer behind **agentic commerce** for merchants.
 
 AI agents are evolving from chat interfaces into **autonomous economic actors**.
 
@@ -29,7 +31,7 @@ To actually scale, agents need:
 - **A verifiable identity and permission layer**
 - **Machine-native, programmable payment rails**
 
-This article explains why the legacy web-scraping model is collapsing, how **MCP, ACP, and AP2** form the technical foundation of the next-generation agentic economy, and how **Pivota** sits in the middle as the **clearing layer** of this emerging world.
+This article explains why the legacy web-scraping model is collapsing, how **MCP, ACP, and AP2** form the technical foundation of agentic commerce, and how **Pivota** sits in the middle as the merchant gateway that turns agent demand into merchant-native transactions.
 
 ⸻
 

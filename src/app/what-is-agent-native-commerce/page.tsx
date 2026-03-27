@@ -34,7 +34,7 @@ const merchantNeeds = [
 export const metadata = buildMarketingMetadata({
   title: "What Is Agent-Native Commerce? | Pivota Merchant Gateway",
   description:
-    "Agent-native commerce is commerce initiated by LLMs and agents. Pivota is the merchant gateway for agent-native commerce, turning LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
+    "Agent-native commerce is commerce initiated by LLMs and agents. Agentic commerce is the broader market term, and Pivota is the merchant gateway for agent-native commerce, turning LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
   path: routePaths.whatIsAgentNativeCommerce,
 });
 
@@ -137,7 +137,32 @@ export default function WhatIsAgentNativeCommercePage() {
               </div>
 
               <div className="section-frame px-6 py-6 sm:px-7">
+                <div className="space-y-3">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                    Term relationship
+                  </p>
+                  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                    How agentic commerce relates to agent-native commerce
+                  </h2>
+                  <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                    Agentic commerce is the broader market term for commerce shaped by LLMs, AI
+                    agents, and agent-mediated demand. It describes the shift in interface and
+                    user behavior.
+                  </p>
+                  <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                    Agent-native commerce is the more precise execution framing. It describes how
+                    that demand becomes merchant-native transactions across catalog, checkout,
+                    payment, and post-purchase systems. Pivota&apos;s category is the merchant
+                    gateway for agent-native commerce.
+                  </p>
+                </div>
+              </div>
+
+              <div className="section-frame px-6 py-6 sm:px-7">
                 <div className="flex flex-wrap gap-4 text-sm">
+                  <Link href={routePaths.whatIsAgenticCommerce} className="text-primary hover:underline">
+                    What is agentic commerce?
+                  </Link>
                   <Link href={routePaths.merchantGateway} className="text-primary hover:underline">
                     Merchant gateway definition
                   </Link>

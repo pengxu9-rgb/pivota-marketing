@@ -1,7 +1,7 @@
 ---
 id: agentic-commerce-creators-own-amazon
 title: "Creator agents still need a merchant gateway"
-description: "Creator-facing agents can generate demand, but they still need a merchant gateway that routes agent-native demand into merchant-native transactions."
+description: "What agentic commerce means for creator agents, and why they still need a merchant gateway that routes agent-native demand into merchant-native transactions."
 date: 2025-12-05
 author: "Pivota Team"
 tags: ["Agentic Commerce", "Creators", "Influencers", "KOLs", "Monetization", "AI Agents"]
@@ -11,6 +11,8 @@ ogImage: /og-merchants.svg
 **By Pivota Marketing**
 
 # Turning Creators into Their Own Amazon in Agentic Era
+
+Pivota is the **merchant gateway for agent-native commerce**. In market language, creator agents are one surface inside **agentic commerce**. But the product category is more specific: merchants still need a gateway that turns demand into merchant-native transactions.
 
 For the last two decades, Amazon has done one big thing extremely well:
 

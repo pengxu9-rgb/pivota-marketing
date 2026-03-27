@@ -30,6 +30,20 @@ export const promptRegistry = [
     ],
   },
   {
+    topic: "Agentic commerce education",
+    anchor: "agentic commerce",
+    primaryPage: routePaths.whatIsAgenticCommerce,
+    secondaryPage: routePaths.whatIsAgentNativeCommerce,
+    faqSurface: routePaths.faq,
+    prompts: [
+      "What is agentic commerce?",
+      "How is agentic commerce different from agent-native commerce?",
+      "What infrastructure supports agentic commerce for merchants?",
+      "What does agentic commerce mean for merchants?",
+      "What makes agentic commerce work for merchants?",
+    ],
+  },
+  {
     topic: "Merchant problem",
     anchor: "merchant-native transactions",
     primaryPage: routePaths.home,
