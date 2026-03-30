@@ -5,6 +5,7 @@ export const siteUrl = "https://pivota.cc";
 export const categoryAnchor = "merchant gateway for agent-native commerce";
 export const merchantSignupPath = "https://merchant.pivota.cc/signup?source=marketing";
 export const aiReadinessSignupPath = "/merchant/signup/ai-readiness";
+export const auroraUrl = "https://aurora.pivota.cc";
 export const lastUpdatedIso = "2026-03-23";
 export const lastUpdatedLabel = "Updated March 23, 2026";
 
@@ -74,6 +75,23 @@ export const homepageResultStatements = [
   {
     title: "Measurement and write-back",
     body: "Keep execution state measurable across catalog, checkout, payment, and post-purchase systems.",
+  },
+] as const;
+
+export const productCards = [
+  {
+    title: "Pivota Gateway",
+    eyebrow: undefined,
+    body: "Merchant gateway for LLM- and agent-driven commerce.",
+    ctaLabel: "Learn more",
+    href: "#pivota-gateway-details",
+  },
+  {
+    title: "Custom Brand Agent",
+    eyebrow: "Powered by Aurora on Pivota.",
+    body: "Launch a branded AI shopping experience with your own UI, recommendations, and merchant-native checkout.",
+    ctaLabel: "Explore Aurora",
+    href: auroraUrl,
   },
 ] as const;
 

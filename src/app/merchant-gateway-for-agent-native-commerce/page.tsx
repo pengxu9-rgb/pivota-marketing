@@ -11,6 +11,7 @@ import {
   buildMarketingMetadata,
   comparisonRows,
   merchantSignupPath,
+  productCards,
   routePaths,
 } from "@/lib/marketing";
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
@@ -162,6 +163,52 @@ export default function MerchantGatewayCategoryPage() {
               </div>
 
               <div className="space-y-5">
+                <div className="space-y-2">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">Products</p>
+                  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                    Core gateway plus application layer
+                  </h2>
+                  <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                    Pivota Gateway is the core merchant gateway product. Custom Brand Agent is an
+                    application-layer product powered by Aurora on Pivota.
+                  </p>
+                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                  {productCards.map((card) => {
+                    const href = card.href;
+                    const isExternal = href.startsWith("https://");
+
+                    return (
+                      <article key={card.title} className="section-frame px-5 py-5">
+                        {card.eyebrow ? (
+                          <p className="text-xs uppercase tracking-[0.16em] text-primary">
+                            {card.eyebrow}
+                          </p>
+                        ) : null}
+                        <h2 className="mt-2 text-xl font-semibold tracking-tight text-foreground">
+                          {card.title}
+                        </h2>
+                        <p className="mt-3 text-sm leading-7 text-muted-foreground">{card.body}</p>
+                        <Button asChild variant="outline" className="mt-5 h-10 px-4 text-sm">
+                          {isExternal ? (
+                            <a href={href}>
+                              {card.ctaLabel}
+                              <ArrowRight className="ml-1 h-4 w-4" />
+                            </a>
+                          ) : (
+                            <Link href={href}>
+                              {card.ctaLabel}
+                              <ArrowRight className="ml-1 h-4 w-4" />
+                            </Link>
+                          )}
+                        </Button>
+                      </article>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div id="pivota-gateway-details" className="space-y-5">
                 <div className="space-y-2">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">What Pivota does</p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
