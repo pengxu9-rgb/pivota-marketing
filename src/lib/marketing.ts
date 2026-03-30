@@ -33,9 +33,9 @@ export const defaultOgDescription =
 export const homepageTitle = "Pivota | Merchant Gateway for Agent-Native Commerce";
 export const homepageMetaDescription =
   "Pivota turns LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.";
-export const aiReadinessTitle = "Make Your Store Ready for LLMs and Agents | Pivota";
+export const aiReadinessTitle = "Can Your Store Win Customers from AI? | Pivota";
 export const aiReadinessMetaDescription =
-  "Connect your store to Pivota and get a free LLM/Agent readiness analysis plus a clear optimization plan for AI-driven commerce.";
+  "Connect your store to Pivota and quickly spot likely issues across catalog, checkout, and payments, then get clear next steps on what to fix first.";
 
 export const primaryNavItems = [
   { label: "Product", href: routePaths.merchantGateway },

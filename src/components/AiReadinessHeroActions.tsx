@@ -25,7 +25,7 @@ const AiReadinessHeroActions = ({ signupHref }: AiReadinessHeroActionsProps) => 
         placement="hero_primary"
         className={primaryButtonClass}
       >
-        Get your readiness analysis
+        Check my store
         <ArrowRight className="h-4 w-4" />
       </TrackedMerchantCtaLink>
 
@@ -51,7 +51,7 @@ const AiReadinessHeroActions = ({ signupHref }: AiReadinessHeroActionsProps) => 
           });
         }}
       >
-        Connect your store
+        How it works
       </Button>
     </div>
   );

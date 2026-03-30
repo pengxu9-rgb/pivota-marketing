@@ -15,46 +15,46 @@ import {
 
 const readinessAreas = [
   {
-    title: "LLM / Agent Readiness Analysis",
-    body: "Understand how ready your catalog, checkout, and payment stack are for AI-driven commerce.",
+    title: "Likely issues to review",
+    body: "See the gaps that may be making your store harder for AI systems to understand or convert.",
     icon: Sparkles,
   },
   {
-    title: "Clear Issue Breakdown",
-    body: "See exact issues across product data, variants, checkout, and payments.",
+    title: "What to fix first",
+    body: "Get a prioritized view of the problems most worth addressing first.",
     icon: SearchCheck,
   },
   {
-    title: "Optimization Plan",
-    body: "Get a prioritized action plan to improve discoverability, execution, and measurement.",
+    title: "Suggested next steps",
+    body: "Get practical recommendations for improving discovery, checkout, and conversion.",
     icon: Wrench,
   },
   {
-    title: "Recommended Activation Path",
-    body: "Know whether to start with link-out, feeds, or merchant-native checkout.",
+    title: "A clearer starting path",
+    body: "Understand whether your next step is better data, better handoff, or deeper integration.",
     icon: CheckCircle2,
   },
 ] as const;
 
 const pressurePoints = [
-  "Catalogs are hard for AI to understand",
-  "Product and variant data is inconsistent",
-  "Checkout and payments are not agent-ready",
-  "Merchants lack a clear path to activation and measurement",
+  "AI systems cannot reliably understand many merchant catalogs",
+  "Product and variant data is often incomplete or inconsistent",
+  "Checkout and payment flows may not be set up for AI-driven handoff",
+  "Many merchants do not know what to fix first",
 ] as const;
 
 const steps = [
   {
     title: "Connect your store",
-    body: "Sign up and connect your store platform and payment setup.",
+    body: "Sign up and connect your existing store and payment setup.",
   },
   {
-    title: "Get your analysis",
-    body: "Pivota evaluates your catalog structure, offers, variants, checkout flow, and payment readiness.",
+    title: "See likely issues",
+    body: "Pivota checks your catalog, product data, checkout flow, and payment setup for gaps that may affect discovery and conversion from AI customers.",
   },
   {
-    title: "Follow your optimization plan",
-    body: "Receive a practical action plan to start capturing traffic and conversions from LLMs and Agents.",
+    title: "Get your next steps",
+    body: "You receive a practical action plan to help your team decide what to fix first.",
   },
 ] as const;
 
@@ -88,33 +88,33 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
       <Header />
 
       <main className="overflow-hidden bg-[#f6f4eb]">
-        <section className="relative overflow-hidden bg-gradient-to-b from-[#fbfaf4] via-[#f7f4ea] to-[#f2efe4] pt-2 sm:pt-3">
+        <section className="relative overflow-hidden bg-gradient-to-b from-[#fbfaf4] via-[#f7f4ea] to-[#f2efe4] pt-0">
           <div className="bg-site-grid absolute inset-0 opacity-[0.08]" />
           <div className="absolute left-[10%] top-10 h-52 w-52 rounded-full bg-primary/12 blur-3xl" />
           <div className="absolute right-[10%] top-10 h-60 w-60 rounded-full bg-accent/10 blur-3xl" />
 
-          <div className="section-padding relative">
+          <div className="relative px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-6">
             <div className="container-max">
-              <div className={`${lightPanelClass} overflow-hidden p-6 sm:p-8 lg:p-10`}>
-                <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-                  <div className="space-y-5">
+              <div className={`${lightPanelClass} overflow-hidden p-5 sm:p-6 lg:p-7`}>
+                <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+                  <div className="space-y-4">
                     <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-primary">
                       <Sparkles className="h-3.5 w-3.5" />
-                      Free readiness analysis after store connection
+                      Free store check after connection
                     </div>
 
                     <div className="space-y-3">
                       <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                        Make your store ready for LLMs and Agents
+                        Can your store win customers from AI?
                       </h1>
-                      <div className={lightAnswerBlockClass}>
+                      <div className={`${lightAnswerBlockClass} px-5 py-4 leading-7`}>
                         <p>
-                          Connect your store to Pivota and get a free readiness analysis of your
-                          catalog, checkout, and payment setup for AI-driven commerce.
+                          Connect your store to Pivota and quickly see what may be stopping your
+                          store from getting discovered, clicked, and converted through AI shopping
+                          flows.
                         </p>
                         <p className="mt-2">
-                          Receive a clear optimization plan to help you acquire customers from LLMs
-                          and Agents.
+                          Then get clear next steps on what to fix first.
                         </p>
                       </div>
                     </div>
@@ -122,33 +122,36 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                     <AiReadinessHeroActions signupHref={signupHref} />
 
                     <p className="text-sm leading-7 text-slate-600">
-                      No replatforming. Keep your storefront, PSP, fulfillment, and operations.
+                      No replatforming. Keep your storefront, payment setup, fulfillment, and
+                      operations.
+                    </p>
+
+                    <p className="text-sm leading-7 text-slate-600">
+                      This is a practical diagnostic to help you spot likely issues. It is not a
+                      certification or a final go/no-go decision.
                     </p>
 
                     <div className={`${lightInlineCardClass} px-4 py-4 text-sm text-slate-600`}>
                       <span className="font-medium text-slate-900">What happens next:</span>{" "}
-                      Sign up → Connect your store → Get your readiness analysis → Receive your
-                      action plan
+                      Sign up → Connect your store → See likely issues → Get your next steps
                     </div>
                   </div>
 
                   <div className={`${lightCardClass} p-6 sm:p-7`}>
-                    <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                      Merchant outcome
-                    </p>
+                    <p className="text-sm uppercase tracking-[0.18em] text-primary">Practical starting point</p>
                     <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
-                      A faster path to acquiring customers from LLMs and Agents
+                      Useful before you invest more deeply
                     </h2>
                     <p className="mt-4 text-sm leading-7 text-slate-600">
-                      This promotion is built for merchants that want a clear starting point before
-                      moving deeper into merchant-native checkout and execution.
+                      This gives merchants a useful starting point. It helps you spot likely
+                      blockers early and leave with clear next steps instead of a vague score.
                     </p>
 
                     <div className="mt-6 space-y-3">
                       {[
                         "Connect your store through the existing merchant signup flow",
-                        "Get a readiness analysis across catalog, checkout, and payments",
-                        "Leave with a practical activation path instead of a vague audit score",
+                        "Spot likely blockers across catalog, checkout, and payments",
+                        "Leave with practical next steps on what to fix first",
                       ].map((item) => (
                         <div
                           key={item}
@@ -169,13 +172,15 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
         <section className="section-padding bg-gradient-to-b from-[#f2efe4] to-[#f8f6ee]">
           <div className="container-max grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.18em] text-primary">Why merchants need this now</p>
+              <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                Why merchants need this now
+              </p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                AI shopping traffic is growing. Most stores still aren&apos;t ready.
+                AI shopping traffic is growing. Most stores still have gaps.
               </h2>
               <p className="max-w-2xl text-base leading-8 text-slate-600">
-                Merchants want demand from LLMs and Agents, but most stores are not structured for
-                AI-driven discovery and conversion.
+                Merchants want customers from AI, but many stores still have gaps that make them
+                harder to discover, click, and convert.
               </p>
             </div>
 
@@ -192,15 +197,13 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
         <section className="section-padding bg-gradient-to-b from-[#f8f6ee] to-[#f2efe4]">
           <div className="container-max space-y-6">
             <div className="space-y-3">
-              <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                What the readiness analysis covers
-              </p>
+              <p className="text-sm uppercase tracking-[0.18em] text-primary">What you&apos;ll get</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 What you get after connecting your store
               </h2>
               <p className="max-w-3xl text-base leading-8 text-slate-600">
-                The goal is not a generic scorecard. It is a clear merchant action plan grounded in
-                catalog structure, checkout readiness, and payment execution.
+                This is not a certification or final verdict. It is a practical way to spot likely
+                blockers and decide what to work on first.
               </p>
             </div>
 
@@ -263,11 +266,11 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">Final CTA</p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    See how ready your store is for AI commerce
+                    See what may be blocking your store from AI customers
                   </h2>
                   <p className="max-w-3xl text-base leading-8 text-slate-600">
-                    Connect your store and get a free LLM/Agent readiness analysis with a clear
-                    optimization plan.
+                    Connect your store and get a practical check of your catalog, checkout, and
+                    payment setup, plus clear next steps on what to improve first.
                   </p>
                 </div>
 
@@ -278,7 +281,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                   placement="final_cta"
                   className={lightPrimaryButtonClass}
                 >
-                  Get your readiness analysis
+                  Check my store
                   <ChevronRight className="h-4 w-4" />
                 </TrackedMerchantCtaLink>
               </div>

@@ -72,6 +72,9 @@ const Header = () => {
   const mobileMenuClass = isAiReadinessPage
     ? "border-t border-slate-200 bg-[#fbfaf4]/98 px-4 py-4 lg:hidden"
     : "border-t border-border bg-background/95 px-4 py-4 lg:hidden";
+  const navShellClass = isAiReadinessPage
+    ? "container-max flex h-11 items-center justify-between px-4 sm:h-12 sm:px-6 lg:px-8"
+    : "container-max flex h-12 items-center justify-between px-4 sm:h-[3.25rem] sm:px-6 lg:px-8";
   const brandTextClass = isAiReadinessPage
     ? "text-lg font-semibold tracking-tight text-slate-900 transition-colors duration-200 group-hover:text-slate-700 sm:text-xl"
     : "bg-gradient-to-r from-primary to-accent bg-clip-text text-lg font-semibold tracking-tight text-foreground transition-all duration-300 group-hover:text-transparent sm:text-xl";
@@ -88,7 +91,7 @@ const Header = () => {
   return (
     <>
       <header className={`sticky top-0 z-50 border-b transition-all duration-300 ${headerSurfaceClass}`}>
-        <nav className="container-max flex h-12 items-center justify-between px-4 sm:h-[3.25rem] sm:px-6 lg:px-8">
+        <nav className={navShellClass}>
           <Link href="/" className="group flex items-center gap-2">
             <Image
               src="/pivota-logo.png"
