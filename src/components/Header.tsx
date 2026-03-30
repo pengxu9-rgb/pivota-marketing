@@ -12,6 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { emitMarketingEvent } from "@/lib/analytics";
 import { primaryNavItems, routePaths } from "@/lib/marketing";
 
 function normalizePath(pathname: string | null): string {
@@ -20,9 +21,30 @@ function normalizePath(pathname: string | null): string {
   return pathname;
 }
 
+function normalizeCampaignValue(value: string | null) {
+  return value?.trim().toLowerCase() ?? "";
+}
+
+function isAiReadinessAdTraffic(search: string) {
+  const params = new URLSearchParams(search);
+  const utmSource = normalizeCampaignValue(params.get("utm_source"));
+  const utmMedium = normalizeCampaignValue(params.get("utm_medium"));
+  const source = normalizeCampaignValue(params.get("source"));
+
+  return (
+    utmSource === "instagram" ||
+    utmSource === "ig" ||
+    utmSource === "tiktok" ||
+    utmMedium === "paid_social" ||
+    source === "ai-readiness-ads"
+  );
+}
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hasTrackedCampaignHeader, setHasTrackedCampaignHeader] = useState(false);
+  const [isAiReadinessCampaignMode, setIsAiReadinessCampaignMode] = useState(false);
   const pathname = normalizePath(usePathname());
   const isAiReadinessPage = pathname === routePaths.aiReadiness;
 
@@ -34,6 +56,15 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
+    if (!isAiReadinessPage || typeof window === "undefined") {
+      setIsAiReadinessCampaignMode(false);
+      return;
+    }
+
+    setIsAiReadinessCampaignMode(isAiReadinessAdTraffic(window.location.search));
+  }, [isAiReadinessPage]);
+
+  useEffect(() => {
     if (!isOpen) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -41,6 +72,30 @@ const Header = () => {
       document.body.style.overflow = previous;
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    if (isAiReadinessCampaignMode && isOpen) {
+      setIsOpen(false);
+    }
+  }, [isAiReadinessCampaignMode, isOpen]);
+
+  useEffect(() => {
+    if (
+      !isAiReadinessCampaignMode ||
+      hasTrackedCampaignHeader ||
+      typeof window === "undefined" ||
+      !window.matchMedia("(max-width: 1023px)").matches
+    ) {
+      return;
+    }
+
+    emitMarketingEvent({
+      event: "ai_readiness_mobile_campaign_header_active",
+      page: routePaths.aiReadiness,
+      placement: "campaign_header",
+    });
+    setHasTrackedCampaignHeader(true);
+  }, [hasTrackedCampaignHeader, isAiReadinessCampaignMode]);
 
   const navItems = useMemo(
     () =>
@@ -148,17 +203,19 @@ const Header = () => {
             </DropdownMenu>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setIsOpen((open) => !open)}
-            className={mobileToggleClass}
-            aria-label={isOpen ? "Close navigation" : "Open navigation"}
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          {isAiReadinessCampaignMode ? null : (
+            <button
+              type="button"
+              onClick={() => setIsOpen((open) => !open)}
+              className={mobileToggleClass}
+              aria-label={isOpen ? "Close navigation" : "Open navigation"}
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          )}
         </nav>
 
-        {isOpen ? (
+        {isOpen && !isAiReadinessCampaignMode ? (
           <div className={mobileMenuClass}>
             <div className="container-max space-y-2">
               {navItems.map((item) => (

@@ -19,6 +19,7 @@ const AiReadinessHeroActions = ({ signupHref }: AiReadinessHeroActionsProps) => 
   return (
     <div className="flex flex-wrap gap-3">
       <TrackedMerchantCtaLink
+        id="ai-readiness-hero-primary-cta"
         href={signupHref}
         eventName="ai_readiness_hero_primary_click"
         page={routePaths.aiReadiness}
@@ -32,7 +33,7 @@ const AiReadinessHeroActions = ({ signupHref }: AiReadinessHeroActionsProps) => 
       <Button
         type="button"
         variant="outline"
-        className={secondaryButtonClass}
+        className={`${secondaryButtonClass} hidden sm:inline-flex`}
         onClick={() => {
           emitMarketingEvent({
             event: "ai_readiness_hero_secondary_click",
