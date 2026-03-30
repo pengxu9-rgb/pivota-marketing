@@ -2,7 +2,6 @@ import { CheckCircle2, ChevronRight, SearchCheck, Sparkles, Wrench } from "lucid
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AnswerBlock from "@/components/AnswerBlock";
 import AiReadinessHeroActions from "@/components/AiReadinessHeroActions";
 import TrackedMerchantCtaLink from "@/components/TrackedMerchantCtaLink";
 import { appendSearchParamRecordToPath, type SearchParamRecord } from "@/lib/merchant-signup";
@@ -67,6 +66,8 @@ const lightInlineCardClass =
   "rounded-2xl border border-slate-200/80 bg-white/92 shadow-[0_10px_24px_-18px_rgba(15,23,42,0.12)]";
 const lightPrimaryButtonClass =
   "h-11 rounded-xl bg-slate-900 px-5 text-sm font-semibold text-white shadow-[0_18px_34px_-22px_rgba(15,23,42,0.42)] transition-all hover:bg-slate-800";
+const lightAnswerBlockClass =
+  "max-w-3xl rounded-[1.4rem] border border-slate-200/90 bg-white/84 px-6 py-5 text-base leading-8 text-slate-600 shadow-[0_12px_28px_-20px_rgba(15,23,42,0.16)] backdrop-blur";
 
 export const metadata = buildMarketingMetadata({
   title: aiReadinessTitle,
@@ -106,7 +107,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                       <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                         Make your store ready for LLMs and Agents
                       </h1>
-                      <AnswerBlock className="max-w-3xl border-slate-200/90 bg-white/84 text-slate-600 shadow-[0_12px_28px_-20px_rgba(15,23,42,0.16)]">
+                      <div className={lightAnswerBlockClass}>
                         <p>
                           Connect your store to Pivota and get a free readiness analysis of your
                           catalog, checkout, and payment setup for AI-driven commerce.
@@ -115,7 +116,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                           Receive a clear optimization plan to help you acquire customers from LLMs
                           and Agents.
                         </p>
-                      </AnswerBlock>
+                      </div>
                     </div>
 
                     <AiReadinessHeroActions signupHref={signupHref} />

@@ -9,7 +9,7 @@ import { routePaths } from "@/lib/marketing";
 
 const DISMISSED_AT_KEY = "pivota_ai_readiness_promo_dismissed_at";
 const DISMISSED_VIEWS_REMAINING_KEY = "pivota_ai_readiness_promo_dismissed_views_remaining";
-const CLICKED_SESSION_KEY = "pivota_ai_readiness_promo_clicked_session";
+const LEGACY_CLICKED_SESSION_KEY = "pivota_ai_readiness_promo_clicked_session";
 const LEGACY_DISMISSED_UNTIL_KEY = "pivota_ai_readiness_promo_dismissed_until";
 const DISMISS_VIEWS = 10;
 const DISMISS_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
@@ -21,7 +21,6 @@ const AiReadinessPromoPill = () => {
 
   useEffect(() => {
     try {
-      const clickedThisSession = sessionStorage.getItem(CLICKED_SESSION_KEY) === "true";
       const dismissedAt = Number(localStorage.getItem(DISMISSED_AT_KEY) ?? "0");
       const dismissedViewsRemaining = Number(
         localStorage.getItem(DISMISSED_VIEWS_REMAINING_KEY) ?? "0",
@@ -38,9 +37,8 @@ const AiReadinessPromoPill = () => {
         localStorage.removeItem(LEGACY_DISMISSED_UNTIL_KEY);
       }
 
-      if (clickedThisSession) {
-        setIsVisible(false);
-        return;
+      if (sessionStorage.getItem(LEGACY_CLICKED_SESSION_KEY)) {
+        sessionStorage.removeItem(LEGACY_CLICKED_SESSION_KEY);
       }
 
       const stillInDismissWindow =
@@ -96,12 +94,6 @@ const AiReadinessPromoPill = () => {
               className="group pointer-events-auto flex min-w-0 flex-1 items-center gap-3 rounded-[1.1rem] px-2 py-1 text-left outline-none transition-transform duration-300 hover:scale-[1.01] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               aria-label="Open the AI readiness landing page"
               onClick={() => {
-                try {
-                  sessionStorage.setItem(CLICKED_SESSION_KEY, "true");
-                } catch {
-                  // Ignore storage failures and still allow navigation.
-                }
-
                 emitMarketingEvent({
                   event: "ai_readiness_promo_click",
                   page: routePaths.home,
