@@ -104,9 +104,6 @@ export default function MerchantGatewayCategoryPage() {
                     Shopify is merchants&apos; shopping layer for search. Pivota is merchants&apos;
                     gateway for LLMs and agents.
                   </p>
-                  <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                    In brand-facing language, this is the execution layer behind agentic commerce.
-                  </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
                       <Link href={merchantSignupPath}>
