@@ -65,6 +65,8 @@ const lightCardClass =
   "rounded-[1.5rem] border border-slate-200/80 bg-white/92 shadow-[0_18px_42px_-24px_rgba(15,23,42,0.16)]";
 const lightInlineCardClass =
   "rounded-2xl border border-slate-200/80 bg-white/92 shadow-[0_10px_24px_-18px_rgba(15,23,42,0.12)]";
+const lightPrimaryButtonClass =
+  "h-11 rounded-xl bg-slate-900 px-5 text-sm font-semibold text-white shadow-[0_18px_34px_-22px_rgba(15,23,42,0.42)] transition-all hover:bg-slate-800";
 
 export const metadata = buildMarketingMetadata({
   title: aiReadinessTitle,
@@ -273,7 +275,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                   eventName="ai_readiness_final_cta_click"
                   page={routePaths.aiReadiness}
                   placement="final_cta"
-                  className="btn-hero h-11 px-5 text-sm"
+                  className={lightPrimaryButtonClass}
                 >
                   Get your readiness analysis
                   <ChevronRight className="h-4 w-4" />

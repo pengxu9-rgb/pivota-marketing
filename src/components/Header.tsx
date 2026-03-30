@@ -72,6 +72,18 @@ const Header = () => {
   const mobileMenuClass = isAiReadinessPage
     ? "border-t border-slate-200 bg-[#fbfaf4]/98 px-4 py-4 lg:hidden"
     : "border-t border-border bg-background/95 px-4 py-4 lg:hidden";
+  const brandTextClass = isAiReadinessPage
+    ? "text-lg font-semibold tracking-tight text-slate-900 transition-colors duration-200 group-hover:text-slate-700 sm:text-xl"
+    : "bg-gradient-to-r from-primary to-accent bg-clip-text text-lg font-semibold tracking-tight text-foreground transition-all duration-300 group-hover:text-transparent sm:text-xl";
+  const navTextBaseClass = isAiReadinessPage
+    ? "text-sm font-medium tracking-tight transition-colors duration-200 group-hover:text-slate-900"
+    : "bg-gradient-to-r from-primary to-accent bg-clip-text text-sm font-medium tracking-tight transition-all duration-300 group-hover:text-transparent";
+  const loginIconClass = isAiReadinessPage
+    ? "mr-2 h-4 w-4 transition-colors group-hover:text-slate-900"
+    : "mr-2 h-4 w-4 transition-colors group-hover:text-primary";
+  const loginTextClass = isAiReadinessPage
+    ? "transition-colors duration-200 group-hover:text-slate-900"
+    : "bg-gradient-to-r from-primary to-accent bg-clip-text transition-all duration-300 group-hover:text-transparent";
 
   return (
     <>
@@ -86,7 +98,7 @@ const Header = () => {
               className="h-8 w-8 rounded-lg object-contain"
               priority
             />
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-lg font-semibold tracking-tight text-foreground transition-all duration-300 group-hover:text-transparent sm:text-xl">
+            <span className={brandTextClass}>
               Pivota
             </span>
           </Link>
@@ -99,7 +111,7 @@ const Header = () => {
                 className="group"
               >
                 <span
-                  className={`bg-gradient-to-r from-primary to-accent bg-clip-text text-sm font-medium tracking-tight transition-all duration-300 group-hover:text-transparent ${
+                  className={`${navTextBaseClass} ${
                     item.active ? activeNavTextClass : inactiveNavTextClass
                   }`}
                 >
@@ -116,8 +128,8 @@ const Header = () => {
                   variant="outline"
                   className={loginButtonClass}
                 >
-                  <LogIn className="mr-2 h-4 w-4 transition-colors group-hover:text-primary" />
-                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text transition-all duration-300 group-hover:text-transparent">
+                  <LogIn className={loginIconClass} />
+                  <span className={loginTextClass}>
                     Log in
                   </span>
                 </Button>
