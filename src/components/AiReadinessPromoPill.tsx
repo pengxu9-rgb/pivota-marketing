@@ -7,9 +7,12 @@ import { emitMarketingEvent } from "@/lib/analytics";
 import { appendCurrentSearchParamsToPath } from "@/lib/merchant-signup";
 import { routePaths } from "@/lib/marketing";
 
-const DISMISSED_UNTIL_KEY = "pivota_ai_readiness_promo_dismissed_until";
+const DISMISSED_AT_KEY = "pivota_ai_readiness_promo_dismissed_at";
+const DISMISSED_VIEWS_REMAINING_KEY = "pivota_ai_readiness_promo_dismissed_views_remaining";
 const CLICKED_SESSION_KEY = "pivota_ai_readiness_promo_clicked_session";
-const DISMISS_DURATION_MS = 7 * 24 * 60 * 60 * 1000;
+const LEGACY_DISMISSED_UNTIL_KEY = "pivota_ai_readiness_promo_dismissed_until";
+const DISMISS_VIEWS = 10;
+const DISMISS_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
 
 const AiReadinessPromoPill = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,9 +21,11 @@ const AiReadinessPromoPill = () => {
 
   useEffect(() => {
     try {
-      const dismissedUntil = Number(localStorage.getItem(DISMISSED_UNTIL_KEY) ?? "0");
       const clickedThisSession = sessionStorage.getItem(CLICKED_SESSION_KEY) === "true";
-      const now = Date.now();
+      const dismissedAt = Number(localStorage.getItem(DISMISSED_AT_KEY) ?? "0");
+      const dismissedViewsRemaining = Number(
+        localStorage.getItem(DISMISSED_VIEWS_REMAINING_KEY) ?? "0",
+      );
 
       setHref(
         appendCurrentSearchParamsToPath(
@@ -28,7 +33,36 @@ const AiReadinessPromoPill = () => {
           new URLSearchParams(window.location.search),
         ),
       );
-      setIsVisible(!clickedThisSession && dismissedUntil < now);
+
+      if (localStorage.getItem(LEGACY_DISMISSED_UNTIL_KEY)) {
+        localStorage.removeItem(LEGACY_DISMISSED_UNTIL_KEY);
+      }
+
+      if (clickedThisSession) {
+        setIsVisible(false);
+        return;
+      }
+
+      const stillInDismissWindow =
+        dismissedAt > 0 && Date.now() - dismissedAt < DISMISS_WINDOW_MS;
+
+      if (!stillInDismissWindow) {
+        localStorage.removeItem(DISMISSED_AT_KEY);
+        localStorage.removeItem(DISMISSED_VIEWS_REMAINING_KEY);
+        setIsVisible(true);
+        return;
+      }
+
+      if (dismissedViewsRemaining > 0) {
+        localStorage.setItem(
+          DISMISSED_VIEWS_REMAINING_KEY,
+          String(dismissedViewsRemaining - 1),
+        );
+        setIsVisible(false);
+        return;
+      }
+
+      setIsVisible(true);
     } catch {
       setIsVisible(true);
     }
@@ -53,13 +87,13 @@ const AiReadinessPromoPill = () => {
   return (
     <div className="pointer-events-none fixed bottom-4 left-1/2 z-50 w-[min(calc(100vw-1.25rem),22rem)] -translate-x-1/2 sm:bottom-6 sm:w-[21.5rem] lg:left-auto lg:right-6 lg:w-[22rem] lg:translate-x-0">
       <div className="motion-safe:animate-float motion-reduce:animate-none">
-        <div className="relative rounded-full border border-primary/25 bg-background/90 p-1 shadow-[0_16px_40px_rgba(5,10,18,0.55)] backdrop-blur-xl">
-          <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,rgba(45,212,191,0.18),rgba(17,24,39,0))] opacity-80 blur-2xl motion-safe:animate-glow motion-reduce:animate-none" />
+        <div className="relative rounded-[1.35rem] border border-white/20 bg-gradient-to-r from-primary via-cyan-400 to-accent p-[1px] shadow-[0_18px_45px_rgba(14,165,233,0.32)] backdrop-blur-xl">
+          <div className="pointer-events-none absolute inset-0 rounded-[1.35rem] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.28),rgba(17,24,39,0))] opacity-90 blur-2xl motion-safe:animate-glow motion-reduce:animate-none" />
 
-          <div className="relative flex items-center gap-2 rounded-full border border-white/6 bg-card/85 px-2 py-2.5">
+          <div className="relative flex items-center gap-2 rounded-[1.3rem] bg-[linear-gradient(135deg,rgba(8,15,24,0.9),rgba(16,24,40,0.84))] px-2 py-2.5">
             <Link
               href={href}
-              className="group pointer-events-auto flex min-w-0 flex-1 items-center gap-3 rounded-full px-2 py-1 text-left outline-none transition-transform duration-300 hover:scale-[1.01] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="group pointer-events-auto flex min-w-0 flex-1 items-center gap-3 rounded-[1.1rem] px-2 py-1 text-left outline-none transition-transform duration-300 hover:scale-[1.01] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               aria-label="Open the AI readiness landing page"
               onClick={() => {
                 try {
@@ -76,30 +110,29 @@ const AiReadinessPromoPill = () => {
                 });
               }}
             >
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/12 text-primary">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/14 text-white shadow-[0_0_18px_rgba(45,212,191,0.28)]">
                 <Sparkles className="h-4 w-4" />
               </span>
               <span className="min-w-0">
-                <span className="block truncate text-sm font-semibold text-foreground">
+                <span className="block truncate text-sm font-semibold text-white">
                   Free AI Readiness Analysis
                 </span>
-                <span className="block truncate text-xs text-muted-foreground">
+                <span className="block truncate text-xs text-white/80">
                   Connect your store and get a clear optimization plan
                 </span>
               </span>
-              <ArrowRight className="h-4 w-4 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-0.5" />
+              <ArrowRight className="h-4 w-4 shrink-0 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
 
             <button
               type="button"
-              className="pointer-events-auto inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="pointer-events-auto inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white/70 transition-colors hover:bg-white/12 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               aria-label="Dismiss AI readiness promotion"
               onClick={() => {
                 try {
-                  localStorage.setItem(
-                    DISMISSED_UNTIL_KEY,
-                    String(Date.now() + DISMISS_DURATION_MS),
-                  );
+                  localStorage.setItem(DISMISSED_AT_KEY, String(Date.now()));
+                  localStorage.setItem(DISMISSED_VIEWS_REMAINING_KEY, String(DISMISS_VIEWS));
+                  localStorage.removeItem(LEGACY_DISMISSED_UNTIL_KEY);
                 } catch {
                   // Ignore storage failures and still hide the promo for this view.
                 }
