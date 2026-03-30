@@ -65,9 +65,9 @@ const lightCardClass =
 const lightInlineCardClass =
   "rounded-2xl border border-slate-200/80 bg-white/92 shadow-[0_10px_24px_-18px_rgba(15,23,42,0.12)]";
 const lightPrimaryButtonClass =
-  "h-11 rounded-xl bg-slate-900 px-5 text-sm font-semibold text-white shadow-[0_18px_34px_-22px_rgba(15,23,42,0.42)] transition-all hover:bg-slate-800";
+  "h-11 rounded-xl bg-gradient-to-r from-primary via-cyan-400 to-accent px-5 text-sm font-semibold text-slate-950 shadow-[0_20px_36px_-22px_rgba(14,165,233,0.4)] transition-all hover:brightness-[1.03]";
 const lightAnswerBlockClass =
-  "max-w-3xl rounded-[1.4rem] border border-slate-200/90 bg-white/84 px-6 py-5 text-base leading-8 text-slate-600 shadow-[0_12px_28px_-20px_rgba(15,23,42,0.16)] backdrop-blur";
+  "max-w-3xl rounded-[1.4rem] border border-primary/18 bg-[linear-gradient(135deg,rgba(45,212,191,0.1),rgba(255,255,255,0.92),rgba(56,189,248,0.12))] px-6 py-5 text-base leading-8 text-slate-700 shadow-[0_18px_30px_-22px_rgba(14,165,233,0.28)] backdrop-blur";
 
 export const metadata = buildMarketingMetadata({
   title: aiReadinessTitle,
