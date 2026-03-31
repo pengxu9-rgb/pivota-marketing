@@ -21,7 +21,6 @@ import {
   homepageMetaDescription,
   homepageResultStatements,
   homepageTitle,
-  merchantSignupPath,
   routePaths,
 } from "@/lib/marketing";
 import { buildFaqJsonLd } from "@/lib/schema";
@@ -68,27 +67,23 @@ export default function Home() {
 
                 <div className="space-y-3">
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                    The merchant gateway for agent-native commerce.
+                    The merchant gateway for agent-native commerce
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>{homepageHeroAnswerBlock[0]}</p>
                     <p className="mt-2">{homepageHeroAnswerBlock[1]}</p>
                   </AnswerBlock>
-                  <p className="max-w-3xl text-sm leading-7 text-foreground/90">
-                    Shopify is merchants&apos; shopping layer for search. Pivota is merchants&apos;
-                    gateway for LLMs and agents.
-                  </p>
                 </div>
 
                 <div className="flex flex-wrap gap-3">
                   <Button asChild className="btn-hero h-11 px-5 text-sm">
-                    <Link href={merchantSignupPath}>
-                      Merchant signup
+                    <Link href="/#contact">
+                      Talk to us
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="h-11 px-5 text-sm">
-                    <Link href={routePaths.howPivotaWorks}>See how it works</Link>
+                    <Link href={routePaths.aiReadiness}>Get your readiness analysis</Link>
                   </Button>
                 </div>
 
@@ -142,20 +137,20 @@ export default function Home() {
             <div className="space-y-4">
               <p className="text-sm uppercase tracking-[0.18em] text-primary">Why this layer exists</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                LLMs can generate demand. Merchants still need a gateway to serve it.
+                Commerce won&apos;t live in one AI app
               </h2>
               <p className="max-w-2xl text-base leading-8 text-muted-foreground">
-                Product catalogs are fragmented. Merchants are not uniformly queryable across agent
-                surfaces. Checkout, payment, and post-purchase execution still break when demand
-                moves from LLMs into merchant systems.
+                Users won&apos;t only interact through ChatGPT, Copilot, or Gemini. Over time, more
+                commerce will be initiated by personal agents, messaging-based assistants, local
+                agents, and branded AI experiences.
               </p>
               <p className="text-base leading-8 text-foreground/90">
-                The missing layer is a merchant gateway that LLMs and agents can reliably route
-                through.
+                Merchants need more than discoverability in a few AI channels. They need a
+                commerce layer that different agents can call.
               </p>
+              <p className="text-base leading-8 text-foreground/90">That is where Pivota fits.</p>
               <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
-                For merchants, agentic commerce only works when demand routes into merchant-native
-                transactions.
+                From prompt to recommendation to merchant-native execution.
               </p>
             </div>
 
@@ -237,10 +232,10 @@ export default function Home() {
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.18em] text-primary">Common questions</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Five short answers for merchants and AI systems.
+                Five short answers about the commerce layer agents call.
               </h2>
               <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                Short answers stay readable on the page, while fuller category definitions remain
+                Short answers stay readable on the page while fuller category definitions remain
                 available in the FAQ, metadata, and structured HTML.
               </p>
             </div>

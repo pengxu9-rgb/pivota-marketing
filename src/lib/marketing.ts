@@ -30,11 +30,11 @@ export const footerDescriptor = "Pivota is the merchant gateway for agent-native
 
 export const defaultOgTitle = "Pivota — The Merchant Gateway for Agent-Native Commerce";
 export const defaultOgDescription =
-  "Turn LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.";
+  "The merchant gateway for agent-native commerce. Built for a future where commerce happens across many agents, not one AI app.";
 
 export const homepageTitle = "Pivota | Merchant Gateway for Agent-Native Commerce";
 export const homepageMetaDescription =
-  "Pivota turns LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.";
+  "Pivota is the commerce layer that agents call to turn prompts into recommendations, merchant-native checkout, payments, and order write-back across merchant systems.";
 export const aiReadinessTitle = "Can Your Store Win Customers from AI? | Pivota";
 export const aiReadinessMetaDescription =
   "Connect your store to Pivota and quickly spot likely issues across catalog, checkout, and payments, then get clear next steps on what to fix first.";
@@ -60,22 +60,22 @@ export const coreAnswerBlock = [
 ] as const;
 
 export const homepageHeroAnswerBlock = [
-  "Pivota turns LLM and agent traffic into merchant-native transactions.",
-  "It provides the execution layer across catalog, checkout, payment, and post-purchase systems.",
+  "Pivota is the commerce layer that agents call to turn prompts into recommendations, merchant-native checkout, payments, and order write-back.",
+  "Works across agent surfaces, store platforms, and payment systems.",
 ] as const;
 
 export const homepageResultStatements = [
   {
-    title: "Merchant discovery",
-    body: "Make merchant catalogs queryable across LLM surfaces.",
+    title: "Orchestration",
+    body: "Turn user goals into managed shopping workflows.",
   },
   {
-    title: "Merchant-native checkout",
-    body: "Route agent demand into merchant-controlled checkout and payment flows.",
+    title: "Decisioning",
+    body: "Understand intent, compare options, and recommend the right products.",
   },
   {
-    title: "Measurement and write-back",
-    body: "Keep execution state measurable across catalog, checkout, payment, and post-purchase systems.",
+    title: "Execution",
+    body: "Resolve checkout, payments, authorization, and write-back through merchant-native rails.",
   },
 ] as const;
 
@@ -185,35 +185,35 @@ export const faqItems = [
   },
 ] as const;
 
-export const homepageFaqItems = faqItems.slice(0, 5);
-
-export const homepageFaqPreviewItems = [
+export const homepageFaqItems = [
   {
-    question: "What is Pivota?",
+    question: "Is Pivota only for ChatGPT, Copilot, or Gemini?",
     answer:
-      "Pivota turns LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
+      "No. Pivota is built for agent-native commerce across surfaces. It is the merchant gateway and commerce layer that different agents can call.",
   },
   {
-    question: "How do merchants turn LLM traffic into transactions?",
+    question: "Does Pivota depend on a single AI platform?",
     answer:
-      "By making catalogs queryable and routing demand into merchant-native checkout, payment, and write-back.",
+      "No. Pivota connects agent demand to merchant-native execution across store platforms, payments, and post-purchase systems.",
   },
   {
-    question: "How can merchants become discoverable across ChatGPT and other LLM surfaces?",
+    question: "What does Pivota do beyond discoverability?",
     answer:
-      "By structuring catalogs, offers, and variants so demand can resolve into an executable merchant path.",
+      "Pivota helps turn prompts into recommendations, merchant-native checkout flows, payments handling, and order write-back.",
   },
   {
-    question: "How do AI agents connect to merchant checkout and payment?",
+    question: "Does Pivota replace Shopify?",
     answer:
-      "Through merchant-native checkout flows, existing PSP relationships, and synchronized order and payment state.",
+      "No. Shopify can be a merchant platform and catalog rail. Pivota adds a deeper commerce execution layer for agents.",
   },
   {
-    question: "What infrastructure supports merchant-native LLM transactions?",
+    question: "When should a merchant use Pivota?",
     answer:
-      "An execution layer across catalog normalization, merchant-native checkout, payment routing, and order or payment write-back.",
+      "Pivota is most useful when merchants need more than discoverability — including prompt-aware recommendations, merchant-native checkout, payments orchestration, order write-back, cross-agent measurement, or branded agent experiences.",
   },
 ] as const;
+
+export const homepageFaqPreviewItems = homepageFaqItems;
 
 export const useCases = [
   {
