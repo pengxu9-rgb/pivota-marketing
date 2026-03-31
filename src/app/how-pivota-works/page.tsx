@@ -114,7 +114,7 @@ export default function HowPivotaWorksPage() {
                       </Link>
                     </Button>
                     <Button asChild variant="outline" className="h-11 px-5 text-sm">
-                      <Link href={routePaths.apiOverview}>API overview</Link>
+                      <Link href={routePaths.agentIntegration}>Agent Integration</Link>
                     </Button>
                   </div>
                 </div>

@@ -13,6 +13,8 @@ export const routePaths = {
   home: "/",
   aiReadiness: "/ai-readiness",
   promotionReadiness: "/promotion-readiness",
+  merchantOnboarding: "/merchant-onboarding",
+  agentIntegration: "/agent-integration",
   pivotaVsShopify: "/pivota-vs-shopify",
   whatIsAgenticCommerce: "/what-is-agentic-commerce",
   whatIsAgentNativeCommerce: "/what-is-agent-native-commerce",
@@ -20,6 +22,10 @@ export const routePaths = {
   howPivotaWorks: "/how-pivota-works",
   merchantNativeCheckout: "/merchant-native-checkout",
   developers: "/developers",
+  developersFirstCall: "/developers/first-call",
+  developersRequestTypes: "/developers/request-types",
+  developersAuthWebhooks: "/developers/auth-webhooks",
+  developersProtocols: "/developers/protocols",
   apiOverview: "/developers/api-overview",
   faq: "/faq",
   useCases: "/use-cases",
@@ -41,16 +47,43 @@ export const aiReadinessMetaDescription =
   "Connect your store to Pivota and quickly spot likely issues across catalog, checkout, and payments, then get clear next steps on what to fix first.";
 
 export const primaryNavItems = [
-  { label: "Product", href: routePaths.merchantGateway },
-  { label: "How it works", href: routePaths.howPivotaWorks },
+  {
+    label: "Product",
+    href: routePaths.merchantGateway,
+    aliases: [
+      routePaths.howPivotaWorks,
+      routePaths.pivotaVsShopify,
+      routePaths.whatIsAgentNativeCommerce,
+      routePaths.whatIsAgenticCommerce,
+    ],
+  },
+  {
+    label: "Readiness",
+    href: routePaths.aiReadiness,
+    aliases: [routePaths.promotionReadiness, routePaths.merchantOnboarding],
+  },
+  {
+    label: "Agent Integration",
+    href: routePaths.agentIntegration,
+    aliases: [
+      routePaths.developers,
+      routePaths.developersFirstCall,
+      routePaths.developersRequestTypes,
+      routePaths.developersAuthWebhooks,
+      routePaths.developersProtocols,
+      routePaths.apiOverview,
+    ],
+  },
   { label: "Merchant-native checkout", href: routePaths.merchantNativeCheckout },
-  { label: "Docs", href: routePaths.developers },
   { label: "FAQ", href: routePaths.faq },
   { label: "About", href: routePaths.about },
 ] as const;
 
 export const footerExploreItems = [
   ...primaryNavItems,
+  { label: "Merchant Onboarding", href: routePaths.merchantOnboarding },
+  { label: "Promotion Readiness", href: routePaths.promotionReadiness },
+  { label: "How it works", href: routePaths.howPivotaWorks },
   { label: "Use Cases", href: routePaths.useCases },
   { label: "Blog", href: routePaths.blog },
 ] as const;
@@ -180,6 +213,26 @@ export const faqItems = [
       "Pivota is the merchant gateway for agent-native commerce, but it is built on top of merchant systems rather than in place of them. Merchants keep their storefront, fulfillment, customer operations, and existing payment relationships.",
   },
   {
+    question: "What happens after a merchant connects to Pivota?",
+    answer:
+      "After connection, Pivota continues the merchant into onboarding and dashboard setup, analyzes readiness across catalog, offers, checkout, and payments, and returns issue overview, recommended actions, prioritized fixes, and a rollout path.",
+  },
+  {
+    question: "What does no replatforming mean in practice?",
+    answer:
+      "No replatforming means merchants keep their storefront, PSP, fulfillment stack, and customer operations. Pivota layers sales channels, payment setup, routing, and API or webhook surfaces on top of the existing merchant stack.",
+  },
+  {
+    question: "What can agents call through Pivota today?",
+    answer:
+      "The public integration surface centers on REST APIs with API keys and webhooks. Builders can use request families such as search and recommendation, cart and checkout intent flows, orders, order events, and webhook delivery, with SDKs and MCP supporting selected workflows on top of the same core contract.",
+  },
+  {
+    question: "What is the default integration path: REST, SDK, or MCP?",
+    answer:
+      "REST with API keys and webhooks is the primary production path. The SDK is a convenience wrapper over the same REST contract. MCP is a local orchestration and discovery surface, not a hosted replacement for the production REST API.",
+  },
+  {
     question: "Is Pivota a marketplace or a checkout-only tool?",
     answer:
       "Pivota is the merchant gateway for agent-native commerce. It is not a marketplace, and it is not a checkout-only tool, because it spans queryability, execution, merchant-native checkout, payment-state sync, and write-back.",
@@ -216,6 +269,16 @@ export const homepageFaqItems = [
     question: "When should a merchant use Pivota?",
     answer:
       "Pivota is most useful when merchants need more than discoverability — including prompt-aware recommendations, merchant-native checkout, payments orchestration, order write-back, cross-agent measurement, or branded agent experiences.",
+  },
+  {
+    question: "What happens after a merchant connects to Pivota?",
+    answer:
+      "Pivota creates the merchant onboarding record, analyzes readiness across catalog, offers, checkout, and payments, then returns issue overview, recommended actions, prioritized fixes, and a rollout path for the next integration stage.",
+  },
+  {
+    question: "What can agents call through Pivota today?",
+    answer:
+      "Pivota exposes a default REST integration path, SDK wrappers over the same contract, and a local MCP surface for workflows such as search and recommendations, cart and checkout intent flows, orders, order events, and webhook-based execution updates.",
   },
 ] as const;
 

@@ -91,8 +91,11 @@ export default function Home() {
                   <Link href={routePaths.merchantGateway} className="text-primary hover:underline">
                     Category definition
                   </Link>
-                  <Link href={routePaths.developers} className="text-primary hover:underline">
-                    Docs home
+                  <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
+                    Merchant onboarding
+                  </Link>
+                  <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                    View agent integration
                   </Link>
                   <Link href={routePaths.useCases} className="text-primary hover:underline">
                     Use cases
@@ -152,10 +155,29 @@ export default function Home() {
                 Merchants need more than discoverability in a few AI channels. They need a
                 commerce layer that different agents can call.
               </p>
+              <p className="text-base leading-8 text-foreground/90">
+                Merchants connect once, Pivota improves readiness upstream, and downstream agents
+                get a cleaner merchant-native path.
+              </p>
               <p className="text-base leading-8 text-foreground/90">That is where Pivota fits.</p>
               <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
                 From prompt to recommendation to merchant-native execution.
               </p>
+              <div className="grid gap-3 pt-1 sm:grid-cols-2">
+                {[
+                  "Catalog and offer issues",
+                  "Checkout and payment blockers",
+                  "Prioritized fixes",
+                  "Recommended rollout path",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm text-foreground"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="section-frame overflow-hidden p-3 sm:p-4">
@@ -236,7 +258,7 @@ export default function Home() {
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.18em] text-primary">Common questions</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Six short answers about the commerce layer agents call.
+                Short answers about the commerce layer agents call.
               </h2>
               <p className="max-w-3xl text-base leading-8 text-muted-foreground">
                 Short answers stay readable on the page while fuller category definitions remain
@@ -256,6 +278,9 @@ export default function Home() {
               </Link>
               <Link href={routePaths.whatIsAgenticCommerce} className="text-primary hover:underline">
                 What is agentic commerce?
+              </Link>
+              <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                Agent Integration
               </Link>
             </div>
           </div>

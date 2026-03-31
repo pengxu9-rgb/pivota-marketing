@@ -59,6 +59,20 @@ const steps = [
   },
 ] as const;
 
+const readinessChecks = [
+  "Catalog structure, product data, and variant coverage",
+  "Offers, promotions, and other pricing signals that affect discovery or conversion",
+  "Checkout handoff and merchant-native execution readiness",
+  "Payment setup, incentive readiness, and downstream conversion blockers",
+] as const;
+
+const merchantOutputs = [
+  "Issue overview across catalog, checkout, payments, and conversion blockers",
+  "Recommended actions your team can use immediately",
+  "Prioritized fixes that show what to address first",
+  "A clearer rollout path from quick wins to deeper integration work",
+] as const;
+
 const lightPanelClass =
   "rounded-[1.75rem] border border-slate-200/80 bg-white/88 shadow-[0_18px_42px_-22px_rgba(15,23,42,0.18)] backdrop-blur-xl";
 const lightCardClass =
@@ -214,6 +228,50 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
         </section>
 
         <section className={`${pageSectionClass} bg-gradient-to-b from-[#f8f6ee] to-[#f2efe4]`}>
+          <div className="container-max grid gap-6 lg:grid-cols-2">
+            <div className={`${lightPanelClass} p-5 sm:p-6`}>
+              <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                What Pivota analyzes
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
+                The readiness check covers the parts that usually block execution.
+              </h2>
+              <div className="mt-5 grid gap-3">
+                {readinessChecks.map((item) => (
+                  <div
+                    key={item}
+                    className={`${lightInlineCardClass} flex items-start gap-3 px-4 py-3`}
+                  >
+                    <SearchCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <p className="text-sm leading-6 text-slate-700">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className={`${lightPanelClass} p-5 sm:p-6`}>
+              <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                What merchants get back
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
+                Clear outputs, not just a vague readiness label.
+              </h2>
+              <div className="mt-5 grid gap-3">
+                {merchantOutputs.map((item) => (
+                  <div
+                    key={item}
+                    className={`${lightInlineCardClass} flex items-start gap-3 px-4 py-3`}
+                  >
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <p className="text-sm leading-6 text-slate-700">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={`${pageSectionClass} bg-gradient-to-b from-[#f8f6ee] to-[#f2efe4]`}>
           <div className="container-max space-y-6">
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.18em] text-primary">What you&apos;ll get</p>
@@ -318,6 +376,13 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Link>
               <Link
+                href={routePaths.merchantOnboarding}
+                className="inline-flex items-center text-primary hover:underline"
+              >
+                Merchant onboarding
+                <ChevronRight className="ml-1 h-4 w-4" />
+              </Link>
+              <Link
                 href={routePaths.merchantNativeCheckout}
                 className="inline-flex items-center text-primary hover:underline"
               >
@@ -326,6 +391,13 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
               </Link>
               <Link href={routePaths.faq} className="inline-flex items-center text-primary hover:underline">
                 FAQ
+                <ChevronRight className="ml-1 h-4 w-4" />
+              </Link>
+              <Link
+                href={routePaths.agentIntegration}
+                className="inline-flex items-center text-primary hover:underline"
+              >
+                Agent Integration
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Link>
             </div>

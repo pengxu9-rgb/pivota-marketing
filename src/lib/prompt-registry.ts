@@ -102,15 +102,15 @@ export const promptRegistry = [
   {
     topic: "Integration / API / docs intent",
     anchor: "execution layer across catalog, checkout, payment, and post-purchase systems",
-    primaryPage: routePaths.developers,
-    secondaryPage: routePaths.apiOverview,
+    primaryPage: routePaths.agentIntegration,
+    secondaryPage: routePaths.developersFirstCall,
     faqSurface: routePaths.faq,
     prompts: [
       "What APIs support the merchant gateway for agent-native commerce?",
       "How do developers integrate merchant-native LLM transactions?",
       "What workflow does Pivota expose to developers?",
       "How do developers connect catalog, checkout, payment, and write-back?",
-      "What does the Pivota API overview cover?",
+      "What does the Pivota Agent Integration page cover?",
     ],
   },
   {

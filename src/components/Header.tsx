@@ -103,7 +103,12 @@ const Header = () => {
         ...item,
         active:
           !item.href.includes("#") &&
-          (pathname === item.href || pathname.startsWith(`${item.href}/`)),
+          (pathname === item.href ||
+            pathname.startsWith(`${item.href}/`) ||
+            ("aliases" in item &&
+              item.aliases.some(
+                (alias) => pathname === alias || pathname.startsWith(`${alias}/`),
+              ))),
       })),
     [pathname],
   );

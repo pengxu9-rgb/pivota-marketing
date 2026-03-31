@@ -170,8 +170,8 @@ export default function WhatIsAgentNativeCommercePage() {
                   <Link href={routePaths.howPivotaWorks} className="text-primary hover:underline">
                     How Pivota works
                   </Link>
-                  <Link href={routePaths.developers} className="text-primary hover:underline">
-                    Docs home
+                  <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                    Agent Integration
                   </Link>
                 </div>
               </div>

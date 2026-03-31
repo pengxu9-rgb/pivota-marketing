@@ -91,7 +91,7 @@ export default function FaqPage() {
                     Visible answers
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Five prompt-shaped questions answered directly.
+                    Prompt-shaped questions answered directly.
                   </h2>
                 </div>
                 <QuestionAnswerList items={homepageFaqItems} columns={2} />
@@ -122,6 +122,12 @@ export default function FaqPage() {
               </div>
 
               <div className="flex flex-wrap gap-4 text-sm">
+                <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
+                  Merchant onboarding
+                </Link>
+                <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                  Agent Integration
+                </Link>
                 <Link href={routePaths.promotionReadiness} className="text-primary hover:underline">
                   Promotion readiness
                 </Link>

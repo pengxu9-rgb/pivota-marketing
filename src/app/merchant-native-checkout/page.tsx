@@ -59,6 +59,13 @@ const merchantsKeep = [
   "Their existing payment relationships",
 ] as const;
 
+const executionBoundaries = [
+  "Pivota resolves structured commerce requests instead of forcing agents to crawl fragmented merchant pages.",
+  "Merchant-native checkout begins when Pivota returns or creates an executable checkout path.",
+  "Payment orchestration and payment-state sync stay connected to merchant systems after checkout begins.",
+  "Order outcomes continue through merchant write-back, status sync, and event delivery after execution starts.",
+] as const;
+
 const whyItMatters = [
   {
     title: "Fragmented paths",
@@ -191,6 +198,33 @@ export default function MerchantNativeCheckoutPage() {
         <section className="section-padding bg-gradient-to-b from-card to-background">
           <div className="container-max">
             <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
+              <div className="space-y-5">
+                <div className="space-y-3">
+                  <p className="text-sm uppercase tracking-[0.22em] text-primary">
+                    Execution boundaries
+                  </p>
+                  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                    Make the handoff between agent calls and merchant-native execution explicit.
+                  </h2>
+                </div>
+                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                  {executionBoundaries.map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-2xl border border-border/70 bg-background/55 p-5 text-sm leading-7 text-muted-foreground"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-padding bg-gradient-to-b from-card to-background">
+          <div className="container-max">
+            <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
               <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
                 <div className="space-y-4">
                   <p className="text-sm uppercase tracking-[0.22em] text-primary">
@@ -230,6 +264,12 @@ export default function MerchantNativeCheckoutPage() {
                 <div className="flex flex-wrap gap-4 text-sm">
                   <Link href="/#contact" className="text-primary hover:underline">
                     Talk to us
+                  </Link>
+                  <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                    Agent Integration
+                  </Link>
+                  <Link href={routePaths.developersAuthWebhooks} className="text-primary hover:underline">
+                    Auth & webhooks
                   </Link>
                   <Link href={routePaths.faq} className="text-primary hover:underline">
                     Read the FAQ
