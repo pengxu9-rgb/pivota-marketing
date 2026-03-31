@@ -32,9 +32,9 @@ export const defaultOgTitle = "Pivota — The Merchant Gateway for Agent-Native 
 export const defaultOgDescription =
   "The merchant gateway for agent-native commerce. Built for a future where commerce happens across many agents, not one AI app.";
 
-export const homepageTitle = "Pivota | Merchant Gateway for Agent-Native Commerce";
+export const homepageTitle = "Pivota | Merchant Gateway and Commerce Layer for Agent-Native Commerce";
 export const homepageMetaDescription =
-  "Pivota is the commerce layer that agents call to turn prompts into recommendations, merchant-native checkout, payments, and order write-back across merchant systems.";
+  "Pivota is the merchant gateway and commerce layer that agents call for recommendations, merchant-native checkout, payments, and order write-back across merchant systems.";
 export const aiReadinessTitle = "Can Your Store Win Customers from AI? | Pivota";
 export const aiReadinessMetaDescription =
   "Connect your store to Pivota and quickly spot likely issues across catalog, checkout, and payments, then get clear next steps on what to fix first.";
@@ -60,7 +60,7 @@ export const coreAnswerBlock = [
 ] as const;
 
 export const homepageHeroAnswerBlock = [
-  "Pivota is the commerce layer that agents call to turn prompts into recommendations, merchant-native checkout, payments, and order write-back.",
+  "Pivota is the commerce layer — and shopping sub-agent — that agents call to turn prompts into recommendations, merchant-native checkout, payments, and order write-back.",
   "Works across agent surfaces, store platforms, and payment systems.",
 ] as const;
 
@@ -190,6 +190,11 @@ export const homepageFaqItems = [
     question: "Is Pivota only for ChatGPT, Copilot, or Gemini?",
     answer:
       "No. Pivota is built for agent-native commerce across surfaces. It is the merchant gateway and commerce layer that different agents can call.",
+  },
+  {
+    question: "Is Pivota a shopping sub-agent?",
+    answer:
+      "Pivota can serve as the commerce layer or shopping sub-agent that front-end agents call for recommendations, merchant-native checkout, payments, and post-purchase execution.",
   },
   {
     question: "Does Pivota depend on a single AI platform?",

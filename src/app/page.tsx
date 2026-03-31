@@ -145,6 +145,10 @@ export default function Home() {
                 agents, and branded AI experiences.
               </p>
               <p className="text-base leading-8 text-foreground/90">
+                Front-end agents need a commerce skill they can call for product recommendation,
+                checkout, payments, and post-purchase execution.
+              </p>
+              <p className="text-base leading-8 text-foreground/90">
                 Merchants need more than discoverability in a few AI channels. They need a
                 commerce layer that different agents can call.
               </p>
@@ -232,7 +236,7 @@ export default function Home() {
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.18em] text-primary">Common questions</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Five short answers about the commerce layer agents call.
+                Six short answers about the commerce layer agents call.
               </h2>
               <p className="max-w-3xl text-base leading-8 text-muted-foreground">
                 Short answers stay readable on the page while fuller category definitions remain

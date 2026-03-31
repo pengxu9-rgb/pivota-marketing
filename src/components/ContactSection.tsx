@@ -102,6 +102,7 @@ const ContactSection = () => {
                     <li>Merchant gateway for agent-native commerce</li>
                     <li>Merchant-native checkout and payment flows</li>
                     <li>Catalog, checkout, payment, and post-purchase systems</li>
+                    <li>Commerce skill layer for personal agents, branded agents, and shopping assistants</li>
                   </ul>
                 </div>
                 <div className="card-gradient">
