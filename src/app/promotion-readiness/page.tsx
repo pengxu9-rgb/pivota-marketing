@@ -267,6 +267,10 @@ export default function PromotionReadinessPage() {
                       Instead, they receive a cleaner, better-matched, more executable offer,
                       price, and checkout path through Pivota.
                     </p>
+                    <p className="text-sm leading-7 text-foreground/90">
+                      At Pivota, we find the best executable offer as a sub-agent for LLMs and
+                      Agents.
+                    </p>
                     <p className="text-sm leading-7 text-muted-foreground">
                       That makes promotion readiness more than a coupon feature. It becomes part of
                       the merchant-native commerce layer that downstream agents rely on.
