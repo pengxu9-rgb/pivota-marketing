@@ -306,6 +306,13 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
             </div>
 
             <div className="mt-6 flex flex-wrap gap-4 text-sm">
+              <Link
+                href={routePaths.promotionReadiness}
+                className="inline-flex items-center text-primary hover:underline"
+              >
+                Promotion readiness
+                <ChevronRight className="ml-1 h-4 w-4" />
+              </Link>
               <Link href={routePaths.howPivotaWorks} className="inline-flex items-center text-primary hover:underline">
                 How Pivota works
                 <ChevronRight className="ml-1 h-4 w-4" />

@@ -122,6 +122,9 @@ export default function FaqPage() {
               </div>
 
               <div className="flex flex-wrap gap-4 text-sm">
+                <Link href={routePaths.promotionReadiness} className="text-primary hover:underline">
+                  Promotion readiness
+                </Link>
                 <Link href={routePaths.pivotaVsShopify} className="text-primary hover:underline">
                   When to choose Pivota vs Shopify
                 </Link>

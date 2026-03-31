@@ -12,6 +12,7 @@ export const lastUpdatedLabel = "Updated March 23, 2026";
 export const routePaths = {
   home: "/",
   aiReadiness: "/ai-readiness",
+  promotionReadiness: "/promotion-readiness",
   pivotaVsShopify: "/pivota-vs-shopify",
   whatIsAgenticCommerce: "/what-is-agentic-commerce",
   whatIsAgentNativeCommerce: "/what-is-agent-native-commerce",
