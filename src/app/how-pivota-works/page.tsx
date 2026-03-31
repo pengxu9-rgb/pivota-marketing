@@ -102,8 +102,8 @@ export default function HowPivotaWorksPage() {
                     </p>
                   </AnswerBlock>
                   <p className="max-w-3xl text-sm leading-7 text-foreground/90">
-                    Shopify is merchants&apos; shopping layer for search. Pivota is merchants&apos;
-                    gateway for LLMs and agents, and this is how agentic commerce becomes
+                    Shopify is strong for platform-native AI-channel selling paths. Pivota is the
+                    commerce layer that agents can call, and this is how agentic commerce becomes
                     executable and measurable for merchants.
                   </p>
                   <div className="flex flex-wrap gap-3">

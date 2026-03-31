@@ -101,8 +101,9 @@ export default function MerchantGatewayCategoryPage() {
                     </p>
                   </AnswerBlock>
                   <p className="max-w-3xl text-sm leading-7 text-foreground/90">
-                    Shopify is merchants&apos; shopping layer for search. Pivota is merchants&apos;
-                    gateway for LLMs and agents.
+                    Shopify is strong for default AI-channel selling paths. Pivota is the
+                    commerce layer that agents can call across merchant-native checkout, payments,
+                    and write-back.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
@@ -203,6 +204,9 @@ export default function MerchantGatewayCategoryPage() {
                     );
                   })}
                 </div>
+                <Link href={routePaths.pivotaVsShopify} className="inline-flex text-sm text-primary hover:underline">
+                  When to choose Pivota vs Shopify
+                </Link>
               </div>
 
               <div id="pivota-gateway-details" className="space-y-5">
