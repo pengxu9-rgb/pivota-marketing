@@ -96,26 +96,26 @@ export const coreAnswerBlock = [
 ] as const;
 
 export const homepageHeroAnswerBlock = [
-  "Connect your store, get issue overview, prioritized fixes, and a rollout path that improves the merchant-native path downstream agents call.",
-  "Pivota is the commerce layer — and shopping sub-agent — that agents call for recommendations, merchant-native checkout, payments, and order write-back.",
+  "Connect your store once to improve how agents discover, route, and complete transactions with your business.",
+  "Pivota gives agents a cleaner path into merchant-native checkout, payments, and write-back.",
 ] as const;
 
 export const homepageResultStatements = [
   {
-    title: "Issue overview",
-    body: "See likely catalog, offer, checkout, and payment blockers after connection.",
+    title: "Likely blockers",
+    body: "See where catalog, offer, checkout, or payment logic may be getting in the way.",
   },
   {
-    title: "Recommended actions",
-    body: "Give operators concrete next steps instead of a vague readiness score.",
+    title: "What to fix first",
+    body: "Give operators clear next steps instead of a vague score.",
   },
   {
-    title: "Prioritized fixes",
-    body: "Focus on the changes most likely to improve downstream agent execution.",
+    title: "Continuity gaps",
+    body: "Spot where recommendation, checkout, or payment flows are most likely to drift.",
   },
   {
-    title: "Rollout path",
-    body: "Decide whether link-out, feeds, or merchant-native checkout is the right next stage.",
+    title: "Safest next step",
+    body: "Decide whether link-out, feeds, or merchant-native checkout is the right next move.",
   },
 ] as const;
 
@@ -169,9 +169,9 @@ export const faqItems = [
       "No. Pivota works with store platforms such as Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. Merchants keep the storefront platform and operations they already run. Pivota adds a merchant-controlled layer for control, continuity, and fallback across AI buying surfaces.",
   },
   {
-    question: "Why connect Pivota if my store platform already supports AI commerce or agentic storefronts?",
+    question: "Why connect Pivota if my store platform already supports AI commerce?",
     answer:
-      "Store platform access is useful, but access is not the same as merchant control. Pivota helps merchants improve product and offer resolution, checkout continuity, payment-aware execution, write-back, measurement, and fallback across more agent surfaces than any single platform path.",
+      "Store-platform access can help merchants reach some AI buying surfaces, whether the storefront runs on Shopify, Wix, WooCommerce, BigCommerce, or another stack. Pivota adds merchant control across product resolution, offer logic, checkout continuity, payments, write-back, measurement, and fallback when native paths are not enough.",
   },
   {
     question: "Do I need to rebuild my store?",
@@ -272,9 +272,9 @@ export const homepageFaqItems = [
       "No. Pivota works with store platforms such as Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. Merchants keep the storefront platform they already run while Pivota adds control, continuity, and fallback across AI buying surfaces.",
   },
   {
-    question: "Why connect Pivota if my store platform already supports AI commerce or agentic storefronts?",
+    question: "Why connect Pivota if my store platform already supports AI commerce?",
     answer:
-      "Platform access is useful, but access is not the same as merchant control. Pivota helps merchants improve product resolution, offer logic, checkout continuity, payments, write-back, measurement, and fallback across more agent surfaces.",
+      "Store-platform access can help merchants reach some AI buying surfaces, whether the storefront runs on Shopify, Wix, WooCommerce, BigCommerce, or another stack. Pivota adds merchant control across product resolution, offer logic, checkout continuity, payments, write-back, measurement, and fallback when native paths are not enough.",
   },
   {
     question: "Do I need to rebuild my store?",

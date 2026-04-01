@@ -70,7 +70,7 @@ export default function FaqPage() {
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
                       <Link href={routePaths.aiReadiness}>
-                        Analyze your agent-to-revenue path
+                        See what to fix first
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>

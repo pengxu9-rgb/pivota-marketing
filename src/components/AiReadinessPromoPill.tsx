@@ -107,7 +107,7 @@ const AiReadinessPromoPill = () => {
               </span>
               <span className="min-w-0">
                 <span className="block truncate text-sm font-semibold text-white">
-                  See what blocks AI revenue
+                  See what to fix first
                 </span>
                 <span className="block truncate text-xs text-white/80">
                   Check your path from agent demand to transaction

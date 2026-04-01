@@ -270,7 +270,7 @@ export default function UseCasesPage() {
                 <div className="flex flex-wrap gap-3">
                   <Button asChild className="btn-hero h-11 px-5 text-sm">
                     <Link href={routePaths.aiReadiness}>
-                      Analyze your agent-to-revenue path
+                      See what to fix first
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
@@ -467,7 +467,7 @@ export default function UseCasesPage() {
                   </div>
                   <div className="flex flex-wrap gap-4 text-sm">
                     <Link href={routePaths.aiReadiness} className="inline-flex items-center text-primary hover:underline">
-                      Analyze your agent-to-revenue path
+                      See what to fix first
                       <ChevronRight className="ml-1 h-4 w-4" />
                     </Link>
                     <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">

@@ -401,7 +401,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                   placement="final_cta"
                   className={lightPrimaryButtonClass}
                 >
-                  Analyze my agent-to-revenue path
+                  See what to fix first
                   <ChevronRight className="h-4 w-4" />
                 </TrackedMerchantCtaLink>
               </div>

@@ -33,10 +33,10 @@ const executionSteps = [
 ] as const;
 
 const homepageProofItems = [
-  "Issue overview across catalog, offers, checkout, and payments",
-  "Recommended actions operators can use immediately",
-  "Prioritized fixes for cleaner downstream execution",
-  "A rollout path across link-out, feeds, and merchant-native checkout",
+  "Where catalog, offers, checkout, or payments may be getting in the way",
+  "Clear next steps operators can act on immediately",
+  "The changes most likely to improve transaction continuity",
+  "The safest next step across link-out, feeds, and merchant-native checkout",
 ] as const;
 
 const downstreamAgentBenefits = [
@@ -44,6 +44,12 @@ const downstreamAgentBenefits = [
   "Fewer ambiguities around checkout and payment paths",
   "Better merchant-native execution continuity",
   "Stronger order and write-back visibility",
+] as const;
+
+const homepagePlatformBullets = [
+  "Keep your storefront",
+  "Improve execution across agent surfaces",
+  "No replatforming required",
 ] as const;
 
 const homepageFaqJsonLd = buildFaqJsonLd(homepageFaqItems);
@@ -91,7 +97,7 @@ export default function Home() {
                 <div className="flex flex-wrap gap-3">
                   <Button asChild className="btn-hero h-11 px-5 text-sm">
                     <Link href={routePaths.aiReadiness}>
-                      Get your readiness analysis
+                      See what to fix first
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
@@ -103,7 +109,7 @@ export default function Home() {
                 <div className="grid gap-3 sm:grid-cols-2">
                   <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
                     <span className="block font-semibold text-foreground">Merchant path</span>
-                    Readiness analysis → onboarding outputs → rollout path
+                    Commerce check → what to fix first → safest next step
                   </div>
                   <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
                     <span className="block font-semibold text-foreground">Builder path</span>
@@ -143,6 +149,32 @@ export default function Home() {
                     <p className="mt-2 max-w-xs text-sm text-foreground">
                       From queryable catalogs to merchant-native transactions.
                     </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="container-max mt-6">
+              <div className="section-frame px-5 py-4 sm:px-6">
+                <div className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">
+                      Works with your existing store platform
+                    </p>
+                    <p className="mt-1 max-w-2xl text-sm leading-6 text-muted-foreground">
+                      Whether you run on Shopify, Wix, WooCommerce, BigCommerce, or another
+                      stack, Pivota works on top of your existing setup.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 text-sm">
+                    {homepagePlatformBullets.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-border/70 bg-background/55 px-3 py-1.5 text-muted-foreground"
+                      >
+                        {item}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>

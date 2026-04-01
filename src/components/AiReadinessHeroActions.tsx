@@ -26,7 +26,7 @@ const AiReadinessHeroActions = ({ signupHref }: AiReadinessHeroActionsProps) => 
         placement="hero_primary"
         className={primaryButtonClass}
       >
-        Analyze my agent-to-revenue path
+        See what to fix first
         <ArrowRight className="h-4 w-4" />
       </TrackedMerchantCtaLink>
 

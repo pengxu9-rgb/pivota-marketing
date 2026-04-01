@@ -232,7 +232,7 @@ export default function AgentIntegrationPage() {
                       Merchant onboarding
                     </Link>
                     <Link href={routePaths.aiReadiness} className="text-primary hover:underline">
-                      Agent revenue analysis
+                      See what to fix first
                     </Link>
                     <Link href={routePaths.merchantNativeCheckout} className="text-primary hover:underline">
                       Merchant-native checkout

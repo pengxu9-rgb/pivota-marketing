@@ -98,7 +98,7 @@ const comparisonFaqItems = [
   {
     question: "Why connect Pivota if my store platform already supports AI commerce?",
     answer:
-      "Platform-native AI access is useful, but access is not the same as merchant control. Pivota helps merchants improve product resolution, offer logic, checkout continuity, payment-aware execution, write-back, measurement, and fallback across more agent surfaces.",
+      "Store-platform access can help merchants reach some AI buying surfaces, whether the storefront runs on Shopify, Wix, WooCommerce, BigCommerce, or another stack. Pivota adds merchant control across product resolution, offer logic, checkout continuity, payments, write-back, measurement, and fallback when native paths are not enough.",
   },
   {
     question: "Is Pivota only for ChatGPT or Gemini?",
@@ -172,7 +172,7 @@ export default function PivotaVsShopifyPage() {
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
                       <Link href={routePaths.aiReadiness}>
-                        Analyze your agent-to-revenue path
+                        See what to fix first
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>
@@ -435,7 +435,7 @@ export default function PivotaVsShopifyPage() {
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
                       <Link href={routePaths.aiReadiness}>
-                        Analyze your agent-to-revenue path
+                        See what to fix first
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>
