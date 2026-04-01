@@ -82,9 +82,10 @@ export default function WhatIsAgentNativeCommercePage() {
                     </p>
                   </AnswerBlock>
                   <p className="max-w-3xl text-sm leading-7 text-foreground/90">
-                    Shopify helps merchants reach default AI-channel selling paths. Pivota is the
-                    merchant gateway and commerce layer that agents can call across merchant
-                    systems.
+                    Store platforms such as Shopify, Wix, WooCommerce, and BigCommerce help
+                    merchants reach some native AI selling paths. Pivota is the merchant gateway
+                    and commerce layer that agents can call across merchant systems, including
+                    fallback when those native paths are not enough.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">

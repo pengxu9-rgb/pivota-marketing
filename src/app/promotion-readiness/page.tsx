@@ -36,7 +36,7 @@ const promotionChecks = [
   },
   {
     icon: ShoppingCart,
-    title: "Checkout readiness",
+    title: "Checkout continuity",
     body: "Check whether the final checkout path can reliably carry the right offer, payment logic, and merchant-native execution flow.",
   },
 ] as const;
@@ -93,17 +93,17 @@ const promotionFaqItems = [
   {
     question: "Why do this during onboarding?",
     answer:
-      "Because upstream cleanup improves every downstream agent call. Merchants optimize once, and later agents get a more reliable offer and checkout path.",
+      "Because upstream cleanup improves every downstream agent call. Merchants fix offer and incentive gaps once, and later agents get a more reliable path from recommendation to checkout.",
   },
   {
     question: "What does Pivota actually check?",
     answer:
-      "Pivota checks merchant offers, discounts, auto promos, eligibility conditions, payment incentives, and checkout execution readiness.",
+      "Pivota checks merchant offers, discounts, auto promos, eligibility conditions, payment incentives, and checkout execution continuity.",
   },
   {
     question: "Do merchants need to replatform?",
     answer:
-      "No. Merchants keep their storefront, PSP, fulfillment, and customer operations. Pivota improves readiness across the existing stack.",
+      "No. Merchants keep their storefront, PSP, fulfillment, and customer operations. Pivota improves the path from offer logic to completed transactions across the existing stack.",
   },
   {
     question: "Why does this matter if promotions are already visible on my site?",
@@ -113,12 +113,12 @@ const promotionFaqItems = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "Promotion Readiness for Agent-Native Commerce | Pivota",
+  title: "Promotion Readiness | Offer Logic for AI Commerce | Pivota",
   description:
-    "Pivota helps merchants optimize offers, eligibility, payment incentives, and checkout behavior during onboarding so downstream agent calls get cleaner, more executable commerce paths.",
+    "Pivota helps merchants fix offers, eligibility, payment incentives, and checkout behavior during onboarding so downstream agent calls get cleaner, more executable paths to transaction.",
   path: routePaths.promotionReadiness,
   ogDescription:
-    "Optimize promotion logic once at onboarding. Improve every downstream agent checkout path through Pivota.",
+    "Fix promotion logic once during onboarding. Improve every downstream agent checkout path through Pivota.",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -154,23 +154,23 @@ export default function PromotionReadinessPage() {
                     Promotion readiness
                   </p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    Optimize offers once. Improve every agent checkout path.
+                    Fix offer logic before agent traffic hits checkout.
                   </h1>
                   <div className="section-frame max-w-3xl px-6 py-6 sm:px-7">
                     <p className="text-sm leading-7 text-muted-foreground">
                       During onboarding, Pivota checks your discounts, auto promos, eligibility
-                      rules, payment incentives, and checkout behavior to spot what may block
-                      downstream execution.
+                      rules, payment incentives, and checkout behavior to spot what may block the
+                      path from recommendation to transaction.
                     </p>
                     <p className="mt-3 text-sm leading-7 text-foreground/90">
                       The result is a cleaner offer, price, and checkout path that external LLMs
-                      and agents can call without guessing.
+                      and agents can call without guessing across fragmented merchant logic.
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
                       <Link href={routePaths.aiReadiness}>
-                        Get your readiness analysis
+                        Analyze your agent-to-revenue path
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>
@@ -199,9 +199,9 @@ export default function PromotionReadinessPage() {
                     Promotion readiness is part of onboarding, not a standalone coupon feature.
                   </h2>
                   <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                    Pivota evaluates and tightens promotion logic upstream so later agent-to-sub-agent
-                    calls do not need to search across banners, coupon fields, payment incentives,
-                    and checkout rules.
+                    Pivota evaluates and tightens promotion logic upstream so later agent calls do
+                    not need to search across banners, coupon fields, payment incentives, and
+                    checkout rules to find a real transaction path.
                   </p>
                   <div className="mt-5 space-y-3">
                     {[
@@ -246,7 +246,8 @@ export default function PromotionReadinessPage() {
                     </p>
                     <p>
                       Promotion Readiness helps merchants clean that up upstream, so downstream
-                      agent calls have a more reliable path to execution.
+                      agent calls have a more reliable path to execution and a cleaner path to
+                      transaction.
                     </p>
                   </div>
                 </div>
@@ -269,9 +270,9 @@ export default function PromotionReadinessPage() {
                     Promotion logic that most often blocks downstream execution
                   </h2>
                   <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                    Promotion Readiness is part of merchant onboarding and commerce readiness.
+                    Promotion Readiness is part of merchant onboarding and the agent-to-order path.
                     Pivota does not just surface offers. It checks the parts of merchant logic that
-                    most often block downstream execution.
+                    most often block downstream execution and conversion.
                   </p>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
@@ -333,10 +334,6 @@ export default function PromotionReadinessPage() {
                       Instead, they receive a cleaner, better-matched, more executable offer,
                       price, and checkout path through Pivota.
                     </p>
-                    <p className="text-sm leading-7 text-foreground/90">
-                      At Pivota, we find the best executable offer as a sub-agent for LLMs and
-                      Agents.
-                    </p>
                     <p className="text-sm leading-7 text-muted-foreground">
                       That makes promotion readiness more than a coupon feature. It becomes part of
                       the merchant-native commerce layer that downstream agents rely on.
@@ -372,8 +369,9 @@ export default function PromotionReadinessPage() {
                       No replatforming required
                     </h2>
                     <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                      Pivota works with the merchant stack you already have. Merchants keep their
-                      storefront, PSP, fulfillment systems, and customer operations.
+                      Pivota works with the merchant stack you already have, whether it runs on
+                      Shopify, Wix, WooCommerce, BigCommerce, or another setup. Merchants keep
+                      their storefront, PSP, fulfillment systems, and customer operations.
                     </p>
                     <p className="mt-3 text-sm leading-7 text-foreground/90">
                       Promotion Readiness improves how offers, incentives, and checkout logic
@@ -420,7 +418,7 @@ export default function PromotionReadinessPage() {
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
                       <Link href={routePaths.aiReadiness}>
-                        Get your readiness analysis
+                        Analyze your agent-to-revenue path
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>
@@ -433,7 +431,7 @@ export default function PromotionReadinessPage() {
 
               <div className="flex flex-wrap gap-4 text-sm">
                 <Link href={routePaths.aiReadiness} className="text-primary hover:underline">
-                  Readiness analysis
+                  Agent revenue analysis
                 </Link>
                 <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
                   Merchant onboarding

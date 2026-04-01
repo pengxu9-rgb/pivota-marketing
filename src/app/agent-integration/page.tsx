@@ -223,8 +223,8 @@ export default function AgentIntegrationPage() {
                     Why this matters
                   </p>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    Merchants optimize readiness upstream during onboarding. Agent Integration is
-                    the public builder bridge that explains how downstream LLM and agent calls then
+                    Merchants fix upstream gaps during onboarding first. Agent Integration is the
+                    public builder bridge that explains how downstream LLM and agent calls then
                     route through a cleaner, more executable merchant-native path.
                   </p>
                   <div className="mt-5 flex flex-wrap gap-4 text-sm">
@@ -232,7 +232,7 @@ export default function AgentIntegrationPage() {
                       Merchant onboarding
                     </Link>
                     <Link href={routePaths.aiReadiness} className="text-primary hover:underline">
-                      Readiness
+                      Agent revenue analysis
                     </Link>
                     <Link href={routePaths.merchantNativeCheckout} className="text-primary hover:underline">
                       Merchant-native checkout

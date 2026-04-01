@@ -11,10 +11,10 @@ import { buildMarketingMetadata, routePaths } from "@/lib/marketing";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/schema";
 
 const shopifyStrengths = [
-  "merchant onboarding",
-  "product catalog syndication",
-  "default AI-channel selling",
-  "platform-native selling rails",
+  "storefront operations and merchandising",
+  "native channel access where available",
+  "single-platform workflows",
+  "default platform-supported selling rails",
 ] as const;
 
 const pivotaArchitecture = [
@@ -33,32 +33,32 @@ const pivotaCapabilities = [
 ] as const;
 
 const chooseShopifyList = [
-  "product discoverability across major AI channels",
-  "a standard Shopify selling path",
-  "a single-platform setup",
-  "a simple route into platform-supported AI shopping surfaces",
+  "storefront operations and a standard platform selling path",
+  "a single-platform setup with simpler operational needs",
+  "native AI-channel access where that path is already enough",
+  "faster platform-first rollout with less need for fallback across surfaces",
 ] as const;
 
 const choosePivotaList = [
   {
-    title: "You need prompt-aware recommendations",
-    body: "You need a system that can turn user intent into structured recommendation, comparison, and merchant logic.",
+    title: "You need merchant control across more surfaces",
+    body: "You need one layer that can carry product resolution, offer logic, and execution continuity beyond a single platform-native path.",
   },
   {
-    title: "You need merchant-native checkout",
+    title: "You need safer checkout continuity",
     body: "You want checkout to resolve through merchant-native rails, not only through a platform's embedded path.",
   },
   {
     title: "You need payment orchestration",
-    body: "You need PSP routing, payment-state sync, and reconciliation.",
+    body: "You need PSP routing, payment-state sync, and reconciliation across agent-driven transactions.",
   },
   {
     title: "You need order authorization and write-back",
     body: "You need transaction outcomes to sync back into merchant systems reliably.",
   },
   {
-    title: "You need cross-agent measurement",
-    body: "You expect commerce to originate from many surfaces over time, not just one front-end AI platform.",
+    title: "You need cross-surface measurement and fallback",
+    body: "You expect commerce to originate from many surfaces over time, not just one front-end AI platform or one native path.",
   },
   {
     title: "You want branded agent experiences",
@@ -88,12 +88,17 @@ const comparisonFaqItems = [
   {
     question: "Do I need Pivota if I already use Shopify?",
     answer:
-      "Not always. If Shopify's default AI commerce path is enough for your business, Shopify may be the right first step. Pivota is most useful when you need deeper execution, payments orchestration, write-back, or branded agent experiences.",
+      "Not always. If Shopify's default AI commerce path is enough for your business, Shopify may be the right first step. Pivota matters when you need merchant control, continuity, payments handling, write-back, or fallback across more agent surfaces.",
   },
   {
-    question: "Does Pivota replace Shopify?",
+    question: "Does Pivota replace Shopify, Wix, WooCommerce, or BigCommerce?",
     answer:
-      "No. Pivota can work alongside existing merchant systems, including Shopify-based stacks, when merchants need a deeper commerce execution layer.",
+      "No. Pivota works with store platforms such as Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. It adds a merchant-controlled layer on top of the store platform instead of replacing it.",
+  },
+  {
+    question: "Why connect Pivota if my store platform already supports AI commerce?",
+    answer:
+      "Platform-native AI access is useful, but access is not the same as merchant control. Pivota helps merchants improve product resolution, offer logic, checkout continuity, payment-aware execution, write-back, measurement, and fallback across more agent surfaces.",
   },
   {
     question: "Is Pivota only for ChatGPT or Gemini?",
@@ -109,15 +114,15 @@ const comparisonFaqItems = [
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", path: routePaths.home },
-  { name: "When to choose Pivota vs Shopify", path: routePaths.pivotaVsShopify },
+  { name: "Pivota with Shopify and other store platforms", path: routePaths.pivotaVsShopify },
 ]);
 
 const faqJsonLd = buildFaqJsonLd(comparisonFaqItems);
 
 export const metadata = buildMarketingMetadata({
-  title: "When to choose Pivota vs Shopify",
+  title: "Pivota vs Shopify | Store platform access plus merchant-controlled continuity",
   description:
-    "Understand when Shopify's default AI commerce path is enough, and when Pivota adds a deeper merchant-native execution, payments, and commerce-skill layer for agent-native commerce.",
+    "Shopify is one example of a store platform with growing AI commerce support. Pivota works alongside Shopify, Wix, WooCommerce, BigCommerce, and similar stacks to add merchant control, continuity, and fallback across AI buying surfaces.",
   path: routePaths.pivotaVsShopify,
 });
 
@@ -137,41 +142,42 @@ export default function PivotaVsShopifyPage() {
               <PageChrome
                 items={[
                   { label: "Home", href: routePaths.home },
-                  { label: "When to choose Pivota vs Shopify" },
+                  { label: "Pivota with Shopify and other store platforms" },
                 ]}
               />
 
               <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
                 <div className="space-y-5">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                    When to choose Pivota vs Shopify
+                    Store platforms and merchant control
                   </p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    The future of commerce won&apos;t live in one AI app
+                    Use your store platform for access. Add Pivota for control, continuity, and fallback.
                   </h1>
                   <AnswerBlock className="max-w-3xl">
-                    <p>Users won&apos;t only shop inside ChatGPT or Gemini.</p>
-                    <p className="mt-2">
-                      Over time, more commerce will be initiated by personal agents embedded in
-                      messaging apps, local assistants, and branded AI experiences.
+                    <p>
+                      Shopify is one example of a store platform with growing AI commerce support.
+                      Wix, WooCommerce, BigCommerce, and similar stacks matter too.
                     </p>
-                    <p className="mt-2">That changes what merchants need.</p>
                     <p className="mt-2">
-                      They won&apos;t just need discoverability. They&apos;ll need a commerce layer that
-                      agents can call to turn prompts into recommendations, merchant-native
-                      checkout, payments, and order write-back.
+                      Store platforms help merchants run storefront operations and native selling
+                      paths where available. Pivota adds a merchant-controlled layer for product
+                      resolution, checkout continuity, payments, write-back, and fallback across
+                      fragmented agent surfaces.
                     </p>
-                    <p className="mt-2">That is where Pivota fits.</p>
+                    <p className="mt-2">
+                      Store platform access is useful. It is not the same as merchant control.
+                    </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
-                      <Link href="/#contact">
-                        Talk to us
+                      <Link href={routePaths.aiReadiness}>
+                        Analyze your agent-to-revenue path
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>
                     <Button asChild variant="outline" className="h-11 px-5 text-sm">
-                      <Link href={routePaths.aiReadiness}>Get your readiness analysis</Link>
+                      <Link href={routePaths.howPivotaWorks}>See how Pivota works</Link>
                     </Button>
                   </div>
                 </div>
@@ -182,12 +188,13 @@ export default function PivotaVsShopifyPage() {
                   </h2>
                   <div className="mt-4 grid gap-3 text-sm">
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                      Shopify: product discoverability, default AI-channel selling, platform-native
-                      rails
+                      Store platforms such as Shopify, Wix, WooCommerce, and BigCommerce:
+                      storefront operations, merchandising, and native selling paths where
+                      available
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                      Pivota: commerce layer agents can call across checkout, payments, and
-                      merchant write-back
+                      Pivota: merchant-controlled layer across product resolution, offers,
+                      checkout continuity, payments, and merchant write-back
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
                       Aurora and branded agent experiences sit above the Pivota gateway, not beside
@@ -199,32 +206,32 @@ export default function PivotaVsShopifyPage() {
 
               <div className="section-frame px-6 py-6 sm:px-7">
                 <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                  Agent commerce is moving beyond centralized AI front ends
+                  Store platform access is useful, but not the whole stack
                 </p>
                 <div className="mt-4 space-y-3 text-sm leading-7 text-muted-foreground">
                   <p>
-                    New agent gateways and personal assistant environments point to a future where
-                    AI interactions happen across many surfaces, not only inside one centralized AI
-                    app.
+                    Platform-native AI paths matter, especially when they reduce friction and give
+                    merchants a faster way into new buying surfaces.
                   </p>
                   <p>
-                    As agent surfaces fragment, merchants will need more than catalog presence.
-                    They will need an execution layer that many agents can call.
+                    But as agent surfaces fragment, merchants still need a platform-independent
+                    control layer that keeps recommendation, checkout, payment, and write-back
+                    continuity aligned across more than one surface.
                   </p>
                 </div>
               </div>
 
               <div className="section-frame px-6 py-6 sm:px-7">
                 <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                  Shopify and Pivota solve different layers
+                  Store platforms and Pivota solve different layers
                 </p>
                 <div className="mt-4 space-y-4 text-sm leading-7 text-muted-foreground">
                   <p>
                     Shopify is increasingly strong at getting merchants into major AI shopping
-                    channels.
+                    channels. That same pattern is spreading across store platforms more broadly.
                   </p>
                   <div>
-                    <p className="text-foreground">That makes Shopify a strong answer for:</p>
+                    <p className="text-foreground">That makes store platforms a strong answer for:</p>
                     <ul className="mt-3 space-y-2">
                       {shopifyStrengths.map((item) => (
                         <li key={item} className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
@@ -259,10 +266,12 @@ export default function PivotaVsShopifyPage() {
                       <Workflow className="h-5 w-5" />
                     </div>
                     <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                      Pivota is not just a path into LLMs. Pivota is the commerce layer for agents.
+                      Pivota is not just a path into LLMs. Pivota is the merchant-controlled
+                      commerce layer for agents.
                     </p>
                     <p className="mt-3 text-sm leading-7 text-foreground/90">
-                      Pivota helps merchants move from: prompt → recommendation → execution
+                      Pivota helps merchants move from prompt to recommendation to transaction with
+                      stronger continuity across systems.
                     </p>
                     <div className="mt-4">
                       <p className="text-sm font-semibold text-foreground">
@@ -297,7 +306,9 @@ export default function PivotaVsShopifyPage() {
                         <li>• a commerce skill</li>
                         <li>• a merchant gateway for agent-native commerce</li>
                       </ul>
-                      <p className="text-foreground/90">not just an AI channel enablement tool.</p>
+                      <p className="text-foreground/90">
+                        not just an AI channel enablement tool.
+                      </p>
                     </div>
                   </article>
                 </div>
@@ -305,9 +316,9 @@ export default function PivotaVsShopifyPage() {
 
               <div className="grid gap-4 lg:grid-cols-2">
                 <div className="section-frame px-6 py-6 sm:px-7">
-                  <p className="text-sm uppercase tracking-[0.18em] text-primary">Choose Shopify when</p>
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">Use your store platform first when</p>
                   <div className="mt-4 space-y-4 text-sm leading-7 text-muted-foreground">
-                    <p>Use Shopify first if your business mainly needs:</p>
+                    <p>Use the store platform first if your business mainly needs:</p>
                     <ul className="space-y-2">
                       {chooseShopifyList.map((item) => (
                         <li key={item} className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
@@ -316,16 +327,16 @@ export default function PivotaVsShopifyPage() {
                       ))}
                     </ul>
                     <p className="text-foreground/90">
-                      If your main goal is: &quot;I want my products to show up and sell through
-                      Shopify&apos;s default AI path,&quot; Shopify is often the fastest answer.
+                      If your main goal is faster platform-native access and the default path is
+                      already enough, the store platform is often the fastest answer.
                     </p>
                   </div>
                 </div>
 
                 <div className="section-frame px-6 py-6 sm:px-7">
-                  <p className="text-sm uppercase tracking-[0.18em] text-primary">Choose Pivota when</p>
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">Add Pivota when</p>
                   <div className="mt-4 space-y-4 text-sm leading-7 text-muted-foreground">
-                    <p>Choose Pivota when your business needs more than discoverability.</p>
+                    <p>Add Pivota when your business needs more than platform access.</p>
                     <div className="space-y-3">
                       {choosePivotaList.map((item, index) => (
                         <div
@@ -370,7 +381,7 @@ export default function PivotaVsShopifyPage() {
                           <li key={item}>• {item}</li>
                         ))}
                       </ul>
-                      <p>That is the role of a merchant gateway.</p>
+                      <p>That is the role of a merchant-controlled fallback and execution layer.</p>
                       <p className="text-foreground/90">
                         That is the role Pivota is designed to play.
                       </p>
@@ -385,14 +396,18 @@ export default function PivotaVsShopifyPage() {
                 </p>
                 <div className="mt-4 grid gap-4 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
                   <div className="space-y-3 text-sm leading-7 text-muted-foreground">
-                    <p>Shopify helps products get into AI channels.</p>
+                    <p>Store platforms help merchants enter native AI selling paths.</p>
                     <p className="text-foreground/90">
-                      Pivota helps agents complete commerce across systems.
+                      Pivota helps merchants keep control, continuity, and fallback across systems.
                     </p>
                   </div>
                   <div className="rounded-3xl border border-primary/20 bg-primary/8 px-5 py-5 text-sm leading-7 text-foreground">
-                    <p className="font-semibold">Shopify is a selling rail.</p>
-                    <p className="mt-2 font-semibold">Pivota is a commerce skill.</p>
+                    <p className="font-semibold">Store platform access is not the same as merchant control.</p>
+                    <p className="mt-2">
+                      Use your store platform for storefront operations and native access where
+                      available. Use Pivota for control, continuity, and fallback across fragmented
+                      agent surfaces.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -410,22 +425,22 @@ export default function PivotaVsShopifyPage() {
                   <div className="space-y-3">
                     <p className="text-sm uppercase tracking-[0.18em] text-primary">Final CTA</p>
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                      Building for a future of many agents, not one AI app?
+                      Want a merchant-controlled path on top of your store platform?
                     </h2>
                     <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                      Talk to Pivota about merchant-native execution, payments, and branded
-                      commerce experiences.
+                      Talk to Pivota about product resolution, checkout continuity, payments,
+                      write-back, and fallback across AI buying surfaces.
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
-                      <Link href="/#contact">
-                        Talk to us
+                      <Link href={routePaths.aiReadiness}>
+                        Analyze your agent-to-revenue path
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>
                     <Button asChild variant="outline" className="h-11 px-5 text-sm">
-                      <Link href={routePaths.aiReadiness}>Get your readiness analysis</Link>
+                      <Link href="/#contact">Talk to us</Link>
                     </Button>
                   </div>
                 </div>

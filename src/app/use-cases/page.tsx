@@ -158,7 +158,7 @@ const useCases: UseCase[] = [
     readinessGap:
       "Measurement readiness and downstream execution signals were weak, limiting confidence in scaling AI traffic.",
     upstreamChange:
-      "Pivota connected readiness analysis to execution measurement, highlighted write-back and operational signal gaps, and recommended the right next integration stage for cleaner measurement.",
+      "Pivota connected upstream merchant analysis to execution measurement, highlighted write-back and operational signal gaps, and recommended the right next integration stage for cleaner measurement.",
     downstreamAgents:
       "Agents routed through a more measurable, more reliable path, while the merchant gained clearer attribution and better visibility into where execution broke.",
     rolloutStage:
@@ -257,19 +257,20 @@ export default function UseCasesPage() {
                 </h1>
                 <AnswerBlock className="max-w-3xl">
                   <p>
-                    These representative merchant patterns show how merchants fix readiness gaps
-                    upstream so downstream agents get cleaner offer resolution, checkout paths,
-                    payment handling, and write-back continuity.
+                    These representative merchant patterns show how merchants fix upstream
+                    execution gaps so downstream agents get cleaner offer resolution, checkout
+                    paths, payment handling, and write-back continuity.
                   </p>
                   <p className="mt-2">
-                    Merchant onboarding happens first, readiness improves upstream, and downstream
-                    LLM and agent calls get a cleaner, more executable merchant-native path.
+                    Merchant onboarding happens first, merchants fix upstream gaps once, and
+                    downstream LLM and agent calls get a cleaner, more executable merchant-native
+                    path.
                   </p>
                 </AnswerBlock>
                 <div className="flex flex-wrap gap-3">
                   <Button asChild className="btn-hero h-11 px-5 text-sm">
                     <Link href={routePaths.aiReadiness}>
-                      Get your readiness analysis
+                      Analyze your agent-to-revenue path
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
@@ -292,7 +293,7 @@ export default function UseCasesPage() {
                   Representative merchant patterns
                 </p>
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                  These examples reflect real readiness patterns Pivota sees across merchant
+                  These examples reflect real merchant patterns Pivota sees across merchant
                   onboarding, promotion logic, checkout execution, and write-back continuity.
                   Names are representative and merchant identities are intentionally generalized to
                   preserve partner confidentiality.
@@ -373,7 +374,7 @@ export default function UseCasesPage() {
                               </div>
                               <div className="rounded-2xl border border-border/70 bg-background/55 p-4">
                                 <p className="text-sm font-semibold text-foreground">
-                                  Readiness gap
+                                  What was breaking the path
                                 </p>
                                 <p className="mt-3 text-sm leading-7 text-muted-foreground">
                                   {useCase.readinessGap}
@@ -433,9 +434,9 @@ export default function UseCasesPage() {
                       Not every merchant should start at the same stage.
                     </h2>
                     <p className="text-base leading-8 text-muted-foreground">
-                      Pivota uses onboarding and readiness outputs to recommend the right rollout
-                      stage. The goal is cleaner downstream execution, not forcing every merchant
-                      into the deepest integration on day one.
+                      Pivota uses onboarding outputs to recommend the right rollout stage. The goal
+                      is cleaner downstream execution, not forcing every merchant into the deepest
+                      integration on day one.
                     </p>
                   </div>
 
@@ -459,13 +460,14 @@ export default function UseCasesPage() {
                       Ready to see which pattern looks closest to your merchant setup?
                     </h2>
                     <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
-                      Start with readiness analysis, then use Merchant Onboarding and Agent
-                      Integration to understand how upstream fixes improve downstream execution.
+                      Start with an agent-to-revenue path analysis, then use Merchant Onboarding
+                      and Agent Integration to understand how upstream fixes improve downstream
+                      execution.
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-4 text-sm">
                     <Link href={routePaths.aiReadiness} className="inline-flex items-center text-primary hover:underline">
-                      Get your readiness analysis
+                      Analyze your agent-to-revenue path
                       <ChevronRight className="ml-1 h-4 w-4" />
                     </Link>
                     <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">

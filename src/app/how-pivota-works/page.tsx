@@ -102,9 +102,10 @@ export default function HowPivotaWorksPage() {
                     </p>
                   </AnswerBlock>
                   <p className="max-w-3xl text-sm leading-7 text-foreground/90">
-                    Shopify is strong for platform-native AI-channel selling paths. Pivota is the
-                    commerce layer that agents can call, and this is how agentic commerce becomes
-                    executable and measurable for merchants.
+                    Store platforms such as Shopify, Wix, WooCommerce, and BigCommerce are useful
+                    for storefront operations and native AI-channel access where available. Pivota
+                    adds the merchant-controlled layer that keeps execution, continuity, and
+                    fallback working across more agent surfaces.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">

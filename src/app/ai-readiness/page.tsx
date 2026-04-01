@@ -16,23 +16,23 @@ import {
 
 const readinessAreas = [
   {
-    title: "Likely issues to review",
-    body: "See the gaps that may be making your store harder for AI systems to understand or convert.",
+    title: "What is blocking conversion",
+    body: "See the gaps that may be making your store harder for AI systems to understand, route, or convert.",
     icon: Sparkles,
   },
   {
     title: "What to fix first",
-    body: "Get a prioritized view of the problems most worth addressing first.",
+    body: "Get a prioritized view of the changes most worth making first.",
     icon: SearchCheck,
   },
   {
-    title: "Suggested next steps",
-    body: "Get practical recommendations for improving discovery, checkout, and conversion.",
+    title: "Where continuity breaks",
+    body: "See where offer logic, checkout handoff, payment handling, or write-back becomes brittle.",
     icon: Wrench,
   },
   {
-    title: "A clearer starting path",
-    body: "Understand whether your next step is better data, better handoff, or deeper integration.",
+    title: "Safest next path",
+    body: "Understand whether your next step is link-out, feeds, or a deeper merchant-native checkout path.",
     icon: CheckCircle2,
   },
 ] as const;
@@ -50,27 +50,27 @@ const steps = [
     body: "Sign up and connect your existing store and payment setup.",
   },
   {
-    title: "See likely issues",
-    body: "Pivota checks your catalog, product data, checkout flow, and payment setup for gaps that may affect discovery and conversion from AI customers.",
+    title: "See where the path breaks",
+    body: "Pivota checks your catalog, product data, offers, checkout flow, and payment setup for gaps that may affect conversion from agent-driven traffic.",
   },
   {
     title: "Get your next steps",
-    body: "You receive a practical action plan to help your team decide what to fix first.",
+    body: "You receive a practical action plan showing what to fix first and which integration stage is safest next.",
   },
 ] as const;
 
 const readinessChecks = [
   "Catalog structure, product data, and variant coverage",
-  "Offers, promotions, and other pricing signals that affect discovery or conversion",
-  "Checkout handoff and merchant-native execution readiness",
-  "Payment setup, incentive readiness, and downstream conversion blockers",
+  "Offers, promotions, and pricing signals that affect conversion",
+  "Checkout handoff and merchant-native execution continuity",
+  "Payment setup, incentives, and downstream conversion blockers",
 ] as const;
 
 const merchantOutputs = [
-  "Issue overview across catalog, checkout, payments, and conversion blockers",
-  "Recommended actions your team can use immediately",
-  "Prioritized fixes that show what to address first",
-  "A clearer rollout path from quick wins to deeper integration work",
+  "What is blocking conversion from agent-driven traffic",
+  "The changes most likely to improve the path to transaction",
+  "Where offer logic, checkout continuity, or payment handling breaks",
+  "A safer rollout path from quick wins to deeper integration work",
 ] as const;
 
 const sampleIssueOverview = [
@@ -123,27 +123,30 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                   <div className="space-y-4">
                     <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-primary">
                       <Sparkles className="h-3.5 w-3.5" />
-                      Free store check after connection
+                      Free agent revenue analysis after connection
                     </div>
 
                     <div className="space-y-3">
                       <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                        Can your store win customers from AI?
+                        See what is blocking revenue from AI agents.
                       </h1>
 
                       <div className={`${lightAnswerBlockClass} px-4 py-3.5 sm:px-5 sm:py-4`}>
                         <p className="text-[15px] leading-6 sm:hidden">
-                          Connect your store to quickly spot what may be blocking discovery, clicks,
-                          and conversion from AI customers, then get clear next steps on what to fix
-                          first.
+                          Connect your store to quickly spot what may be blocking product
+                          resolution, checkout continuity, and completed transactions from AI
+                          agents, then get clear next steps on what to fix first.
                         </p>
                         <div className="hidden sm:block text-base leading-7">
                           <p>
-                            Connect your store to Pivota and quickly see what may be stopping your
-                            store from getting discovered, clicked, and converted through AI
-                            shopping flows.
+                            Connect your store to Pivota and quickly see what may be stopping
+                            agent demand from turning into completed transactions through your
+                            merchant path.
                           </p>
-                          <p className="mt-2">Then get clear next steps on what to fix first.</p>
+                          <p className="mt-2">
+                            Then get clear next steps on what to fix first across offers,
+                            checkout, payments, and execution continuity.
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -170,7 +173,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                     >
                       <span className="block font-medium text-slate-900">What happens next:</span>
                       <span className="mt-1 block">
-                        Sign up → Connect your store → See likely issues → Get next steps
+                        Sign up → Connect your store → See what blocks conversion → Get next steps
                       </span>
                     </div>
                   </div>
@@ -184,13 +187,13 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                     </h2>
                     <p className="mt-4 text-sm leading-7 text-slate-600">
                       This gives merchants a useful starting point. It helps you spot likely
-                      blockers early and leave with clear next steps instead of a vague score.
+                      blockers early and leave with clear next steps instead of an abstract label.
                     </p>
 
                     <div className="mt-5 space-y-3">
                       {[
                         "Connect your store through the existing merchant signup flow",
-                        "Spot likely blockers across catalog, checkout, and payments",
+                        "Spot likely blockers across product resolution, checkout, and payments",
                         "Leave with practical next steps on what to fix first",
                       ].map((item) => (
                         <div
@@ -216,11 +219,11 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                 Why merchants need this now
               </p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                AI shopping traffic is growing. Most stores still have gaps.
+                Agent demand is growing. Most stores still have gaps between recommendation and transaction.
               </h2>
               <p className="max-w-2xl text-base leading-8 text-slate-600">
-                Merchants want customers from AI, but many stores still have gaps that make them
-                harder to discover, click, and convert.
+                Merchants want revenue from AI-driven traffic, but many stores still have gaps
+                that make the path from recommendation to transaction brittle.
               </p>
             </div>
 
@@ -241,7 +244,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                 What Pivota analyzes
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
-                The readiness check covers the parts that usually block execution.
+                The revenue-path check covers the points where agent-driven transactions usually break.
               </h2>
               <div className="mt-5 grid gap-3">
                 {readinessChecks.map((item) => (
@@ -261,7 +264,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                 What merchants get back
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
-                Clear outputs, not just a vague readiness label.
+                Merchant-facing outputs, not an abstract label.
               </h2>
               <div className="mt-5 grid gap-3">
                 {merchantOutputs.map((item) => (
@@ -328,7 +331,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                   </h2>
                   <p className="text-base leading-8 text-slate-600">
                     The output is practical rather than abstract. The goal is to show merchants
-                    where downstream execution may break before they invest deeper in rollout.
+                    where the agent-to-order path may break before they invest deeper in rollout.
                   </p>
                 </div>
 
@@ -382,11 +385,12 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">Final CTA</p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    See what may be blocking your store from AI customers
+                    See what may be blocking revenue from AI agents
                   </h2>
                   <p className="max-w-3xl text-base leading-8 text-slate-600">
-                    Connect your store and get a practical check of your catalog, checkout, and
-                    payment setup, plus clear next steps on what to improve first.
+                    Connect your store and get a practical view of what is blocking the path from
+                    agent demand to completed transactions, plus clear next steps on what to
+                    improve first.
                   </p>
                 </div>
 
@@ -397,7 +401,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                   placement="final_cta"
                   className={lightPrimaryButtonClass}
                 >
-                  Check my store
+                  Analyze my agent-to-revenue path
                   <ChevronRight className="h-4 w-4" />
                 </TrackedMerchantCtaLink>
               </div>

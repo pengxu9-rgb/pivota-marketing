@@ -20,7 +20,7 @@ import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/schema";
 export const metadata = buildMarketingMetadata({
   title: "FAQ | Pivota Merchant Gateway for Agent-Native Commerce",
   description:
-    "Answers about the merchant gateway for agent-native commerce, agentic commerce, merchant-native transactions, and how Pivota fits into merchant systems.",
+    "Answers about store platforms, merchant control, fallback, onboarding, execution continuity, and how Pivota helps merchants turn agent demand into completed transactions.",
   path: routePaths.faq,
 });
 
@@ -56,20 +56,21 @@ export default function FaqPage() {
                     Merchant and builder FAQ
                   </p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    FAQ about merchant onboarding, agent integration, and the commerce layer agents call.
+                    FAQ about store platforms, merchant control, and turning agent demand into transactions.
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>{coreAnswerBlock[0]}</p>
                     <p className="mt-2">
                       These answers stay visible in raw HTML so merchants, builders, and LLMs can
-                      inspect onboarding, readiness, execution, and callable-surface questions
-                      directly.
+                      inspect the objections that matter most: whether Pivota replaces a store
+                      platform, why it still matters when platform-native AI paths exist, and how
+                      it improves the path from agent demand to completed transactions.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
-                      <Link href={routePaths.merchantOnboarding}>
-                        Merchant onboarding
+                      <Link href={routePaths.aiReadiness}>
+                        Analyze your agent-to-revenue path
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>
@@ -85,8 +86,9 @@ export default function FaqPage() {
                   </h2>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
                     The highest-value questions stay expanded in the raw HTML so LLMs and human
-                    readers can inspect the category definition, boundaries, and workflow without
-                    relying on accordion state or client-side interaction.
+                    readers can inspect store-platform boundaries, merchant objections, and
+                    execution workflow without relying on accordion state or client-side
+                    interaction.
                   </p>
                 </div>
               </div>
@@ -97,7 +99,7 @@ export default function FaqPage() {
                     Visible answers
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Prompt-shaped questions answered directly.
+                    Merchant objections answered directly.
                   </h2>
                 </div>
                 <QuestionAnswerList items={homepageFaqItems} columns={2} />
@@ -109,8 +111,8 @@ export default function FaqPage() {
                     More questions
                   </h2>
                   <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                    The full FAQ keeps the same anchor language while expanding on agentic
-                    commerce, comparison, measurement, and systems boundaries.
+                    The full FAQ expands on store platforms, fallback, conversion continuity,
+                    measurement, and agent integration boundaries.
                   </p>
                 </div>
                 <Accordion type="single" collapsible>
@@ -141,7 +143,7 @@ export default function FaqPage() {
                   Promotion readiness
                 </Link>
                 <Link href={routePaths.pivotaVsShopify} className="text-primary hover:underline">
-                  When to choose Pivota vs Shopify
+                  Pivota with Shopify and other store platforms
                 </Link>
                 <Link href={routePaths.whatIsAgenticCommerce} className="text-primary hover:underline">
                   What is agentic commerce?

@@ -37,16 +37,16 @@ export const routePaths = {
 
 export const footerDescriptor = "Pivota is the merchant gateway for agent-native commerce.";
 
-export const defaultOgTitle = "Pivota — The Merchant Gateway for Agent-Native Commerce";
+export const defaultOgTitle = "Pivota — Merchant-Controlled Commerce Layer for AI Commerce";
 export const defaultOgDescription =
-  "The merchant gateway for agent-native commerce. Built for a future where commerce happens across many agents, not one AI app.";
+  "Pivota works with Shopify, Wix, WooCommerce, BigCommerce, and other store platforms to add merchant control, execution continuity, and fallback across AI buying surfaces.";
 
-export const homepageTitle = "Pivota | Merchant Gateway and Commerce Layer for Agent-Native Commerce";
+export const homepageTitle = "Pivota | Merchant-Controlled Commerce Layer for AI Commerce";
 export const homepageMetaDescription =
-  "Pivota is the merchant gateway and commerce layer that agents call for recommendations, merchant-native checkout, payments, and order write-back across merchant systems.";
+  "Pivota works with Shopify, Wix, WooCommerce, BigCommerce, and other store platforms to help merchants turn agent demand into revenue through merchant-controlled execution across offers, checkout, payments, and write-back.";
 export const aiReadinessTitle = "Can Your Store Win Customers from AI? | Pivota";
 export const aiReadinessMetaDescription =
-  "Connect your store to Pivota and quickly spot likely issues across catalog, checkout, and payments, then get clear next steps on what to fix first.";
+  "Connect your store to Pivota and see what is blocking the path from AI agent demand to completed transactions across product resolution, offers, checkout, and payments.";
 
 export const primaryNavItems = [
   {
@@ -92,30 +92,30 @@ export const footerExploreItems = [
 
 export const coreAnswerBlock = [
   "Pivota is the merchant gateway for agent-native commerce.",
-  "It turns LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
+  "It works with store platforms such as Shopify, Wix, WooCommerce, and BigCommerce to add merchant control, continuity, and fallback across AI buying surfaces.",
 ] as const;
 
 export const homepageHeroAnswerBlock = [
-  "Connect your store, get issue overview, prioritized fixes, and a rollout path that improves the merchant-native path downstream agents call.",
-  "Pivota is the commerce layer — and shopping sub-agent — that agents call for recommendations, merchant-native checkout, payments, and order write-back.",
+  "Pivota helps merchants turn agent demand into merchant-native execution across catalog resolution, offers, checkout, payments, and write-back whether the storefront runs on Shopify, Wix, WooCommerce, BigCommerce, or another stack.",
+  "Use the store platform for storefront operations and native access where available. Use Pivota for merchant control, execution continuity, and fallback across fragmented AI buying surfaces. No replatforming.",
 ] as const;
 
 export const homepageResultStatements = [
   {
-    title: "Issue overview",
-    body: "See likely catalog, offer, checkout, and payment blockers after connection.",
+    title: "What is blocking conversion",
+    body: "See where product resolution, offer logic, checkout continuity, or payment handling break the path from agent demand to transaction.",
   },
   {
-    title: "Recommended actions",
-    body: "Give operators concrete next steps instead of a vague readiness score.",
+    title: "What to fix first",
+    body: "Give operators the changes most likely to improve conversion from agent-driven traffic.",
   },
   {
-    title: "Prioritized fixes",
-    body: "Focus on the changes most likely to improve downstream agent execution.",
+    title: "Where continuity breaks",
+    body: "Spot the points where recommendation, handoff, checkout, or write-back become brittle.",
   },
   {
-    title: "Rollout path",
-    body: "Decide whether link-out, feeds, or merchant-native checkout is the right next stage.",
+    title: "Safest next path",
+    body: "Choose the next stage that fits the merchant stack today: link-out, feeds, or merchant-native checkout.",
   },
 ] as const;
 
@@ -161,32 +161,42 @@ export const faqItems = [
   {
     question: "What is Pivota?",
     answer:
-      "Pivota is the merchant gateway for agent-native commerce. It turns LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
+      "Pivota is the merchant gateway and merchant-controlled commerce layer for AI buying surfaces. It helps merchants turn agent demand into merchant-native execution across catalog resolution, offers, checkout, payments, and write-back.",
+  },
+  {
+    question: "Does Pivota replace Shopify, Wix, WooCommerce, or BigCommerce?",
+    answer:
+      "No. Pivota works with store platforms such as Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. Merchants keep the storefront platform and operations they already run. Pivota adds a merchant-controlled layer for control, continuity, and fallback across AI buying surfaces.",
+  },
+  {
+    question: "Why connect Pivota if my store platform already supports AI commerce or agentic storefronts?",
+    answer:
+      "Store platform access is useful, but access is not the same as merchant control. Pivota helps merchants improve product and offer resolution, checkout continuity, payment-aware execution, write-back, measurement, and fallback across more agent surfaces than any single platform path.",
   },
   {
     question: "Do I need to rebuild my store?",
     answer:
-      "No. Pivota is built around no replatforming. Merchants keep their storefront, PSP, fulfillment systems, and customer operations while Pivota improves readiness and execution around the existing stack.",
+      "No. Pivota layers on top of the storefront, PSP, fulfillment systems, and customer operations merchants already run. No replatforming is required.",
   },
   {
     question: "What happens after a merchant connects to Pivota?",
     answer:
-      "After connection, Pivota continues the merchant into onboarding and dashboard setup, analyzes readiness across catalog, offers, checkout, and payments, and returns issue overview, recommended actions, prioritized fixes, and a rollout path.",
+      "After connection, Pivota shows merchants what is blocking conversion from agent-driven traffic, what to fix first, where continuity breaks, and the safest next path across link-out, feeds, or merchant-native checkout.",
   },
   {
     question: "What do merchants get after onboarding?",
     answer:
-      "Merchants get issue overview, recommended actions, prioritized fixes, and a rollout path across catalog, offers, checkout, payments, and downstream execution readiness.",
+      "Merchants get a merchant-facing operating view of the agent-to-order path: blockers across product resolution, offers, checkout, payments, and write-back, plus the changes most likely to improve conversion and execution continuity.",
   },
   {
-    question: "How does readiness improve downstream agent calls?",
+    question: "How does Pivota help improve the path from AI agent demand to completed transactions?",
     answer:
-      "Readiness work happens upstream during merchant onboarding. Once merchant data, offers, checkout behavior, and payment logic are cleaner, downstream agents get a more reliable merchant-native path with fewer ambiguities and better execution continuity.",
+      "Pivota helps merchants fix upstream gaps once so downstream agents get a cleaner path to recommend, route, and complete transactions. That includes better product and offer resolution, safer checkout continuity, payment-aware execution, and clearer write-back and measurement.",
   },
   {
-    question: "Is Promotion Readiness a coupon finder?",
+    question: "Can I start before merchant-native checkout?",
     answer:
-      "No. Promotion Readiness is part of merchant onboarding and commerce readiness. It helps merchants improve how offers, eligibility, payment incentives, and checkout logic execute later through agent-driven commerce flows.",
+      "Yes. Many merchants start with link-out or feeds first. Merchant-native checkout is a later rollout stage when checkout, payment, and execution continuity are strong enough.",
   },
   {
     question: "What is the difference between a visible offer and an executable offer?",
@@ -194,9 +204,9 @@ export const faqItems = [
       "A visible offer is something a shopper can see on site. An executable offer is one an agent can reliably match, validate, preserve, and route through a real merchant-native checkout path.",
   },
   {
-    question: "Can I start before merchant-native checkout?",
+    question: "Is Promotion Readiness a coupon finder?",
     answer:
-      "Yes. Many merchants start with link-out or feeds first. Merchant-native checkout is a later rollout stage when checkout, payment, and execution readiness are strong enough.",
+      "No. Promotion Readiness is the offer and incentive layer of the agent-to-order path. It helps merchants fix what prevents agents from carrying the right offer, eligibility logic, and checkout behavior into real transactions.",
   },
   {
     question: "What can agents call through Pivota today?",
@@ -211,7 +221,7 @@ export const faqItems = [
   {
     question: "What happens after the first successful call?",
     answer:
-      "After the first successful call, the next steps are to validate response shape, create the first order or checkout flow, configure webhooks, and confirm downstream execution and event handling.",
+      "After the first successful call, the next steps are to validate response shape, create the first order or checkout flow, configure webhooks, and confirm that execution updates flow back cleanly.",
   },
   {
     question: "How do webhooks fit into execution?",
@@ -257,34 +267,34 @@ export const faqItems = [
 
 export const homepageFaqItems = [
   {
+    question: "Does Pivota replace Shopify, Wix, WooCommerce, or BigCommerce?",
+    answer:
+      "No. Pivota works with store platforms such as Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. Merchants keep the storefront platform they already run while Pivota adds control, continuity, and fallback across AI buying surfaces.",
+  },
+  {
+    question: "Why connect Pivota if my store platform already supports AI commerce or agentic storefronts?",
+    answer:
+      "Platform access is useful, but access is not the same as merchant control. Pivota helps merchants improve product resolution, offer logic, checkout continuity, payments, write-back, measurement, and fallback across more agent surfaces.",
+  },
+  {
     question: "Do I need to rebuild my store?",
     answer:
       "No. Pivota layers on top of the storefront, PSP, fulfillment systems, and customer operations merchants already run.",
   },
   {
-    question: "What do merchants get after onboarding?",
+    question: "Can I start before merchant-native checkout?",
     answer:
-      "Merchants get issue overview, recommended actions, prioritized fixes, and a rollout path across catalog, offers, checkout, and payments.",
+      "Yes. Many merchants begin with link-out or feeds first, then move into merchant-native checkout when deeper execution work is complete.",
+  },
+  {
+    question: "How does Pivota help improve the path from AI agent demand to completed transactions?",
+    answer:
+      "Pivota helps merchants fix upstream gaps once so downstream agents get a cleaner path to recommend, route, and complete transactions.",
   },
   {
     question: "What can agents call through Pivota today?",
     answer:
       "The default path is REST with API keys and webhooks, with request families across search, recommendation, checkout intents, orders, order events, and payment-aware execution.",
-  },
-  {
-    question: "Can I start before merchant-native checkout?",
-    answer:
-      "Yes. Many merchants begin with link-out or feeds first, then move into merchant-native checkout when deeper readiness work is complete.",
-  },
-  {
-    question: "What is the default integration path?",
-    answer:
-      "REST is the default production path. SDK and MCP sit on top of the same core contract for convenience and orchestration.",
-  },
-  {
-    question: "How does readiness improve downstream agent calls?",
-    answer:
-      "Readiness work happens upstream once. Then downstream agents get cleaner product resolution, better offer matching, and a more reliable merchant-native execution path.",
   },
 ] as const;
 

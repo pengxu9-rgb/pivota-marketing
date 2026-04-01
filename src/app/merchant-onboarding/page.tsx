@@ -32,34 +32,34 @@ const onboardingSteps = [
     body: "The dashboard then guides merchants through sales channels, payment setup, routing, and API or webhook surfaces without replacing the existing stack.",
   },
   {
-    title: "Review readiness outputs",
-    body: "Pivota returns issue overview, recommended actions, prioritized fixes, and a rollout path for the next execution stage.",
+    title: "Review your agent revenue path",
+    body: "Pivota returns what is blocking conversion from agent-driven traffic, what to fix first, where continuity breaks, and the safest next execution stage.",
   },
 ] as const;
 
 const readinessDimensions = [
-  "Catalog structure, product data, and variant readiness",
-  "Offers, discounts, and executable promotion logic",
-  "Checkout path and merchant-native handoff readiness",
-  "Payment setup, orchestration, and payment-state sync",
-  "Measurement, execution signals, and downstream rollout fit",
+  "Product and variant structure that affects recommendation and comparison",
+  "Offer, discount, and pricing logic that affects conversion",
+  "Checkout handoff and merchant-native continuity",
+  "Payment setup, incentive handling, and payment-state sync",
+  "Measurement, write-back, and rollout fit across the agent-to-order path",
 ] as const;
 
 const merchantOutputs = [
   {
-    title: "Issue overview",
-    body: "Spot the merchant-specific issues most likely to block discovery, conversion, and execution before traffic scales.",
+    title: "What is blocking conversion",
+    body: "Spot the merchant-specific gaps most likely to block recommendation, checkout continuity, and completed transactions before traffic scales.",
   },
   {
-    title: "Recommended actions",
-    body: "See the concrete actions your team can take across product data, checkout, payments, and execution flow.",
+    title: "What to fix first",
+    body: "See the concrete changes your team can make first across product data, offers, checkout, payments, and execution flow.",
   },
   {
-    title: "Prioritized fixes",
-    body: "Focus first on the issues most likely to improve downstream agent calls and checkout completion.",
+    title: "Where continuity breaks",
+    body: "See where recommendation, handoff, checkout, payment, or write-back becomes brittle for agent-driven traffic.",
   },
   {
-    title: "Rollout path",
+    title: "Safest next path",
     body: "Understand whether the right next stage is link-out, feeds, or merchant-native checkout.",
   },
 ] as const;
@@ -83,7 +83,7 @@ const rolloutStages = [
   },
   {
     title: "Feeds",
-    body: "Use when catalog, offer, and variant readiness are improving but checkout logic still needs work.",
+    body: "Use when catalog, offer, and variant structure are improving but checkout logic still needs work.",
   },
   {
     title: "Merchant-native checkout",
@@ -100,7 +100,7 @@ const integrationSurfaces = [
   {
     icon: CreditCard,
     title: "Payment setup",
-    body: "Keep the existing PSP path and improve live readiness for downstream checkout execution.",
+    body: "Keep the existing PSP path and improve live transaction continuity for downstream checkout execution.",
   },
   {
     icon: RefreshCw,
@@ -128,14 +128,14 @@ const whatMerchantsKeep = [
 ] as const;
 
 const whatPivotaImproves = [
-  "Readiness analysis across catalog, offers, checkout, and payments",
+  "Agent-to-order path analysis across catalog, offers, checkout, and payments",
   "Execution routing, API and webhook surfaces, and rollout guidance",
 ] as const;
 
 export const metadata = buildMarketingMetadata({
   title: "Merchant Onboarding | Pivota Merchant Gateway for Agent-Native Commerce",
   description:
-    "Connect once, improve readiness upstream, and get issue overview, recommended actions, prioritized fixes, and a rollout path for downstream agent-native commerce.",
+    "Connect once, see what is blocking conversion from agent-driven traffic, and get a merchant-facing plan to improve product resolution, checkout continuity, payments, and rollout fit.",
   path: routePaths.merchantOnboarding,
 });
 
@@ -169,24 +169,23 @@ export default function MerchantOnboardingPage() {
                     Merchant onboarding
                   </p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    Connect once. Improve every downstream agent call.
+                    Connect once. Improve the path from agent demand to transaction.
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      Merchant onboarding happens first. Pivota improves readiness upstream across
-                      catalog, offers, checkout, and payments before demand reaches live
-                      agent-native execution.
+                      Merchant onboarding happens first. Pivota shows merchants what is blocking
+                      conversion from agent-driven traffic across product resolution, offers,
+                      checkout, and payments before that demand hits live execution.
                     </p>
                     <p className="mt-2">
-                      Merchants get issue overview, recommended actions, prioritized fixes, and a
-                      rollout path that operators can act on without replatforming storefront, PSP,
-                      fulfillment, or customer operations.
+                      Merchants get an operator-facing plan they can act on without replatforming
+                      storefront, PSP, fulfillment, or customer operations.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
                       <Link href={routePaths.aiReadiness}>
-                        Get your readiness analysis
+                        Analyze your agent-to-revenue path
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>
@@ -225,12 +224,12 @@ export default function MerchantOnboardingPage() {
                     What Pivota analyzes
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Readiness is checked before traffic scales.
+                    See where the agent-to-order path breaks before traffic scales.
                   </h2>
                   <p className="max-w-2xl text-base leading-8 text-muted-foreground">
-                    Public readiness pages already set the expectation. Merchant onboarding is where
-                    Pivota makes that expectation concrete and turns it into merchant-specific
-                    issues, fixes, and rollout guidance.
+                    Merchant onboarding turns the public story into merchant-specific operating
+                    detail. Pivota makes it clear what is blocking conversion, where continuity
+                    breaks, and which changes should come first.
                   </p>
                 </div>
 
@@ -249,7 +248,7 @@ export default function MerchantOnboardingPage() {
                     What merchants get back
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    More than a score. A working output for operators.
+                    More than a label. A working output for operators.
                   </h2>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
@@ -268,7 +267,7 @@ export default function MerchantOnboardingPage() {
               <div className="grid gap-6 xl:grid-cols-[1.02fr_0.98fr]">
                 <div className="section-frame p-6 sm:p-7">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                    Sample readiness output
+                    Sample operator output
                   </p>
                   <h2 className="mt-3 text-2xl font-semibold tracking-tight">
                     Public-safe example of what an operator can act on
@@ -304,12 +303,12 @@ export default function MerchantOnboardingPage() {
                     Recommended rollout path
                   </p>
                   <h2 className="mt-3 text-2xl font-semibold tracking-tight">
-                    Start with the integration stage that fits current readiness
+                    Start with the integration stage that fits the current revenue path
                   </h2>
                   <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                    Merchant onboarding is where Pivota turns readiness findings into a rollout
-                    recommendation. Many merchants should not jump straight to merchant-native
-                    checkout on day one.
+                    Merchant onboarding is where Pivota turns conversion and continuity findings
+                    into a rollout recommendation. Many merchants should not jump straight to
+                    merchant-native checkout on day one.
                   </p>
                   <div className="mt-5 grid gap-3">
                     {rolloutStages.map((stage) => (
@@ -393,11 +392,12 @@ export default function MerchantOnboardingPage() {
                     Downstream benefit
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Upstream merchant setup improves downstream agent execution.
+                    Fix upstream gaps once. Improve downstream agent execution later.
                   </h2>
                   <p className="max-w-3xl text-base leading-8 text-muted-foreground">
                     Merchants do the work once during onboarding. Later, external LLMs and agents
-                    do not need to guess across fragmented merchant systems to find the right path.
+                    do not need to guess across fragmented merchant systems to find the right path
+                    to transaction.
                   </p>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -414,17 +414,17 @@ export default function MerchantOnboardingPage() {
                 <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
                   <div>
                     <h2 className="text-2xl font-semibold tracking-tight">
-                      Ready to connect once and improve every downstream agent path?
+                      Ready to see what is blocking the path from agent demand to transaction?
                     </h2>
                     <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
-                      Start with readiness analysis, then use Merchant Onboarding to understand what
-                      Pivota analyzes, what merchants get back, and how that work improves later
-                      callable execution.
+                      Start with an agent-to-revenue path analysis, then use Merchant Onboarding to
+                      understand what Pivota analyzes, what merchants get back, and how that work
+                      improves later callable execution.
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-4 text-sm">
                     <Link href={routePaths.aiReadiness} className="text-primary hover:underline">
-                      Get your readiness analysis
+                      Analyze your agent-to-revenue path
                     </Link>
                     <Link href={routePaths.promotionReadiness} className="text-primary hover:underline">
                       Promotion readiness

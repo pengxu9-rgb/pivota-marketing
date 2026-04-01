@@ -107,10 +107,10 @@ const AiReadinessPromoPill = () => {
               </span>
               <span className="min-w-0">
                 <span className="block truncate text-sm font-semibold text-white">
-                  Get ready for ChatGPT and Gemini
+                  See what blocks AI revenue
                 </span>
                 <span className="block truncate text-xs text-white/80">
-                  Improve store discovery and conversion for free
+                  Check your path from agent demand to transaction
                 </span>
               </span>
               <ArrowRight className="h-4 w-4 shrink-0 text-white transition-transform duration-300 group-hover:translate-x-0.5" />

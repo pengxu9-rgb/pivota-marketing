@@ -76,9 +76,9 @@ const AiReadinessMobileStickyCta = ({ signupHref }: AiReadinessMobileStickyCtaPr
           page={routePaths.aiReadiness}
           placement="mobile_sticky_cta"
           className={stickyButtonClass}
-          aria-label="Check my store"
+          aria-label="Analyze my agent-to-revenue path"
         >
-          Check my store
+          See what blocks AI revenue
           <ArrowRight className="h-4 w-4" />
         </TrackedMerchantCtaLink>
       </div>
