@@ -52,23 +52,29 @@ export default function FaqPage() {
 
               <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
                 <div className="space-y-5">
-                  <p className="text-sm uppercase tracking-[0.18em] text-primary">Category FAQ</p>
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                    Merchant and builder FAQ
+                  </p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    FAQ about the merchant gateway for agent-native commerce.
+                    FAQ about merchant onboarding, agent integration, and the commerce layer agents call.
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>{coreAnswerBlock[0]}</p>
-                    <p className="mt-2">{coreAnswerBlock[1]}</p>
+                    <p className="mt-2">
+                      These answers stay visible in raw HTML so merchants, builders, and LLMs can
+                      inspect onboarding, readiness, execution, and callable-surface questions
+                      directly.
+                    </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
-                      <Link href={routePaths.merchantGateway}>
-                        Category page
+                      <Link href={routePaths.merchantOnboarding}>
+                        Merchant onboarding
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>
                     <Button asChild variant="outline" className="h-11 px-5 text-sm">
-                      <Link href="/#contact">Talk to us</Link>
+                      <Link href={routePaths.agentIntegration}>Agent Integration</Link>
                     </Button>
                   </div>
                 </div>
@@ -127,6 +133,9 @@ export default function FaqPage() {
                 </Link>
                 <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
                   Agent Integration
+                </Link>
+                <Link href={routePaths.useCases} className="text-primary hover:underline">
+                  Use cases
                 </Link>
                 <Link href={routePaths.promotionReadiness} className="text-primary hover:underline">
                   Promotion readiness

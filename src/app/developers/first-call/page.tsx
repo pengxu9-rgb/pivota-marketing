@@ -5,7 +5,12 @@ import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import PageChrome from "@/components/PageChrome";
 import { Button } from "@/components/ui/button";
-import { buildMarketingMetadata, routePaths } from "@/lib/marketing";
+import {
+  buildMarketingMetadata,
+  developerLoginPath,
+  developerSignupPath,
+  routePaths,
+} from "@/lib/marketing";
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 const firstCallSteps = [
@@ -81,14 +86,22 @@ export default function DevelopersFirstCallPage() {
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
-                      <a href="https://developer.pivota.cc/login">
-                        Developer Login
+                      <a href={developerSignupPath}>
+                        Get API access
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </a>
                     </Button>
                     <Button asChild variant="outline" className="h-11 px-5 text-sm">
                       <Link href={routePaths.developersAuthWebhooks}>Auth & webhooks</Link>
                     </Button>
+                  </div>
+                  <div className="flex flex-wrap gap-4 text-sm">
+                    <a href={developerLoginPath} className="text-primary hover:underline">
+                      Developer login
+                    </a>
+                    <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                      Agent Integration
+                    </Link>
                   </div>
                 </div>
 

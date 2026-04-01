@@ -47,6 +47,36 @@ const downstreamValueLines = [
   "Better offer, payment, and execution alignment across agent surfaces",
 ] as const;
 
+const offerComparison = [
+  {
+    title: "Visible offer",
+    body: "A promotion banner, PDP badge, coupon field, or payment incentive a shopper can see on site.",
+  },
+  {
+    title: "Executable offer",
+    body: "An offer an agent can match, validate, preserve, and route through a real merchant-native checkout path.",
+  },
+] as const;
+
+const promotionBlockers = [
+  {
+    title: "Cart threshold conflicts",
+    body: "A visible discount looks simple, but the final cart threshold changes the path late in checkout.",
+  },
+  {
+    title: "Membership-only pricing",
+    body: "Public pricing and gated pricing are easy to confuse when eligibility is not exposed clearly.",
+  },
+  {
+    title: "Wallet incentive mismatch",
+    body: "A payment-linked incentive is advertised but not preserved consistently when execution starts.",
+  },
+  {
+    title: "Shipping incentive ambiguity",
+    body: "A shipping offer is visible, but the qualification logic changes across cart, region, or bundle rules.",
+  },
+] as const;
+
 const merchantKeeps = [
   "Keep your storefront",
   "Keep your PSP",
@@ -145,18 +175,25 @@ export default function PromotionReadinessPage() {
                       </Link>
                     </Button>
                     <Button asChild variant="outline" className="h-11 px-5 text-sm">
-                      <Link href="/#contact">Talk to us</Link>
+                      <Link href={routePaths.merchantOnboarding}>Merchant onboarding</Link>
                     </Button>
                   </div>
-                  <p className="text-sm leading-7 text-muted-foreground">
-                    No replatforming. Keep your storefront, PSP, fulfillment, and customer
-                    operations.
-                  </p>
+                  <div className="flex flex-wrap gap-4 text-sm">
+                    <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                      Agent integration
+                    </Link>
+                    <Link href={routePaths.useCases} className="text-primary hover:underline">
+                      Use cases
+                    </Link>
+                    <Link href="/#contact" className="text-primary hover:underline">
+                      Talk to us
+                    </Link>
+                  </div>
                 </div>
 
                 <div className="section-frame px-6 py-6 sm:px-7">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                    Upstream before downstream
+                    Why this belongs in onboarding
                   </p>
                   <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
                     Promotion readiness is part of onboarding, not a standalone coupon feature.
@@ -213,6 +250,14 @@ export default function PromotionReadinessPage() {
                     </p>
                   </div>
                 </div>
+                <div className="mt-5 grid gap-4 md:grid-cols-2">
+                  {offerComparison.map((item) => (
+                    <div key={item.title} className="rounded-2xl border border-border/70 bg-background/55 px-4 py-4">
+                      <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                      <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.body}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="space-y-5">
@@ -246,6 +291,27 @@ export default function PromotionReadinessPage() {
                   The goal is not a certification. It is a practical way to find likely blockers
                   and improve what agents can execute later.
                 </p>
+              </div>
+
+              <div className="space-y-5">
+                <div className="space-y-2">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                    Common promotion blockers
+                  </p>
+                  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                    The problems that make visible offers hard to execute
+                  </h2>
+                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                  {promotionBlockers.map((item) => (
+                    <article key={item.title} className="section-frame px-5 py-5">
+                      <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.body}</p>
+                    </article>
+                  ))}
+                </div>
               </div>
 
               <div className="section-frame px-6 py-6 sm:px-7">
@@ -359,7 +425,7 @@ export default function PromotionReadinessPage() {
                       </Link>
                     </Button>
                     <Button asChild variant="outline" className="h-11 px-5 text-sm">
-                      <Link href="/#contact">Talk to us</Link>
+                      <Link href={routePaths.merchantOnboarding}>Merchant onboarding</Link>
                     </Button>
                   </div>
                 </div>
@@ -369,11 +435,23 @@ export default function PromotionReadinessPage() {
                 <Link href={routePaths.aiReadiness} className="text-primary hover:underline">
                   Readiness analysis
                 </Link>
+                <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
+                  Merchant onboarding
+                </Link>
+                <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                  Agent integration
+                </Link>
+                <Link href={routePaths.useCases} className="text-primary hover:underline">
+                  Use cases
+                </Link>
                 <Link href={routePaths.howPivotaWorks} className="text-primary hover:underline">
                   How Pivota works
                 </Link>
                 <Link href={routePaths.faq} className="text-primary hover:underline">
                   FAQ
+                </Link>
+                <Link href="/#contact" className="text-primary hover:underline">
+                  Talk to us
                 </Link>
               </div>
             </div>

@@ -48,7 +48,7 @@ const readinessDimensions = [
 const merchantOutputs = [
   {
     title: "Issue overview",
-    body: "Spot what may be blocking discovery, conversion, and execution before traffic scales.",
+    body: "Spot the merchant-specific issues most likely to block discovery, conversion, and execution before traffic scales.",
   },
   {
     title: "Recommended actions",
@@ -61,6 +61,33 @@ const merchantOutputs = [
   {
     title: "Rollout path",
     body: "Understand whether the right next stage is link-out, feeds, or merchant-native checkout.",
+  },
+] as const;
+
+const sampleIssueOverview = [
+  "Variant structure is too ambiguous for confident downstream comparison.",
+  "Promo eligibility logic is fragmented across cart and checkout.",
+  "Wallet incentive is visible on site but not preserved reliably in execution.",
+] as const;
+
+const sampleRecommendedActions = [
+  "Normalize variant and bundle mapping before more AI-driven traffic reaches checkout.",
+  "Tighten executable-offer rules so visible promos and checkout logic stay aligned.",
+  "Fix payment incentive handoff before deeper merchant-native checkout rollout.",
+] as const;
+
+const rolloutStages = [
+  {
+    title: "Link-out",
+    body: "Use when the merchant needs a lighter first stage while measurement and handoff are still improving.",
+  },
+  {
+    title: "Feeds",
+    body: "Use when catalog, offer, and variant readiness are improving but checkout logic still needs work.",
+  },
+  {
+    title: "Merchant-native checkout",
+    body: "Use when checkout, payments, and execution continuity are ready for the deepest rollout stage.",
   },
 ] as const;
 
@@ -92,6 +119,17 @@ const downstreamBenefits = [
   "Fewer checkout failures caused by ambiguous merchant logic",
   "Better payment and write-back continuity through merchant systems",
   "A stronger path from prompt to merchant-native transaction",
+] as const;
+
+const whatMerchantsKeep = [
+  "Storefront and merchandising surfaces",
+  "PSP relationships and payment operations",
+  "Fulfillment systems and customer support workflows",
+] as const;
+
+const whatPivotaImproves = [
+  "Readiness analysis across catalog, offers, checkout, and payments",
+  "Execution routing, API and webhook surfaces, and rollout guidance",
 ] as const;
 
 export const metadata = buildMarketingMetadata({
@@ -140,9 +178,9 @@ export default function MerchantOnboardingPage() {
                       agent-native execution.
                     </p>
                     <p className="mt-2">
-                      The result is a cleaner merchant-native path for downstream LLM and agent
-                      calls, without forcing merchants to replatform storefront, PSP, fulfillment,
-                      or customer operations.
+                      Merchants get issue overview, recommended actions, prioritized fixes, and a
+                      rollout path that operators can act on without replatforming storefront, PSP,
+                      fulfillment, or customer operations.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
@@ -211,7 +249,7 @@ export default function MerchantOnboardingPage() {
                     What merchants get back
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    More than a score. A concrete optimization output.
+                    More than a score. A working output for operators.
                   </h2>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
@@ -224,6 +262,72 @@ export default function MerchantOnboardingPage() {
                       <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.body}</p>
                     </article>
                   ))}
+                </div>
+              </div>
+
+              <div className="grid gap-6 xl:grid-cols-[1.02fr_0.98fr]">
+                <div className="section-frame p-6 sm:p-7">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                    Sample readiness output
+                  </p>
+                  <h2 className="mt-3 text-2xl font-semibold tracking-tight">
+                    Public-safe example of what an operator can act on
+                  </h2>
+                  <div className="mt-5 space-y-4">
+                    <div className="rounded-2xl border border-border/70 bg-background/55 p-4">
+                      <p className="text-sm font-semibold text-foreground">Issue overview</p>
+                      <div className="mt-3 space-y-3">
+                        {sampleIssueOverview.map((item) => (
+                          <div key={item} className="flex items-start gap-3 text-sm leading-6 text-muted-foreground">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="rounded-2xl border border-border/70 bg-background/55 p-4">
+                      <p className="text-sm font-semibold text-foreground">Recommended actions</p>
+                      <div className="mt-3 space-y-3">
+                        {sampleRecommendedActions.map((item) => (
+                          <div key={item} className="flex items-start gap-3 text-sm leading-6 text-muted-foreground">
+                            <Wrench className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="section-frame p-6 sm:p-7">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                    Recommended rollout path
+                  </p>
+                  <h2 className="mt-3 text-2xl font-semibold tracking-tight">
+                    Start with the integration stage that fits current readiness
+                  </h2>
+                  <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                    Merchant onboarding is where Pivota turns readiness findings into a rollout
+                    recommendation. Many merchants should not jump straight to merchant-native
+                    checkout on day one.
+                  </p>
+                  <div className="mt-5 grid gap-3">
+                    {rolloutStages.map((stage) => (
+                      <div
+                        key={stage.title}
+                        className="rounded-2xl border border-border/70 bg-background/55 px-4 py-4"
+                      >
+                        <p className="text-sm font-semibold text-foreground">{stage.title}</p>
+                        <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                          {stage.body}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/8 px-4 py-4 text-sm leading-7 text-foreground">
+                    Sample recommendation: start with feeds, improve payment and cart logic, then
+                    deepen into merchant-native checkout when execution blockers are resolved.
+                  </div>
                 </div>
               </div>
 
@@ -241,6 +345,28 @@ export default function MerchantOnboardingPage() {
                       Pivota improves the merchant-native execution layer by connecting setup,
                       routing, and sync surfaces on top of the current stack.
                     </p>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-4">
+                        <p className="text-sm font-semibold text-foreground">Merchants keep</p>
+                        <div className="mt-3 space-y-2">
+                          {whatMerchantsKeep.map((item) => (
+                            <p key={item} className="text-sm leading-6 text-muted-foreground">
+                              {item}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-4">
+                        <p className="text-sm font-semibold text-foreground">Pivota improves</p>
+                        <div className="mt-3 space-y-2">
+                          {whatPivotaImproves.map((item) => (
+                            <p key={item} className="text-sm leading-6 text-muted-foreground">
+                              {item}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2">
@@ -299,6 +425,15 @@ export default function MerchantOnboardingPage() {
                   <div className="flex flex-wrap gap-4 text-sm">
                     <Link href={routePaths.aiReadiness} className="text-primary hover:underline">
                       Get your readiness analysis
+                    </Link>
+                    <Link href={routePaths.promotionReadiness} className="text-primary hover:underline">
+                      Promotion readiness
+                    </Link>
+                    <Link href={routePaths.merchantNativeCheckout} className="text-primary hover:underline">
+                      Merchant-native checkout
+                    </Link>
+                    <Link href={routePaths.useCases} className="text-primary hover:underline">
+                      Use cases
                     </Link>
                     <Link href={routePaths.agentIntegration} className="inline-flex items-center text-primary hover:underline">
                       View agent integration

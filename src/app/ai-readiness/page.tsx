@@ -73,6 +73,13 @@ const merchantOutputs = [
   "A clearer rollout path from quick wins to deeper integration work",
 ] as const;
 
+const sampleIssueOverview = [
+  "Variant ambiguity is making product comparison less reliable for downstream agents.",
+  "Checkout handoff changes late when cart and shipping thresholds apply.",
+  "A visible payment incentive is not preserved consistently in execution.",
+  "Write-back visibility is too weak to measure downstream reliability with confidence.",
+] as const;
+
 const lightPanelClass =
   "rounded-[1.75rem] border border-slate-200/80 bg-white/88 shadow-[0_18px_42px_-22px_rgba(15,23,42,0.18)] backdrop-blur-xl";
 const lightCardClass =
@@ -308,6 +315,39 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
           </div>
         </section>
 
+        <section className={`${pageSectionClass} bg-gradient-to-b from-[#f2efe4] to-[#f8f6ee]`}>
+          <div className="container-max">
+            <div className={`${lightPanelClass} p-5 sm:p-6`}>
+              <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                <div className="space-y-4">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                    Sample issue overview
+                  </p>
+                  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-slate-900">
+                    A public-safe example of the issues merchants may see first
+                  </h2>
+                  <p className="text-base leading-8 text-slate-600">
+                    The output is practical rather than abstract. The goal is to show merchants
+                    where downstream execution may break before they invest deeper in rollout.
+                  </p>
+                </div>
+
+                <div className="grid gap-3">
+                  {sampleIssueOverview.map((item) => (
+                    <div
+                      key={item}
+                      className={`${lightInlineCardClass} flex items-start gap-3 px-4 py-3`}
+                    >
+                      <SearchCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <p className="text-sm leading-6 text-slate-700">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="how-it-works" className={`${pageSectionClass} bg-gradient-to-b from-[#f2efe4] to-[#f8f6ee]`}>
           <div className="container-max space-y-6">
             <div className="space-y-3">
@@ -398,6 +438,13 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                 className="inline-flex items-center text-primary hover:underline"
               >
                 Agent Integration
+                <ChevronRight className="ml-1 h-4 w-4" />
+              </Link>
+              <Link
+                href={routePaths.useCases}
+                className="inline-flex items-center text-primary hover:underline"
+              >
+                Use cases
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Link>
             </div>

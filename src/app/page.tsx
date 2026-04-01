@@ -34,6 +34,20 @@ const executionSteps = [
   "Measurement across execution",
 ] as const;
 
+const homepageProofItems = [
+  "Issue overview across catalog, offers, checkout, and payments",
+  "Recommended actions operators can use immediately",
+  "Prioritized fixes for cleaner downstream execution",
+  "A rollout path across link-out, feeds, and merchant-native checkout",
+] as const;
+
+const downstreamAgentBenefits = [
+  "Cleaner offer and product resolution",
+  "Fewer ambiguities around checkout and payment paths",
+  "Better merchant-native execution continuity",
+  "Stronger order and write-back visibility",
+] as const;
+
 const homepageFaqJsonLd = buildFaqJsonLd(homepageFaqItems);
 
 export const metadata = buildMarketingMetadata({
@@ -77,28 +91,39 @@ export default function Home() {
 
                 <div className="flex flex-wrap gap-3">
                   <Button asChild className="btn-hero h-11 px-5 text-sm">
-                    <Link href="/#contact">
-                      Talk to us
+                    <Link href={routePaths.aiReadiness}>
+                      Get your readiness analysis
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="h-11 px-5 text-sm">
-                    <Link href={routePaths.aiReadiness}>Get your readiness analysis</Link>
+                    <Link href={routePaths.agentIntegration}>View agent integration</Link>
                   </Button>
                 </div>
 
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
+                    <span className="block font-semibold text-foreground">Merchant path</span>
+                    Readiness analysis → onboarding outputs → rollout path
+                  </div>
+                  <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
+                    <span className="block font-semibold text-foreground">Builder path</span>
+                    Agent integration → first call → orders, webhooks, and execution
+                  </div>
+                </div>
+
                 <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
-                  <Link href={routePaths.merchantGateway} className="text-primary hover:underline">
-                    Category definition
-                  </Link>
                   <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
                     Merchant onboarding
                   </Link>
-                  <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
-                    View agent integration
-                  </Link>
                   <Link href={routePaths.useCases} className="text-primary hover:underline">
                     Use cases
+                  </Link>
+                  <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                    Agent integration
+                  </Link>
+                  <Link href="/#contact" className="text-primary hover:underline">
+                    Talk to us
                   </Link>
                 </div>
               </div>
@@ -124,7 +149,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="container-max mt-6 grid gap-4 lg:grid-cols-3">
+            <div className="container-max mt-6 grid gap-4 lg:grid-cols-4">
               {homepageResultStatements.map((item) => (
                 <div key={item.title} className="section-frame px-5 py-5">
                   <p className="text-sm font-semibold text-foreground">{item.title}</p>
@@ -159,24 +184,23 @@ export default function Home() {
                 Merchants connect once, Pivota improves readiness upstream, and downstream agents
                 get a cleaner merchant-native path.
               </p>
+              <p className="text-base leading-8 text-foreground/90">
+                Build against the same merchant-native path that onboarding improves upstream.
+              </p>
               <p className="text-base leading-8 text-foreground/90">That is where Pivota fits.</p>
               <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
                 From prompt to recommendation to merchant-native execution.
               </p>
-              <div className="grid gap-3 pt-1 sm:grid-cols-2">
-                {[
-                  "Catalog and offer issues",
-                  "Checkout and payment blockers",
-                  "Prioritized fixes",
-                  "Recommended rollout path",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm text-foreground"
-                  >
-                    {item}
-                  </div>
-                ))}
+              <div className="flex flex-wrap gap-4 text-sm">
+                <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
+                  Merchant onboarding
+                </Link>
+                <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                  Agent integration
+                </Link>
+                <Link href={routePaths.useCases} className="text-primary hover:underline">
+                  Use cases
+                </Link>
               </div>
             </div>
 
@@ -249,6 +273,70 @@ export default function Home() {
               <Link href={routePaths.merchantGateway} className="text-primary hover:underline">
                 Read the category page
               </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-padding bg-gradient-to-b from-card to-background">
+          <div className="container-max">
+            <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
+              <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                <div className="space-y-4">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                    What merchants get after onboarding
+                  </p>
+                  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                    Merchant outcomes upstream. Cleaner calls downstream.
+                  </h2>
+                  <p className="text-base leading-8 text-muted-foreground">
+                    Pivota does not stop at a category story. After connection, merchants get a
+                    concrete operating output their teams can act on before agent-driven traffic
+                    scales.
+                  </p>
+                  <div className="flex flex-wrap gap-4 text-sm">
+                    <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
+                      Merchant onboarding
+                    </Link>
+                    <Link href={routePaths.useCases} className="text-primary hover:underline">
+                      Use cases
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="rounded-[1.7rem] border border-border/70 bg-background/60 p-5">
+                    <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                      Sample merchant output
+                    </p>
+                    <div className="mt-4 space-y-3">
+                      {homepageProofItems.map((item) => (
+                        <div
+                          key={item}
+                          className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground"
+                        >
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="rounded-[1.7rem] border border-border/70 bg-background/60 p-5">
+                    <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                      What downstream agents get
+                    </p>
+                    <div className="mt-4 space-y-3">
+                      {downstreamAgentBenefits.map((item) => (
+                        <div
+                          key={item}
+                          className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground"
+                        >
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

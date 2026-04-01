@@ -13,7 +13,11 @@ import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import PageChrome from "@/components/PageChrome";
 import { Button } from "@/components/ui/button";
-import { buildMarketingMetadata, routePaths } from "@/lib/marketing";
+import {
+  buildMarketingMetadata,
+  developerSignupPath,
+  routePaths,
+} from "@/lib/marketing";
 import { buildBreadcrumbJsonLd, buildSoftwareApplicationJsonLd } from "@/lib/schema";
 
 const integrationModes = [
@@ -65,10 +69,10 @@ const requestFamilies = [
 ] as const;
 
 const firstCallSteps = [
-  "Create or rotate an API key for the integration environment.",
+  "Create a developer account and get a production or test API key.",
   "Send a first authenticated request against the branded API domain.",
-  "Create the first order or checkout flow and observe the response shape.",
-  "Configure webhook delivery, send a test event, and validate signature handling.",
+  "Create the first order or checkout flow and confirm response shape.",
+  "Configure webhook delivery and validate execution updates before promoting traffic.",
 ] as const;
 
 const executionBoundaries = [
@@ -84,6 +88,48 @@ const proofPoints = [
   "The published SDK package is pivota-agent",
   "The published MCP package is pivota-mcp-server",
   "Managed webhook receivers follow https://api.pivota.cc/agents/{agent_id}/webhooks/managed-inbox",
+] as const;
+
+const publicQuickstartSnippet = `curl https://api.pivota.cc/agent/v1/merchants \\
+  -H "X-API-Key: YOUR_API_KEY"`;
+
+const requestSnippet = `curl -X POST "https://api.pivota.cc/agent/v1/checkouts/intent" \\
+  -H "Content-Type: application/json" \\
+  -H "X-API-Key: YOUR_API_KEY" \\
+  -d '{
+    "merchant_id": "merch_...",
+    "items": [
+      {
+        "product_id": "prod_...",
+        "variant_id": "var_...",
+        "quantity": 1
+      }
+    ],
+    "currency": "USD"
+  }'`;
+
+const responseSnippet = `{
+  "status": "ready_for_checkout",
+  "merchant_native_path": {
+    "checkout_url": "https://checkout.pivota.cc/...",
+    "rollout_stage": "merchant_native_checkout"
+  },
+  "next_action": "redirect_to_checkout",
+  "events": ["order.created", "order.payment_attempted"]
+}`;
+
+const publicDocsItems = [
+  "First call quickstart and branded API base",
+  "Request families and example request shapes",
+  "Auth model, webhook model, and execution boundaries",
+  "Protocol positioning and merchant-onboarding dependency",
+] as const;
+
+const consoleItems = [
+  "Create and revoke API keys",
+  "Inspect usage, delivery history, and retries",
+  "Manage webhook destinations and signing secrets",
+  "Review order activity and account-specific operational state",
 ] as const;
 
 export const metadata = buildMarketingMetadata({
@@ -146,20 +192,29 @@ export default function AgentIntegrationPage() {
                       merchant-native checkout, payments, and order write-back.
                     </p>
                     <p className="mt-2">
-                      External builders should start with the default REST path, then use the SDK
-                      or MCP only where those surfaces improve integration ergonomics.
+                      Start with the public REST path, use SDK or MCP where helpful, and move from
+                      first authenticated call into checkout, orders, events, and webhooks on one
+                      merchant-native contract.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
-                      <Link href={routePaths.developersFirstCall}>
-                        View first call
+                      <a href={developerSignupPath}>
+                        Get API access
                         <ArrowRight className="ml-1 h-4 w-4" />
-                      </Link>
+                      </a>
                     </Button>
                     <Button asChild variant="outline" className="h-11 px-5 text-sm">
-                      <Link href="/#contact">Talk to us</Link>
+                      <Link href={routePaths.developersFirstCall}>View first call</Link>
                     </Button>
+                  </div>
+                  <div className="flex flex-wrap gap-4 text-sm">
+                    <Link href={routePaths.developersAuthWebhooks} className="text-primary hover:underline">
+                      Auth & webhooks
+                    </Link>
+                    <Link href="/#contact" className="text-primary hover:underline">
+                      Talk to us
+                    </Link>
                   </div>
                 </div>
 
@@ -182,6 +237,69 @@ export default function AgentIntegrationPage() {
                     <Link href={routePaths.merchantNativeCheckout} className="text-primary hover:underline">
                       Merchant-native checkout
                     </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-5">
+                <div className="space-y-2">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                    Start in 4 steps
+                  </p>
+                  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                    Make the first call path obvious before login.
+                  </h2>
+                </div>
+                <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+                  <div className="section-frame px-6 py-6 sm:px-7">
+                    <div className="space-y-3">
+                      {firstCallSteps.map((step, index) => (
+                        <div
+                          key={step}
+                          className="rounded-2xl border border-border/70 bg-background/55 px-4 py-4"
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-semibold text-primary">
+                              {index + 1}
+                            </div>
+                            <p className="text-sm leading-7 text-muted-foreground">{step}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/8 px-4 py-4 text-sm leading-7 text-foreground">
+                      Test and production keys are supported. Validate the first authenticated
+                      request and webhook loop before promoting traffic.
+                    </div>
+                  </div>
+
+                  <div className="section-frame p-6 sm:p-7">
+                    <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                      Public quickstart
+                    </p>
+                    <h3 className="mt-3 text-2xl font-semibold tracking-tight">
+                      Start with the branded REST path
+                    </h3>
+                    <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                      Use the public API base and the
+                      {" "}
+                      <code className="rounded bg-background px-1.5 py-1 font-mono text-xs text-foreground">
+                        X-API-Key
+                      </code>
+                      {" "}
+                      header to validate access before building deeper order or checkout flows.
+                    </p>
+                    <pre className="mt-5 overflow-x-auto rounded-2xl border border-border/70 bg-background/80 p-4 text-sm text-foreground">
+                      <code>{publicQuickstartSnippet}</code>
+                    </pre>
+                    <div className="mt-5 flex flex-wrap gap-4 text-sm">
+                      <a href={developerSignupPath} className="text-primary hover:underline">
+                        Get API access
+                      </a>
+                      <Link href={routePaths.developersFirstCall} className="text-primary hover:underline">
+                        View first call
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -237,40 +355,30 @@ export default function AgentIntegrationPage() {
               <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
                 <div className="space-y-4">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                    First-call path
+                    Example request and response
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    The integration model should be obvious in one screen.
+                    Show builders the execution shape, not just the category story.
                   </h2>
                   <p className="max-w-2xl text-base leading-8 text-muted-foreground">
-                    The authenticated developer console already proves the operational path. Public
-                    docs should make that same path discoverable before login.
+                    Public docs should make the request contract visible before login so a builder
+                    can understand the next action, the merchant-native path, and the event model
+                    without guessing.
                   </p>
                 </div>
 
-                <div className="section-frame px-6 py-6 sm:px-7">
-                  <div className="space-y-3">
-                    {firstCallSteps.map((step, index) => (
-                      <div key={step} className="rounded-2xl border border-border/70 bg-background/55 px-4 py-4">
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-semibold text-primary">
-                            {index + 1}
-                          </div>
-                          <p className="text-sm leading-7 text-muted-foreground">{step}</p>
-                        </div>
-                      </div>
-                    ))}
+                <div className="grid gap-4">
+                  <div className="section-frame p-6 sm:p-7">
+                    <p className="text-sm font-semibold text-foreground">Request example</p>
+                    <pre className="mt-4 overflow-x-auto rounded-2xl border border-border/70 bg-background/80 p-4 text-sm text-foreground">
+                      <code>{requestSnippet}</code>
+                    </pre>
                   </div>
-                  <div className="mt-5 flex flex-wrap gap-4 text-sm">
-                    <Link href={routePaths.developersFirstCall} className="text-primary hover:underline">
-                      First call
-                    </Link>
-                    <Link href={routePaths.developersAuthWebhooks} className="text-primary hover:underline">
-                      Auth & webhooks
-                    </Link>
-                    <Link href={routePaths.developersRequestTypes} className="text-primary hover:underline">
-                      Request types
-                    </Link>
+                  <div className="section-frame p-6 sm:p-7">
+                    <p className="text-sm font-semibold text-foreground">Response example</p>
+                    <pre className="mt-4 overflow-x-auto rounded-2xl border border-border/70 bg-background/80 p-4 text-sm text-foreground">
+                      <code>{responseSnippet}</code>
+                    </pre>
                   </div>
                 </div>
               </div>
@@ -291,6 +399,47 @@ export default function AgentIntegrationPage() {
                       {item}
                     </div>
                   ))}
+                </div>
+              </div>
+
+              <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
+                <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                  <div className="space-y-4">
+                    <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                      What stays public vs what is in the console
+                    </p>
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                      Public docs for activation. Console for operational control.
+                    </h2>
+                    <p className="text-base leading-8 text-muted-foreground">
+                      Builders should be able to understand the contract, auth, and execution model
+                      without login. Account-specific controls and telemetry stay in the developer
+                      console.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="rounded-2xl border border-border/70 bg-background/55 p-5">
+                      <p className="text-sm font-semibold text-foreground">Visible without login</p>
+                      <div className="mt-4 space-y-3">
+                        {publicDocsItems.map((item) => (
+                          <div key={item} className="text-sm leading-6 text-muted-foreground">
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="rounded-2xl border border-border/70 bg-background/55 p-5">
+                      <p className="text-sm font-semibold text-foreground">Inside the developer console</p>
+                      <div className="mt-4 space-y-3">
+                        {consoleItems.map((item) => (
+                          <div key={item} className="text-sm leading-6 text-muted-foreground">
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -334,11 +483,14 @@ export default function AgentIntegrationPage() {
                       Ready to evaluate the callable surface directly?
                     </h2>
                     <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
-                      Start with the first call, then move into request types, auth, webhooks, and
-                      protocol positioning as the integration deepens.
+                      Start with API access and the first call, then move into request types, auth,
+                      webhooks, and protocol positioning as the integration deepens.
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-4 text-sm">
+                    <a href={developerSignupPath} className="text-primary hover:underline">
+                      Get API access
+                    </a>
                     <Link href={routePaths.developersFirstCall} className="inline-flex items-center text-primary hover:underline">
                       View first call
                       <ChevronRight className="ml-1 h-4 w-4" />

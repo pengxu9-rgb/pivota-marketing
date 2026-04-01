@@ -4,6 +4,8 @@ export const siteName = "Pivota";
 export const siteUrl = "https://pivota.cc";
 export const categoryAnchor = "merchant gateway for agent-native commerce";
 export const merchantSignupPath = "https://merchant.pivota.cc/signup?source=marketing";
+export const developerSignupPath = "https://developer.pivota.cc/signup";
+export const developerLoginPath = "https://developer.pivota.cc/login";
 export const aiReadinessSignupPath = "/merchant/signup/ai-readiness";
 export const auroraUrl = "https://aurora.pivota.cc";
 export const lastUpdatedIso = "2026-03-23";
@@ -94,22 +96,26 @@ export const coreAnswerBlock = [
 ] as const;
 
 export const homepageHeroAnswerBlock = [
-  "Pivota is the commerce layer — and shopping sub-agent — that agents call to turn prompts into recommendations, merchant-native checkout, payments, and order write-back.",
-  "Works across agent surfaces, store platforms, and payment systems.",
+  "Connect your store, get issue overview, prioritized fixes, and a rollout path that improves the merchant-native path downstream agents call.",
+  "Pivota is the commerce layer — and shopping sub-agent — that agents call for recommendations, merchant-native checkout, payments, and order write-back.",
 ] as const;
 
 export const homepageResultStatements = [
   {
-    title: "Orchestration",
-    body: "Turn user goals into managed shopping workflows.",
+    title: "Issue overview",
+    body: "See likely catalog, offer, checkout, and payment blockers after connection.",
   },
   {
-    title: "Decisioning",
-    body: "Understand intent, compare options, and recommend the right products.",
+    title: "Recommended actions",
+    body: "Give operators concrete next steps instead of a vague readiness score.",
   },
   {
-    title: "Execution",
-    body: "Resolve checkout, payments, authorization, and write-back through merchant-native rails.",
+    title: "Prioritized fixes",
+    body: "Focus on the changes most likely to improve downstream agent execution.",
+  },
+  {
+    title: "Rollout path",
+    body: "Decide whether link-out, feeds, or merchant-native checkout is the right next stage.",
   },
 ] as const;
 
@@ -158,59 +164,9 @@ export const faqItems = [
       "Pivota is the merchant gateway for agent-native commerce. It turns LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
   },
   {
-    question: "What is a merchant gateway for agent-native commerce?",
+    question: "Do I need to rebuild my store?",
     answer:
-      "A merchant gateway for agent-native commerce is the execution layer between LLM or agent demand and merchant systems. Pivota makes catalogs queryable, routes demand into merchant-native checkout and payment flows, and writes execution state back into merchant systems.",
-  },
-  {
-    question: "How do merchants turn LLM traffic into transactions?",
-    answer:
-      "Pivota is the merchant gateway for agent-native commerce, so it helps merchants turn LLM and agent traffic into merchant-native transactions. It connects catalog, checkout, payment, and post-purchase systems into one merchant-controlled execution path.",
-  },
-  {
-    question: "How can merchants become discoverable across ChatGPT and other LLM surfaces?",
-    answer:
-      "Pivota is the merchant gateway for agent-native commerce, and it helps merchants become more queryable across LLM surfaces. It structures catalogs, offers, and variants so demand can resolve into an executable merchant path.",
-  },
-  {
-    question: "How do AI agents connect to merchant checkout and payment?",
-    answer:
-      "Pivota is the merchant gateway for agent-native commerce, and it connects agent demand to merchant-native checkout and payment flows. Merchants keep existing payment relationships, while Pivota supports order authorization, payment-state sync, and write-back.",
-  },
-  {
-    question: "What infrastructure supports merchant-native LLM transactions?",
-    answer:
-      "Pivota is the merchant gateway for agent-native commerce. It provides the execution layer across catalog normalization, merchant-native checkout, payment routing, and order or payment write-back.",
-  },
-  {
-    question: "What is agentic commerce?",
-    answer:
-      "Pivota is the merchant gateway for agent-native commerce, and agentic commerce is the broader market term for commerce shaped by LLMs and agents. For merchants, that broader shift only becomes useful when demand can resolve into merchant-native transactions.",
-  },
-  {
-    question: "How is agentic commerce different from agent-native commerce?",
-    answer:
-      "Pivota is the merchant gateway for agent-native commerce, which is the more specific execution and category framing. Agentic commerce is the broader market term, while agent-native commerce describes the merchant-controlled path that connects demand to catalog, checkout, payment, and post-purchase systems.",
-  },
-  {
-    question: "What infrastructure supports agentic commerce for merchants?",
-    answer:
-      "Pivota is the merchant gateway for agent-native commerce, so it provides the execution layer that makes agentic commerce work for merchants. That layer spans catalog queryability, merchant-native checkout, payment routing, payment-state sync, and order or payment write-back.",
-  },
-  {
-    question: "How can merchants measure transactions from AI agents?",
-    answer:
-      "Pivota is the merchant gateway for agent-native commerce, so measurement is tied to execution rather than to vague traffic alone. Catalog events, checkout progress, payment state, and write-back create a clearer merchant transaction pathway.",
-  },
-  {
-    question: "What is the difference between a merchant gateway and a payment gateway for AI commerce?",
-    answer:
-      "Pivota is the merchant gateway for agent-native commerce, which means it covers more than payment processing. A payment gateway handles payment rails, while a merchant gateway connects discovery, execution, checkout, payment, and post-purchase systems.",
-  },
-  {
-    question: "Does Pivota replace a merchant’s existing systems?",
-    answer:
-      "Pivota is the merchant gateway for agent-native commerce, but it is built on top of merchant systems rather than in place of them. Merchants keep their storefront, fulfillment, customer operations, and existing payment relationships.",
+      "No. Pivota is built around no replatforming. Merchants keep their storefront, PSP, fulfillment systems, and customer operations while Pivota improves readiness and execution around the existing stack.",
   },
   {
     question: "What happens after a merchant connects to Pivota?",
@@ -218,67 +174,117 @@ export const faqItems = [
       "After connection, Pivota continues the merchant into onboarding and dashboard setup, analyzes readiness across catalog, offers, checkout, and payments, and returns issue overview, recommended actions, prioritized fixes, and a rollout path.",
   },
   {
-    question: "What does no replatforming mean in practice?",
+    question: "What do merchants get after onboarding?",
     answer:
-      "No replatforming means merchants keep their storefront, PSP, fulfillment stack, and customer operations. Pivota layers sales channels, payment setup, routing, and API or webhook surfaces on top of the existing merchant stack.",
+      "Merchants get issue overview, recommended actions, prioritized fixes, and a rollout path across catalog, offers, checkout, payments, and downstream execution readiness.",
+  },
+  {
+    question: "How does readiness improve downstream agent calls?",
+    answer:
+      "Readiness work happens upstream during merchant onboarding. Once merchant data, offers, checkout behavior, and payment logic are cleaner, downstream agents get a more reliable merchant-native path with fewer ambiguities and better execution continuity.",
+  },
+  {
+    question: "Is Promotion Readiness a coupon finder?",
+    answer:
+      "No. Promotion Readiness is part of merchant onboarding and commerce readiness. It helps merchants improve how offers, eligibility, payment incentives, and checkout logic execute later through agent-driven commerce flows.",
+  },
+  {
+    question: "What is the difference between a visible offer and an executable offer?",
+    answer:
+      "A visible offer is something a shopper can see on site. An executable offer is one an agent can reliably match, validate, preserve, and route through a real merchant-native checkout path.",
+  },
+  {
+    question: "Can I start before merchant-native checkout?",
+    answer:
+      "Yes. Many merchants start with link-out or feeds first. Merchant-native checkout is a later rollout stage when checkout, payment, and execution readiness are strong enough.",
   },
   {
     question: "What can agents call through Pivota today?",
     answer:
-      "The public integration surface centers on REST APIs with API keys and webhooks. Builders can use request families such as search and recommendation, cart and checkout intent flows, orders, order events, and webhook delivery, with SDKs and MCP supporting selected workflows on top of the same core contract.",
+      "Agents and builders can start with the public REST path, then use SDK or MCP where useful. Public request families include search and recommendation, cart and checkout intents, orders, order status, order events, webhooks, and payment-aware execution flows.",
   },
   {
-    question: "What is the default integration path: REST, SDK, or MCP?",
+    question: "What is the default integration path?",
     answer:
-      "REST with API keys and webhooks is the primary production path. The SDK is a convenience wrapper over the same REST contract. MCP is a local orchestration and discovery surface, not a hosted replacement for the production REST API.",
+      "REST with API keys and webhooks is the default production path. The SDK wraps the same REST contract. MCP sits on top as a local orchestration and discovery surface.",
+  },
+  {
+    question: "What happens after the first successful call?",
+    answer:
+      "After the first successful call, the next steps are to validate response shape, create the first order or checkout flow, configure webhooks, and confirm downstream execution and event handling.",
+  },
+  {
+    question: "How do webhooks fit into execution?",
+    answer:
+      "Webhooks carry execution and lifecycle signals after the initial call. They help builders observe order creation, payment attempts, payment outcomes, completion, refunds, cancellations, and delivery health.",
+  },
+  {
+    question: "What is a merchant gateway for agent-native commerce?",
+    answer:
+      "A merchant gateway for agent-native commerce is the execution layer between LLM or agent demand and merchant systems. Pivota makes catalogs queryable, routes demand into merchant-native checkout and payment flows, and writes execution state back into merchant systems.",
+  },
+  {
+    question: "How do merchants turn LLM traffic into transactions?",
+    answer:
+      "Pivota helps merchants turn LLM and agent traffic into merchant-native transactions by connecting catalog, checkout, payment, and post-purchase systems into one merchant-controlled execution path.",
+  },
+  {
+    question: "How can merchants become discoverable across ChatGPT and other LLM surfaces?",
+    answer:
+      "Pivota helps merchants become more queryable across LLM surfaces by structuring catalogs, offers, and variants so demand can resolve into an executable merchant path.",
+  },
+  {
+    question: "How do AI agents connect to merchant checkout and payment?",
+    answer:
+      "Pivota connects agent demand to merchant-native checkout and payment flows. Merchants keep existing payment relationships while Pivota supports authorization, payment-state sync, and write-back.",
+  },
+  {
+    question: "What is agentic commerce?",
+    answer:
+      "Agentic commerce is the broader market term for commerce shaped by LLMs and agents. Pivota is focused on the merchant-controlled execution layer that makes that demand useful for merchants.",
+  },
+  {
+    question: "How is agentic commerce different from agent-native commerce?",
+    answer:
+      "Agentic commerce is the broader market term. Agent-native commerce is the more specific merchant-controlled path that connects demand to catalog, checkout, payment, and post-purchase systems.",
   },
   {
     question: "Is Pivota a marketplace or a checkout-only tool?",
     answer:
-      "Pivota is the merchant gateway for agent-native commerce. It is not a marketplace, and it is not a checkout-only tool, because it spans queryability, execution, merchant-native checkout, payment-state sync, and write-back.",
+      "No. Pivota is not a marketplace, and it is not a checkout-only tool. It spans queryability, execution, merchant-native checkout, payment-state sync, and write-back.",
   },
 ] as const;
 
 export const homepageFaqItems = [
   {
-    question: "Is Pivota only for ChatGPT, Copilot, or Gemini?",
+    question: "Do I need to rebuild my store?",
     answer:
-      "No. Pivota is built for agent-native commerce across surfaces. It is the merchant gateway and commerce layer that different agents can call.",
+      "No. Pivota layers on top of the storefront, PSP, fulfillment systems, and customer operations merchants already run.",
   },
   {
-    question: "Is Pivota a shopping sub-agent?",
+    question: "What do merchants get after onboarding?",
     answer:
-      "Pivota can serve as the commerce layer or shopping sub-agent that front-end agents call for recommendations, merchant-native checkout, payments, and post-purchase execution.",
-  },
-  {
-    question: "Does Pivota depend on a single AI platform?",
-    answer:
-      "No. Pivota connects agent demand to merchant-native execution across store platforms, payments, and post-purchase systems.",
-  },
-  {
-    question: "What does Pivota do beyond discoverability?",
-    answer:
-      "Pivota helps turn prompts into recommendations, merchant-native checkout flows, payments handling, and order write-back.",
-  },
-  {
-    question: "Does Pivota replace Shopify?",
-    answer:
-      "No. Shopify can be a merchant platform and catalog rail. Pivota adds a deeper commerce execution layer for agents.",
-  },
-  {
-    question: "When should a merchant use Pivota?",
-    answer:
-      "Pivota is most useful when merchants need more than discoverability — including prompt-aware recommendations, merchant-native checkout, payments orchestration, order write-back, cross-agent measurement, or branded agent experiences.",
-  },
-  {
-    question: "What happens after a merchant connects to Pivota?",
-    answer:
-      "Pivota creates the merchant onboarding record, analyzes readiness across catalog, offers, checkout, and payments, then returns issue overview, recommended actions, prioritized fixes, and a rollout path for the next integration stage.",
+      "Merchants get issue overview, recommended actions, prioritized fixes, and a rollout path across catalog, offers, checkout, and payments.",
   },
   {
     question: "What can agents call through Pivota today?",
     answer:
-      "Pivota exposes a default REST integration path, SDK wrappers over the same contract, and a local MCP surface for workflows such as search and recommendations, cart and checkout intent flows, orders, order events, and webhook-based execution updates.",
+      "The default path is REST with API keys and webhooks, with request families across search, recommendation, checkout intents, orders, order events, and payment-aware execution.",
+  },
+  {
+    question: "Can I start before merchant-native checkout?",
+    answer:
+      "Yes. Many merchants begin with link-out or feeds first, then move into merchant-native checkout when deeper readiness work is complete.",
+  },
+  {
+    question: "What is the default integration path?",
+    answer:
+      "REST is the default production path. SDK and MCP sit on top of the same core contract for convenience and orchestration.",
+  },
+  {
+    question: "How does readiness improve downstream agent calls?",
+    answer:
+      "Readiness work happens upstream once. Then downstream agents get cleaner product resolution, better offer matching, and a more reliable merchant-native execution path.",
   },
 ] as const;
 
@@ -286,32 +292,46 @@ export const homepageFaqPreviewItems = homepageFaqItems;
 
 export const useCases = [
   {
-    slug: "merchant-discovery",
-    title: "Merchant discovery across LLM surfaces",
-    prompt: "How can merchants become discoverable across ChatGPT and other LLM surfaces in agentic commerce?",
+    slug: "ingredient-and-variant-clarity",
+    title: "Ingredient and variant clarity",
+    prompt: "Discoverability and variant readiness",
     summary:
-      "Pivota is the merchant gateway for agent-native commerce, so it helps merchants structure catalogs, offers, and variants into a clearer merchant discovery layer for LLM and agent traffic.",
+      "A specialty skin care brand cleaned up ingredient and variant structure so downstream agents could recommend products more reliably.",
   },
   {
-    slug: "merchant-native-checkout",
-    title: "Merchant-native checkout for LLM and agent traffic",
-    prompt: "How do AI agents connect to merchant checkout and payment?",
+    slug: "seasonal-promo-complexity",
+    title: "Seasonal promo complexity",
+    prompt: "Offer and promotion readiness",
     summary:
-      "Pivota is the merchant gateway for agent-native commerce, and it routes agent demand into merchant-native checkout and payment flows instead of forcing merchants into marketplace-owned execution.",
+      "A fashion merchant tightened fragmented promo logic so downstream agents could stop guessing which offer really applied.",
   },
   {
-    slug: "payment-and-write-back",
-    title: "Payment routing and execution write-back",
-    prompt: "What infrastructure supports agentic commerce for merchants?",
+    slug: "eligibility-sensitive-pricing",
+    title: "Eligibility-sensitive pricing",
+    prompt: "Offer and promotion readiness",
     summary:
-      "Pivota is the merchant gateway for agent-native commerce, and it keeps payment-state sync, order authorization, and write-back connected to merchant systems.",
+      "A merchant with membership pricing clarified what was executable versus conditional before scaling AI traffic.",
   },
   {
-    slug: "measurement",
-    title: "Measurement across demand and execution",
-    prompt: "How can merchants measure transactions from AI agents?",
+    slug: "wallet-and-financing-readiness",
+    title: "Wallet and financing readiness",
+    prompt: "Checkout and payment execution",
     summary:
-      "Pivota is the merchant gateway for agent-native commerce, and it helps merchants measure transaction pathways across discovery, checkout, payment, and post-purchase systems.",
+      "An electronics retailer cleaned up wallet and financing logic before moving toward merchant-native checkout.",
+  },
+  {
+    slug: "shipping-and-cart-rule-alignment",
+    title: "Shipping and cart-rule alignment",
+    prompt: "Checkout and payment execution",
+    summary:
+      "A home goods merchant improved cart and shipping readiness so recommended paths stayed closer to final checkout reality.",
+  },
+  {
+    slug: "reliability-and-write-back-visibility",
+    title: "Reliability and write-back visibility",
+    prompt: "Measurement and write-back",
+    summary:
+      "A footwear merchant improved execution visibility before scaling agent-driven demand.",
   },
 ] as const;
 
