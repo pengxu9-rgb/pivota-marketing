@@ -13,8 +13,6 @@ import heroImage from "@/assets/hero-dashboard.jpg";
 import workflowImage from "@/assets/workflow-steps.jpg";
 import {
   buildMarketingMetadata,
-  defaultOgDescription,
-  defaultOgTitle,
   homepageFaqItems,
   homepageFaqPreviewItems,
   homepageHeroAnswerBlock,
@@ -54,8 +52,9 @@ export const metadata = buildMarketingMetadata({
   title: homepageTitle,
   description: homepageMetaDescription,
   path: routePaths.home,
-  ogTitle: defaultOgTitle,
-  ogDescription: defaultOgDescription,
+  ogTitle: "Pivota — The Merchant Gateway for Agent-Native Commerce",
+  ogDescription:
+    "The merchant gateway for agent-native commerce. Built for a future where commerce happens across many agents, not one AI app.",
 });
 
 export default function Home() {
