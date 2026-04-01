@@ -10,6 +10,7 @@ import JsonLd from "@/components/JsonLd";
 import QuestionAnswerList from "@/components/QuestionAnswerList";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-dashboard.jpg";
+import workflowImage from "@/assets/workflow-steps.jpg";
 import {
   buildMarketingMetadata,
   defaultOgDescription,
@@ -34,50 +35,17 @@ const executionSteps = [
 ] as const;
 
 const homepageProofItems = [
-  "What is blocking conversion from agent-driven traffic",
-  "What to fix first to improve the path from recommendation to transaction",
-  "Where product resolution, offer logic, checkout, or payment continuity breaks",
-  "The safest next path: link-out, feeds, or merchant-native checkout",
+  "Issue overview across catalog, offers, checkout, and payments",
+  "Recommended actions operators can use immediately",
+  "Prioritized fixes for cleaner downstream execution",
+  "A rollout path across link-out, feeds, and merchant-native checkout",
 ] as const;
 
 const downstreamAgentBenefits = [
   "Cleaner offer and product resolution",
-  "Safer checkout continuity",
-  "Payment-aware execution",
-  "Stronger write-back and measurement",
-] as const;
-
-const storePlatformCards = [
-  {
-    title: "Access is not control",
-    body: "Store platforms can open useful AI selling paths. Pivota adds a merchant-controlled layer across offers, checkout continuity, payments, and write-back.",
-  },
-  {
-    title: "Presence is not understanding",
-    body: "Being visible in a surface does not mean agents can resolve the right product, variant, price, or offer path with confidence.",
-  },
-  {
-    title: "Native paths are not fallback paths",
-    body: "As surfaces fragment, merchants still need a platform-independent fallback path that keeps execution continuity intact.",
-  },
-  {
-    title: "Platform examples are not platform limits",
-    body: "Shopify and Wix are visible examples today, but the control problem also spans WooCommerce, BigCommerce, custom stacks, and future agent surfaces.",
-  },
-] as const;
-
-const keepStackItems = [
-  "Keep your storefront",
-  "Keep your PSP",
-  "Keep your fulfillment systems",
-  "Keep your customer operations",
-] as const;
-
-const pivotaAddsItems = [
-  "Merchant control across fragmented agent surfaces",
-  "Fallback when native paths are not enough",
-  "Safer checkout and payment continuity",
-  "Clearer write-back and measurement across execution",
+  "Fewer ambiguities around checkout and payment paths",
+  "Better merchant-native execution continuity",
+  "Stronger order and write-back visibility",
 ] as const;
 
 const homepageFaqJsonLd = buildFaqJsonLd(homepageFaqItems);
@@ -107,13 +75,13 @@ export default function Home() {
               <div className="space-y-5">
                 <div className="flex flex-wrap items-center gap-3 text-sm">
                   <span className="rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 uppercase tracking-[0.2em] text-primary">
-                    Works with Shopify, Wix, WooCommerce, BigCommerce, and more
+                    Agent-native commerce infrastructure
                   </span>
                 </div>
 
                 <div className="space-y-3">
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                    Work with any store platform. Turn agent demand into revenue.
+                    The merchant gateway for agent-native commerce
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>{homepageHeroAnswerBlock[0]}</p>
@@ -124,23 +92,23 @@ export default function Home() {
                 <div className="flex flex-wrap gap-3">
                   <Button asChild className="btn-hero h-11 px-5 text-sm">
                     <Link href={routePaths.aiReadiness}>
-                      Analyze your agent-to-revenue path
+                      Get your readiness analysis
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="h-11 px-5 text-sm">
-                    <Link href={routePaths.howPivotaWorks}>See how Pivota works</Link>
+                    <Link href={routePaths.agentIntegration}>View agent integration</Link>
                   </Button>
                 </div>
 
                 <div className="grid gap-3 sm:grid-cols-2">
                   <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
                     <span className="block font-semibold text-foreground">Merchant path</span>
-                    Revenue-path analysis → onboarding plan → safest next integration stage
+                    Readiness analysis → onboarding outputs → rollout path
                   </div>
                   <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
                     <span className="block font-semibold text-foreground">Builder path</span>
-                    How Pivota works → agent integration → orders, webhooks, and execution
+                    Agent integration → first call → orders, webhooks, and execution
                   </div>
                 </div>
 
@@ -150,9 +118,6 @@ export default function Home() {
                   </Link>
                   <Link href={routePaths.useCases} className="text-primary hover:underline">
                     Use cases
-                  </Link>
-                  <Link href={routePaths.howPivotaWorks} className="text-primary hover:underline">
-                    How Pivota works
                   </Link>
                   <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
                     Agent integration
@@ -198,110 +163,82 @@ export default function Home() {
         <section className="section-padding bg-gradient-to-b from-card to-background">
           <div className="container-max grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                Store platforms and control
-              </p>
+              <p className="text-sm uppercase tracking-[0.18em] text-primary">Why this layer exists</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Your store platform is part of the answer, not the whole answer.
+                Commerce won&apos;t live in one AI app
               </h2>
               <p className="max-w-2xl text-base leading-8 text-muted-foreground">
-                Store platforms can help merchants reach some AI-driven buying surfaces. Shopify
-                and Wix are visible examples of that broader shift, and WooCommerce and
-                BigCommerce also matter anywhere merchants already run storefront operations.
+                Users won&apos;t only interact through ChatGPT, Copilot, or Gemini. Over time, more
+                commerce will be initiated by personal agents, messaging-based assistants, local
+                agents, and branded AI experiences.
               </p>
               <p className="text-base leading-8 text-foreground/90">
-                That access is useful. It is not the same as merchant control across fragmented
-                agent surfaces.
+                Front-end agents need a commerce skill they can call for product recommendation,
+                checkout, payments, and post-purchase execution.
               </p>
               <p className="text-base leading-8 text-foreground/90">
-                Pivota gives merchants a platform-independent execution layer and fallback layer
-                across product resolution, offers, checkout continuity, payments, write-back, and
-                measurement.
+                Merchants need more than discoverability in a few AI channels. They need a
+                commerce layer that different agents can call.
               </p>
+              <p className="text-base leading-8 text-foreground/90">
+                Merchants connect once, Pivota improves readiness upstream, and downstream agents
+                get a cleaner merchant-native path.
+              </p>
+              <p className="text-base leading-8 text-foreground/90">
+                Build against the same merchant-native path that onboarding improves upstream.
+              </p>
+              <p className="text-base leading-8 text-foreground/90">That is where Pivota fits.</p>
               <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
-                Use the store platform for storefront operations and native access where
-                available. Use Pivota for control, continuity, and fallback across many AI buying
-                surfaces.
+                From prompt to recommendation to merchant-native execution.
               </p>
               <div className="flex flex-wrap gap-4 text-sm">
-                <Link href={routePaths.pivotaVsShopify} className="text-primary hover:underline">
-                  Pivota with Shopify and other store platforms
+                <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
+                  Merchant onboarding
                 </Link>
-                <Link href={routePaths.faq} className="text-primary hover:underline">
-                  Read the FAQ
+                <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                  Agent integration
+                </Link>
+                <Link href={routePaths.useCases} className="text-primary hover:underline">
+                  Use cases
                 </Link>
               </div>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {storePlatformCards.map((item) => (
-                <div key={item.title} className="section-frame px-5 py-5">
-                  <p className="text-sm font-semibold text-foreground">{item.title}</p>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.body}</p>
+            <div className="section-frame overflow-hidden p-3 sm:p-4">
+              <div className="relative overflow-hidden rounded-[1.4rem] border border-white/10">
+                <Image
+                  src={workflowImage}
+                  alt="Workflow from demand to merchant-native execution"
+                  className="h-[260px] w-full object-cover sm:h-[320px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+                <div className="absolute left-4 top-4 rounded-2xl border border-primary/30 bg-gradient-to-r from-primary/30 via-accent/20 to-background/85 px-4 py-3 shadow-[0_14px_30px_rgba(22,163,184,0.18)] backdrop-blur">
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-white/95">
+                    Celestial Pivot Engine
+                  </p>
                 </div>
-              ))}
+              </div>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {[
+                  "Catalog queryability",
+                  "Merchant-native checkout",
+                  "Payment-state sync",
+                  "Order write-back",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-border/70 bg-background/60 px-4 py-3 text-sm text-foreground"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         <section className="section-padding bg-gradient-to-b from-background to-card">
           <div className="container-max space-y-6">
-            <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
-              <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-                <div className="space-y-4">
-                  <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                    Compatibility
-                  </p>
-                  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Built to layer on top of your existing store platform
-                  </h2>
-                  <p className="text-base leading-8 text-muted-foreground">
-                    Pivota works with Shopify, Wix, WooCommerce, BigCommerce, and other merchant
-                    storefront stacks. It layers on top of the systems merchants already use
-                    instead of replacing them.
-                  </p>
-                  <p className="text-base leading-8 text-foreground/90">
-                    Store platforms provide access. Pivota provides control, continuity, and
-                    fallback.
-                  </p>
-                </div>
-
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div className="rounded-[1.7rem] border border-border/70 bg-background/60 p-5">
-                    <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                      Merchants keep
-                    </p>
-                    <div className="mt-4 space-y-3">
-                      {keepStackItems.map((item) => (
-                        <div
-                          key={item}
-                          className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground"
-                        >
-                          {item}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="rounded-[1.7rem] border border-border/70 bg-background/60 p-5">
-                    <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                      Pivota adds
-                    </p>
-                    <div className="mt-4 space-y-3">
-                      {pivotaAddsItems.map((item) => (
-                        <div
-                          key={item}
-                          className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground"
-                        >
-                          {item}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.18em] text-primary">How it works</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -309,7 +246,7 @@ export default function Home() {
               </h2>
               <p className="max-w-3xl text-base leading-8 text-muted-foreground">
                 Pivota connects demand, discovery, execution, checkout, payment, and measurement
-                into one merchant-controlled path across store platforms and agent surfaces.
+                into one merchant-controlled path.
               </p>
             </div>
 
@@ -346,14 +283,15 @@ export default function Home() {
               <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
                 <div className="space-y-4">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                    What merchants see after connection
+                    What merchants get after onboarding
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    See where the agent-to-revenue path breaks before traffic scales.
+                    Merchant outcomes upstream. Cleaner calls downstream.
                   </h2>
                   <p className="text-base leading-8 text-muted-foreground">
-                    Pivota shows merchants what is blocking conversion from agent-driven traffic,
-                    what to fix first, and which rollout stage is safest for the current stack.
+                    Pivota does not stop at a category story. After connection, merchants get a
+                    concrete operating output their teams can act on before agent-driven traffic
+                    scales.
                   </p>
                   <div className="flex flex-wrap gap-4 text-sm">
                     <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
@@ -368,7 +306,7 @@ export default function Home() {
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="rounded-[1.7rem] border border-border/70 bg-background/60 p-5">
                     <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                      What merchants see first
+                      Sample merchant output
                     </p>
                     <div className="mt-4 space-y-3">
                       {homepageProofItems.map((item) => (
@@ -384,7 +322,7 @@ export default function Home() {
 
                   <div className="rounded-[1.7rem] border border-border/70 bg-background/60 p-5">
                     <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                      What improves downstream
+                      What downstream agents get
                     </p>
                     <div className="mt-4 space-y-3">
                       {downstreamAgentBenefits.map((item) => (
@@ -408,11 +346,11 @@ export default function Home() {
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.18em] text-primary">Common questions</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Short answers to the store-platform and AI-commerce objections merchants ask first.
+                Short answers about the commerce layer agents call.
               </h2>
               <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                Short answers stay visible in raw HTML while fuller explanations remain available
-                in the FAQ, metadata, and structured page content.
+                Short answers stay readable on the page while fuller category definitions remain
+                available in the FAQ, metadata, and structured HTML.
               </p>
             </div>
 
@@ -423,11 +361,11 @@ export default function Home() {
                 Read the full FAQ
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Link>
-              <Link href={routePaths.pivotaVsShopify} className="text-primary hover:underline">
-                Pivota with Shopify and other store platforms
-              </Link>
               <Link href={routePaths.whatIsAgentNativeCommerce} className="text-primary hover:underline">
                 What is agent-native commerce?
+              </Link>
+              <Link href={routePaths.whatIsAgenticCommerce} className="text-primary hover:underline">
+                What is agentic commerce?
               </Link>
               <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
                 Agent Integration

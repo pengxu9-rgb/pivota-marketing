@@ -41,9 +41,9 @@ export const defaultOgTitle = "Pivota — Merchant-Controlled Commerce Layer for
 export const defaultOgDescription =
   "Pivota works with Shopify, Wix, WooCommerce, BigCommerce, and other store platforms to add merchant control, execution continuity, and fallback across AI buying surfaces.";
 
-export const homepageTitle = "Pivota | Merchant-Controlled Commerce Layer for AI Commerce";
+export const homepageTitle = "Pivota | Merchant Gateway and Commerce Layer for Agent-Native Commerce";
 export const homepageMetaDescription =
-  "Pivota works with Shopify, Wix, WooCommerce, BigCommerce, and other store platforms to help merchants turn agent demand into revenue through merchant-controlled execution across offers, checkout, payments, and write-back.";
+  "Pivota is the merchant gateway and commerce layer that agents call for recommendations, merchant-native checkout, payments, and order write-back across merchant systems.";
 export const aiReadinessTitle = "Can Your Store Win Customers from AI? | Pivota";
 export const aiReadinessMetaDescription =
   "Connect your store to Pivota and see what is blocking the path from AI agent demand to completed transactions across product resolution, offers, checkout, and payments.";
@@ -96,26 +96,26 @@ export const coreAnswerBlock = [
 ] as const;
 
 export const homepageHeroAnswerBlock = [
-  "Pivota helps merchants turn agent demand into merchant-native execution across catalog resolution, offers, checkout, payments, and write-back whether the storefront runs on Shopify, Wix, WooCommerce, BigCommerce, or another stack.",
-  "Use the store platform for storefront operations and native access where available. Use Pivota for merchant control, execution continuity, and fallback across fragmented AI buying surfaces. No replatforming.",
+  "Connect your store, get issue overview, prioritized fixes, and a rollout path that improves the merchant-native path downstream agents call.",
+  "Pivota is the commerce layer — and shopping sub-agent — that agents call for recommendations, merchant-native checkout, payments, and order write-back.",
 ] as const;
 
 export const homepageResultStatements = [
   {
-    title: "What is blocking conversion",
-    body: "See where product resolution, offer logic, checkout continuity, or payment handling break the path from agent demand to transaction.",
+    title: "Issue overview",
+    body: "See likely catalog, offer, checkout, and payment blockers after connection.",
   },
   {
-    title: "What to fix first",
-    body: "Give operators the changes most likely to improve conversion from agent-driven traffic.",
+    title: "Recommended actions",
+    body: "Give operators concrete next steps instead of a vague readiness score.",
   },
   {
-    title: "Where continuity breaks",
-    body: "Spot the points where recommendation, handoff, checkout, or write-back become brittle.",
+    title: "Prioritized fixes",
+    body: "Focus on the changes most likely to improve downstream agent execution.",
   },
   {
-    title: "Safest next path",
-    body: "Choose the next stage that fits the merchant stack today: link-out, feeds, or merchant-native checkout.",
+    title: "Rollout path",
+    body: "Decide whether link-out, feeds, or merchant-native checkout is the right next stage.",
   },
 ] as const;
 
