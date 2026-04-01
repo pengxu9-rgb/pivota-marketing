@@ -21,6 +21,9 @@ type UseCase = {
   rolloutStage: string;
   proof: string;
   homepageShortVersion: string;
+  quote: string;
+  attribution: string;
+  mobileQuote: string;
 };
 
 const useCases: UseCase[] = [
@@ -42,6 +45,11 @@ const useCases: UseCase[] = [
     proof: "Better readiness for agent-driven recommendation and cleaner downstream variant resolution.",
     homepageShortVersion:
       "A specialty skin care brand cleaned up ingredient and variant structure so downstream agents could recommend products more reliably.",
+    quote:
+      "Pivota helped turn a catalog that was technically live but operationally hard for agents to interpret into a cleaner merchant path. The biggest shift was not visibility alone, but making products, variants, and offer context much easier to resolve downstream.",
+    attribution: "Maya, Product Director, specialty skin care brand",
+    mobileQuote:
+      "Pivota made products, variants, and offer context much easier for agents to resolve downstream.",
   },
   {
     slug: "seasonal-promo-complexity",
@@ -61,6 +69,11 @@ const useCases: UseCase[] = [
     proof: "Cleaner offer matching and fewer downstream ambiguities before deeper checkout integration.",
     homepageShortVersion:
       "A fashion merchant tightened fragmented promo logic so downstream agents could stop guessing which offer really applied.",
+    quote:
+      "We already had promotions across the site, but that did not mean agents could identify the right offer path with confidence. Pivota helped us tighten promotion readiness upstream, so downstream traffic arrived with cleaner offer matching and a more executable checkout path.",
+    attribution: "Carl, Marketing Director, mid-market fashion merchant",
+    mobileQuote:
+      "Pivota tightened promotion readiness upstream so downstream traffic arrived with cleaner offer matching.",
   },
   {
     slug: "eligibility-sensitive-pricing",
@@ -80,6 +93,11 @@ const useCases: UseCase[] = [
     proof: "Clearer qualification logic and more reliable downstream price paths.",
     homepageShortVersion:
       "A merchant with membership pricing clarified what was executable versus conditional before scaling AI traffic.",
+    quote:
+      "One of the hardest issues for us was the gap between what looked visible on site and what was actually valid once eligibility rules were involved. Pivota gave us a much clearer way to separate conditional pricing from executable pricing, which made our agent-facing path more credible.",
+    attribution: "Nina, Product Director, specialty beauty brand",
+    mobileQuote:
+      "Pivota helped separate conditional pricing from executable pricing so the agent-facing path became more credible.",
   },
   {
     slug: "wallet-and-financing-readiness",
@@ -99,6 +117,11 @@ const useCases: UseCase[] = [
     proof: "A more reliable merchant-native path for payment-aware execution.",
     homepageShortVersion:
       "An electronics retailer cleaned up wallet and financing logic before moving toward merchant-native checkout.",
+    quote:
+      "The real bottleneck was not discovery. It was whether agent demand could reliably move through payment-aware checkout logic without breaking. Pivota helped us identify where execution was fragile and gave us a more structured path toward merchant-native checkout.",
+    attribution: "David, Director of Engineering, regional electronics retailer",
+    mobileQuote:
+      "Pivota showed us where payment-aware execution was fragile and gave us a clearer path toward merchant-native checkout.",
   },
   {
     slug: "shipping-and-cart-rule-alignment",
@@ -118,6 +141,11 @@ const useCases: UseCase[] = [
     proof: "Cleaner handoff and fewer checkout-path surprises.",
     homepageShortVersion:
       "A home goods merchant improved cart and shipping readiness so recommended paths stayed closer to final checkout reality.",
+    quote:
+      "Cart thresholds, shipping qualification, and bundle logic were creating too much uncertainty too late in the flow. Pivota helped us see where those rules disrupted downstream execution and what needed to be fixed first to make the path more dependable.",
+    attribution: "Carl, Product Director, DTC home goods brand",
+    mobileQuote:
+      "Pivota showed us where cart and shipping rules disrupted downstream execution and what needed to be fixed first.",
   },
   {
     slug: "reliability-and-write-back-visibility",
@@ -138,6 +166,11 @@ const useCases: UseCase[] = [
     proof: "Stronger measurement and write-back continuity before scaling agent-driven demand.",
     homepageShortVersion:
       "A footwear merchant improved execution visibility before scaling agent-driven demand.",
+    quote:
+      "We did not just need more AI traffic. We needed a way to understand whether that traffic could move through a measurable, reliable merchant path. Pivota helped connect readiness, execution, and write-back into a system we could actually operate and improve over time.",
+    attribution: "Elena, Director of Engineering, footwear brand",
+    mobileQuote:
+      "Pivota connected readiness, execution, and write-back into a path we could actually operate and improve.",
   },
 ];
 
@@ -166,7 +199,7 @@ const rolloutStages = [
 export const metadata = buildMarketingMetadata({
   title: "Use Cases | Pivota Merchant Gateway for Agent-Native Commerce",
   description:
-    "Anonymized merchant use cases for the merchant gateway for agent-native commerce across discoverability, promotion readiness, checkout, payments, write-back, and execution.",
+    "Representative merchant patterns for the merchant gateway for agent-native commerce across discoverability, promotion readiness, checkout, payments, write-back, and execution.",
   path: routePaths.useCases,
 });
 
@@ -174,6 +207,29 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", path: routePaths.home },
   { name: "Use cases", path: routePaths.useCases },
 ]);
+
+function QuoteBlock({
+  quote,
+  attribution,
+  mobileQuote,
+}: {
+  quote: string;
+  attribution: string;
+  mobileQuote: string;
+}) {
+  return (
+    <div className="rounded-3xl border border-primary/20 bg-primary/6 px-5 py-5 sm:px-6">
+      <p className="text-sm uppercase tracking-[0.18em] text-primary">Representative quote</p>
+      <p className="mt-3 text-lg font-medium leading-8 tracking-tight text-foreground md:hidden">
+        “{mobileQuote}”
+      </p>
+      <p className="mt-3 hidden text-lg font-medium leading-8 tracking-tight text-foreground md:block">
+        “{quote}”
+      </p>
+      <p className="mt-4 text-sm leading-7 text-muted-foreground">— {attribution}</p>
+    </div>
+  );
+}
 
 export default function UseCasesPage() {
   return (
@@ -201,14 +257,13 @@ export default function UseCasesPage() {
                 </h1>
                 <AnswerBlock className="max-w-3xl">
                   <p>
-                    These anonymized examples show how merchants fix readiness gaps upstream so
-                    downstream agents get cleaner offer resolution, checkout paths, payment
-                    handling, and write-back continuity.
+                    These representative merchant patterns show how merchants fix readiness gaps
+                    upstream so downstream agents get cleaner offer resolution, checkout paths,
+                    payment handling, and write-back continuity.
                   </p>
                   <p className="mt-2">
-                    The merchants stay anonymous because the readiness patterns are real and
-                    representative, but the public site should not expose partner-specific
-                    commercial setup or operational logic.
+                    Merchant onboarding happens first, readiness improves upstream, and downstream
+                    LLM and agent calls get a cleaner, more executable merchant-native path.
                   </p>
                 </AnswerBlock>
                 <div className="flex flex-wrap gap-3">
@@ -234,12 +289,13 @@ export default function UseCasesPage() {
 
               <div className="section-frame px-6 py-6 sm:px-7">
                 <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                  Why these examples are anonymized
+                  Representative merchant patterns
                 </p>
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                  The merchant types are anonymous because the readiness patterns are public-safe
-                  and representative, while the exact commercial setup, promotion rules, payment
-                  logic, and operational workflows remain merchant-specific.
+                  These examples reflect real readiness patterns Pivota sees across merchant
+                  onboarding, promotion logic, checkout execution, and write-back continuity.
+                  Names are representative and merchant identities are intentionally generalized to
+                  preserve partner confidentiality.
                 </p>
               </div>
 
@@ -249,7 +305,7 @@ export default function UseCasesPage() {
                     Homepage-friendly summaries
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Six representative patterns, not generic category restatement.
+                    Six representative merchant patterns, not generic category restatement.
                   </h2>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -301,10 +357,9 @@ export default function UseCasesPage() {
                               <p className="text-sm leading-7 text-muted-foreground">
                                 {useCase.summary}
                               </p>
-                              <div className="rounded-2xl border border-primary/20 bg-primary/8 px-4 py-4 text-sm leading-7 text-foreground">
-                                <span className="block font-semibold">Recommended rollout stage</span>
-                                <span className="mt-1 block">{useCase.rolloutStage}</span>
-                              </div>
+                              <p className="text-sm leading-7 text-muted-foreground">
+                                {useCase.homepageShortVersion}
+                              </p>
                             </div>
 
                             <div className="grid gap-4 md:grid-cols-2">
@@ -349,6 +404,17 @@ export default function UseCasesPage() {
                                 </p>
                               </div>
                             </div>
+                          </div>
+                          <div className="mt-6">
+                            <QuoteBlock
+                              quote={useCase.quote}
+                              attribution={useCase.attribution}
+                              mobileQuote={useCase.mobileQuote}
+                            />
+                          </div>
+                          <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/8 px-4 py-4 text-sm leading-7 text-foreground">
+                            <span className="block font-semibold">Recommended rollout stage</span>
+                            <span className="mt-1 block">{useCase.rolloutStage}</span>
                           </div>
                         </article>
                       ))}
