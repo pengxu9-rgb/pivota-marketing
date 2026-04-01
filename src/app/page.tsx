@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnswerBlock from "@/components/AnswerBlock";
 import ContactSection from "@/components/ContactSection";
-import AiReadinessPromoPill from "@/components/AiReadinessPromoPill";
 import JsonLd from "@/components/JsonLd";
 import QuestionAnswerList from "@/components/QuestionAnswerList";
 import { Button } from "@/components/ui/button";
@@ -421,7 +420,6 @@ export default async function Home({ searchParams }: HomePageProps) {
       </main>
 
       <Footer />
-      <AiReadinessPromoPill />
     </div>
   );
 }
