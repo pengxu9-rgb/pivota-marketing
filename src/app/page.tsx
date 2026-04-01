@@ -109,7 +109,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                 <div className="flex flex-wrap gap-3">
                   <Button asChild className="btn-hero h-11 px-5 text-sm">
                     <Link href={onboardingHref}>
-                      See what to fix first
+                      Gain revenue from Agents now
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
