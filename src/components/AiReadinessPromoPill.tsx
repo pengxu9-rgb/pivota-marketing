@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Sparkles, X } from "lucide-react";
 import { emitMarketingEvent } from "@/lib/analytics";
 import { appendCurrentSearchParamsToPath } from "@/lib/merchant-signup";
-import { routePaths } from "@/lib/marketing";
+import { aiReadinessSignupPath, routePaths } from "@/lib/marketing";
 
 const DISMISSED_AT_KEY = "pivota_ai_readiness_promo_dismissed_at";
 const DISMISSED_VIEWS_REMAINING_KEY = "pivota_ai_readiness_promo_dismissed_views_remaining";
@@ -16,7 +16,7 @@ const DISMISS_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
 
 const AiReadinessPromoPill = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [href, setHref] = useState<string>(routePaths.aiReadiness);
+  const [href, setHref] = useState<string>(aiReadinessSignupPath);
   const impressionTrackedRef = useRef(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const AiReadinessPromoPill = () => {
 
       setHref(
         appendCurrentSearchParamsToPath(
-          routePaths.aiReadiness,
+          aiReadinessSignupPath,
           new URLSearchParams(window.location.search),
         ),
       );

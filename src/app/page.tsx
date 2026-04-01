@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-dashboard.jpg";
 import workflowImage from "@/assets/workflow-steps.jpg";
 import {
+  aiReadinessSignupPath,
   buildMarketingMetadata,
   homepageFaqItems,
   homepageFaqPreviewItems,
@@ -21,6 +22,7 @@ import {
   homepageTitle,
   routePaths,
 } from "@/lib/marketing";
+import { appendSearchParamRecordToPath, type SearchParamRecord } from "@/lib/merchant-signup";
 import { buildFaqJsonLd } from "@/lib/schema";
 
 const executionSteps = [
@@ -63,7 +65,17 @@ export const metadata = buildMarketingMetadata({
     "The merchant gateway for agent-native commerce. Built for a future where commerce happens across many agents, not one AI app.",
 });
 
-export default function Home() {
+type HomePageProps = {
+  searchParams?: Promise<SearchParamRecord>;
+};
+
+export default async function Home({ searchParams }: HomePageProps) {
+  const resolvedSearchParams = (await searchParams) ?? {};
+  const onboardingHref = appendSearchParamRecordToPath(
+    aiReadinessSignupPath,
+    resolvedSearchParams,
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -96,7 +108,7 @@ export default function Home() {
 
                 <div className="flex flex-wrap gap-3">
                   <Button asChild className="btn-hero h-11 px-5 text-sm">
-                    <Link href={routePaths.aiReadiness}>
+                    <Link href={onboardingHref}>
                       See what to fix first
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>

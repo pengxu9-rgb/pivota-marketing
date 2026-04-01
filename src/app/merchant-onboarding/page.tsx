@@ -15,7 +15,12 @@ import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import PageChrome from "@/components/PageChrome";
 import { Button } from "@/components/ui/button";
-import { buildMarketingMetadata, routePaths } from "@/lib/marketing";
+import {
+  aiReadinessSignupPath,
+  buildMarketingMetadata,
+  routePaths,
+} from "@/lib/marketing";
+import { appendSearchParamRecordToPath, type SearchParamRecord } from "@/lib/merchant-signup";
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 const onboardingSteps = [
@@ -144,7 +149,19 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Merchant onboarding", path: routePaths.merchantOnboarding },
 ]);
 
-export default function MerchantOnboardingPage() {
+type MerchantOnboardingPageProps = {
+  searchParams?: Promise<SearchParamRecord>;
+};
+
+export default async function MerchantOnboardingPage({
+  searchParams,
+}: MerchantOnboardingPageProps) {
+  const resolvedSearchParams = (await searchParams) ?? {};
+  const onboardingHref = appendSearchParamRecordToPath(
+    aiReadinessSignupPath,
+    resolvedSearchParams,
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -184,7 +201,7 @@ export default function MerchantOnboardingPage() {
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
-                      <Link href={routePaths.aiReadiness}>
+                      <Link href={onboardingHref}>
                         See what to fix first
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
@@ -423,7 +440,7 @@ export default function MerchantOnboardingPage() {
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-4 text-sm">
-                    <Link href={routePaths.aiReadiness} className="text-primary hover:underline">
+                    <Link href={onboardingHref} className="text-primary hover:underline">
                       See what to fix first
                     </Link>
                     <Link href={routePaths.promotionReadiness} className="text-primary hover:underline">
