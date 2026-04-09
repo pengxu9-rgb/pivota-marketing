@@ -153,7 +153,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                 </div>
               </div>
 
-              <div className="section-frame overflow-hidden p-3 sm:p-4">
+              <div className="section-frame overflow-hidden p-3 sm:p-4 lg:mt-4 xl:mt-5">
                 <div className="relative overflow-hidden rounded-[1.4rem] border border-white/10">
                   <Image
                     src={heroImage}
