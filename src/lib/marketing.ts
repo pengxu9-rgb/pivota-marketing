@@ -231,7 +231,7 @@ export const faqItems = [
   {
     question: "Can I start before merchant-native checkout?",
     answer:
-      "Yes. Many merchants start with discovery, feeds, or link-out first. Merchant-native checkout is one deeper rollout path when checkout, payment, and execution continuity are ready.",
+      "Yes. Many merchants start with discovery, feeds, or link-out first. Some merchants are ready to start with merchant-native checkout on day one when their checkout, payment, and execution paths are already in good shape. Pivota works with existing PSP relationships and supports payment routing and authorization without requiring a storefront rebuild.",
   },
   {
     question: "What is the difference between a visible offer and an executable offer?",
@@ -324,7 +324,7 @@ export const homepageFaqItems = [
   {
     question: "Can I start before merchant-native checkout?",
     answer:
-      "Yes. Many merchants start with discovery, feeds, or link-out first. Merchant-native checkout is one deeper rollout path when checkout, payment, and execution continuity are ready.",
+      "Yes. Many merchants start with discovery, feeds, or link-out first. Some merchants are ready to start with merchant-native checkout on day one when their checkout, payment, and execution paths are already in good shape. Pivota works with existing PSP relationships and supports payment routing and authorization without requiring a storefront rebuild.",
   },
   {
     question: "How much implementation work is required?",

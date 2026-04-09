@@ -157,8 +157,9 @@ export default function MerchantNativeCheckoutPage() {
               </h2>
               <p className="text-lg leading-8 text-muted-foreground">
                 Agent-driven demand breaks when checkout paths are fragmented, mismatched, or
-                disconnected from merchant systems. Merchant-native checkout improves conversion
-                while preserving merchant control.
+                disconnected from merchant systems. For merchants that are ready,
+                merchant-native checkout can be the day-one path and can reduce handoff and
+                drop-off risk while preserving merchant control.
               </p>
             </div>
 
