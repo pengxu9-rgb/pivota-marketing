@@ -140,6 +140,18 @@ export default function FaqPage() {
                 <Link href={routePaths.useCases} className="text-primary hover:underline">
                   Use cases
                 </Link>
+                <Link href={routePaths.doINeedToRebuildMyStore} className="text-primary hover:underline">
+                  Do I need to rebuild my store?
+                </Link>
+                <Link href={routePaths.makeProductsDiscoverable} className="text-primary hover:underline">
+                  How to make products discoverable to AI shopping agents
+                </Link>
+                <Link href={routePaths.startBeforeMerchantNativeCheckout} className="text-primary hover:underline">
+                  Can I start before merchant-native checkout?
+                </Link>
+                <Link href={routePaths.pivotaImplementationEffort} className="text-primary hover:underline">
+                  How much implementation work is required?
+                </Link>
                 <Link href={routePaths.skincareBeautyMerchants} className="text-primary hover:underline">
                   Skincare & beauty merchants
                 </Link>

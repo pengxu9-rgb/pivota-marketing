@@ -458,6 +458,28 @@ export default function SkincareBeautyMerchantsPage() {
                 <QuestionAnswerList items={beautyFaqItems} columns={2} />
               </div>
 
+              <div className="section-frame px-6 py-6 sm:px-7">
+                <div className="space-y-3">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                    Related merchant questions
+                  </p>
+                  <div className="flex flex-wrap gap-4 text-sm">
+                    <Link href={routePaths.doINeedToRebuildMyStore} className="text-primary hover:underline">
+                      Do I need to rebuild my store?
+                    </Link>
+                    <Link href={routePaths.makeProductsDiscoverable} className="text-primary hover:underline">
+                      How to make products discoverable to AI shopping agents
+                    </Link>
+                    <Link href={routePaths.startBeforeMerchantNativeCheckout} className="text-primary hover:underline">
+                      Can I start before merchant-native checkout?
+                    </Link>
+                    <Link href={routePaths.pivotaImplementationEffort} className="text-primary hover:underline">
+                      How much implementation work is required?
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
               <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
                 <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
                   <div>

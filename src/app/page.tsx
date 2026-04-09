@@ -138,6 +138,12 @@ export default async function Home({ searchParams }: HomePageProps) {
                   <Link href={routePaths.useCases} className="text-primary hover:underline">
                     Use cases
                   </Link>
+                  <Link href={routePaths.makeProductsDiscoverable} className="text-primary hover:underline">
+                    How to make products discoverable to AI shopping agents
+                  </Link>
+                  <Link href={routePaths.doINeedToRebuildMyStore} className="text-primary hover:underline">
+                    Do I need to rebuild my store?
+                  </Link>
                   <Link
                     href={routePaths.skincareBeautyMerchants}
                     className="text-primary hover:underline"

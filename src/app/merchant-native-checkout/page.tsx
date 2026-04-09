@@ -272,6 +272,12 @@ export default function MerchantNativeCheckoutPage() {
                   <Link href={routePaths.developersAuthWebhooks} className="text-primary hover:underline">
                     Auth & webhooks
                   </Link>
+                  <Link href={routePaths.startBeforeMerchantNativeCheckout} className="text-primary hover:underline">
+                    Can I start before merchant-native checkout?
+                  </Link>
+                  <Link href={routePaths.pivotaImplementationEffort} className="text-primary hover:underline">
+                    How much implementation work is required?
+                  </Link>
                   <Link href={routePaths.faq} className="text-primary hover:underline">
                     Read the FAQ
                   </Link>
