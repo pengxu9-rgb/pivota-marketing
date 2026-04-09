@@ -11,71 +11,80 @@ import { buildMarketingMetadata, routePaths } from "@/lib/marketing";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/schema";
 
 const strongFitSignals = [
-  "Ingredient-heavy catalogs",
-  "Concern-driven shopping",
-  "Variant-heavy product structures",
-  "Kits, bundles, and sampler packs",
-  "Subscriptions and replenishment paths",
+  "Ingredient and active-heavy catalogs",
+  "Concern-led and routine-led shopping",
+  "Shade, finish, size, and format variants",
+  "Kits, bundles, minis, and sampler packs",
+  "Subscriptions, replenishment, and first-order offers",
 ] as const;
 
 const categoryDifferences = [
   {
     title: "Ingredients and actives",
-    body: "Ingredient-heavy catalogs create more resolution work than simple product-title matching.",
+    body: "Ingredient and active-heavy catalogs create more resolution work than simple product-title matching, especially when shoppers ask for niacinamide, vitamin C, ceramides, retinol, or salicylic acid by use case rather than SKU.",
   },
   {
     title: "Concerns and routines",
-    body: "Many shoppers start with a concern, a routine goal, or a regimen question instead of a specific product.",
+    body: "Many shoppers start with acne marks, sensitivity, barrier repair, oil control, brightening, or routine sequencing instead of a specific product.",
   },
   {
     title: "Variants and formats",
-    body: "Shade, size, strength, finish, format, travel size, and bundle structure can all create recommendation ambiguity.",
+    body: "Shade, finish, size, strength, refill versus full-size, travel size, and bundle structure can all create recommendation ambiguity.",
   },
   {
     title: "Bundles, kits, and sampler packs",
-    body: "Beauty merchants often sell relationships between products, not only single items.",
+    body: "Beauty merchants often sell duos, sets, routines, kits, and sampler packs where the relationship between products matters as much as the single item.",
   },
   {
     title: "Promotions, subscriptions, and replenishment",
-    body: "First-order offers, replenishment logic, and subscription paths can make visible offers harder to execute cleanly.",
+    body: "First-order offers, replenishment timing, subscription paths, and giftable set logic can make a visible offer harder to execute cleanly.",
   },
+] as const;
+
+const queryExamples = [
+  "niacinamide serum for oily skin under $40",
+  "fragrance-free cleanser for sensitive skin",
+  "routine for acne marks with cleanser serum moisturizer and SPF",
+  "travel-size barrier repair set for dry skin",
+  "refill versus full-size cleansing balm",
+  "neutral satin lip set for everyday wear",
 ] as const;
 
 const resolutionBreaks = [
   {
     title: "Concern-led demand does not map cleanly to catalog taxonomy",
-    body: "A shopper asks by concern, but the catalog is organized by collection, product family, or internal naming.",
+    body: "A shopper asks for brightening, barrier repair, oil control, acne marks, or sensitive-skin support, but the catalog is organized by collection name, product family, or internal naming.",
   },
   {
     title: "Ingredient and active ambiguity",
-    body: "Products may share overlapping claims while differing in concentration, usage, compatibility, or format.",
+    body: "Products may share overlapping claims while differing in active strength, concentration, usage timing, compatibility, or format.",
   },
   {
     title: "Variant ambiguity",
-    body: "Agents may struggle to distinguish sizes, shades, strengths, refill versus full-size, or bundled versus standalone versions.",
+    body: "Agents may struggle to distinguish sizes, shades, finishes, strengths, refill versus full-size, travel versus full-size, or bundled versus standalone versions.",
   },
   {
     title: "Routine and regimen ambiguity",
-    body: "A merchant may sell a cleanser, serum, moisturizer, and SPF individually, as a kit, or as a routine recommendation, but the execution path is not equally clear for each.",
+    body: "A merchant may sell a cleanser, serum, moisturizer, and SPF individually, as a kit, or as a routine recommendation, but the execution path is not equally clear for each day, night, or regimen sequence.",
   },
   {
     title: "Visible offer versus executable offer",
-    body: "A discount, subscription, bundle, or sampler offer may be visible on site without being equally easy for an agent to preserve and route through the correct merchant path.",
+    body: "A discount, subscription, duo, gift set, bundle, or sampler offer may be visible on site without being equally easy for an agent to preserve and route through the correct merchant path.",
   },
 ] as const;
 
 const helpItems = [
   {
     title: "Makes catalogs more queryable",
-    body: "Pivota helps structure products, variants, ingredients, actives, concerns, and offer context so agents can resolve what the merchant actually sells with less ambiguity.",
+    body: "Pivota helps structure products, variants, ingredients, actives, concerns, routines, and offer context so agents can resolve what the merchant actually sells with less ambiguity.",
   },
   {
     title: "Reduces recommendation ambiguity",
-    body: "Pivota helps merchants tighten the path between what a customer means, what an agent recommends, and what the catalog can actually support.",
+    body: "Pivota helps merchants tighten the path between what a customer means, what an agent recommends, and what the catalog, routine logic, and merchandising can actually support.",
   },
   {
     title: "Clarifies executable paths",
-    body: "Pivota helps separate what is merely visible from what is executable across offers, bundles, kits, sampler packs, subscriptions, and replenishment paths.",
+    body: "Pivota helps separate what is merely visible from what is executable across offers, bundles, kits, sampler packs, refills, subscriptions, and replenishment paths.",
   },
   {
     title: "Keeps merchants on their existing stack",
@@ -90,80 +99,78 @@ const helpItems = [
 const rolloutStages = [
   {
     title: "Discovery",
-    body: "Use when ingredient mapping, concern mapping, routine logic, product normalization, or variant clarity still need work. This is the lighter starting path for merchants who need cleaner agent resolution first.",
+    body: "Use when ingredient mapping, concern mapping, routine logic, product normalization, shade logic, or refill versus full-size clarity still need work. This is the lighter starting path for merchants who need cleaner agent resolution first.",
   },
   {
     title: "Feeds or link-out",
-    body: "Use when the merchant wants cleaner downstream recommendation and traffic routing before deeper checkout execution. This is often the right middle stage for brands improving catalog and offer readiness faster than checkout readiness.",
+    body: "Use when the merchant wants cleaner downstream recommendation and traffic routing before deeper checkout execution. This is often the right middle stage for brands improving catalog, offer, kit, and subscription readiness faster than checkout readiness.",
   },
   {
     title: "Merchant-native checkout",
-    body: "Use when checkout, payment, order, and webhook continuity are ready for the deeper execution stage. Some merchants are ready to start here earlier. Others deepen later after discovery, feeds, or link-out improve the path.",
+    body: "Use when checkout, payment, order, and webhook continuity are ready for the deeper execution stage. Some merchants are ready to start here earlier. Others deepen later after discovery, feeds, or link-out improve the path for routines, sets, replenishment, or repeat purchase flows.",
   },
 ] as const;
 
 const fitList = [
   "DTC skincare brands with ingredient-heavy catalogs and concern-led discovery",
-  "Beauty brands with close variants, sizes, formats, shades, or bundle relationships",
-  "Merchants selling kits, sampler packs, routines, or regimen-style product combinations",
+  "Beauty and cosmetics brands with close shades, finishes, sizes, or refill versus full-size variants",
+  "Merchants selling routines, duos, kits, bundles, gift sets, or sampler packs",
   "Brands with subscription, replenishment, or first-order offer complexity",
-  "Teams seeing recommendation ambiguity between what is visible on site and what is actually executable",
+  "Teams whose shoppers ask by concern, active, routine goal, or shade family instead of exact SKU name",
   "Merchants that want to improve AI-agent readiness without replatforming their existing store stack",
 ] as const;
 
 const beautyFaqItems = [
   {
-    question: "Does Pivota replace Shopify for beauty brands?",
+    question: "Does Pivota replace Shopify or my existing beauty stack?",
     answer:
       "No. Pivota works on top of Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. Beauty merchants keep the storefront and operations they already run.",
   },
   {
-    question: "Can Pivota help ingredient-heavy skincare catalogs appear more clearly in AI agents?",
+    question: "Why is Pivota a strong fit for skincare, beauty, and cosmetics merchants?",
     answer:
-      "Yes. Pivota helps merchants make ingredients, actives, concerns, variants, and offer context more queryable so agents can resolve products with less ambiguity.",
+      "These categories are unusually ingredient-heavy, concern-driven, variant-heavy, and routine-heavy. Shoppers often ask in natural language rather than exact catalog terms.",
   },
   {
-    question: "How does Pivota help when customers shop by concern instead of exact product name?",
+    question: "Can Pivota help when customers shop by ingredient, concern, or routine instead of exact product name?",
     answer:
-      "That is one of the strongest use cases for this category. Pivota helps merchants tighten the path between concern-led demand, product resolution, offer logic, and downstream execution.",
+      "Yes. That is one of the clearest fits for this page. Pivota helps merchants tighten the path between ingredient-led or concern-led demand, product resolution, offer logic, and downstream execution.",
   },
   {
     question: "Do beauty merchants need to start with full checkout integration?",
     answer:
-      "No. Many merchants start with lighter paths such as discovery, feeds, or link-out first, then deepen into merchant-native checkout when readiness improves.",
+      "No. Many start with discovery, feeds, or link-out first, then deepen into merchant-native checkout when catalog, offer, checkout, and payment readiness improve. Merchant-native checkout is a deeper path, not a claim that every flow runs fully inside chat.",
   },
   {
-    question: "Can some beauty merchants start with merchant-native checkout on day one?",
+    question: "Can Pivota help with kits, sampler packs, subscriptions, replenishment, or shade-heavy variant logic?",
     answer:
-      "Yes. Some merchants are ready to start deeper when checkout, payment, and execution continuity are already in good shape. Others should start lighter first.",
+      "Yes. These are common places where visible offer and executable offer drift apart. Pivota helps merchants make those paths clearer and more dependable.",
   },
   {
-    question: "Can Pivota help with bundles, kits, sampler packs, subscriptions, or replenishment?",
+    question: "What makes beauty and cosmetics harder than simpler categories in agent commerce?",
     answer:
-      "Yes. These are exactly the kinds of structures where visible offer versus executable offer can drift. Pivota helps merchants make those paths clearer and more dependable.",
+      "Beauty and cosmetics combine concern-led discovery with close variants such as shade, finish, size, refill, routine role, and set logic. That creates more resolution ambiguity than categories where shoppers mostly buy by exact SKU.",
   },
   {
-    question: "Does merchant-native checkout mean every beauty flow happens fully inside chat?",
+    question: "Does this page mean Pivota is only for beauty merchants?",
     answer:
-      "No. Merchant-native checkout means the path stays in merchant-controlled systems. Some agent surfaces may still use link-out or another merchant-controlled handoff.",
-  },
-  {
-    question: "Is Pivota only for skincare and beauty merchants?",
-    answer:
-      "No. Pivota is not beauty-exclusive. Skincare and beauty are simply a strong-fit category because of ingredient-heavy catalogs, concern-led shopping, variant complexity, and regimen-style recommendation patterns.",
+      "No. Pivota is not beauty-exclusive. Skincare, beauty, and cosmetics are simply a strong-fit wedge because they combine natural-language demand with high resolution ambiguity.",
   },
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "Pivota for Skincare and Beauty Merchants | Merchant Gateway for AI Commerce",
+  title: "Pivota for Skincare, Beauty, and Cosmetics Merchants | Merchant Gateway for AI Commerce",
   description:
-    "Pivota works on top of Shopify, Wix, WooCommerce, BigCommerce, and similar stacks for skincare and beauty merchants. Improve ingredient, concern, variant, bundle, and replenishment resolution across AI agents without replatforming.",
+    "Pivota works on top of Shopify, Wix, WooCommerce, BigCommerce, and similar stacks for skincare, beauty, and cosmetics merchants. Improve ingredient, concern, routine, shade, variant, bundle, and replenishment resolution across AI agents without replatforming.",
   path: routePaths.skincareBeautyMerchants,
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", path: routePaths.home },
-  { name: "Skincare and beauty merchants", path: routePaths.skincareBeautyMerchants },
+  {
+    name: "Skincare, beauty, and cosmetics merchants",
+    path: routePaths.skincareBeautyMerchants,
+  },
 ]);
 
 const faqJsonLd = buildFaqJsonLd(beautyFaqItems);
@@ -184,17 +191,17 @@ export default function SkincareBeautyMerchantsPage() {
               <PageChrome
                 items={[
                   { label: "Home", href: routePaths.home },
-                  { label: "Skincare and beauty merchants" },
+                  { label: "Skincare, beauty, and cosmetics merchants" },
                 ]}
               />
 
               <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
                 <div className="space-y-5">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                    Skincare + beauty merchants
+                    Skincare + beauty + cosmetics
                   </p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    Pivota for skincare and beauty merchants
+                    Pivota for skincare, beauty, and cosmetics merchants
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
@@ -203,18 +210,23 @@ export default function SkincareBeautyMerchantsPage() {
                       replatforming is required.
                     </p>
                     <p className="mt-2">
-                      That model is especially relevant for skincare and beauty because shoppers
-                      and AI agents often ask by ingredient, active, concern, routine, variant,
-                      bundle, kit, sampler pack, or replenishment need rather than exact catalog
-                      taxonomy. Pivota helps merchants make that path more queryable, more
-                      executable, and more merchant-controlled.
+                      That model is especially relevant for skincare, beauty, and cosmetics
+                      because shoppers and AI agents often ask by ingredient, active, concern,
+                      routine, shade, finish, variant, bundle, kit, sampler pack, or
+                      replenishment need rather than exact catalog taxonomy. A merchant may be
+                      asked for niacinamide for oily skin, a travel-size barrier-repair set, a
+                      refill versus full-size cleanser, or a neutral satin lip set under a price
+                      cap. Pivota helps merchants make that path more queryable, more executable,
+                      and more merchant-controlled.
                     </p>
                   </AnswerBlock>
                   <p className="max-w-3xl text-sm leading-7 text-foreground/90">
                     Skincare and beauty are an early strong-fit category for Pivota, not the only
-                    category it serves. Some merchants start with discovery, feeds, or link-out
-                    first. Others deepen into merchant-native checkout when their checkout,
-                    payment, and execution paths are ready.
+                    category it serves. In this category, the hard part is often not visibility
+                    alone. It is resolving ingredient-led, concern-led, routine-led, and
+                    variant-heavy demand into the right merchant path. Some merchants start with
+                    discovery, feeds, or link-out first. Others deepen into merchant-native
+                    checkout when their checkout, payment, and execution paths are ready.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
@@ -271,11 +283,26 @@ export default function SkincareBeautyMerchantsPage() {
                     Why skincare and beauty are different in agent commerce
                   </h2>
                   <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                    Skincare and beauty are unusually natural-language categories. Customers do
-                    not only shop by SKU or exact product name. They ask for &quot;niacinamide for oily
-                    skin,&quot; &quot;fragrance-free cleanser for sensitive skin,&quot; &quot;routine for acne
-                    marks,&quot; or &quot;travel-size set for dry skin.&quot;
+                    Skincare, beauty, and cosmetics are unusually natural-language categories.
+                    Customers do not only shop by SKU or exact product name. They ask for
+                    &quot;niacinamide for oily skin,&quot; &quot;fragrance-free cleanser for sensitive skin,&quot;
+                    &quot;routine for acne marks,&quot; &quot;travel-size set for dry skin,&quot; &quot;refill versus
+                    full-size cleansing balm,&quot; or &quot;neutral satin lip set for everyday wear.&quot;
                   </p>
+                  <p className="max-w-4xl text-sm leading-7 text-foreground/90">
+                    Common shopper and agent prompts here sound more like intent resolution than
+                    catalog lookup.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {queryExamples.map((example) => (
+                      <span
+                        key={example}
+                        className="rounded-full border border-border/70 bg-background/55 px-3 py-1.5 text-sm text-muted-foreground"
+                      >
+                        {example}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                   {categoryDifferences.map((item) => (
@@ -295,13 +322,15 @@ export default function SkincareBeautyMerchantsPage() {
                     Where resolution breaks
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Where agent resolution breaks in beauty
+                    Where beauty resolution breaks for AI agents
                   </h2>
                   <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                    A skincare or skin care brand can already be visible online and still be hard
-                    for AI agents to resolve correctly. The break usually shows up as resolution
-                    ambiguity first, then recommendation ambiguity later, between natural-language
-                    shopping intent and an executable merchant path.
+                    A skincare, skin care, beauty, or cosmetics brand can already be visible
+                    online and still be hard for AI agents to resolve correctly. The break
+                    usually happens when one query mixes concern, ingredient, routine, size,
+                    shade, finish, bundle logic, and offer logic at the same time. Resolution
+                    ambiguity shows up first. Recommendation ambiguity and execution ambiguity
+                    follow after that.
                   </p>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
@@ -327,6 +356,13 @@ export default function SkincareBeautyMerchantsPage() {
                   <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
                     Pivota does not replace the storefront. It works on top of the merchant stack
                     and improves the path from agent demand to merchant execution.
+                  </p>
+                  <p className="max-w-4xl text-sm leading-7 text-foreground/90">
+                    This matters most when a visible offer is not yet an executable offer: a
+                    routine is shown in content but sold as separate SKUs, a sampler pack is
+                    visible but not cleanly resolvable, a refill and full-size version sit side
+                    by side, or a subscription offer exists on site but is harder for an agent to
+                    preserve downstream.
                   </p>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -372,7 +408,9 @@ export default function SkincareBeautyMerchantsPage() {
                 <p className="mt-6 max-w-3xl text-sm leading-7 text-foreground/90">
                   Merchant-native checkout means the path stays in merchant-controlled systems. It
                   does not mean every merchant starts there immediately, or that every agent
-                  surface runs a fully in-chat checkout.
+                  surface runs a fully in-chat checkout. Some routines, sets, replenishment
+                  flows, or bundle paths may still use link-out or another merchant-controlled
+                  handoff.
                 </p>
               </div>
 
@@ -382,14 +420,21 @@ export default function SkincareBeautyMerchantsPage() {
                     <p className="text-sm uppercase tracking-[0.18em] text-primary">
                       Who this fits best
                     </p>
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                      Who this page is especially relevant for
-                    </h2>
-                    <p className="text-base leading-8 text-muted-foreground">
-                      This page is especially useful for skincare, beauty, and cosmetics merchants
-                      with one or more of these patterns.
-                    </p>
-                  </div>
+                  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                    Who this page is especially relevant for
+                  </h2>
+                  <p className="text-base leading-8 text-muted-foreground">
+                    This page is especially relevant for skincare, beauty, and cosmetics
+                    merchants whose shoppers ask in natural language, whose catalogs carry close
+                    variants or routine relationships, and whose offer logic is richer than a
+                    simple one-SKU product page.
+                  </p>
+                  <p className="text-sm leading-7 text-foreground/90">
+                    It is a strong fit for brands that sell by ingredient, active, concern,
+                    routine role, shade, finish, format, or replenishment cycle as much as they
+                    sell by exact SKU.
+                  </p>
+                </div>
                   <div className="grid gap-3 sm:grid-cols-2">
                     {fitList.map((item) => (
                       <div
