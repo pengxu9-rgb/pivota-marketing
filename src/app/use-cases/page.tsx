@@ -308,6 +308,12 @@ export default function UseCasesPage() {
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                     Six representative merchant patterns, not generic category restatement.
                   </h2>
+                  <Link
+                    href={routePaths.skincareBeautyMerchants}
+                    className="inline-flex text-sm text-primary hover:underline"
+                  >
+                    See the skincare & beauty page
+                  </Link>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                   {useCases.map((useCase) => (

@@ -9,6 +9,7 @@ const primaryRoutes = [
   { path: routePaths.promotionReadiness, changeFrequency: "weekly" as const, priority: 0.78 },
   { path: routePaths.merchantOnboarding, changeFrequency: "weekly" as const, priority: 0.78 },
   { path: routePaths.agentIntegration, changeFrequency: "weekly" as const, priority: 0.8 },
+  { path: routePaths.skincareBeautyMerchants, changeFrequency: "weekly" as const, priority: 0.77 },
   { path: routePaths.pivotaVsShopify, changeFrequency: "weekly" as const, priority: 0.76 },
   { path: routePaths.whatIsAgenticCommerce, changeFrequency: "weekly" as const, priority: 0.8 },
   { path: routePaths.whatIsAgentNativeCommerce, changeFrequency: "weekly" as const, priority: 0.9 },

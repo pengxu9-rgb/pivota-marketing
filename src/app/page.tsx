@@ -138,6 +138,12 @@ export default async function Home({ searchParams }: HomePageProps) {
                   <Link href={routePaths.useCases} className="text-primary hover:underline">
                     Use cases
                   </Link>
+                  <Link
+                    href={routePaths.skincareBeautyMerchants}
+                    className="text-primary hover:underline"
+                  >
+                    Skincare & beauty merchants
+                  </Link>
                   <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
                     Agent integration
                   </Link>

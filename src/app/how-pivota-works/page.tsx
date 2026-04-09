@@ -118,6 +118,12 @@ export default function HowPivotaWorksPage() {
                       <Link href={routePaths.agentIntegration}>Agent Integration</Link>
                     </Button>
                   </div>
+                  <Link
+                    href={routePaths.skincareBeautyMerchants}
+                    className="inline-flex w-fit text-sm text-primary hover:underline"
+                  >
+                    Skincare & beauty merchants
+                  </Link>
                 </div>
 
                 <div className="section-frame px-6 py-6 sm:px-7">

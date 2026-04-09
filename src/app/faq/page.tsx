@@ -140,6 +140,9 @@ export default function FaqPage() {
                 <Link href={routePaths.useCases} className="text-primary hover:underline">
                   Use cases
                 </Link>
+                <Link href={routePaths.skincareBeautyMerchants} className="text-primary hover:underline">
+                  Skincare & beauty merchants
+                </Link>
                 <Link href={routePaths.promotionReadiness} className="text-primary hover:underline">
                   Promotion readiness
                 </Link>

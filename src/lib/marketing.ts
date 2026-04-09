@@ -8,8 +8,8 @@ export const developerSignupPath = "https://developer.pivota.cc/signup";
 export const developerLoginPath = "https://developer.pivota.cc/login";
 export const aiReadinessSignupPath = "/merchant/signup/ai-readiness";
 export const auroraUrl = "https://aurora.pivota.cc";
-export const lastUpdatedIso = "2026-03-23";
-export const lastUpdatedLabel = "Updated March 23, 2026";
+export const lastUpdatedIso = "2026-04-09";
+export const lastUpdatedLabel = "Updated April 9, 2026";
 
 export const routePaths = {
   home: "/",
@@ -17,6 +17,7 @@ export const routePaths = {
   promotionReadiness: "/promotion-readiness",
   merchantOnboarding: "/merchant-onboarding",
   agentIntegration: "/agent-integration",
+  skincareBeautyMerchants: "/skincare-beauty-merchants",
   pivotaVsShopify: "/pivota-vs-shopify",
   whatIsAgenticCommerce: "/what-is-agentic-commerce",
   whatIsAgentNativeCommerce: "/what-is-agent-native-commerce",
