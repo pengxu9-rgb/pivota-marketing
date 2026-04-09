@@ -120,9 +120,9 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 const faqJsonLd = buildFaqJsonLd(comparisonFaqItems);
 
 export const metadata = buildMarketingMetadata({
-  title: "Pivota vs Shopify | Store platform access plus merchant-controlled continuity",
+  title: "Pivota with Shopify, Wix, WooCommerce, and BigCommerce | Merchant control without replatforming",
   description:
-    "Shopify is one example of a store platform with growing AI commerce support. Pivota works alongside Shopify, Wix, WooCommerce, BigCommerce, and similar stacks to add merchant control, continuity, and fallback across AI buying surfaces.",
+    "Pivota works with Shopify, Wix, WooCommerce, BigCommerce, and similar stacks as a merchant-controlled commerce layer on top of the storefront and operations merchants already run.",
   path: routePaths.pivotaVsShopify,
 });
 
@@ -152,7 +152,7 @@ export default function PivotaVsShopifyPage() {
                     Store platforms and merchant control
                   </p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    Use your store platform for access. Add Pivota for control, continuity, and fallback.
+                    Use your store platform for storefront operations. Add Pivota for control, continuity, and staged rollout.
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
@@ -169,6 +169,25 @@ export default function PivotaVsShopifyPage() {
                       Store platform access is useful. It is not the same as merchant control.
                     </p>
                   </AnswerBlock>
+                  <p className="max-w-3xl text-sm leading-7 text-foreground/90">
+                    Use the store platform for storefront operations and native access where
+                    available. Use Pivota for control, continuity, and staged rollout across
+                    agent surfaces.
+                  </p>
+                  <div className="grid gap-3 sm:grid-cols-3">
+                    {[
+                      "Keep Shopify, Wix, or your current stack",
+                      "Start with discovery, feeds, or link-out",
+                      "Deepen into merchant-native checkout when ready",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
                       <Link href={routePaths.aiReadiness}>
@@ -266,12 +285,16 @@ export default function PivotaVsShopifyPage() {
                       <Workflow className="h-5 w-5" />
                     </div>
                     <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                      Pivota is not just a path into LLMs. Pivota is the merchant-controlled
-                      commerce layer for agents.
+                      Pivota is the merchant commerce layer that works on top of existing merchant
+                      stacks.
                     </p>
                     <p className="mt-3 text-sm leading-7 text-foreground/90">
                       Pivota helps merchants move from prompt to recommendation to transaction with
                       stronger continuity across systems.
+                    </p>
+                    <p className="mt-3 text-sm leading-7 text-foreground/90">
+                      Some merchants stop at lighter rollout stages for now; others deepen into
+                      merchant-native checkout when ready.
                     </p>
                     <div className="mt-4">
                       <p className="text-sm font-semibold text-foreground">

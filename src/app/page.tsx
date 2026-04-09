@@ -60,8 +60,7 @@ export const metadata = buildMarketingMetadata({
   description: homepageMetaDescription,
   path: routePaths.home,
   ogTitle: "Pivota — The Merchant Gateway for Agent-Native Commerce",
-  ogDescription:
-    "The merchant gateway for agent-native commerce. Built for a future where commerce happens across many agents, not one AI app.",
+  ogDescription: homepageMetaDescription,
 });
 
 type HomePageProps = {
@@ -108,7 +107,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                 <div className="flex flex-wrap gap-3">
                   <Button asChild className="btn-hero h-11 px-5 text-sm">
                     <Link href={onboardingHref}>
-                      Gain revenue from Agents now
+                      See what to fix first
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
@@ -120,11 +119,11 @@ export default async function Home({ searchParams }: HomePageProps) {
                 <div className="grid gap-3 sm:grid-cols-2">
                   <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
                     <span className="block font-semibold text-foreground">Merchant path</span>
-                    Commerce check → what to fix first → safest next step
+                    Connect existing stack -&gt; see what to fix first -&gt; choose link-out, feeds, or merchant-native checkout
                   </div>
                   <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
                     <span className="block font-semibold text-foreground">Builder path</span>
-                    Agent integration → first call → orders, webhooks, and execution
+                    Merchant rollout stage -&gt; first call -&gt; orders, webhooks, and deeper execution when ready
                   </div>
                 </div>
 
@@ -155,10 +154,10 @@ export default async function Home({ searchParams }: HomePageProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/15 to-transparent" />
                   <div className="absolute bottom-4 left-4 rounded-2xl border border-white/10 bg-background/80 px-4 py-3 backdrop-blur">
                     <p className="text-xs uppercase tracking-[0.18em] text-primary">
-                      Execution layer
+                      Merchant commerce layer
                     </p>
                     <p className="mt-2 max-w-xs text-sm text-foreground">
-                      From queryable catalogs to merchant-native transactions.
+                      From discovery and link-out to deeper merchant-native transactions.
                     </p>
                   </div>
                 </div>
@@ -175,6 +174,9 @@ export default async function Home({ searchParams }: HomePageProps) {
                     <p className="mt-1 max-w-2xl text-sm leading-6 text-muted-foreground">
                       Whether you run on Shopify, Wix, WooCommerce, BigCommerce, or another
                       stack, Pivota works on top of your existing setup.
+                    </p>
+                    <p className="mt-1 max-w-2xl text-sm leading-6 text-muted-foreground">
+                      It does not replace your storefront.
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-2 text-sm">
@@ -225,6 +227,11 @@ export default async function Home({ searchParams }: HomePageProps) {
               <p className="text-base leading-8 text-foreground/90">
                 Merchants connect once, Pivota improves readiness upstream, and downstream agents
                 get a cleaner merchant-native path.
+              </p>
+              <p className="text-base leading-8 text-foreground/90">
+                That does not mean every merchant starts with merchant-native checkout on day one.
+                Many start with discovery, feeds, or link-out first, then deepen into
+                merchant-native checkout when their stack is ready.
               </p>
               <p className="text-base leading-8 text-foreground/90">
                 Build against the same merchant-native path that onboarding improves upstream.
@@ -284,11 +291,15 @@ export default async function Home({ searchParams }: HomePageProps) {
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.18em] text-primary">How it works</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                One execution path from demand to merchant-native transactions.
+                One merchant-controlled path, with lighter and deeper rollout stages.
               </h2>
               <p className="max-w-3xl text-base leading-8 text-muted-foreground">
                 Pivota connects demand, discovery, execution, checkout, payment, and measurement
                 into one merchant-controlled path.
+              </p>
+              <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                The full model spans discovery through deeper execution, but merchants do not need
+                to start at the deepest stage.
               </p>
             </div>
 

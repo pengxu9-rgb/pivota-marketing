@@ -63,8 +63,8 @@ export default function FaqPage() {
                     <p className="mt-2">
                       These answers stay visible in raw HTML so merchants, builders, and LLMs can
                       inspect the objections that matter most: whether Pivota replaces a store
-                      platform, why it still matters when platform-native AI paths exist, and how
-                      it improves the path from agent demand to completed transactions.
+                      platform or storefront, whether replatforming is required, how staged rollout
+                      works, and why it still matters when platform-native AI paths exist.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
@@ -111,8 +111,9 @@ export default function FaqPage() {
                     More questions
                   </h2>
                   <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                    The full FAQ expands on store platforms, fallback, conversion continuity,
-                    measurement, and agent integration boundaries.
+                    The full FAQ expands on store platforms, storefront boundaries, staged rollout,
+                    implementation burden, fallback, conversion continuity, measurement, and agent
+                    integration boundaries.
                   </p>
                 </div>
                 <Accordion type="single" collapsible>

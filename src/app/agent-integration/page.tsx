@@ -184,17 +184,17 @@ export default function AgentIntegrationPage() {
                     Agent integration
                   </p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    Build against a merchant-native commerce layer, not fragmented merchant sites.
+                    Build against the merchant path Pivota exposes on top of existing merchant stacks.
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      Pivota is the commerce layer that agents call for recommendations,
-                      merchant-native checkout, payments, and order write-back.
+                      Pivota is the builder surface for the merchant gateway that sits on top of
+                      existing storefront, checkout, and payment systems.
                     </p>
                     <p className="mt-2">
-                      Start with the public REST path, use SDK or MCP where helpful, and move from
-                      first authenticated call into checkout, orders, events, and webhooks on one
-                      merchant-native contract.
+                      Some merchants start with discovery, feeds, or link-out. When a merchant is
+                      ready for deeper flows, builders use the REST path, SDK, or MCP to work with
+                      checkout, orders, events, and webhooks.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
@@ -223,9 +223,9 @@ export default function AgentIntegrationPage() {
                     Why this matters
                   </p>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    Merchants fix upstream gaps during onboarding first. Agent Integration is the
-                    public builder bridge that explains how downstream LLM and agent calls then
-                    route through a cleaner, more executable merchant-native path.
+                    Merchant onboarding and rollout choice come first. This page describes the
+                    builder surface that sits on top of that merchant path, whether the merchant is
+                    starting with lighter discovery flows or deeper merchant-native checkout.
                   </p>
                   <div className="mt-5 flex flex-wrap gap-4 text-sm">
                     <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
@@ -337,6 +337,11 @@ export default function AgentIntegrationPage() {
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                     Start with the request families already proven in production.
                   </h2>
+                  <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                    Not every merchant uses every request family on day one. Search,
+                    recommendation, and lighter handoff paths may come before deeper checkout and
+                    order flows.
+                  </p>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                   {requestFamilies.map((family) => (
