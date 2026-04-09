@@ -27,7 +27,7 @@ import { buildFaqJsonLd } from "@/lib/schema";
 const executionSteps = [
   "Demand from LLM and agent traffic",
   "Merchant discovery and offer resolution",
-  "Merchant-native checkout",
+  "Link-out, feeds, or merchant-native checkout",
   "Payment routing and state sync",
   "Order authorization and write-back",
   "Measurement across execution",
@@ -90,7 +90,7 @@ export default async function Home({ searchParams }: HomePageProps) {
               <div className="space-y-5">
                 <div className="flex flex-wrap items-center gap-3 text-sm">
                   <span className="rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 uppercase tracking-[0.2em] text-primary">
-                    Agent-native commerce infrastructure
+                    For Shopify, Wix, WooCommerce, BigCommerce, and similar stacks
                   </span>
                 </div>
 
@@ -126,6 +126,10 @@ export default async function Home({ searchParams }: HomePageProps) {
                     Merchant rollout stage -&gt; first call -&gt; orders, webhooks, and deeper execution when ready
                   </div>
                 </div>
+                <p className="text-sm leading-6 text-muted-foreground">
+                  Lighter start: discovery, feeds, link-out. Deeper rollout: checkout,
+                  payments, orders, and webhooks usually require more merchant-specific work.
+                </p>
 
                 <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
                   <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
@@ -294,12 +298,13 @@ export default async function Home({ searchParams }: HomePageProps) {
                 One merchant-controlled path, with lighter and deeper rollout stages.
               </h2>
               <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                Pivota connects demand, discovery, execution, checkout, payment, and measurement
-                into one merchant-controlled path.
+                Pivota connects demand to merchant execution, but merchants can enter at lighter
+                or deeper stages depending on readiness.
               </p>
               <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                The full model spans discovery through deeper execution, but merchants do not need
-                to start at the deepest stage.
+                Many merchants start with discovery, feeds, or link-out. Deeper checkout,
+                payment, order, and webhook continuity usually require more merchant-specific
+                work.
               </p>
             </div>
 

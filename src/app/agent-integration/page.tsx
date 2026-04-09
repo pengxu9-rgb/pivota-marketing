@@ -342,6 +342,12 @@ export default function AgentIntegrationPage() {
                     recommendation, and lighter handoff paths may come before deeper checkout and
                     order flows.
                   </p>
+                  <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                    Merchant-native checkout does not mean every agent surface completes checkout
+                    fully inside chat. Depending on merchant readiness and the surface, execution
+                    may continue through link-out or another merchant-controlled handoff while
+                    staying in merchant-controlled systems.
+                  </p>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                   {requestFamilies.map((family) => (

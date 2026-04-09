@@ -96,8 +96,8 @@ export const coreAnswerBlock = [
 ] as const;
 
 export const homepageHeroAnswerBlock = [
-  "Connect your existing store stack to improve how agents discover, route, and complete transactions with your business.",
-  "Pivota works on top of Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. Merchants can start with discovery, feeds, or link-out, then expand toward merchant-native checkout when ready.",
+  "Use Pivota on top of your existing Shopify, Wix, WooCommerce, BigCommerce, or similar stack. No replatforming is required.",
+  "Improve how agents discover, route, and complete transactions with your business, starting with discovery, feeds, or link-out before deeper merchant-native checkout when ready.",
 ] as const;
 
 export const homepageResultStatements = [
@@ -196,12 +196,12 @@ export const faqItems = [
   {
     question: "How much implementation work is required?",
     answer:
-      "It depends on the rollout stage. Discovery, feeds, and link-out are lighter. Deeper checkout, payment, order, and webhook flows require more merchant-specific work.",
+      "It depends on the rollout stage. Discovery, feeds, and link-out are the lighter starting paths. Deeper checkout, payment, order, and webhook flows usually require more merchant-specific work.",
   },
   {
     question: "What does merchant-native checkout mean here?",
     answer:
-      "It means checkout continues through merchant-controlled systems rather than moving the transaction into a marketplace-owned flow. It does not imply every merchant starts there on day one.",
+      "It means checkout stays in merchant-controlled systems rather than moving into a marketplace-owned flow. It does not mean every merchant starts there on day one, or that every agent surface runs a fully in-chat checkout. Some flows still use link-out or another merchant-controlled handoff.",
   },
   {
     question: "What stays in my current stack if I use Pivota?",
@@ -231,7 +231,7 @@ export const faqItems = [
   {
     question: "Can I start before merchant-native checkout?",
     answer:
-      "Yes. Many merchants start with discovery, feeds, or link-out first. Merchant-native checkout is a deeper rollout stage when checkout, payment, and execution continuity are ready.",
+      "Yes. Many merchants start with discovery, feeds, or link-out first. Merchant-native checkout is one deeper rollout path when checkout, payment, and execution continuity are ready.",
   },
   {
     question: "What is the difference between a visible offer and an executable offer?",
@@ -317,19 +317,19 @@ export const homepageFaqItems = [
       "No. Pivota is not a storefront replacement. It adds a merchant commerce layer on top of the storefront, checkout, payment, and operations systems already in place.",
   },
   {
+    question: "What does merchant-native checkout mean here?",
+    answer:
+      "It means checkout stays in merchant-controlled systems rather than moving into a marketplace-owned flow. It does not mean every merchant starts there on day one, or that every agent surface runs a fully in-chat checkout. Some flows still use link-out or another merchant-controlled handoff.",
+  },
+  {
     question: "Can I start before merchant-native checkout?",
     answer:
-      "Yes. Many merchants start with discovery, feeds, or link-out first. Merchant-native checkout is a deeper rollout stage when checkout, payment, and execution continuity are ready.",
+      "Yes. Many merchants start with discovery, feeds, or link-out first. Merchant-native checkout is one deeper rollout path when checkout, payment, and execution continuity are ready.",
   },
   {
     question: "How much implementation work is required?",
     answer:
-      "It depends on the rollout stage. Discovery, feeds, and link-out are lighter. Deeper checkout, payment, order, and webhook flows require more merchant-specific work.",
-  },
-  {
-    question: "Why connect Pivota if my store platform already supports AI commerce?",
-    answer:
-      "Store-platform access can help merchants reach some AI buying surfaces, whether the storefront runs on Shopify, Wix, WooCommerce, BigCommerce, or another stack. Pivota adds merchant control across product resolution, offer logic, checkout continuity, payments, write-back, measurement, and fallback when native paths are not enough. Platform-native access can be a good starting point. Pivota matters when merchants need more control, continuity, and fallback across more agent surfaces.",
+      "It depends on the rollout stage. Discovery, feeds, and link-out are the lighter starting paths. Deeper checkout, payment, order, and webhook flows usually require more merchant-specific work.",
   },
 ] as const;
 
