@@ -84,25 +84,20 @@ export default function DoINeedToRebuildMyStorePage() {
                 ]}
               />
 
-              <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-                <div className="space-y-5">
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(340px,430px)] lg:items-start xl:grid-cols-[minmax(0,1fr)_minmax(360px,460px)]">
+                <div className="space-y-4 sm:space-y-5">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
                     Merchant question
                   </p>
-                  <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
+                  <h1 className="max-w-none text-balance text-[2.35rem] font-bold leading-[0.96] tracking-tight sm:max-w-[14ch] sm:text-[3.15rem] lg:max-w-[15ch] lg:text-[3.95rem]">
                     Do I need to rebuild my store to use Pivota?
                   </h1>
-                  <AnswerBlock className="max-w-3xl">
+                  <AnswerBlock className="max-w-2xl text-[0.98rem] leading-7 sm:max-w-3xl sm:text-base sm:leading-8">
                     <p>
                       No. Pivota works on top of Shopify, Wix, WooCommerce, BigCommerce, and
                       similar stacks. No replatforming is required. Merchants keep the
                       storefront, checkout systems, PSP relationships, fulfillment stack, and
                       customer operations they already run.
-                    </p>
-                    <p className="mt-2">
-                      Pivota is a merchant gateway and commerce layer on top of the current
-                      stack. The goal is better merchant control and execution continuity, not a
-                      rebuild.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
@@ -116,9 +111,13 @@ export default function DoINeedToRebuildMyStorePage() {
                       <Link href={routePaths.merchantOnboarding}>Merchant onboarding</Link>
                     </Button>
                   </div>
+                  <p className="max-w-2xl text-sm leading-7 text-foreground/90 sm:max-w-3xl">
+                    Pivota is a merchant gateway and commerce layer on top of the current stack.
+                    The goal is better merchant control and execution continuity, not a rebuild.
+                  </p>
                 </div>
 
-                <div className="section-frame px-6 py-6 sm:px-7">
+                <div className="section-frame px-6 py-6 sm:px-7 lg:ml-auto lg:w-full lg:max-w-[28.5rem]">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
                     Summary
                   </p>

@@ -85,25 +85,21 @@ export default function MakeProductsDiscoverablePage() {
                 ]}
               />
 
-              <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-                <div className="space-y-5">
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(340px,430px)] lg:items-start xl:grid-cols-[minmax(0,1fr)_minmax(360px,460px)]">
+                <div className="space-y-4 sm:space-y-5">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
                     Discovery and resolution
                   </p>
-                  <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
+                  <h1 className="max-w-none text-balance text-[2.35rem] font-bold leading-[0.96] tracking-tight sm:max-w-[14ch] sm:text-[3.15rem] lg:max-w-[15ch] lg:text-[3.95rem]">
                     How do I make my products discoverable to AI shopping agents?
                   </h1>
-                  <AnswerBlock className="max-w-3xl">
+                  <AnswerBlock className="max-w-2xl text-[0.98rem] leading-7 sm:max-w-3xl sm:text-base sm:leading-8">
                     <p>
                       Making products discoverable to AI shopping agents is not only about being
                       visible online. Products, variants, offers, and execution paths need to be
                       clear enough for agents to resolve correctly. Pivota works on top of
                       existing merchant stacks to make that path more queryable, more executable,
                       and more merchant-controlled.
-                    </p>
-                    <p className="mt-2">
-                      AI agents interpret natural-language demand, not only taxonomy. Visibility
-                      alone is not enough if products and offers do not resolve cleanly.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
@@ -117,9 +113,13 @@ export default function MakeProductsDiscoverablePage() {
                       <Link href="/#contact">Talk to us</Link>
                     </Button>
                   </div>
+                  <p className="max-w-2xl text-sm leading-7 text-foreground/90 sm:max-w-3xl">
+                    AI agents interpret natural-language demand, not only taxonomy. Visibility
+                    alone is not enough if products and offers do not resolve cleanly.
+                  </p>
                 </div>
 
-                <div className="section-frame px-6 py-6 sm:px-7">
+                <div className="section-frame px-6 py-6 sm:px-7 lg:ml-auto lg:w-full lg:max-w-[28.5rem]">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
                     Summary
                   </p>

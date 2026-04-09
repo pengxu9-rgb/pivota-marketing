@@ -86,16 +86,16 @@ export default async function Home({ searchParams }: HomePageProps) {
           <div className="absolute right-[10%] top-8 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
 
           <div className="section-padding relative">
-            <div className="container-max grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div className="container-max grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
               <div className="space-y-5">
                 <div className="flex flex-wrap items-center gap-3 text-sm">
-                  <span className="rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 uppercase tracking-[0.2em] text-primary">
+                  <span className="inline-flex max-w-full rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-[0.72rem] uppercase leading-[1.25] tracking-[0.16em] text-primary sm:px-4 sm:text-sm sm:tracking-[0.2em]">
                     The commerce execution &amp; optimization layer for agentic demand
                   </span>
                 </div>
 
                 <div className="space-y-3">
-                  <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                  <h1 className="max-w-4xl text-balance text-4xl font-bold leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
                     The merchant gateway for agent-native commerce
                   </h1>
                   <AnswerBlock className="max-w-3xl">
@@ -131,18 +131,12 @@ export default async function Home({ searchParams }: HomePageProps) {
                   payments, orders, and webhooks usually require more merchant-specific work.
                 </p>
 
-                <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
+                <div className="flex flex-wrap gap-x-5 gap-y-3 text-sm text-muted-foreground">
                   <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
                     Merchant onboarding
                   </Link>
                   <Link href={routePaths.useCases} className="text-primary hover:underline">
                     Use cases
-                  </Link>
-                  <Link href={routePaths.makeProductsDiscoverable} className="text-primary hover:underline">
-                    How to make products discoverable to AI shopping agents
-                  </Link>
-                  <Link href={routePaths.doINeedToRebuildMyStore} className="text-primary hover:underline">
-                    Do I need to rebuild my store?
                   </Link>
                   <Link
                     href={routePaths.skincareBeautyMerchants}
@@ -159,7 +153,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                 </div>
               </div>
 
-              <div className="section-frame overflow-hidden p-3 sm:p-4 lg:-mt-6">
+              <div className="section-frame overflow-hidden p-3 sm:p-4">
                 <div className="relative overflow-hidden rounded-[1.4rem] border border-white/10">
                   <Image
                     src={heroImage}
@@ -439,6 +433,12 @@ export default async function Home({ searchParams }: HomePageProps) {
               </Link>
               <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
                 Agent Integration
+              </Link>
+              <Link href={routePaths.makeProductsDiscoverable} className="text-primary hover:underline">
+                How to make products discoverable to AI shopping agents
+              </Link>
+              <Link href={routePaths.doINeedToRebuildMyStore} className="text-primary hover:underline">
+                Do I need to rebuild my store?
               </Link>
             </div>
           </div>
