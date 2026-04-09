@@ -95,7 +95,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                 </div>
 
                 <div className="space-y-3">
-                  <h1 className="max-w-4xl text-balance text-4xl font-bold leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+                  <h1 className="max-w-4xl text-balance text-3xl font-bold leading-[0.95] tracking-tight sm:text-4xl lg:text-5xl">
                     The merchant gateway for agent-native commerce
                   </h1>
                   <AnswerBlock className="max-w-3xl">
