@@ -90,7 +90,7 @@ export default async function Home({ searchParams }: HomePageProps) {
               <div className="space-y-5">
                 <div className="flex flex-wrap items-center gap-3 text-sm">
                   <span className="rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 uppercase tracking-[0.2em] text-primary">
-                    For Shopify, Wix, WooCommerce, BigCommerce, and similar stacks
+                    The commerce execution &amp; optimization layer for agentic demand
                   </span>
                 </div>
 
