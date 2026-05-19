@@ -9,27 +9,27 @@
 @layer base {
   :root {
     /* Core Brand Colors */
-    --background: 220 20% 6%; /* Ink black */
-    --foreground: 210 20% 96%; /* Near white text */
+    --background: 60 17% 98%; /* Pivota paper */
+    --foreground: 60 2% 17%; /* Pivota ink */
 
     /* Card & Surface Colors */
-    --card: 220 18% 9%; /* Slightly lifted surface */
-    --card-foreground: 210 20% 96%;
+    --card: 0 0% 100%;
+    --card-foreground: 60 2% 17%;
 
-    --popover: 220 18% 9%;
-    --popover-foreground: 210 20% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 60 2% 17%;
 
     /* Brand Primary */
     --primary: 245 43% 50%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Cool gray */
-    --secondary: 220 10% 72%;
-    --secondary-foreground: 220 20% 6%;
+    /* Secondary - soft brand purple */
+    --secondary: 245 83% 96%;
+    --secondary-foreground: 245 45% 37%;
 
     /* Muted & Accents */
-    --muted: 220 14% 14%;
-    --muted-foreground: 215 14% 70%;
+    --muted: 60 8% 95%;
+    --muted-foreground: 60 2% 38%;
 
     /* Accent - Brand teal */
     --accent: 161 69% 37%;
@@ -43,18 +43,18 @@
     --success-foreground: 0 0% 98%;
 
     /* Borders & Inputs */
-    --border: 220 12% 18%;
-    --input: 220 12% 16%;
-    --ring: 174 78% 46%;
+    --border: 60 5% 86%;
+    --input: 60 5% 86%;
+    --ring: 245 43% 50%;
 
     /* Brand Gradients */
     --gradient-primary: var(--pv-gradient-primary);
-    --gradient-hero: linear-gradient(135deg, hsl(220 20% 6%), hsl(220 16% 9%));
-    --gradient-card: linear-gradient(145deg, hsl(220 18% 9%), hsl(220 14% 14%));
+    --gradient-hero: linear-gradient(135deg, hsl(60 17% 98%), hsl(245 83% 96%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(60 8% 95%));
 
     /* Shadows & Effects */
-    --shadow-neon: 0 0 26px hsl(174 78% 46% / 0.22);
-    --shadow-card: 0 14px 36px -18px hsl(220 30% 2% / 0.55);
+    --shadow-neon: 0 0 26px hsl(245 43% 50% / 0.18);
+    --shadow-card: 0 14px 36px -18px hsl(245 40% 24% / 0.22);
 
     --radius: 0.5rem;
 
