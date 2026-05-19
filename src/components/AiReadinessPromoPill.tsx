@@ -85,7 +85,7 @@ const AiReadinessPromoPill = () => {
   return (
     <div className="pointer-events-none fixed bottom-4 left-1/2 z-50 w-[min(calc(100vw-1.25rem),22rem)] -translate-x-1/2 sm:bottom-6 sm:w-[21.5rem] lg:left-auto lg:right-6 lg:w-[22rem] lg:translate-x-0">
       <div className="motion-safe:animate-float motion-reduce:animate-none">
-        <div className="relative rounded-[1.35rem] border border-white/20 bg-gradient-to-r from-primary via-cyan-400 to-accent p-[1px] shadow-[0_18px_45px_rgba(14,165,233,0.32)] backdrop-blur-xl">
+        <div className="relative rounded-[1.35rem] border border-white/20 bg-[image:var(--pv-gradient-primary)] p-[1px] shadow-[var(--pv-shadow-glow)] backdrop-blur-xl">
           <div className="pointer-events-none absolute inset-0 rounded-[1.35rem] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.28),rgba(17,24,39,0))] opacity-90 blur-2xl motion-safe:animate-glow motion-reduce:animate-none" />
 
           <div className="relative flex items-center gap-2 rounded-[1.3rem] bg-[linear-gradient(135deg,rgba(8,15,24,0.9),rgba(16,24,40,0.84))] px-2 py-2.5">

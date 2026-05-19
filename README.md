@@ -39,3 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 - `CREATOR_AGENT_BASE_URL` (optional): base URL for Creator Agent demo links (defaults to `https://creator.pivota.cc`).
 - `NEXT_PUBLIC_CREATOR_AGENT_BASE_URL` (optional): same, but safe for client-side usage if needed later.
+
+## Brand System
+
+This app uses Pivota Brand Kit v2.0 from `public/pivota-brand/`. Treat `public/pivota-brand/CLAUDE.md` as the local source of truth for logo, favicon, color, and brand-token usage.

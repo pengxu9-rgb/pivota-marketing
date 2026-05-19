@@ -87,7 +87,7 @@ const lightCardClass =
 const lightInlineCardClass =
   "rounded-2xl border border-slate-200/80 bg-white/92 shadow-[0_10px_24px_-18px_rgba(15,23,42,0.12)]";
 const lightPrimaryButtonClass =
-  "h-11 rounded-xl bg-gradient-to-r from-primary via-cyan-400 to-accent px-5 text-sm font-semibold text-slate-950 shadow-[0_20px_36px_-22px_rgba(14,165,233,0.4)] transition-all hover:brightness-[1.03]";
+  "h-11 rounded-xl bg-[image:var(--pv-gradient-primary)] px-5 text-sm font-semibold text-white shadow-[var(--pv-shadow-glow)] transition-all hover:brightness-[1.03]";
 const lightAnswerBlockClass =
   "max-w-3xl rounded-[1.4rem] border border-primary/18 bg-[linear-gradient(135deg,rgba(45,212,191,0.1),rgba(255,255,255,0.92),rgba(56,189,248,0.12))] text-base text-slate-700 shadow-[0_18px_30px_-22px_rgba(14,165,233,0.28)] backdrop-blur";
 const pageSectionClass = "px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12";

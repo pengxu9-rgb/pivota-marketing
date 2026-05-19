@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LogIn, Menu, X } from "lucide-react";
@@ -135,9 +134,6 @@ const Header = () => {
   const navShellClass = isAiReadinessPage
     ? "container-max flex h-11 items-center justify-between px-4 sm:h-12 sm:px-6 lg:px-8"
     : "container-max flex h-12 items-center justify-between px-4 sm:h-[3.25rem] sm:px-6 lg:px-8";
-  const brandTextClass = isAiReadinessPage
-    ? "text-lg font-semibold tracking-tight text-slate-900 transition-colors duration-200 group-hover:text-slate-700 sm:text-xl"
-    : "bg-gradient-to-r from-primary to-accent bg-clip-text text-lg font-semibold tracking-tight text-foreground transition-all duration-300 group-hover:text-transparent sm:text-xl";
   const navTextBaseClass = isAiReadinessPage
     ? "text-sm font-medium tracking-tight transition-colors duration-200 group-hover:text-slate-900"
     : "bg-gradient-to-r from-primary to-accent bg-clip-text text-sm font-medium tracking-tight transition-all duration-300 group-hover:text-transparent";
@@ -153,17 +149,8 @@ const Header = () => {
       <header className={`sticky top-0 z-50 border-b transition-all duration-300 ${headerSurfaceClass}`}>
         <nav className={navShellClass}>
           <Link href="/" className="group flex items-center gap-2">
-            <Image
-              src="/pivota-logo.png"
-              alt="Pivota logo"
-              width={32}
-              height={32}
-              className="h-8 w-8 rounded-lg object-contain"
-              priority
-            />
-            <span className={brandTextClass}>
-              Pivota
-            </span>
+            <span className="pv-logo pv-logo--gradient pv-logo--md" aria-hidden="true" />
+            <span className="pv-wordmark pv-wordmark--sm">Pivota</span>
           </Link>
 
           <div className="hidden items-center gap-4 lg:flex">

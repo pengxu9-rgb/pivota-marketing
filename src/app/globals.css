@@ -19,9 +19,9 @@
     --popover: 220 18% 9%;
     --popover-foreground: 210 20% 96%;
 
-    /* Brand Primary - Muted Teal (infra/dev-first) */
-    --primary: 174 78% 46%;
-    --primary-foreground: 220 20% 6%;
+    /* Brand Primary */
+    --primary: 245 43% 50%;
+    --primary-foreground: 0 0% 100%;
 
     /* Secondary - Cool gray */
     --secondary: 220 10% 72%;
@@ -31,9 +31,9 @@
     --muted: 220 14% 14%;
     --muted-foreground: 215 14% 70%;
 
-    /* Accent - Low-sat magenta (ties to logo) */
-    --accent: 320 66% 70%;
-    --accent-foreground: 220 20% 6%;
+    /* Accent - Brand teal */
+    --accent: 161 69% 37%;
+    --accent-foreground: 0 0% 100%;
 
     /* Status Colors */
     --destructive: 0 84.2% 60.2%;
@@ -48,7 +48,7 @@
     --ring: 174 78% 46%;
 
     /* Brand Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(174 78% 46%), hsl(264 62% 62%));
+    --gradient-primary: var(--pv-gradient-primary);
     --gradient-hero: linear-gradient(135deg, hsl(220 20% 6%), hsl(220 16% 9%));
     --gradient-card: linear-gradient(145deg, hsl(220 18% 9%), hsl(220 14% 14%));
 
@@ -128,8 +128,9 @@
 @layer components {
   /* Hero Button Variants */
   .btn-hero {
-    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-300;
-    box-shadow: 0 0 18px hsl(174 78% 46% / 0.16);
+    @apply text-primary-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+    background: var(--pv-gradient-primary);
+    box-shadow: var(--pv-shadow-glow);
   }
 
   /* Header-specific, subtler CTA: smaller padding + lighter glow */
@@ -171,7 +172,10 @@
 
   /* Text Gradients */
   .text-gradient-primary {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    background: var(--pv-gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .text-gradient-secondary {

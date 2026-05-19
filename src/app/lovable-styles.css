@@ -19,9 +19,9 @@
     --popover: 213 90% 20%;
     --popover-foreground: 0 0% 98%;
 
-    /* Brand Primary - Neon Teal */
-    --primary: 170 100% 50%; /* Neon teal #00FFC3 */
-    --primary-foreground: 213 100% 16%;
+    /* Brand Primary */
+    --primary: 245 43% 50%;
+    --primary-foreground: 0 0% 100%;
 
     /* Secondary - Metallic Silver */
     --secondary: 0 0% 75%; /* Metallic silver #C0C0C0 */
@@ -31,8 +31,8 @@
     --muted: 213 80% 25%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 170 100% 50%; /* Neon teal accent */
-    --accent-foreground: 213 100% 16%;
+    --accent: 161 69% 37%;
+    --accent-foreground: 0 0% 100%;
 
     /* Status Colors */
     --destructive: 0 84.2% 60.2%;
@@ -47,7 +47,7 @@
     --ring: 170 100% 50%;
 
     /* Brand Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(170 100% 50%), hsl(170 100% 40%));
+    --gradient-primary: var(--pv-gradient-primary);
     --gradient-hero: linear-gradient(135deg, hsl(213 100% 16%), hsl(213 90% 20%));
     --gradient-card: linear-gradient(145deg, hsl(213 90% 20%), hsl(213 80% 25%));
 
@@ -127,7 +127,8 @@
 @layer components {
   /* Hero Button Variants */
   .btn-hero {
-    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-[var(--shadow-neon)] hover:scale-105;
+    @apply text-primary-foreground font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-[var(--shadow-neon)] hover:scale-105;
+    background: var(--pv-gradient-primary);
   }
 
   .btn-secondary {
@@ -146,7 +147,10 @@
 
   /* Text Gradients */
   .text-gradient-primary {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    background: var(--pv-gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .text-gradient-secondary {
@@ -196,4 +200,3 @@
     transform: translateY(0);
   }
 }
-
