@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CreditCard, RefreshCw, Search, Store } from "lucide-react";
+import { ArrowRight, CreditCard, Database, RefreshCw, Search, Store } from "lucide-react";
 import AnswerBlock from "@/components/AnswerBlock";
 import ComparisonTable from "@/components/ComparisonTable";
 import Footer from "@/components/Footer";
@@ -16,26 +16,26 @@ import {
 } from "@/lib/marketing";
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
-const gatewayFunctions = [
+const executionLayerFunctions = [
   {
-    icon: Search,
-    title: "Makes catalogs queryable to LLMs and agents",
-    body: "Structures products, offers, and variants so demand can resolve into an executable merchant path.",
+    icon: Database,
+    title: "Commerce Index — structured and queryable",
+    body: "Catalogs, offers, variants, and pricing across connected merchants are indexed so agents can search, resolve, and act — without scraping or polling.",
   },
   {
     icon: Store,
     title: "Routes demand into merchant-native checkout",
-    body: "Connects LLM and agent traffic to merchant-controlled checkout and payment flows.",
+    body: "Connects LLM and agent traffic to merchant-controlled checkout and payment flows. Merchants keep their storefront; agents get a clean execution path.",
   },
   {
     icon: CreditCard,
-    title: "Supports payment routing and authorization",
-    body: "Works with existing PSP relationships instead of replacing the merchant payment stack.",
+    title: "Payment routing and authorization",
+    body: "Works with existing PSP relationships instead of replacing the merchant payment stack. Payment state stays synchronized across execution.",
   },
   {
     icon: RefreshCw,
-    title: "Writes execution state back",
-    body: "Keeps order state, payment state, and post-purchase continuity connected to merchant systems.",
+    title: "Order write-back and measurement",
+    body: "Keeps order state, payment state, and post-purchase continuity connected back to merchant systems. What converted, where it broke, what to fix.",
   },
 ] as const;
 
@@ -48,18 +48,15 @@ const boundaries = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "What Is a Merchant Gateway for Agent-Native Commerce? | Pivota",
+  title: "Commerce Execution Layer for Agentic Demand | Pivota",
   description:
-    "A merchant gateway is the execution layer between LLM or agent demand and merchant-native transactions. Pivota makes merchants more queryable across agent surfaces, routes demand into merchant-native checkout and payment flows, and writes execution state back into existing merchant systems.",
+    "Pivota is the commerce execution and optimization layer for agentic demand. It maintains a structured Commerce Index agents can search, routes demand into merchant-native checkout and payment flows, and writes execution state back into existing merchant systems.",
   path: routePaths.merchantGateway,
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", path: routePaths.home },
-  {
-    name: "Merchant gateway for agent-native commerce",
-    path: routePaths.merchantGateway,
-  },
+  { name: "Commerce execution layer", path: routePaths.merchantGateway },
 ]);
 
 export default function MerchantGatewayCategoryPage() {
@@ -77,33 +74,35 @@ export default function MerchantGatewayCategoryPage() {
               <PageChrome
                 items={[
                   { label: "Home", href: routePaths.home },
-                  { label: "Merchant gateway for agent-native commerce" },
+                  { label: "Commerce execution layer" },
                 ]}
               />
 
               <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
                 <div className="space-y-5">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                    Category definition
+                    What we build
                   </p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    What is a merchant gateway for agent-native commerce?
+                    The commerce execution &amp; optimization layer for agentic demand
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      A merchant gateway is the execution layer between LLM or agent demand and
+                      Pivota is the execution layer between LLM or agent demand and
                       merchant-native transactions.
                     </p>
                     <p className="mt-2">
-                      Pivota makes merchants more queryable across agent surfaces, routes demand
-                      into merchant-native checkout and payment flows, and writes execution state
-                      back into existing merchant systems.
+                      It maintains a structured Commerce Index agents can search, routes
+                      demand into merchant-native checkout and payment flows, and writes
+                      execution state back into existing merchant systems — without requiring
+                      merchants to rebuild or replatform.
                     </p>
                   </AnswerBlock>
                   <p className="max-w-3xl text-sm leading-7 text-foreground/90">
-                    Store platforms such as Shopify, Wix, WooCommerce, and BigCommerce can provide
-                    useful native access where available. Pivota adds a merchant-controlled layer
-                    across checkout, payments, write-back, continuity, and fallback.
+                    Store platforms such as Shopify, Wix, WooCommerce, and BigCommerce provide
+                    useful native access where available. Pivota adds execution continuity,
+                    Commerce Index queryability, and fallback across checkout, payments, and
+                    write-back.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
@@ -120,9 +119,9 @@ export default function MerchantGatewayCategoryPage() {
 
                 <div className="grid gap-4 md:grid-cols-3">
                   {[
-                    "Merchant discovery",
+                    "Commerce Index",
                     "Merchant-native checkout",
-                    "Payment and write-back",
+                    "Payment & write-back",
                   ].map((item) => (
                     <div key={item} className="section-frame px-5 py-5">
                       <p className="text-sm font-semibold text-foreground">{item}</p>
@@ -148,13 +147,12 @@ export default function MerchantGatewayCategoryPage() {
                       available across agent surfaces.
                     </p>
                     <p className="text-foreground/90">
-                      The missing layer is a merchant gateway that merchants and agents can
-                      reliably route through.
+                      The missing layer is a structured Commerce Index and execution path that
+                      merchants and agents can reliably route through.
                     </p>
                     <p>
-                      In market language, that is the infrastructure layer that makes agentic
-                      commerce executable for merchants instead of leaving demand stranded at the
-                      interface layer.
+                      That is the infrastructure layer that makes agentic commerce executable
+                      for merchants instead of leaving demand stranded at the interface layer.
                     </p>
                   </div>
                 </div>
@@ -164,10 +162,10 @@ export default function MerchantGatewayCategoryPage() {
                 <div className="space-y-2">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">Products</p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Core gateway plus application layer
+                    Execution layer plus application layer
                   </h2>
                   <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                    Pivota Gateway is the core merchant gateway product. Custom Brand Agent is an
+                    Pivota Gateway is the core execution layer product. Custom Brand Agent is an
                     application-layer product powered by Aurora on Pivota.
                   </p>
                 </div>
@@ -213,11 +211,11 @@ export default function MerchantGatewayCategoryPage() {
                 <div className="space-y-2">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">What Pivota does</p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    One gateway across discovery, execution, and payment.
+                    One execution layer across Commerce Index, checkout, and payment.
                   </h2>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
-                  {gatewayFunctions.map((item) => (
+                  {executionLayerFunctions.map((item) => (
                     <article key={item.title} className="section-frame px-5 py-5">
                       <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
                         <item.icon className="h-5 w-5" />
@@ -233,7 +231,7 @@ export default function MerchantGatewayCategoryPage() {
                 <div className="space-y-2">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">Comparison</p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    What makes a merchant gateway different
+                    What makes an execution layer different
                   </h2>
                 </div>
                 <ComparisonTable rows={comparisonRows} />
