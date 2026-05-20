@@ -102,18 +102,12 @@ export default async function Home({ searchParams }: HomePageProps) {
 
           <div className="section-padding relative">
             <div className="container-max grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-              <div className="space-y-5">
-                <div className="flex flex-wrap items-center gap-3 text-sm">
-                  <span className="inline-flex max-w-full rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-[0.72rem] uppercase leading-[1.25] tracking-[0.16em] text-primary sm:px-4 sm:text-sm sm:tracking-[0.2em]">
-                    The merchant gateway for agent-native commerce
-                  </span>
-                </div>
-
-                <div className="space-y-3">
-                  <h1 className="max-w-4xl text-balance text-3xl font-bold leading-[0.95] tracking-tight sm:text-4xl lg:text-5xl">
+              <div className="space-y-6">
+                <div className="space-y-4">
+                  <h1 className="max-w-4xl text-balance text-3xl font-bold leading-[1.05] tracking-tight sm:text-4xl lg:text-5xl">
                     The commerce execution &amp; optimization layer for agentic demand
                   </h1>
-                  <AnswerBlock className="max-w-3xl">
+                  <AnswerBlock className="max-w-2xl">
                     <p>{homepageHeroAnswerBlock[0]}</p>
                     <p className="mt-2">{homepageHeroAnswerBlock[1]}</p>
                   </AnswerBlock>
@@ -140,31 +134,6 @@ export default async function Home({ searchParams }: HomePageProps) {
                     <span className="block font-semibold text-foreground">Builder path</span>
                     Start from the merchant&apos;s rollout stage. Make your first call. Deepen into orders and webhooks when ready.
                   </div>
-                </div>
-                <p className="text-sm leading-6 text-muted-foreground">
-                  Lighter start: discovery, feeds, link-out. Deeper rollout: checkout,
-                  payments, orders, and webhooks usually require more merchant-specific work.
-                </p>
-
-                <div className="flex flex-wrap gap-x-5 gap-y-3 text-sm text-muted-foreground">
-                  <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
-                    Merchant onboarding
-                  </Link>
-                  <Link href={routePaths.useCases} className="text-primary hover:underline">
-                    Use cases
-                  </Link>
-                  <Link
-                    href={routePaths.skincareBeautyMerchants}
-                    className="text-primary hover:underline"
-                  >
-                    Skincare & beauty merchants
-                  </Link>
-                  <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
-                    Agent integration
-                  </Link>
-                  <Link href="/#contact" className="text-primary hover:underline">
-                    Talk to us
-                  </Link>
                 </div>
               </div>
 
