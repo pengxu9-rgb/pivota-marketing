@@ -101,8 +101,8 @@ export const coreAnswerBlock = [
 ] as const;
 
 export const homepageHeroAnswerBlock = [
-  "Use Pivota on top of your existing Shopify, Wix, WooCommerce, BigCommerce, or similar stack. No replatforming is required.",
-  "Improve how agents discover, route, and complete transactions with your business, starting with discovery, feeds, or link-out before deeper merchant-native checkout when ready.",
+  "Pivota sits on top of your existing Shopify, Wix, WooCommerce, or BigCommerce store — no replatforming, no rebuild.",
+  "Connect once. See what's blocking the path from AI agent traffic to completed transactions. Fix it.",
 ] as const;
 
 export const homepageResultStatements = [

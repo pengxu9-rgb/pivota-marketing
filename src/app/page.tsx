@@ -25,12 +25,27 @@ import { appendSearchParamRecordToPath, type SearchParamRecord } from "@/lib/mer
 import { buildFaqJsonLd } from "@/lib/schema";
 
 const executionSteps = [
-  "Demand from LLM and agent traffic",
-  "Merchant discovery and offer resolution",
-  "Link-out, feeds, or merchant-native checkout",
-  "Payment routing and state sync",
-  "Order authorization and write-back",
-  "Measurement across execution",
+  { label: "Demand from LLM and agent traffic", sub: "ChatGPT, Gemini, personal agents, branded AI" },
+  { label: "Merchant discovery and offer resolution", sub: "Catalog, variants, and promotional offers resolved cleanly" },
+  { label: "Link-out, feeds, or merchant-native checkout", sub: "Start lighter; go deeper when your stack is ready" },
+  { label: "Payment routing and state sync", sub: "Routes to your existing PSP — no new payment contract" },
+  { label: "Order authorization and write-back", sub: "Orders land back in your existing systems" },
+  { label: "Measurement across execution", sub: "See what converted, where it broke, what to fix" },
+] as const;
+
+const commerceIndexCapabilities = [
+  {
+    label: "Product & offer search",
+    body: "Query structured catalog and promotion data across merchants — variants, pricing, eligibility, and inventory state.",
+  },
+  {
+    label: "Merchant discovery",
+    body: "Find connected merchants by category, capability, or execution readiness. Resolve the right merchant path before checkout.",
+  },
+  {
+    label: "Transaction execution",
+    body: "Route from search result to merchant-native checkout, payment authorization, and order write-back in one continuous flow.",
+  },
 ] as const;
 
 const homepageProofItems = [
@@ -90,13 +105,13 @@ export default async function Home({ searchParams }: HomePageProps) {
               <div className="space-y-5">
                 <div className="flex flex-wrap items-center gap-3 text-sm">
                   <span className="inline-flex max-w-full rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-[0.72rem] uppercase leading-[1.25] tracking-[0.16em] text-primary sm:px-4 sm:text-sm sm:tracking-[0.2em]">
-                    The commerce execution &amp; optimization layer for agentic demand
+                    The merchant gateway for agent-native commerce
                   </span>
                 </div>
 
                 <div className="space-y-3">
                   <h1 className="max-w-4xl text-balance text-3xl font-bold leading-[0.95] tracking-tight sm:text-4xl lg:text-5xl">
-                    The merchant gateway for agent-native commerce
+                    The commerce execution &amp; optimization layer for agentic demand
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>{homepageHeroAnswerBlock[0]}</p>
@@ -107,7 +122,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                 <div className="flex flex-wrap gap-3">
                   <Button asChild className="btn-hero h-11 px-5 text-sm">
                     <Link href={onboardingHref}>
-                      See what to fix first
+                      Check your store&apos;s AI readiness
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
@@ -119,11 +134,11 @@ export default async function Home({ searchParams }: HomePageProps) {
                 <div className="grid gap-3 sm:grid-cols-2">
                   <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
                     <span className="block font-semibold text-foreground">Merchant path</span>
-                    Connect existing stack -&gt; see what to fix first -&gt; choose link-out, feeds, or merchant-native checkout
+                    Connect your store, see your readiness report, and pick the right execution path — discovery, feeds, or native checkout.
                   </div>
                   <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
                     <span className="block font-semibold text-foreground">Builder path</span>
-                    Merchant rollout stage -&gt; first call -&gt; orders, webhooks, and deeper execution when ready
+                    Start from the merchant&apos;s rollout stage. Make your first call. Deepen into orders and webhooks when ready.
                   </div>
                 </div>
                 <p className="text-sm leading-6 text-muted-foreground">
@@ -186,7 +201,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                       stack, Pivota works on top of your existing setup.
                     </p>
                     <p className="mt-1 max-w-2xl text-sm leading-6 text-muted-foreground">
-                      It does not replace your storefront.
+                      It layers on top. Your storefront, PSP, and ops stay exactly where they are.
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-2 text-sm">
@@ -222,33 +237,11 @@ export default async function Home({ searchParams }: HomePageProps) {
                 Commerce won&apos;t live in one AI app
               </h2>
               <p className="max-w-2xl text-base leading-8 text-muted-foreground">
-                Users won&apos;t only interact through ChatGPT, Copilot, or Gemini. Over time, more
-                commerce will be initiated by personal agents, messaging-based assistants, local
-                agents, and branded AI experiences.
-              </p>
-              <p className="text-base leading-8 text-foreground/90">
-                Front-end agents need a commerce skill they can call for product recommendation,
-                checkout, payments, and post-purchase execution.
-              </p>
-              <p className="text-base leading-8 text-foreground/90">
-                Merchants need more than discoverability in a few AI channels. They need a
-                commerce layer that different agents can call.
-              </p>
-              <p className="text-base leading-8 text-foreground/90">
-                Merchants connect once, Pivota improves readiness upstream, and downstream agents
-                get a cleaner merchant-native path.
-              </p>
-              <p className="text-base leading-8 text-foreground/90">
-                That does not mean every merchant starts with merchant-native checkout on day one.
-                Many start with discovery, feeds, or link-out first, then deepen into
-                merchant-native checkout when their stack is ready.
-              </p>
-              <p className="text-base leading-8 text-foreground/90">
-                Build against the same merchant-native path that onboarding improves upstream.
-              </p>
-              <p className="text-base leading-8 text-foreground/90">That is where Pivota fits.</p>
-              <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
-                From prompt to recommendation to merchant-native execution.
+                AI-driven commerce won&apos;t flow through one app. As personal agents, messaging
+                assistants, and branded AI experiences multiply, merchants need one layer all of
+                them can call — for product resolution, checkout, payment routing, and write-back.
+                That&apos;s what Pivota does. Merchants connect once. Downstream agents get a
+                cleaner path.
               </p>
               <div className="flex flex-wrap gap-4 text-sm">
                 <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
@@ -301,7 +294,7 @@ export default async function Home({ searchParams }: HomePageProps) {
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.18em] text-primary">How it works</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                One merchant-controlled path, with lighter and deeper rollout stages.
+                Six stages. One merchant-controlled path.
               </h2>
               <p className="max-w-3xl text-base leading-8 text-muted-foreground">
                 Pivota connects demand to merchant execution, but merchants can enter at lighter
@@ -316,13 +309,14 @@ export default async function Home({ searchParams }: HomePageProps) {
 
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {executionSteps.map((step, index) => (
-                <div key={step} className="section-frame px-5 py-5">
+                <div key={step.label} className="section-frame px-5 py-5">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-semibold text-primary">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-semibold text-primary">
                       {index + 1}
                     </div>
-                    <p className="text-sm font-semibold text-foreground">{step}</p>
+                    <p className="text-sm font-semibold text-foreground">{step.label}</p>
                   </div>
+                  <p className="mt-2 pl-12 text-xs leading-5 text-muted-foreground">{step.sub}</p>
                 </div>
               ))}
             </div>
@@ -341,6 +335,45 @@ export default async function Home({ searchParams }: HomePageProps) {
           </div>
         </section>
 
+        <section className="section-padding bg-gradient-to-b from-background to-card">
+          <div className="container-max space-y-6">
+            <div className="space-y-3">
+              <p className="text-sm uppercase tracking-[0.18em] text-primary">Commerce Index</p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Search products, offers, and merchants. Execute transactions. One API.
+              </h2>
+              <p className="max-w-3xl text-base leading-8 text-muted-foreground">
+                Pivota maintains a structured index of merchant catalogs, active offers, variants,
+                and pricing across connected merchants. Agents and developers can search the index,
+                resolve the right product and offer combination for a given context, and route
+                directly into merchant-native checkout — without scraping, polling, or stitching
+                together multiple merchant APIs.
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-3">
+              {commerceIndexCapabilities.map((item) => (
+                <div key={item.label} className="section-frame px-5 py-5">
+                  <p className="text-sm font-semibold text-foreground">{item.label}</p>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.body}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-4 text-sm">
+              <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                View agent integration docs
+              </Link>
+              <Link href={routePaths.apiOverview} className="text-primary hover:underline">
+                See the API
+              </Link>
+              <Link href={routePaths.faq} className="text-primary hover:underline">
+                What can agents call today?
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="section-padding bg-gradient-to-b from-card to-background">
           <div className="container-max">
             <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
@@ -353,9 +386,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                     Merchant outcomes upstream. Cleaner calls downstream.
                   </h2>
                   <p className="text-base leading-8 text-muted-foreground">
-                    Pivota does not stop at a category story. After connection, merchants get a
-                    concrete operating output their teams can act on before agent-driven traffic
-                    scales.
+                    After you connect, you get a concrete operating view — not just a score.
                   </p>
                   <div className="flex flex-wrap gap-4 text-sm">
                     <Link href={routePaths.merchantOnboarding} className="text-primary hover:underline">
@@ -408,14 +439,10 @@ export default async function Home({ searchParams }: HomePageProps) {
         <section className="section-padding bg-gradient-to-b from-card to-background">
           <div className="container-max space-y-6">
             <div className="space-y-3">
-              <p className="text-sm uppercase tracking-[0.18em] text-primary">Common questions</p>
+              <p className="text-sm uppercase tracking-[0.18em] text-primary">FAQ</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Short answers about the commerce layer agents call.
+                How Pivota works, in plain language.
               </h2>
-              <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                Short answers stay readable on the page while fuller category definitions remain
-                available in the FAQ, metadata, and structured HTML.
-              </p>
             </div>
 
             <QuestionAnswerList items={homepageFaqPreviewItems} columns={2} />
