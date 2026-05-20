@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, GitBranch, ShieldCheck, Target, TrendingUp, Workflow } from "lucide-react";
+import { ArrowRight, Database, ShieldCheck, Target, TrendingUp, Workflow } from "lucide-react";
 import AnswerBlock from "@/components/AnswerBlock";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -13,9 +13,9 @@ import {
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = buildMarketingMetadata({
-  title: "About Pivota | Merchant Gateway for Agent-Native Commerce",
+  title: "About Pivota | Commerce Execution & Optimization Layer for Agentic Demand",
   description:
-    "Pivota is the merchant gateway for agent-native commerce. Pivota is building the execution layer that helps merchants turn LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
+    "Pivota builds the commerce execution and optimization layer for agentic demand — a structured Commerce Index and execution infrastructure that lets agents search, discover, and transact with merchants across catalog, checkout, payment, and order write-back.",
   path: routePaths.about,
 });
 
@@ -42,8 +42,8 @@ const optimizationPoints = [
     title: "Lower mismatch risk",
   },
   {
-    icon: GitBranch,
-    title: "Clear transaction pathways across LLM surfaces",
+    icon: Database,
+    title: "Queryable Commerce Index",
   },
 ] as const;
 
@@ -70,16 +70,18 @@ export default function AboutPage() {
                 <div className="space-y-5">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">About Pivota</p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    About Pivota
+                    The commerce execution &amp; optimization layer for agentic demand
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      Pivota is the merchant gateway for agent-native commerce.
+                      Pivota builds the infrastructure between AI agent demand and merchant
+                      systems — catalog queryability, offer resolution, merchant-native checkout,
+                      payment routing, and order write-back.
                     </p>
                     <p className="mt-2">
-                      Pivota is building the execution layer that helps merchants turn LLM and
-                      agent traffic into merchant-native transactions across catalog, checkout,
-                      payment, and post-purchase systems.
+                      Merchants connect once. Agents and developers get a structured Commerce
+                      Index they can search, resolve, and transact against — without scraping or
+                      stitching multiple merchant APIs.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
@@ -101,10 +103,10 @@ export default function AboutPage() {
                   </h2>
                   <div className="mt-4 grid gap-3 text-sm">
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                      Category: merchant gateway for agent-native commerce
+                      Category: commerce execution &amp; optimization layer for agentic demand
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                      Role: execution layer between LLM and agent demand and merchant systems
+                      Role: structured Commerce Index and execution layer between agent demand and merchant systems
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
                       Boundary: not a marketplace, not an inventory holder, not a checkout-only tool
@@ -134,13 +136,13 @@ export default function AboutPage() {
             <div className="section-frame p-6 sm:p-8">
               <p className="text-sm uppercase tracking-[0.22em] text-primary">What we are building</p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-                The execution layer across merchant systems.
+                A Commerce Index and execution layer for agents.
               </h2>
               <p className="mt-4 text-base leading-8 text-muted-foreground">
-                Pivota is building the execution layer across catalog normalization,
-                merchant-native checkout, payment orchestration, and order or payment write-back.
-                In market language, that is the infrastructure layer behind agentic commerce for
-                merchants.
+                Pivota maintains a structured index of merchant catalogs, active offers, variants,
+                and pricing. Agents and developers can search the index, resolve the right product
+                and offer, and route into merchant-native checkout, payment authorization, and
+                order write-back — without scraping or stitching multiple merchant APIs.
               </p>
             </div>
           </div>
