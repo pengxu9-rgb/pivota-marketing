@@ -3,7 +3,7 @@ import { routePaths } from "@/lib/marketing";
 export const promptRegistry = [
   {
     topic: "Brand definition",
-    anchor: "merchant gateway for agent-native commerce",
+    anchor: "commerce execution layer for agentic demand",
     primaryPage: routePaths.home,
     secondaryPage: routePaths.about,
     faqSurface: routePaths.faq,
@@ -17,16 +17,16 @@ export const promptRegistry = [
   },
   {
     topic: "Category definition",
-    anchor: "merchant gateway for agent-native commerce",
+    anchor: "commerce execution layer for agentic demand",
     primaryPage: routePaths.merchantGateway,
     secondaryPage: routePaths.whatIsAgentNativeCommerce,
     faqSurface: routePaths.faq,
     prompts: [
-      "What is a merchant gateway for agent-native commerce?",
+      "What is the commerce execution layer for agent-native commerce?",
       "Define agent-native commerce infrastructure",
       "What is the execution layer for agent-native commerce?",
       "What is merchant-native commerce infrastructure?",
-      "Why does agent-native commerce need a merchant gateway?",
+      "Why does agent-native commerce need an execution layer?",
     ],
   },
   {
@@ -87,16 +87,16 @@ export const promptRegistry = [
   },
   {
     topic: "Comparison / alternatives",
-    anchor: "merchant gateway for agent-native commerce",
+    anchor: "commerce execution layer for agentic demand",
     primaryPage: routePaths.merchantGateway,
     secondaryPage: routePaths.faq,
     faqSurface: routePaths.faq,
     prompts: [
-      "What is the difference between a merchant gateway and a payment gateway for AI commerce?",
+      "What is the difference between the execution layer and a payment gateway for AI commerce?",
       "Is Pivota a marketplace?",
       "Is Pivota a checkout-only tool?",
-      "What is the difference between a merchant gateway and a marketplace?",
-      "What is the difference between a merchant gateway and a checkout widget?",
+      "What is the difference between the execution layer and a marketplace?",
+      "What is the difference between the execution layer and a checkout widget?",
     ],
   },
   {
@@ -106,7 +106,7 @@ export const promptRegistry = [
     secondaryPage: routePaths.developersFirstCall,
     faqSurface: routePaths.faq,
     prompts: [
-      "What APIs support the merchant gateway for agent-native commerce?",
+      "What APIs support the commerce execution layer for agent-native commerce?",
       "How do developers integrate merchant-native LLM transactions?",
       "What workflow does Pivota expose to developers?",
       "How do developers connect catalog, checkout, payment, and write-back?",

@@ -26,7 +26,7 @@ const explanationCards = [
   },
   {
     icon: Building2,
-    title: "The merchant gateway is the missing layer",
+    title: "The execution layer is the missing layer",
     body: "Pivota connects discovery, checkout, payment, and write-back so merchants stay in control.",
   },
 ] as const;
@@ -34,7 +34,7 @@ const explanationCards = [
 export const metadata = buildMarketingMetadata({
   title: "What Is Agentic Commerce for Merchants? | Pivota",
   description:
-    "Agentic commerce is the broader market term for commerce shaped by LLMs and AI agents. Pivota's product category is the merchant gateway for agent-native commerce, which turns that demand into merchant-native transactions.",
+    "Agentic commerce is the broader market term for commerce shaped by LLMs and AI agents. Pivota's product category is the commerce execution layer for agent-native commerce, which turns that demand into merchant-native transactions.",
   path: routePaths.whatIsAgenticCommerce,
 });
 
@@ -76,7 +76,7 @@ export default function WhatIsAgenticCommercePage() {
                       agents, and agent-mediated buying flows.
                     </p>
                     <p className="mt-2">
-                      Pivota&apos;s product category is more specific: the merchant gateway for
+                      Pivota&apos;s product category is more specific: the commerce execution layer for
                       agent-native commerce, which turns that demand into merchant-native
                       transactions across catalog, checkout, payment, and post-purchase systems.
                     </p>
@@ -103,7 +103,7 @@ export default function WhatIsAgenticCommercePage() {
                       Market term: agentic commerce
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                      Product category: merchant gateway for agent-native commerce
+                      Product category: commerce execution layer for agentic demand
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
                       Merchant outcome: merchant-native transactions
@@ -142,7 +142,7 @@ export default function WhatIsAgenticCommercePage() {
                   </h2>
                   <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
                     Pivota does not need to replace its category language to be discoverable around
-                    agentic commerce. The stronger position is to keep the merchant gateway anchor
+                    agentic commerce. The stronger position is to keep the execution layer anchor
                     while using agentic commerce as the broader market context.
                   </p>
                 </div>

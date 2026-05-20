@@ -77,8 +77,7 @@ const ContactSection = () => {
               <div className="space-y-3">
                 <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">Talk to us</h2>
                 <p className="text-lg text-muted-foreground max-w-3xl">
-                  Pivota is building the merchant gateway that turns agent-native demand into
-                  merchant-native transactions.
+                  Pivota is the commerce execution and optimization layer for agentic demand.
                 </p>
                 <p className="text-sm text-muted-foreground max-w-2xl">
                   If you are ready to onboard, start merchant signup. If you want to talk through

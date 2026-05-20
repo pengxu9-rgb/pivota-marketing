@@ -21,9 +21,9 @@ const shoppingAgentColumns = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "Shopping Agent Surface | Pivota Merchant Gateway for Agent-Native Commerce",
+  title: "Shopping Agent Surface | Pivota",
   description:
-    "An agent-facing surface built on Pivota's merchant gateway for agent-native commerce.",
+    "An agent-facing surface built on Pivota's commerce execution layer.",
   path: "/shopping-agent",
 });
 
@@ -42,7 +42,7 @@ export default function ShoppingAgentPage() {
               Pivota Shopping Agent
             </h1>
             <p className="max-w-3xl text-lg text-muted-foreground">
-              Pivota Shopping Agent is an agent-facing surface built on the merchant gateway for
+              Pivota Shopping Agent is an agent-facing surface built on the commerce execution layer for
               agent-native commerce. It helps route LLM and agent demand into merchant-native
               transactions.
             </p>

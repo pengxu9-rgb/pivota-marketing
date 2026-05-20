@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const siteName = "Pivota";
 export const siteUrl = "https://pivota.cc";
-export const categoryAnchor = "merchant gateway for agent-native commerce";
+export const categoryAnchor = "commerce execution layer for agentic demand";
 export const merchantSignupPath = "https://merchant.pivota.cc/signup?source=marketing";
 export const developerSignupPath = "https://developer.pivota.cc/signup";
 export const developerLoginPath = "https://developer.pivota.cc/login";
@@ -40,15 +40,15 @@ export const routePaths = {
   blog: "/blog",
 } as const;
 
-export const footerDescriptor = "Pivota is the merchant gateway for agent-native commerce.";
+export const footerDescriptor = "Pivota is the commerce execution & optimization layer for agentic demand.";
 
 export const defaultOgTitle = "Pivota — Merchant-Controlled Commerce Layer for AI Commerce";
 export const defaultOgDescription =
   "Pivota works with Shopify, Wix, WooCommerce, BigCommerce, and other store platforms to add merchant control, execution continuity, and fallback across AI buying surfaces.";
 
-export const homepageTitle = "Pivota | Merchant Gateway and Commerce Layer for Agent-Native Commerce";
+export const homepageTitle = "Pivota | Commerce Execution & Optimization Layer for Agentic Demand";
 export const homepageMetaDescription =
-  "Pivota is a merchant gateway and commerce layer that works on top of Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. Merchants can start with discovery, feeds, or link-out, then expand toward merchant-native checkout when ready.";
+  "Pivota is the commerce execution and optimization layer for agentic demand. It works on top of Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. Merchants can start with discovery, feeds, or link-out, then expand toward merchant-native checkout when ready.";
 export const aiReadinessTitle = "Can Your Store Win Customers from AI? | Pivota";
 export const aiReadinessMetaDescription =
   "Connect your store to Pivota and see what is blocking the path from AI agent demand to completed transactions across product resolution, offers, checkout, and payments.";
@@ -96,8 +96,8 @@ export const footerExploreItems = [
 ] as const;
 
 export const coreAnswerBlock = [
-  "Pivota is the merchant gateway for agent-native commerce.",
-  "It works with store platforms such as Shopify, Wix, WooCommerce, and BigCommerce to add merchant control, continuity, and fallback across AI buying surfaces.",
+  "Pivota is the commerce execution and optimization layer for agentic demand.",
+  "It works with store platforms such as Shopify, Wix, WooCommerce, and BigCommerce to add execution continuity, Commerce Index queryability, and fallback across AI buying surfaces.",
 ] as const;
 
 export const homepageHeroAnswerBlock = [
@@ -128,7 +128,7 @@ export const productCards = [
   {
     title: "Pivota Gateway",
     eyebrow: undefined,
-    body: "Merchant gateway for LLM- and agent-driven commerce.",
+    body: "Commerce execution layer for LLM- and agent-driven demand.",
     ctaLabel: "Learn more",
     href: "#pivota-gateway-details",
   },
@@ -143,19 +143,19 @@ export const productCards = [
 
 export const comparisonRows = [
   {
-    label: "Merchant gateway vs payment gateway",
+    label: "Execution layer vs payment gateway",
     pivota:
       "Pivota spans merchant discovery, merchant-native checkout, payment routing, and write-back.",
-    alternative: "A payment gateway handles payment processing, not the full merchant execution layer.",
+    alternative: "A payment gateway handles payment processing, not the full commerce execution layer.",
   },
   {
-    label: "Merchant gateway vs marketplace",
+    label: "Execution layer vs marketplace",
     pivota:
       "Pivota routes agent-native demand into merchant-native transactions while merchants keep control of storefront and operations.",
     alternative: "A marketplace owns the transaction surface and merchant flow.",
   },
   {
-    label: "Merchant gateway vs checkout-only tool",
+    label: "Execution layer vs checkout-only tool",
     pivota:
       "Pivota covers queryability, execution, checkout, payment-state sync, and order write-back.",
     alternative: "A checkout-only tool covers one step and does not define the execution layer.",
@@ -166,7 +166,7 @@ export const faqItems = [
   {
     question: "What is Pivota?",
     answer:
-      "Pivota is the merchant gateway and merchant-controlled commerce layer for AI buying surfaces. It works on top of existing store stacks and helps merchants turn agent demand into merchant-native execution across catalog resolution, offers, checkout, payments, and write-back.",
+      "Pivota is the commerce execution and optimization layer for agentic demand. It works on top of existing store stacks and helps merchants turn agent demand into merchant-native execution across catalog resolution, offers, checkout, payments, and write-back.",
   },
   {
     question: "Does Pivota replace Shopify, Wix, WooCommerce, or BigCommerce?",
@@ -269,9 +269,9 @@ export const faqItems = [
       "Webhooks carry execution and lifecycle signals after the initial call. They help builders observe order creation, payment attempts, payment outcomes, completion, refunds, cancellations, and delivery health.",
   },
   {
-    question: "What is a merchant gateway for agent-native commerce?",
+    question: "What is the commerce execution layer for agent-native commerce?",
     answer:
-      "A merchant gateway for agent-native commerce is the execution layer between LLM or agent demand and merchant systems. Pivota makes catalogs queryable, routes demand into merchant-native checkout and payment flows, and writes execution state back into merchant systems.",
+      "The commerce execution layer is the infrastructure between LLM or agent demand and merchant systems. Pivota makes catalogs queryable via a Commerce Index, routes demand into merchant-native checkout and payment flows, and writes execution state back into merchant systems.",
   },
   {
     question: "How do merchants turn LLM traffic into transactions?",

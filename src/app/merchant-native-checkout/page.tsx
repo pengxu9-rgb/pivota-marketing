@@ -14,7 +14,7 @@ import {
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = buildMarketingMetadata({
-  title: "Merchant-Native Checkout | Pivota Merchant Gateway for Agent-Native Commerce",
+  title: "Merchant-Native Checkout | Pivota",
   description:
     "Pivota helps merchants convert LLM and agent demand through merchant-native checkout and payment flows.",
   path: routePaths.merchantNativeCheckout,

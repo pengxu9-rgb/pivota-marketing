@@ -28,7 +28,7 @@ const merchantBoundaries = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "Merchants | Pivota Merchant Gateway for Agent-Native Commerce",
+  title: "Merchants | Pivota",
   description:
     "Connect merchant systems so LLM and agent traffic can route into merchant-native transactions without rebuilding your stack.",
   path: "/merchants",
@@ -47,7 +47,7 @@ export default function MerchantsPage() {
               Connect merchant systems to LLM and agent demand.
             </h1>
             <p className="max-w-3xl text-lg text-muted-foreground">
-              Pivota is the merchant gateway for agent-native commerce. It helps merchants become
+              Pivota is the commerce execution and optimization layer for agentic demand. It helps merchants become
               more discoverable, more executable, and more measurable across LLM surfaces.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -64,7 +64,7 @@ export default function MerchantsPage() {
                 href="/merchant-gateway-for-agent-native-commerce"
                 className="text-primary hover:underline"
               >
-                what the merchant gateway does
+                how the execution layer works
               </Link>
               , how it{" "}
               <Link href="/how-pivota-works" className="text-primary hover:underline">

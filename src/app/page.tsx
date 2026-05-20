@@ -74,7 +74,7 @@ export const metadata = buildMarketingMetadata({
   title: homepageTitle,
   description: homepageMetaDescription,
   path: routePaths.home,
-  ogTitle: "Pivota — The Merchant Gateway for Agent-Native Commerce",
+  ogTitle: "Pivota — Commerce Execution & Optimization Layer for Agentic Demand",
   ogDescription: homepageMetaDescription,
 });
 

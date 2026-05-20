@@ -53,7 +53,7 @@ const merchantControls = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "How Pivota Works | Pivota Merchant Gateway for Agent-Native Commerce",
+  title: "How Pivota Works | Pivota",
   description:
     "Pivota connects agent-native demand to merchant-native execution through a shared gateway across catalog, checkout, payment, and post-purchase systems.",
   path: routePaths.howPivotaWorks,

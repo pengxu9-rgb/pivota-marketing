@@ -197,9 +197,9 @@ const rolloutStages = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "Use Cases | Pivota Merchant Gateway for Agent-Native Commerce",
+  title: "Use Cases | Pivota",
   description:
-    "Representative merchant patterns for the merchant gateway for agent-native commerce across discoverability, promotion readiness, checkout, payments, write-back, and execution.",
+    "Representative merchant patterns for the commerce execution layer across discoverability, promotion readiness, checkout, payments, write-back, and execution.",
   path: routePaths.useCases,
 });
 

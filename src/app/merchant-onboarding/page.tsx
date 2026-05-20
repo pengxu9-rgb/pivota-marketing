@@ -138,7 +138,7 @@ const whatPivotaImproves = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "Merchant Onboarding | Pivota Merchant Gateway for Agent-Native Commerce",
+  title: "Merchant Onboarding | Pivota",
   description:
     "Connect once, see what is blocking conversion from agent-driven traffic, and get a merchant-facing plan to improve product resolution, checkout continuity, payments, and rollout fit.",
   path: routePaths.merchantOnboarding,

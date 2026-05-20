@@ -159,7 +159,7 @@ const beautyFaqItems = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "Pivota for Skincare, Beauty, and Cosmetics Merchants | Merchant Gateway for AI Commerce",
+  title: "Pivota for Skincare, Beauty, and Cosmetics Merchants",
   description:
     "Pivota works on top of Shopify, Wix, WooCommerce, BigCommerce, and similar stacks for skincare, beauty, and cosmetics merchants. Improve ingredient, concern, routine, shade, variant, bundle, and replenishment resolution across AI agents without replatforming.",
   path: routePaths.skincareBeautyMerchants,
@@ -205,7 +205,7 @@ export default function SkincareBeautyMerchantsPage() {
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      Pivota is a merchant gateway and commerce layer that works on top of
+                      Pivota is the commerce execution layer that works on top of
                       Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. No
                       replatforming is required.
                     </p>

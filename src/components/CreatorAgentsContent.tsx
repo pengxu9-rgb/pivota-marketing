@@ -34,7 +34,7 @@ export default function CreatorAgentsContent() {
               Pivota Creator Agents
             </h1>
             <p className="max-w-3xl text-lg text-muted-foreground">
-              Creator Agents are creator-facing surfaces built on the merchant gateway for
+              Creator Agents are creator-facing surfaces built on the commerce execution layer for
               agent-native commerce. They connect audience demand to merchant-native transactions
               while keeping merchant systems in control.
             </p>
@@ -78,7 +78,7 @@ export default function CreatorAgentsContent() {
               href="/merchant-gateway-for-agent-native-commerce"
               className="text-primary hover:underline"
             >
-              what the merchant gateway is
+              how the execution layer works
             </Link>
             , then review{" "}
             <Link href="/about" className="text-primary hover:underline">

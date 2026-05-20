@@ -18,7 +18,7 @@ import {
 import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/schema";
 
 export const metadata = buildMarketingMetadata({
-  title: "FAQ | Pivota Merchant Gateway for Agent-Native Commerce",
+  title: "FAQ | Pivota",
   description:
     "Answers about store platforms, merchant control, fallback, onboarding, execution continuity, and how Pivota helps merchants turn agent demand into completed transactions.",
   path: routePaths.faq,

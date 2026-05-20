@@ -133,7 +133,7 @@ const consoleItems = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "Agent Integration | Pivota Merchant Gateway for Agent-Native Commerce",
+  title: "Agent Integration | Pivota",
   description:
     "Build against the merchant-native commerce layer agents call. Public guidance for REST, SDK, MCP, auth, webhooks, and execution across the Pivota integration surface.",
   path: routePaths.agentIntegration,
@@ -188,7 +188,7 @@ export default function AgentIntegrationPage() {
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      Pivota is the builder surface for the merchant gateway that sits on top of
+                      Pivota is the builder surface for the commerce execution layer that sits on top of
                       existing storefront, checkout, and payment systems.
                     </p>
                     <p className="mt-2">

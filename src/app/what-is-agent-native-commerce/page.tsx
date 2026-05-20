@@ -32,9 +32,9 @@ const merchantNeeds = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "What Is Agent-Native Commerce? | Pivota Merchant Gateway",
+  title: "What Is Agent-Native Commerce? | Pivota",
   description:
-    "Agent-native commerce is commerce initiated by LLMs and agents. Agentic commerce is the broader market term, and Pivota is the merchant gateway for agent-native commerce, turning LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
+    "Agent-native commerce is commerce initiated by LLMs and agents. Agentic commerce is the broader market term, turning LLM and agent traffic into merchant-native transactions across catalog, checkout, payment, and post-purchase systems.",
   path: routePaths.whatIsAgentNativeCommerce,
 });
 
@@ -76,15 +76,15 @@ export default function WhatIsAgentNativeCommercePage() {
                       a user navigating a merchant site directly.
                     </p>
                     <p className="mt-2">
-                      Pivota is the merchant gateway for agent-native commerce, which means it
+                      Pivota is the commerce execution layer for agent-native commerce, which means it
                       turns LLM and agent traffic into merchant-native transactions across catalog,
                       checkout, payment, and post-purchase systems.
                     </p>
                   </AnswerBlock>
                   <p className="max-w-3xl text-sm leading-7 text-foreground/90">
                     Store platforms such as Shopify, Wix, WooCommerce, and BigCommerce help
-                    merchants reach some native AI selling paths. Pivota is the merchant gateway
-                    and commerce layer that agents can call across merchant systems, including
+                    merchants reach some native AI selling paths. Pivota is the commerce execution layer
+                    that agents can call across merchant systems, including
                     fallback when those native paths are not enough.
                   </p>
                   <div className="flex flex-wrap gap-3">
@@ -154,8 +154,8 @@ export default function WhatIsAgentNativeCommercePage() {
                   <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
                     Agent-native commerce is the more precise execution framing. It describes how
                     that demand becomes merchant-native transactions across catalog, checkout,
-                    payment, and post-purchase systems. Pivota&apos;s category is the merchant
-                    gateway for agent-native commerce.
+                    payment, and post-purchase systems. Pivota&apos;s category is the commerce execution layer
+                    for agent-native commerce.
                   </p>
                 </div>
               </div>

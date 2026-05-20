@@ -112,7 +112,7 @@ export default function DoINeedToRebuildMyStorePage() {
                     </Button>
                   </div>
                   <p className="max-w-2xl text-sm leading-7 text-foreground/90 sm:max-w-3xl">
-                    Pivota is a merchant gateway and commerce layer on top of the current stack.
+                    Pivota is the commerce execution layer on top of the current stack.
                     The goal is better merchant control and execution continuity, not a rebuild.
                   </p>
                 </div>

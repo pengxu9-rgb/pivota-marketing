@@ -9,7 +9,7 @@ import {
 } from "@/lib/marketing";
 
 export const metadata = buildMarketingMetadata({
-  title: "Blog | Pivota Merchant Gateway for Agent-Native Commerce",
+  title: "Blog | Pivota",
   description:
     "Notes on merchant-controlled AI commerce, store platforms, fallback, execution continuity, and how Pivota helps merchants turn agent demand into completed transactions.",
   path: routePaths.blog,
@@ -47,7 +47,7 @@ export default async function BlogIndex() {
             <p className="text-sm text-muted-foreground">
               Start with{" "}
               <Link href={routePaths.merchantGateway} className="text-primary hover:underline">
-                what a merchant gateway is
+                what the execution layer is
               </Link>
               , read{" "}
               <Link href={routePaths.whatIsAgenticCommerce} className="text-primary hover:underline">
