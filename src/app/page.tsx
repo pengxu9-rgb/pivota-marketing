@@ -125,16 +125,6 @@ export default async function Home({ searchParams }: HomePageProps) {
                   </Button>
                 </div>
 
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
-                    <span className="block font-semibold text-foreground">Merchant path</span>
-                    Connect your store, see your readiness report, and pick the right execution path — discovery, feeds, or native checkout.
-                  </div>
-                  <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm leading-6 text-muted-foreground">
-                    <span className="block font-semibold text-foreground">Builder path</span>
-                    Start from the merchant&apos;s rollout stage. Make your first call. Deepen into orders and webhooks when ready.
-                  </div>
-                </div>
               </div>
 
               <div className="section-frame overflow-hidden p-3 sm:p-4 lg:mt-4 xl:mt-5">
