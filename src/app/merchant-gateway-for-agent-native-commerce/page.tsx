@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CreditCard, Database, RefreshCw, Search, Store } from "lucide-react";
+import { ArrowRight, CreditCard, Database, RefreshCw, Store } from "lucide-react";
 import AnswerBlock from "@/components/AnswerBlock";
 import ComparisonTable from "@/components/ComparisonTable";
 import Footer from "@/components/Footer";
@@ -36,6 +36,33 @@ const executionLayerFunctions = [
     icon: RefreshCw,
     title: "Order write-back and measurement",
     body: "Keeps order state, payment state, and post-purchase continuity connected back to merchant systems. What converted, where it broke, what to fix.",
+  },
+] as const;
+
+const heroCapabilityCards = [
+  {
+    icon: Database,
+    label: "Commerce Index",
+    desc: "Structured, queryable catalog of products, offers, variants, and pricing across connected merchants. Agents search and resolve — no scraping, no polling.",
+    iconStyle: "text-primary bg-primary/15 border-primary/30",
+    cardStyle: "border-primary/25 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent",
+    glow: "shadow-[0_0_24px_rgba(22,163,184,0.12)]",
+  },
+  {
+    icon: Store,
+    label: "Merchant-native checkout",
+    desc: "Agent demand routes into merchant-controlled checkout and payment flows. Merchants keep their storefront; agents get a clean, reliable execution path.",
+    iconStyle: "text-accent bg-accent/15 border-accent/30",
+    cardStyle: "border-accent/25 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent",
+    glow: "shadow-[0_0_24px_rgba(99,102,241,0.10)]",
+  },
+  {
+    icon: CreditCard,
+    label: "Payment & write-back",
+    desc: "Works with your existing PSP. Payment authorization, state sync, and order write-back all flow back into your systems — no new payment contract required.",
+    iconStyle: "text-primary bg-primary/10 border-primary/20",
+    cardStyle: "border-border/70 bg-gradient-to-br from-card via-background/80 to-transparent",
+    glow: "",
   },
 ] as const;
 
@@ -117,14 +144,21 @@ export default function MerchantGatewayCategoryPage() {
                   </div>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-3">
-                  {[
-                    "Commerce Index",
-                    "Merchant-native checkout",
-                    "Payment & write-back",
-                  ].map((item) => (
-                    <div key={item} className="section-frame px-5 py-5">
-                      <p className="text-sm font-semibold text-foreground">{item}</p>
+                <div className="flex flex-col gap-3 lg:pt-2">
+                  {heroCapabilityCards.map((card) => (
+                    <div
+                      key={card.label}
+                      className={`flex items-start gap-4 rounded-2xl border px-5 py-4 ${card.cardStyle} ${card.glow}`}
+                    >
+                      <div
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${card.iconStyle}`}
+                      >
+                        <card.icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">{card.label}</p>
+                        <p className="mt-1 text-xs leading-5 text-muted-foreground">{card.desc}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
