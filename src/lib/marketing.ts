@@ -46,9 +46,9 @@ export const defaultOgTitle = "Pivota — Merchant-Controlled Commerce Layer for
 export const defaultOgDescription =
   "Pivota works with Shopify, Wix, WooCommerce, BigCommerce, and other store platforms to add merchant control, execution continuity, and fallback across AI buying surfaces.";
 
-export const homepageTitle = "Pivota | Commerce Execution & Optimization Layer for Agentic Demand";
+export const homepageTitle = "Pivota | Commerce Index for Agents";
 export const homepageMetaDescription =
-  "Pivota is the commerce execution and optimization layer for agentic demand. It works on top of Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. Merchants can start with discovery, feeds, or link-out, then expand toward merchant-native checkout when ready.";
+  "Pivota provides the Commerce Index and execution layer for agentic demand, helping agents find products, resolve offers, execute checkout, and optimize outcomes on top of existing merchant systems.";
 export const aiReadinessTitle = "Can Your Store Win Customers from AI? | Pivota";
 export const aiReadinessMetaDescription =
   "Connect your store to Pivota and see what is blocking the path from AI agent demand to completed transactions across product resolution, offers, checkout, and payments.";
@@ -101,8 +101,8 @@ export const coreAnswerBlock = [
 ] as const;
 
 export const homepageHeroAnswerBlock = [
-  "Pivota sits on top of your existing Shopify, Wix, WooCommerce, or BigCommerce store — no replatforming, no rebuild.",
-  "Connect once. See what's blocking the path from AI agent traffic to completed transactions. Fix it.",
+  "Every agentic demand surface needs a reliable way to find products, resolve offers, execute checkout, and optimize outcomes.",
+  "Pivota provides the Commerce Index and execution layer on top of existing merchant systems.",
 ] as const;
 
 export const homepageResultStatements = [

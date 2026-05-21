@@ -74,7 +74,7 @@ export const metadata = buildMarketingMetadata({
   title: homepageTitle,
   description: homepageMetaDescription,
   path: routePaths.home,
-  ogTitle: "Pivota — Commerce Execution & Optimization Layer for Agentic Demand",
+  ogTitle: "Pivota - Commerce Index for Agents",
   ogDescription: homepageMetaDescription,
 });
 
@@ -105,7 +105,7 @@ export default async function Home({ searchParams }: HomePageProps) {
               <div className="space-y-6">
                 <div className="space-y-4">
                   <h1 className="max-w-4xl text-balance text-3xl font-bold leading-[1.05] tracking-tight sm:text-4xl lg:text-5xl">
-                    The commerce execution &amp; optimization layer for agentic demand
+                    Commerce Index for Agents
                   </h1>
                   <AnswerBlock className="max-w-2xl">
                     <p>{homepageHeroAnswerBlock[0]}</p>
@@ -138,10 +138,10 @@ export default async function Home({ searchParams }: HomePageProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/15 to-transparent" />
                   <div className="absolute bottom-4 left-4 rounded-2xl border border-white/10 bg-background/80 px-4 py-3 backdrop-blur">
                     <p className="text-xs uppercase tracking-[0.18em] text-primary">
-                      Merchant commerce layer
+                      Commerce Index for Agents
                     </p>
                     <p className="mt-2 max-w-xs text-sm text-foreground">
-                      From discovery and link-out to deeper merchant-native transactions.
+                      Find products, resolve offers, and route demand into merchant-native execution.
                     </p>
                   </div>
                 </div>
