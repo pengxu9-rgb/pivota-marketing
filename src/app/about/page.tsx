@@ -13,9 +13,9 @@ import {
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = buildMarketingMetadata({
-  title: "About Pivota | Commerce Execution & Optimization Layer for Agentic Demand",
+  title: "About Pivota | Commerce Index for Agents",
   description:
-    "Pivota builds the commerce execution and optimization layer for agentic demand — a structured Commerce Index and execution infrastructure that lets agents search, discover, and transact with merchants across catalog, checkout, payment, and order write-back.",
+    "Pivota builds the Commerce Index for Agents and the execution infrastructure that lets agents search, discover, and transact with merchants across catalog, checkout, payment, and order write-back.",
   path: routePaths.about,
 });
 
@@ -70,7 +70,7 @@ export default function AboutPage() {
                 <div className="space-y-5">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">About Pivota</p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    The commerce execution &amp; optimization layer for agentic demand
+                    Commerce Index for Agents
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
@@ -103,7 +103,7 @@ export default function AboutPage() {
                   </h2>
                   <div className="mt-4 grid gap-3 text-sm">
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                      Category: commerce execution &amp; optimization layer for agentic demand
+                      Category: Commerce Index for Agents
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
                       Role: structured Commerce Index and execution layer between agent demand and merchant systems
