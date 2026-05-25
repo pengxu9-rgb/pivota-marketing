@@ -37,13 +37,17 @@ const trustLayerItems = [
   },
 ] as const;
 
-const heroMeteors = [
-  "meteor-a",
-  "meteor-b",
-  "meteor-c",
-  "meteor-d",
-  "meteor-e",
-  "meteor-f",
+const heroIndexStacks = [
+  { className: "hero-index-tile--teal", tiles: 2 },
+  { className: "hero-index-tile--mint", tiles: 3 },
+  { className: "hero-index-tile--lime", tiles: 4 },
+  { className: "hero-index-tile--amber", tiles: 4 },
+  { className: "hero-index-tile--coral", tiles: 3 },
+  { className: "hero-index-tile--aqua", tiles: 2 },
+  { className: "hero-index-tile--mint", tiles: 4 },
+  { className: "hero-index-tile--lime", tiles: 3 },
+  { className: "hero-index-tile--amber", tiles: 2 },
+  { className: "hero-index-tile--teal", tiles: 3 },
 ] as const;
 
 const agentUseCases = [
@@ -121,13 +125,24 @@ export default async function Home({ searchParams }: HomePageProps) {
       <main className="overflow-hidden">
         <section className="relative isolate min-h-[calc(100vh-3.5rem)] overflow-hidden bg-[#11100f] text-white sm:min-h-[calc(100vh-4rem)]">
           <div className="hero-dot-field absolute inset-0 opacity-80" />
-          <div className="hero-meteor-field absolute inset-0" aria-hidden="true">
-            {heroMeteors.map((meteor) => (
-              <span key={meteor} className={`hero-meteor ${meteor}`} />
-            ))}
+          <div className="hero-index-pattern absolute inset-x-0 bottom-0 z-0 h-[48%] min-h-[18rem]" aria-hidden="true">
+            <div className="hero-index-columns">
+              {heroIndexStacks.map((stack, stackIndex) => (
+                <div key={`${stack.className}-${stackIndex}`} className="hero-index-stack">
+                  {Array.from({ length: stack.tiles }).map((_, tileIndex) => (
+                    <span
+                      key={`${stack.className}-${tileIndex}`}
+                      className={`hero-index-tile ${stack.className}`}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className="hero-index-top-fade" />
+            <div className="hero-index-bottom-fade" />
           </div>
 
-          <div className="section-padding relative pb-24 pt-20 sm:pb-28 sm:pt-24 lg:pb-28 lg:pt-28">
+          <div className="section-padding relative z-10 pb-24 pt-20 sm:pb-28 sm:pt-24 lg:pb-28 lg:pt-28">
             <div className="container-max">
               <div className="max-w-5xl">
                 <h1 className="max-w-4xl text-balance font-serif text-4xl font-medium leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-7xl">
