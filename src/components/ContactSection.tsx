@@ -17,6 +17,13 @@ const initialForm = {
   message: "",
 };
 
+const discussionItems = [
+  "Merchant gateway for agent-native commerce",
+  "Catalog, offer, checkout, and payment continuity",
+  "Readiness paths across discovery, feeds, link-out, and merchant-native checkout",
+  "Commerce infrastructure for personal agents, branded agents, and shopping assistants",
+] as const;
+
 const ContactSection = () => {
   const [formData, setFormData] = useState(initialForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -63,152 +70,125 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-gradient-to-b from-card to-background"
+      className="bg-[#f7f3ea]"
     >
-      <div className="bg-site-grid absolute inset-0 opacity-15" />
-      <div className="absolute left-[10%] top-16 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
-      <div className="absolute right-[8%] bottom-10 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
+      <div className="section-padding">
+        <div className="container-max grid gap-10 border-y border-border/80 py-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+          <div className="space-y-7">
+            <div>
+              <p className="kicker text-primary">Talk to us</p>
+              <h2 className="mt-5 font-serif text-4xl font-medium tracking-normal text-foreground sm:text-5xl">
+                Ready to make agent demand executable?
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
+                Start merchant signup if you are ready to connect. Use the form if you want to
+                talk through the execution model first.
+              </p>
+            </div>
 
-      <div className="section-padding relative">
-      <div className="container-max">
-        <div className="section-frame relative overflow-hidden p-6 sm:p-8 lg:p-10">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="space-y-6">
-              <div className="space-y-3">
-                <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">Talk to us</h2>
-                <p className="text-lg text-muted-foreground max-w-3xl">
-                  Pivota is the commerce execution and optimization layer for agentic demand.
-                </p>
-                <p className="text-sm text-muted-foreground max-w-2xl">
-                  If you are ready to onboard, start merchant signup. If you want to talk through
-                  the execution model first, use the form.
-                </p>
-              </div>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild className="h-12 px-6 text-sm">
+                <Link href={merchantSignupPath}>Merchant signup</Link>
+              </Button>
+              <Button asChild variant="outline" className="h-12 px-6 text-sm">
+                <a href="mailto:contact@pivota.cc">Email us</a>
+              </Button>
+            </div>
 
-              <div className="flex flex-wrap gap-4">
-                <Button asChild className="btn-hero h-12 px-6 text-sm">
-                  <Link href={merchantSignupPath}>Merchant signup</Link>
-                </Button>
-                <Button asChild variant="outline" className="h-12 px-6 text-sm">
-                  <a href="mailto:contact@pivota.cc">Email us</a>
-                </Button>
+            <div className="divide-y divide-border/80 border-y border-border/80">
+              {discussionItems.map((item) => (
+                <div key={item} className="py-4 text-sm font-medium text-foreground">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="section-frame p-5 sm:p-6">
+            <div className="mb-5">
+              <h3 className="text-xl font-semibold text-foreground">Contact form</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                Tell us where you are today: discovery, feeds, or merchant-native checkout.
+              </p>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full name</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="company">Company</Label>
+                  <Input
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="card-gradient">
-                  <h3 className="text-lg font-semibold">What we can discuss</h3>
-                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                    <li>Merchant gateway for agent-native commerce</li>
-                    <li>Merchant-native checkout and payment flows</li>
-                    <li>Catalog, checkout, payment, and post-purchase systems</li>
-                    <li>Commerce skill layer for personal agents, branded agents, and shopping assistants</li>
-                  </ul>
-                </div>
-                <div className="card-gradient">
-                  <h3 className="text-lg font-semibold">Need direct onboarding?</h3>
-                  <p className="mt-4 text-sm text-muted-foreground">
-                    Merchants can register directly through the merchant signup flow and keep
-                    storefront, payment, and customer operations in place.
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                    <Link href={merchantSignupPath} className="text-primary hover:underline">
-                      Open merchant signup
-                    </Link>
-                    <Link href="/faq" className="text-primary hover:underline">
-                      Read the FAQ
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="card-gradient">
-              <div className="mb-5">
-                <h3 className="text-xl font-semibold text-foreground">Contact form</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Tell us where you are today: discovery, feeds, or merchant-native checkout.
-                </p>
-              </div>
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="company">Company</Label>
-                    <Input
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    value={formData.message}
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
                     onChange={handleChange}
-                    placeholder="Discovery, feeds, merchant-native checkout, or merchant onboarding."
+                    required
                   />
                 </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
 
-                {status ? (
-                  <p
-                    className={
-                      status.type === "success"
-                        ? "text-sm text-primary"
-                        : "text-sm text-destructive"
-                    }
-                  >
-                    {status.message}
-                  </p>
-                ) : null}
+              <div className="space-y-2">
+                <Label htmlFor="message">Message</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Discovery, feeds, merchant-native checkout, or merchant onboarding."
+                />
+              </div>
 
-                <Button type="submit" className="btn-hero w-full" disabled={isSubmitting}>
-                  <Send className="mr-2 h-4 w-4" />
-                  {isSubmitting ? "Sending..." : "Contact us"}
-                </Button>
-              </form>
-            </div>
+              {status ? (
+                <p
+                  className={
+                    status.type === "success"
+                      ? "text-sm text-primary"
+                      : "text-sm text-destructive"
+                  }
+                >
+                  {status.message}
+                </p>
+              ) : null}
+
+              <Button type="submit" className="w-full" disabled={isSubmitting}>
+                <Send className="mr-2 h-4 w-4" />
+                {isSubmitting ? "Sending..." : "Contact us"}
+              </Button>
+            </form>
           </div>
         </div>
-      </div>
       </div>
     </section>
   );

@@ -40,15 +40,15 @@ export const routePaths = {
   blog: "/blog",
 } as const;
 
-export const footerDescriptor = "Pivota is the commerce execution & optimization layer for agentic demand.";
+export const footerDescriptor = "Pivota is the commerce decision and optimization layer for agentic demand.";
 
 export const defaultOgTitle = "Pivota — Merchant-Controlled Commerce Layer for AI Commerce";
 export const defaultOgDescription =
   "Pivota works with Shopify, Wix, WooCommerce, BigCommerce, and other store platforms to add merchant control, execution continuity, and fallback across AI buying surfaces.";
 
-export const homepageTitle = "Pivota | Commerce Index for Agents";
+export const homepageTitle = "Pivota | Commerce Index and Decision Layer for Agents";
 export const homepageMetaDescription =
-  "Pivota provides the Commerce Index and execution layer for agentic demand, helping agents find products, resolve offers, execute checkout, and optimize outcomes on top of existing merchant systems.";
+  "Pivota provides the Commerce Index and decision layer for agentic demand, helping agents decide what to recommend, resolve offers, route checkout, and optimize outcomes on top of existing merchant systems.";
 export const aiReadinessTitle = "Can Your Store Win Customers from AI? | Pivota";
 export const aiReadinessMetaDescription =
   "Connect your store to Pivota and see what is blocking the path from AI agent demand to completed transactions across product resolution, offers, checkout, and payments.";
@@ -86,6 +86,13 @@ export const primaryNavItems = [
   { label: "About", href: routePaths.about },
 ] as const;
 
+export const headerNavItems = [
+  primaryNavItems[0],
+  primaryNavItems[1],
+  primaryNavItems[2],
+  { label: "About", href: routePaths.about },
+] as const;
+
 export const footerExploreItems = [
   ...primaryNavItems,
   { label: "Merchant Onboarding", href: routePaths.merchantOnboarding },
@@ -102,7 +109,7 @@ export const coreAnswerBlock = [
 
 export const homepageHeroAnswerBlock = [
   "Every agentic demand surface needs a reliable way to find products, resolve offers, execute checkout, and optimize outcomes.",
-  "Pivota provides the Commerce Index and execution layer on top of existing merchant systems.",
+  "Pivota provides the Commerce Index and decision layer on top of existing merchant systems.",
 ] as const;
 
 export const homepageResultStatements = [

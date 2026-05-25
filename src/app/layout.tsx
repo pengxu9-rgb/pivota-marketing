@@ -73,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         <link rel="stylesheet" href="/pivota-brand/pivota-brand.css" />
         <link rel="icon" type="image/svg+xml" href="/pivota-brand/svg/favicon.svg" />
@@ -86,9 +86,7 @@ export default function RootLayout({
         {/* Baidu site verification */}
         <meta name="baidu-site-verification" content="codeva-Z2nSoSL8VM" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         <JsonLd id="pivota-organization-jsonld" data={organizationJsonLd} />
         <JsonLd id="pivota-website-jsonld" data={websiteJsonLd} />
         {children}

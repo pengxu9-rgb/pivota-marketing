@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LogIn, Menu, X } from "lucide-react";
+import { ArrowRight, LogIn, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { emitMarketingEvent } from "@/lib/analytics";
-import { primaryNavItems, routePaths } from "@/lib/marketing";
+import { headerNavItems, merchantSignupPath, routePaths } from "@/lib/marketing";
 
 function normalizePath(pathname: string | null): string {
   if (!pathname) return "/";
@@ -46,6 +46,7 @@ const Header = () => {
   const [isAiReadinessCampaignMode, setIsAiReadinessCampaignMode] = useState(false);
   const pathname = normalizePath(usePathname());
   const isAiReadinessPage = pathname === routePaths.aiReadiness;
+  const isHomePage = pathname === routePaths.home;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
@@ -98,7 +99,7 @@ const Header = () => {
 
   const navItems = useMemo(
     () =>
-      primaryNavItems.map((item) => ({
+      headerNavItems.map((item) => ({
         ...item,
         active:
           !item.href.includes("#") &&
@@ -116,33 +117,60 @@ const Header = () => {
     ? scrolled
       ? "border-slate-200/90 bg-[#f7f4ea]/96 backdrop-blur-xl"
       : "border-slate-200/70 bg-[#fbfaf4]/88 backdrop-blur-md"
+    : isHomePage
+      ? scrolled
+        ? "border-white/10 bg-[#11100f]"
+        : "border-transparent bg-[#11100f]"
     : scrolled
       ? "border-border/80 bg-background/92 backdrop-blur-xl"
       : "border-transparent bg-background/78 backdrop-blur-md";
 
-  const inactiveNavTextClass = isAiReadinessPage ? "text-slate-600" : "text-muted-foreground";
-  const activeNavTextClass = isAiReadinessPage ? "text-slate-900" : "text-foreground";
+  const inactiveNavTextClass = isAiReadinessPage
+    ? "text-slate-600"
+    : isHomePage
+      ? "text-white/90"
+      : "text-muted-foreground";
+  const activeNavTextClass = isAiReadinessPage
+    ? "text-slate-900"
+    : isHomePage
+      ? "text-white"
+      : "text-foreground";
   const loginButtonClass = isAiReadinessPage
     ? "group h-8 border-slate-200 bg-white/85 px-3.5 text-sm font-medium tracking-tight text-slate-900 transition-colors hover:border-primary/40 hover:bg-white hover:text-slate-900"
-    : "group h-8 border-input bg-background/30 px-3.5 text-sm font-medium tracking-tight text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 hover:text-foreground";
+    : isHomePage
+      ? "group h-9 border-white/14 bg-white/[0.04] px-3.5 font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:border-white/28 hover:bg-white/[0.08] hover:text-white"
+      : "group h-9 border-input bg-background/55 px-3.5 text-sm font-medium tracking-tight text-foreground transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-foreground";
+  const signupButtonClass = isAiReadinessPage
+    ? "h-9 bg-slate-950 px-4 text-sm font-semibold text-white hover:bg-slate-800"
+    : isHomePage
+      ? "h-9 bg-white px-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#11100f] hover:bg-lime-100"
+      : "h-9 bg-foreground px-4 text-sm font-semibold text-background hover:bg-foreground/88";
   const mobileToggleClass = isAiReadinessPage
     ? "inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white/85 p-2 text-slate-900 lg:hidden"
-    : "inline-flex items-center justify-center rounded-lg border border-input bg-background/30 p-2 text-foreground lg:hidden";
+    : isHomePage
+      ? "inline-flex items-center justify-center rounded-lg border border-white/14 bg-white/[0.04] p-2 text-white lg:hidden"
+      : "inline-flex items-center justify-center rounded-lg border border-input bg-background/55 p-2 text-foreground lg:hidden";
   const mobileMenuClass = isAiReadinessPage
     ? "border-t border-slate-200 bg-[#fbfaf4]/98 px-4 py-4 lg:hidden"
-    : "border-t border-border bg-background/95 px-4 py-4 lg:hidden";
+    : isHomePage
+      ? "border-t border-white/10 bg-[#11100f]/98 px-4 py-4 lg:hidden"
+      : "border-t border-border bg-background/95 px-4 py-4 lg:hidden";
   const navShellClass = isAiReadinessPage
     ? "container-max flex h-11 items-center justify-between px-4 sm:h-12 sm:px-6 lg:px-8"
-    : "container-max flex h-12 items-center justify-between px-4 sm:h-[3.25rem] sm:px-6 lg:px-8";
+    : "container-max flex h-14 items-center justify-between px-4 sm:h-16 sm:px-6 lg:px-8";
   const navTextBaseClass = isAiReadinessPage
     ? "text-sm font-medium tracking-tight transition-colors duration-200 group-hover:text-slate-900"
-    : "bg-gradient-to-r from-primary to-accent bg-clip-text text-sm font-medium tracking-tight transition-all duration-300 group-hover:text-transparent";
+    : isHomePage
+      ? "font-mono text-xs font-semibold uppercase tracking-[0.2em] transition-colors duration-200 group-hover:text-white"
+      : "text-sm font-medium tracking-tight transition-colors duration-200 group-hover:text-foreground";
   const loginIconClass = isAiReadinessPage
     ? "mr-2 h-4 w-4 transition-colors group-hover:text-slate-900"
-    : "mr-2 h-4 w-4 transition-colors group-hover:text-primary";
+    : isHomePage
+      ? "mr-1 h-3.5 w-3.5 transition-colors group-hover:text-white"
+      : "mr-2 h-4 w-4 transition-colors group-hover:text-primary";
   const loginTextClass = isAiReadinessPage
     ? "transition-colors duration-200 group-hover:text-slate-900"
-    : "bg-gradient-to-r from-primary to-accent bg-clip-text transition-all duration-300 group-hover:text-transparent";
+    : "transition-colors duration-200";
 
   return (
     <>
@@ -150,10 +178,12 @@ const Header = () => {
         <nav className={navShellClass}>
           <Link href="/" className="group flex items-center gap-2">
             <span className="pv-logo pv-logo--gradient pv-logo--md" aria-hidden="true" />
-            <span className="pv-wordmark pv-wordmark--sm">Pivota</span>
+            <span className={`pv-wordmark pv-wordmark--sm ${isHomePage ? "pv-wordmark--light" : ""}`}>
+              Pivota
+            </span>
           </Link>
 
-          <div className="hidden items-center gap-4 lg:flex">
+          <div className="hidden items-center gap-7 lg:flex">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -193,6 +223,12 @@ const Header = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+            <Button asChild className={signupButtonClass}>
+              <a href={merchantSignupPath}>
+                Get started
+                <ArrowRight className="h-3.5 w-3.5" />
+              </a>
+            </Button>
           </div>
 
           {isAiReadinessCampaignMode ? null : (
@@ -219,9 +255,13 @@ const Header = () => {
                     item.active
                       ? isAiReadinessPage
                         ? "bg-primary/10 text-slate-900"
+                        : isHomePage
+                          ? "bg-white/[0.08] text-white"
                         : "bg-primary/10 text-foreground"
                       : isAiReadinessPage
                         ? "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                        : isHomePage
+                          ? "text-white/68 hover:bg-white/[0.08] hover:text-white"
                         : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
                   }`}
                 >
@@ -235,7 +275,9 @@ const Header = () => {
                   className={`rounded-lg border px-3 py-3 text-center text-sm font-medium tracking-tight transition-colors hover:border-primary/60 hover:bg-primary/5 ${
                     isAiReadinessPage
                       ? "border-slate-200 bg-white/85 text-slate-900"
-                      : "border-input text-foreground"
+                      : isHomePage
+                        ? "border-white/14 bg-white/[0.04] text-white hover:bg-white/[0.08]"
+                        : "border-input text-foreground"
                   }`}
                 >
                   Developer Login
@@ -245,12 +287,27 @@ const Header = () => {
                   className={`rounded-lg border px-3 py-3 text-center text-sm font-medium tracking-tight transition-colors hover:border-primary/60 hover:bg-primary/5 ${
                     isAiReadinessPage
                       ? "border-slate-200 bg-white/85 text-slate-900"
-                      : "border-input text-foreground"
+                      : isHomePage
+                        ? "border-white/14 bg-white/[0.04] text-white hover:bg-white/[0.08]"
+                        : "border-input text-foreground"
                   }`}
                 >
                   Merchant Login
                 </a>
               </div>
+              <a
+                href={merchantSignupPath}
+                className={`mt-3 flex items-center justify-center gap-2 rounded-lg border px-3 py-3 text-center text-sm font-semibold tracking-tight transition-colors ${
+                  isAiReadinessPage
+                    ? "border-slate-200 bg-slate-950 text-white hover:bg-slate-800"
+                    : isHomePage
+                      ? "border-white bg-white text-[#11100f] hover:bg-lime-100"
+                      : "border-foreground bg-foreground text-background hover:bg-foreground/88"
+                }`}
+              >
+                Get started
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
         ) : null}

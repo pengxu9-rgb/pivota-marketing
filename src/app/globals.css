@@ -1,39 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Pivota Agent Payment Design System - Professional & Futuristic Fintech */
+/* Pivota marketing design system */
 
 @layer base {
   :root {
-    /* Core Brand Colors */
-    --background: 60 17% 98%; /* Pivota paper */
-    --foreground: 60 2% 17%; /* Pivota ink */
+    --background: 42 31% 95%;
+    --foreground: 34 10% 10%;
 
-    /* Card & Surface Colors */
-    --card: 0 0% 100%;
-    --card-foreground: 60 2% 17%;
+    --card: 42 28% 98%;
+    --card-foreground: 34 10% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 60 2% 17%;
+    --popover: 42 28% 98%;
+    --popover-foreground: 34 10% 10%;
 
-    /* Brand Primary */
-    --primary: 245 43% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 77 67% 48%;
+    --primary-foreground: 34 10% 10%;
 
-    /* Secondary - soft brand purple */
-    --secondary: 245 83% 96%;
-    --secondary-foreground: 245 45% 37%;
+    --secondary: 176 44% 39%;
+    --secondary-foreground: 42 31% 95%;
 
-    /* Muted & Accents */
-    --muted: 60 8% 95%;
-    --muted-foreground: 60 2% 38%;
+    --muted: 42 18% 88%;
+    --muted-foreground: 34 8% 36%;
 
-    /* Accent - Brand teal */
-    --accent: 161 69% 37%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 30 72% 58%;
+    --accent-foreground: 34 10% 10%;
 
     /* Status Colors */
     --destructive: 0 84.2% 60.2%;
@@ -43,18 +35,18 @@
     --success-foreground: 0 0% 98%;
 
     /* Borders & Inputs */
-    --border: 60 5% 86%;
-    --input: 60 5% 86%;
-    --ring: 245 43% 50%;
+    --border: 39 16% 78%;
+    --input: 39 16% 78%;
+    --ring: 77 67% 48%;
 
     /* Brand Gradients */
     --gradient-primary: var(--pv-gradient-primary);
-    --gradient-hero: linear-gradient(135deg, hsl(60 17% 98%), hsl(245 83% 96%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(60 8% 95%));
+    --gradient-hero: linear-gradient(135deg, hsl(42 31% 95%), hsl(42 28% 98%));
+    --gradient-card: linear-gradient(145deg, hsl(42 28% 98%), hsl(42 18% 90%));
 
     /* Shadows & Effects */
-    --shadow-neon: 0 0 26px hsl(245 43% 50% / 0.18);
-    --shadow-card: 0 14px 36px -18px hsl(245 40% 24% / 0.22);
+    --shadow-neon: 0 0 26px hsl(77 67% 48% / 0.16);
+    --shadow-card: 0 18px 44px -32px hsl(34 25% 10% / 0.38);
 
     --radius: 0.5rem;
 
@@ -121,16 +113,15 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   }
 }
 
 @layer components {
   /* Hero Button Variants */
   .btn-hero {
-    @apply text-primary-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-300;
-    background: var(--pv-gradient-primary);
-    box-shadow: var(--pv-shadow-glow);
+    @apply rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors duration-200 hover:bg-primary/90;
+    box-shadow: 0 12px 28px -22px hsl(34 25% 10% / 0.6);
   }
 
   /* Header-specific, subtler CTA: smaller padding + lighter glow */
@@ -143,22 +134,22 @@
   }
 
   .btn-secondary {
-    @apply bg-secondary/20 border border-secondary text-secondary font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary/30 hover:scale-105;
+    @apply rounded-lg border border-secondary bg-secondary/10 px-6 py-3 font-semibold text-secondary transition-colors duration-200 hover:bg-secondary/15;
   }
 
   /* Card Variants */
   .card-gradient {
-    @apply bg-gradient-to-br from-card to-muted border rounded-xl p-5 backdrop-blur-sm;
+    @apply rounded-lg border bg-card p-5;
     border-color: hsl(var(--border) / 0.5);
     box-shadow: var(--shadow-card);
   }
 
   .card-feature {
-    @apply card-gradient transition-all duration-300 hover:border-primary/50;
+    @apply card-gradient transition-colors duration-200 hover:border-primary/50;
   }
 
   .section-frame {
-    @apply rounded-[1.75rem] border border-border/70 bg-card/60 backdrop-blur-xl;
+    @apply rounded-lg border border-border/80 bg-card/70 backdrop-blur-xl;
     box-shadow: var(--shadow-card);
   }
 
@@ -168,6 +159,103 @@
       linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
     background-size: 44px 44px;
     background-position: center;
+  }
+
+  .hero-dot-field {
+    background:
+      radial-gradient(circle at 15% 82%, hsl(77 67% 48% / 0.2) 0 1px, transparent 1px),
+      radial-gradient(circle at 72% 55%, hsl(176 44% 39% / 0.18) 0 1px, transparent 1px),
+      linear-gradient(180deg, #11100f 0%, #171514 100%);
+    background-size: 18px 18px, 22px 22px, auto;
+  }
+
+  .commerce-rail-pattern {
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 6.5rem,
+        hsl(77 67% 58% / 0.76) 6.5rem 9.6rem,
+        transparent 9.6rem 11rem
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent 0 0.38rem,
+        hsl(42 31% 95% / 0.38) 0.38rem 0.5rem
+      );
+    background-blend-mode: normal;
+    mask-image: linear-gradient(to top, black 0%, black 64%, transparent 100%);
+  }
+
+  .kicker {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.22em];
+  }
+
+  .section-rule {
+    @apply border-t;
+  }
+
+  .trust-card {
+    @apply rounded-lg border border-white/10;
+    box-shadow: 0 18px 44px -34px hsl(0 0% 0% / 0.9);
+  }
+
+  .surface-panel {
+    @apply rounded-lg border backdrop-blur-xl;
+  }
+
+  .commerce-link {
+    @apply inline-flex items-center gap-1 font-medium text-primary transition-colors hover:text-foreground;
+  }
+
+  .pv-wordmark--light {
+    color: #ffffff !important;
+  }
+
+  .pv-wordmark--light::after {
+    color: hsl(77 67% 58%) !important;
+  }
+
+  .hero-execution-visual {
+    background:
+      radial-gradient(circle at 50% 46%, hsl(77 67% 48% / 0.12), transparent 19rem),
+      radial-gradient(circle at 82% 28%, hsl(176 70% 64% / 0.14), transparent 16rem),
+      linear-gradient(180deg, #191715 0%, #11100f 100%);
+  }
+
+  .hero-orbit-field {
+    background-image:
+      linear-gradient(to right, hsl(42 31% 95% / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(42 31% 95% / 0.06) 1px, transparent 1px),
+      radial-gradient(circle at center, transparent 0 5rem, hsl(77 67% 58% / 0.10) 5.05rem 5.12rem, transparent 5.18rem 9rem, hsl(176 70% 64% / 0.08) 9.05rem 9.12rem, transparent 9.2rem);
+    background-position: center;
+    background-size: 34px 34px, 34px 34px, 100% 100%;
+    mask-image: radial-gradient(circle at center, black 0%, black 66%, transparent 100%);
+  }
+
+  .hero-flow-line {
+    fill: none;
+    stroke: hsl(77 67% 58% / 0.52);
+    stroke-width: 1.2;
+    stroke-dasharray: 8 18;
+    animation: hero-flow 7s linear infinite;
+  }
+
+  .hero-flow-line-b,
+  .hero-flow-line-d {
+    stroke: hsl(176 70% 64% / 0.42);
+    animation-duration: 8s;
+  }
+
+  .hero-flow-line-c {
+    animation-duration: 9s;
+  }
+
+  .hero-core-ring {
+    animation: hero-core-pulse 4.8s ease-in-out infinite;
+  }
+
+  .hero-core-ring-delayed {
+    animation-delay: 1.2s;
   }
 
   /* Text Gradients */
@@ -197,11 +285,11 @@
 
   /* Section Spacing */
   .section-padding {
-    @apply px-4 py-10 sm:px-6 sm:py-11 lg:px-8 lg:py-12;
+    @apply px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20;
   }
 
   .container-max {
-    @apply mx-auto max-w-6xl;
+    @apply mx-auto max-w-7xl;
   }
 }
 
@@ -223,5 +311,22 @@
   to { 
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes hero-flow {
+  to {
+    stroke-dashoffset: -104;
+  }
+}
+
+@keyframes hero-core-pulse {
+  0%, 100% {
+    opacity: 0.38;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
   }
 }
