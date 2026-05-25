@@ -238,7 +238,7 @@ export default function UseCasesPage() {
       <JsonLd id="use-cases-breadcrumb-jsonld" data={breadcrumbJsonLd} />
 
       <main className="overflow-hidden">
-        <section className="relative bg-gradient-to-b from-background via-background to-card">
+        <section className="marketing-hero relative">
           <div className="bg-site-grid absolute inset-0 opacity-15" />
 
           <div className="section-padding relative">

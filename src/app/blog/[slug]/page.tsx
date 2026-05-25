@@ -44,17 +44,17 @@ export default async function BlogPostPage({ params }: ParamsPromise) {
   } as const;
 
   return (
-    <main className="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <main className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
       <JsonLd id="article-jsonld" data={jsonLd} />
-      <article className="prose max-w-3xl bg-white text-black rounded-xl p-6 sm:p-8 shadow prose-headings:text-black prose-p:text-black prose-li:text-black prose-strong:text-black prose-a:text-blue-600 prose-code:text-black prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-100 prose-pre:text-gray-900 prose-pre:border prose-pre:border-gray-200">
+      <article className="prose prose-neutral max-w-3xl rounded-lg border border-border/70 bg-card/80 p-6 shadow-[0_18px_44px_-32px_rgba(34,25,14,0.36)] prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-code:rounded prose-code:bg-background/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-foreground prose-pre:border prose-pre:border-border/70 prose-pre:bg-background/80 prose-pre:text-foreground sm:p-8">
         <h1>{post.title}</h1>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-muted-foreground">
           {new Date(post.date).toLocaleDateString()} · {(post.readingMinutes ?? 3)} min read
         </p>
         {post.tags && post.tags.length > 0 && (
-          <p className="mt-2 text-xs text-gray-600">
+          <p className="mt-2 text-xs text-muted-foreground">
             {post.tags.map((t) => (
-              <span key={t} className="inline-block mr-2 px-2 py-0.5 rounded bg-gray-100 text-gray-700">#{t}</span>
+              <span key={t} className="mr-2 inline-block rounded border border-border/70 bg-background/70 px-2 py-0.5 text-muted-foreground">#{t}</span>
             ))}
           </p>
         )}

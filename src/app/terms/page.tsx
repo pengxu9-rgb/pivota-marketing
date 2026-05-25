@@ -19,7 +19,7 @@ export default function TermsPage() {
           <h1 className="text-4xl font-bold tracking-tight">Terms of Service</h1>
           <p className="mt-3 text-sm text-muted-foreground">Last updated: 2026-01-19</p>
 
-          <div className="prose prose-invert mt-10 max-w-none prose-a:text-primary">
+          <div className="prose mt-10 max-w-none prose-neutral prose-a:text-primary prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground">
             <p>
               This page is provided for general legal navigation. For the latest Terms of Service, please contact{" "}
               <a href="mailto:support@pivota.cc">support@pivota.cc</a>.

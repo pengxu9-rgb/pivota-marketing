@@ -25,20 +25,20 @@ export const metadata: Metadata = {
 export default function CreatorsOwnAmazonPost() {
   return (
     <main className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
-      <article className="prose max-w-3xl rounded-xl bg-white p-6 text-black shadow prose-headings:text-black prose-p:text-black prose-li:text-black prose-strong:text-black prose-a:text-blue-600 prose-code:rounded prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-black prose-pre:border prose-pre:border-gray-200 prose-pre:bg-gray-100 prose-pre:text-gray-900 sm:p-8">
+      <article className="prose prose-neutral max-w-3xl rounded-lg border border-border/70 bg-card/80 p-6 shadow-[0_18px_44px_-32px_rgba(34,25,14,0.36)] prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-code:rounded prose-code:bg-background/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-foreground prose-pre:border prose-pre:border-border/70 prose-pre:bg-background/80 prose-pre:text-foreground sm:p-8">
         <h1>Creator agents still need a merchant gateway</h1>
-        <p className="text-sm text-gray-600">12/5/2025 · 4 min read</p>
-        <p className="mt-2 text-xs text-gray-600">
-          <span className="mr-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-gray-700">
+        <p className="text-sm text-muted-foreground">12/5/2025 · 4 min read</p>
+        <p className="mt-2 text-xs text-muted-foreground">
+          <span className="mr-2 inline-block rounded border border-border/70 bg-background/70 px-2 py-0.5 text-muted-foreground">
             #MerchantGateway
           </span>
-          <span className="mr-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-gray-700">
+          <span className="mr-2 inline-block rounded border border-border/70 bg-background/70 px-2 py-0.5 text-muted-foreground">
             #CreatorAgents
           </span>
-          <span className="mr-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-gray-700">
+          <span className="mr-2 inline-block rounded border border-border/70 bg-background/70 px-2 py-0.5 text-muted-foreground">
             #MerchantNativeCheckout
           </span>
-          <span className="mr-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-gray-700">
+          <span className="mr-2 inline-block rounded border border-border/70 bg-background/70 px-2 py-0.5 text-muted-foreground">
             #LLMSurfaces
           </span>
         </p>

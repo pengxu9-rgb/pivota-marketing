@@ -37,20 +37,7 @@ const trustLayerItems = [
   },
 ] as const;
 
-const heroProofPoints = [
-  {
-    label: "Commerce Index",
-    body: "Structured merchant truth agents can query.",
-  },
-  {
-    label: "Decision layer",
-    body: "Rank recommendations against policy, inventory, and fit.",
-  },
-  {
-    label: "Native checkout",
-    body: "Route demand into merchant-controlled systems.",
-  },
-] as const;
+const heroMeteors = ["meteor-a", "meteor-b", "meteor-c", "meteor-d"] as const;
 
 const agentUseCases = [
   {
@@ -127,6 +114,11 @@ export default async function Home({ searchParams }: HomePageProps) {
       <main className="overflow-hidden">
         <section className="relative isolate overflow-hidden bg-[#11100f] text-white">
           <div className="hero-dot-field absolute inset-0 opacity-80" />
+          <div className="hero-meteor-field absolute inset-0" aria-hidden="true">
+            {heroMeteors.map((meteor) => (
+              <span key={meteor} className={`hero-meteor ${meteor}`} />
+            ))}
+          </div>
 
           <div className="section-padding relative pb-20 pt-12 sm:pb-24 sm:pt-16 lg:pb-24 lg:pt-20">
             <div className="container-max">
@@ -160,16 +152,6 @@ export default async function Home({ searchParams }: HomePageProps) {
                 </div>
               </div>
 
-              <div className="mt-14 hidden gap-3 border-t border-white/10 pt-5 sm:grid sm:grid-cols-3 lg:max-w-5xl">
-                {heroProofPoints.map((point) => (
-                  <div key={point.label} className="border-l border-lime-200/35 pl-4">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-lime-200">
-                      {point.label}
-                    </p>
-                    <p className="mt-2 max-w-xs text-sm leading-6 text-white/58">{point.body}</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>

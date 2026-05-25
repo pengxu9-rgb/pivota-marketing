@@ -8,7 +8,7 @@ type AnswerBlockProps = {
 const AnswerBlock = ({ children, className = "" }: AnswerBlockProps) => {
   return (
     <div
-      className={`rounded-3xl border border-border/70 bg-card/70 px-6 py-5 text-base leading-8 text-muted-foreground backdrop-blur ${className}`}
+      className={`answer-block rounded-3xl border border-border/70 bg-card/70 px-6 py-5 text-base leading-8 text-muted-foreground backdrop-blur ${className}`}
     >
       {children}
     </div>

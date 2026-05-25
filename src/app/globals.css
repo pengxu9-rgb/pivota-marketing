@@ -169,6 +169,136 @@
     background-size: 18px 18px, 22px 22px, auto;
   }
 
+  .hero-meteor-field {
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .hero-meteor {
+    position: absolute;
+    left: -18rem;
+    height: 1px;
+    width: 9rem;
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(42 31% 95% / 0.18) 25%,
+      hsl(77 67% 70% / 0.88) 72%,
+      hsl(42 31% 95% / 0.92) 100%
+    );
+    box-shadow: 0 0 18px hsl(77 67% 58% / 0.34);
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(-17deg);
+    animation: hero-meteor-flight 9s linear infinite;
+  }
+
+  .hero-meteor::after {
+    content: "";
+    position: absolute;
+    right: -0.1rem;
+    top: -1.5px;
+    height: 4px;
+    width: 4px;
+    border-radius: 999px;
+    background: hsl(42 31% 95% / 0.92);
+  }
+
+  .meteor-a {
+    top: 16%;
+    animation-delay: 0.4s;
+    animation-duration: 8.8s;
+  }
+
+  .meteor-b {
+    top: 36%;
+    width: 7rem;
+    animation-delay: 3.1s;
+    animation-duration: 10.4s;
+  }
+
+  .meteor-c {
+    top: 58%;
+    width: 10rem;
+    animation-delay: 6.2s;
+    animation-duration: 11.2s;
+  }
+
+  .meteor-d {
+    top: 74%;
+    width: 6rem;
+    animation-delay: 8.1s;
+    animation-duration: 12.6s;
+  }
+
+  .marketing-hero {
+    background:
+      radial-gradient(circle at 76% 14%, hsl(77 67% 48% / 0.12), transparent 19rem),
+      radial-gradient(circle at 14% 78%, hsl(176 44% 39% / 0.14), transparent 18rem),
+      linear-gradient(180deg, #11100f 0%, #171514 100%);
+    color: #ffffff;
+  }
+
+  .marketing-hero .bg-site-grid {
+    background-image:
+      linear-gradient(to right, hsl(42 31% 95% / 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(42 31% 95% / 0.055) 1px, transparent 1px);
+    opacity: 0.32;
+  }
+
+  .marketing-hero .text-foreground,
+  .marketing-hero .text-foreground\/90,
+  .marketing-hero .prose,
+  .marketing-hero .prose strong {
+    color: rgb(255 255 255 / 0.9);
+  }
+
+  .marketing-hero .text-muted-foreground,
+  .marketing-hero .prose p,
+  .marketing-hero .prose li {
+    color: rgb(255 255 255 / 0.66);
+  }
+
+  .marketing-hero .text-primary {
+    color: hsl(77 67% 70%);
+  }
+
+  .marketing-hero .section-frame,
+  .marketing-hero .card-gradient {
+    border-color: rgb(255 255 255 / 0.12);
+    background: rgb(255 255 255 / 0.055);
+    color: rgb(255 255 255 / 0.9);
+    box-shadow: 0 24px 70px -48px rgb(0 0 0 / 0.95);
+  }
+
+  .marketing-hero .bg-card\/70,
+  .marketing-hero .bg-background {
+    background-color: rgb(255 255 255 / 0.055);
+  }
+
+  .marketing-hero .answer-block p + p {
+    display: none;
+  }
+
+  .marketing-hero .border-border\/70,
+  .marketing-hero .border-input {
+    border-color: rgb(255 255 255 / 0.14);
+  }
+
+  .marketing-hero .bg-background\/55,
+  .marketing-hero .bg-background\/70,
+  .marketing-hero .bg-background\/80 {
+    border-color: rgb(255 255 255 / 0.1);
+    background-color: rgb(255 255 255 / 0.05);
+  }
+
+  .marketing-hero code,
+  .marketing-hero pre {
+    border-color: rgb(255 255 255 / 0.12);
+    background-color: rgb(0 0 0 / 0.22);
+    color: rgb(255 255 255 / 0.86);
+  }
+
   .kicker {
     @apply font-mono text-xs font-medium uppercase tracking-[0.22em];
   }
@@ -251,5 +381,28 @@
   to { 
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes hero-meteor-flight {
+  0% {
+    opacity: 0;
+    transform: translate3d(-8vw, -1.5rem, 0) rotate(-17deg);
+  }
+  6% {
+    opacity: 0.78;
+  }
+  18% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(130vw, 18rem, 0) rotate(-17deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-meteor {
+    animation: none;
   }
 }
