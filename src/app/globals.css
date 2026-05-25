@@ -169,23 +169,6 @@
     background-size: 18px 18px, 22px 22px, auto;
   }
 
-  .commerce-rail-pattern {
-    background-image:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 6.5rem,
-        hsl(77 67% 58% / 0.76) 6.5rem 9.6rem,
-        transparent 9.6rem 11rem
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0 0.38rem,
-        hsl(42 31% 95% / 0.38) 0.38rem 0.5rem
-      );
-    background-blend-mode: normal;
-    mask-image: linear-gradient(to top, black 0%, black 64%, transparent 100%);
-  }
-
   .kicker {
     @apply font-mono text-xs font-medium uppercase tracking-[0.22em];
   }
@@ -213,49 +196,6 @@
 
   .pv-wordmark--light::after {
     color: hsl(77 67% 58%) !important;
-  }
-
-  .hero-execution-visual {
-    background:
-      radial-gradient(circle at 50% 46%, hsl(77 67% 48% / 0.12), transparent 19rem),
-      radial-gradient(circle at 82% 28%, hsl(176 70% 64% / 0.14), transparent 16rem),
-      linear-gradient(180deg, #191715 0%, #11100f 100%);
-  }
-
-  .hero-orbit-field {
-    background-image:
-      linear-gradient(to right, hsl(42 31% 95% / 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(42 31% 95% / 0.06) 1px, transparent 1px),
-      radial-gradient(circle at center, transparent 0 5rem, hsl(77 67% 58% / 0.10) 5.05rem 5.12rem, transparent 5.18rem 9rem, hsl(176 70% 64% / 0.08) 9.05rem 9.12rem, transparent 9.2rem);
-    background-position: center;
-    background-size: 34px 34px, 34px 34px, 100% 100%;
-    mask-image: radial-gradient(circle at center, black 0%, black 66%, transparent 100%);
-  }
-
-  .hero-flow-line {
-    fill: none;
-    stroke: hsl(77 67% 58% / 0.52);
-    stroke-width: 1.2;
-    stroke-dasharray: 8 18;
-    animation: hero-flow 7s linear infinite;
-  }
-
-  .hero-flow-line-b,
-  .hero-flow-line-d {
-    stroke: hsl(176 70% 64% / 0.42);
-    animation-duration: 8s;
-  }
-
-  .hero-flow-line-c {
-    animation-duration: 9s;
-  }
-
-  .hero-core-ring {
-    animation: hero-core-pulse 4.8s ease-in-out infinite;
-  }
-
-  .hero-core-ring-delayed {
-    animation-delay: 1.2s;
   }
 
   /* Text Gradients */
@@ -311,22 +251,5 @@
   to { 
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes hero-flow {
-  to {
-    stroke-dashoffset: -104;
-  }
-}
-
-@keyframes hero-core-pulse {
-  0%, 100% {
-    opacity: 0.38;
-    transform: scale(0.92);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.08);
   }
 }

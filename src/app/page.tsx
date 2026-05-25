@@ -4,7 +4,6 @@ import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
-import HeroExecutionVisual from "@/components/HeroExecutionVisual";
 import JsonLd from "@/components/JsonLd";
 import { Button } from "@/components/ui/button";
 import workflowImage from "@/assets/workflow-steps.jpg";
@@ -35,6 +34,21 @@ const trustLayerItems = [
     eyebrow: "Observability",
     title: "Audit-ready execution",
     body: "Track search, checkout, payment state, order write-back, and breakpoints across the agent-to-order path.",
+  },
+] as const;
+
+const heroProofPoints = [
+  {
+    label: "Commerce Index",
+    body: "Structured merchant truth agents can query.",
+  },
+  {
+    label: "Decision layer",
+    body: "Rank recommendations against policy, inventory, and fit.",
+  },
+  {
+    label: "Native checkout",
+    body: "Route demand into merchant-controlled systems.",
   },
 ] as const;
 
@@ -113,11 +127,10 @@ export default async function Home({ searchParams }: HomePageProps) {
       <main className="overflow-hidden">
         <section className="relative isolate overflow-hidden bg-[#11100f] text-white">
           <div className="hero-dot-field absolute inset-0 opacity-80" />
-          <div className="commerce-rail-pattern absolute bottom-0 left-0 right-0 h-36 opacity-75 sm:h-44" />
 
-          <div className="section-padding relative pb-20 pt-12 sm:pb-24 sm:pt-16 lg:pb-16 lg:pt-16">
-            <div className="container-max grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
-              <div className="max-w-4xl">
+          <div className="section-padding relative pb-20 pt-12 sm:pb-24 sm:pt-16 lg:pb-24 lg:pt-20">
+            <div className="container-max">
+              <div className="max-w-5xl">
                 <h1 className="max-w-4xl text-balance font-serif text-4xl font-medium leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-7xl">
                   How AI agents buy from merchants, reliably.
                 </h1>
@@ -147,8 +160,15 @@ export default async function Home({ searchParams }: HomePageProps) {
                 </div>
               </div>
 
-              <div className="surface-panel hidden overflow-hidden border-white/12 bg-white/[0.06] p-3 shadow-2xl md:block">
-                <HeroExecutionVisual />
+              <div className="mt-14 hidden gap-3 border-t border-white/10 pt-5 sm:grid sm:grid-cols-3 lg:max-w-5xl">
+                {heroProofPoints.map((point) => (
+                  <div key={point.label} className="border-l border-lime-200/35 pl-4">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-lime-200">
+                      {point.label}
+                    </p>
+                    <p className="mt-2 max-w-xs text-sm leading-6 text-white/58">{point.body}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
