@@ -172,63 +172,82 @@
   .hero-meteor-field {
     pointer-events: none;
     overflow: hidden;
+    z-index: 0;
   }
 
   .hero-meteor {
     position: absolute;
-    left: -18rem;
-    height: 1px;
-    width: 9rem;
+    left: -22rem;
+    height: 2px;
+    width: 13rem;
     border-radius: 999px;
     background: linear-gradient(
       90deg,
       transparent 0%,
-      hsl(42 31% 95% / 0.18) 25%,
-      hsl(77 67% 70% / 0.88) 72%,
-      hsl(42 31% 95% / 0.92) 100%
+      hsl(42 31% 95% / 0.12) 18%,
+      hsl(77 67% 70% / 0.86) 68%,
+      hsl(42 31% 95% / 0.98) 100%
     );
-    box-shadow: 0 0 18px hsl(77 67% 58% / 0.34);
+    box-shadow:
+      0 0 18px hsl(77 67% 58% / 0.48),
+      0 0 34px hsl(176 70% 64% / 0.16);
     opacity: 0;
-    transform: translate3d(0, 0, 0) rotate(-17deg);
-    animation: hero-meteor-flight 9s linear infinite;
+    transform: translate3d(0, 0, 0) rotate(-18deg);
+    animation: hero-meteor-flight 6.8s linear infinite;
+    will-change: transform, opacity;
   }
 
   .hero-meteor::after {
     content: "";
     position: absolute;
-    right: -0.1rem;
-    top: -1.5px;
-    height: 4px;
-    width: 4px;
+    right: -0.12rem;
+    top: -2px;
+    height: 6px;
+    width: 6px;
     border-radius: 999px;
-    background: hsl(42 31% 95% / 0.92);
+    background: hsl(42 31% 95% / 0.96);
+    box-shadow: 0 0 16px hsl(42 31% 95% / 0.72);
   }
 
   .meteor-a {
-    top: 16%;
-    animation-delay: 0.4s;
-    animation-duration: 8.8s;
+    top: 14%;
+    animation-delay: -0.8s;
+    animation-duration: 6.4s;
   }
 
   .meteor-b {
-    top: 36%;
-    width: 7rem;
-    animation-delay: 3.1s;
-    animation-duration: 10.4s;
+    top: 28%;
+    width: 10rem;
+    animation-delay: -2.2s;
+    animation-duration: 7.2s;
   }
 
   .meteor-c {
-    top: 58%;
-    width: 10rem;
-    animation-delay: 6.2s;
-    animation-duration: 11.2s;
+    top: 44%;
+    width: 15rem;
+    animation-delay: -4.2s;
+    animation-duration: 8s;
   }
 
   .meteor-d {
-    top: 74%;
-    width: 6rem;
-    animation-delay: 8.1s;
-    animation-duration: 12.6s;
+    top: 62%;
+    width: 9rem;
+    animation-delay: -1.4s;
+    animation-duration: 7.8s;
+  }
+
+  .meteor-e {
+    top: 76%;
+    width: 12rem;
+    animation-delay: -5.5s;
+    animation-duration: 8.6s;
+  }
+
+  .meteor-f {
+    top: 88%;
+    width: 8rem;
+    animation-delay: -3.3s;
+    animation-duration: 7.4s;
   }
 
   .marketing-hero {
@@ -387,17 +406,21 @@
 @keyframes hero-meteor-flight {
   0% {
     opacity: 0;
-    transform: translate3d(-8vw, -1.5rem, 0) rotate(-17deg);
+    transform: translate3d(-12vw, -2rem, 0) rotate(-18deg);
   }
-  6% {
-    opacity: 0.78;
+  7% {
+    opacity: 0.94;
   }
-  18% {
+  26% {
+    opacity: 0.82;
+  }
+  38% {
     opacity: 0;
+    transform: translate3d(128vw, 17rem, 0) rotate(-18deg);
   }
   100% {
     opacity: 0;
-    transform: translate3d(130vw, 18rem, 0) rotate(-17deg);
+    transform: translate3d(128vw, 17rem, 0) rotate(-18deg);
   }
 }
 

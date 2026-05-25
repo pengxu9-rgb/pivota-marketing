@@ -123,19 +123,19 @@ const Header = () => {
 
   const inactiveNavTextClass = isAiReadinessPage
     ? "text-slate-600"
-    : "text-white/78";
+    : "text-white/80";
   const activeNavTextClass = isAiReadinessPage
     ? "text-slate-900"
     : "text-white";
   const loginButtonClass = isAiReadinessPage
     ? "group h-8 border-slate-200 bg-white/85 px-3.5 text-sm font-medium tracking-tight text-slate-900 transition-colors hover:border-primary/40 hover:bg-white hover:text-slate-900"
-    : "group h-9 border-white/14 bg-white/[0.04] px-3.5 font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:border-white/28 hover:bg-white/[0.08] hover:text-white";
+    : "group h-9 border-white/20 bg-white/[0.04] px-3.5 font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:border-white/30 hover:bg-white/[0.08] hover:text-white";
   const signupButtonClass = isAiReadinessPage
     ? "h-9 bg-slate-950 px-4 text-sm font-semibold text-white hover:bg-slate-800"
     : "h-9 bg-white px-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#11100f] hover:bg-lime-100";
   const mobileToggleClass = isAiReadinessPage
     ? "inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white/85 p-2 text-slate-900 lg:hidden"
-    : "inline-flex items-center justify-center rounded-lg border border-white/14 bg-white/[0.04] p-2 text-white lg:hidden";
+    : "inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/[0.04] p-2 text-white lg:hidden";
   const mobileMenuClass = isAiReadinessPage
     ? "border-t border-slate-200 bg-[#fbfaf4]/98 px-4 py-4 lg:hidden"
     : "border-t border-white/10 bg-[#11100f]/98 px-4 py-4 lg:hidden";
@@ -238,7 +238,7 @@ const Header = () => {
                         : "bg-white/[0.08] text-white"
                       : isAiReadinessPage
                         ? "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
-                        : "text-white/68 hover:bg-white/[0.08] hover:text-white"
+                        : "text-white/70 hover:bg-white/[0.08] hover:text-white"
                   }`}
                 >
                   {item.label}
@@ -251,7 +251,7 @@ const Header = () => {
                   className={`rounded-lg border px-3 py-3 text-center text-sm font-medium tracking-tight transition-colors hover:border-primary/60 hover:bg-primary/5 ${
                     isAiReadinessPage
                       ? "border-slate-200 bg-white/85 text-slate-900"
-                      : "border-white/14 bg-white/[0.04] text-white hover:bg-white/[0.08]"
+                      : "border-white/20 bg-white/[0.04] text-white hover:bg-white/[0.08]"
                   }`}
                 >
                   Developer Login
@@ -261,7 +261,7 @@ const Header = () => {
                   className={`rounded-lg border px-3 py-3 text-center text-sm font-medium tracking-tight transition-colors hover:border-primary/60 hover:bg-primary/5 ${
                     isAiReadinessPage
                       ? "border-slate-200 bg-white/85 text-slate-900"
-                      : "border-white/14 bg-white/[0.04] text-white hover:bg-white/[0.08]"
+                      : "border-white/20 bg-white/[0.04] text-white hover:bg-white/[0.08]"
                   }`}
                 >
                   Merchant Login

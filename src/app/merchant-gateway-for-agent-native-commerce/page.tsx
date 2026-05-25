@@ -60,9 +60,9 @@ const heroCapabilityCards = [
     icon: CreditCard,
     label: "Payment & write-back",
     desc: "Works with your existing PSP. Payment authorization, state sync, and order write-back all flow back into your systems — no new payment contract required.",
-    iconStyle: "text-primary bg-primary/10 border-primary/20",
-    cardStyle: "border-border/70 bg-gradient-to-br from-card via-background/80 to-transparent",
-    glow: "",
+    iconStyle: "text-lime-100 bg-lime-200/10 border-lime-200/20",
+    cardStyle: "border-white/20 bg-white/[0.055]",
+    glow: "shadow-[0_0_24px_rgba(190,242,100,0.08)]",
   },
 ] as const;
 

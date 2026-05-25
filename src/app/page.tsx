@@ -37,7 +37,14 @@ const trustLayerItems = [
   },
 ] as const;
 
-const heroMeteors = ["meteor-a", "meteor-b", "meteor-c", "meteor-d"] as const;
+const heroMeteors = [
+  "meteor-a",
+  "meteor-b",
+  "meteor-c",
+  "meteor-d",
+  "meteor-e",
+  "meteor-f",
+] as const;
 
 const agentUseCases = [
   {
@@ -112,7 +119,7 @@ export default async function Home({ searchParams }: HomePageProps) {
       <JsonLd id="homepage-faq-jsonld" data={homepageFaqJsonLd} />
 
       <main className="overflow-hidden">
-        <section className="relative isolate overflow-hidden bg-[#11100f] text-white">
+        <section className="relative isolate min-h-[calc(100vh-3.5rem)] overflow-hidden bg-[#11100f] text-white sm:min-h-[calc(100vh-4rem)]">
           <div className="hero-dot-field absolute inset-0 opacity-80" />
           <div className="hero-meteor-field absolute inset-0" aria-hidden="true">
             {heroMeteors.map((meteor) => (
@@ -120,13 +127,13 @@ export default async function Home({ searchParams }: HomePageProps) {
             ))}
           </div>
 
-          <div className="section-padding relative pb-20 pt-12 sm:pb-24 sm:pt-16 lg:pb-24 lg:pt-20">
+          <div className="section-padding relative pb-24 pt-20 sm:pb-28 sm:pt-24 lg:pb-28 lg:pt-28">
             <div className="container-max">
               <div className="max-w-5xl">
                 <h1 className="max-w-4xl text-balance font-serif text-4xl font-medium leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-7xl">
                   How AI agents buy from merchants, reliably.
                 </h1>
-                <p className="mt-7 max-w-2xl text-lg leading-8 text-white/78 sm:text-xl">
+                <p className="mt-7 max-w-2xl text-lg leading-8 text-white/80 sm:text-xl">
                   Pivota is the{" "}
                   <span className="font-medium text-lime-200">
                     Commerce Index and decision layer
@@ -164,7 +171,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                 <h2 className="font-serif text-4xl font-medium tracking-normal text-white sm:text-5xl">
                   The decision layer for agentic commerce.
                 </h2>
-                <p className="max-w-3xl text-base leading-8 text-white/68">
+                <p className="max-w-3xl text-base leading-8 text-white/70">
                   Merchants need agent demand to be queryable and executable, but still governed
                   by their own systems. Pivota gives agents a clean path while merchants keep the
                   controls that matter.
@@ -182,7 +189,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                     </span>
                   </div>
                   <h3 className="mt-9 text-2xl font-semibold tracking-tight">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-white/68">{item.body}</p>
+                  <p className="mt-4 text-sm leading-7 text-white/70">{item.body}</p>
                 </article>
               ))}
             </div>
@@ -293,7 +300,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                   {executionSignals.map((signal) => (
                     <div
                       key={signal}
-                      className="flex items-center gap-3 rounded-md border border-white/10 bg-white/[0.055] px-3 py-3 text-sm text-white/78"
+                      className="flex items-center gap-3 rounded-md border border-white/10 bg-white/[0.055] px-3 py-3 text-sm text-white/80"
                     >
                       <Check className="h-4 w-4 text-lime-200" />
                       <span>{signal}</span>
@@ -315,7 +322,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                     <p className="mt-4 text-2xl font-semibold tracking-tight text-white">
                       Resolve product, preserve offer, route checkout, sync state.
                     </p>
-                    <p className="mt-4 text-sm leading-7 text-white/68">
+                    <p className="mt-4 text-sm leading-7 text-white/70">
                       One call path for downstream agents. Existing merchant systems remain the
                       source of truth.
                     </p>

@@ -13,7 +13,7 @@ const Footer = () => {
               <br />
               Control for merchants.
             </h2>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/68">{footerDescriptor}</p>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/70">{footerDescriptor}</p>
           </div>
           <a
             href={merchantSignupPath}
@@ -30,7 +30,7 @@ const Footer = () => {
               <span className="pv-logo pv-logo--gradient pv-logo--md" aria-hidden="true" />
               <span className="pv-wordmark pv-wordmark--sm pv-wordmark--light">Pivota</span>
             </div>
-            <p className="max-w-lg text-sm leading-7 text-white/62">
+            <p className="max-w-lg text-sm leading-7 text-white/60">
               Agent-readable commerce infrastructure on top of existing merchant systems.
             </p>
           </div>
@@ -44,7 +44,7 @@ const Footer = () => {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-white/62 transition-colors hover:text-white"
+                  className="text-white/60 transition-colors hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -58,16 +58,16 @@ const Footer = () => {
             </h2>
             <a
               href="mailto:contact@pivota.cc"
-              className="inline-flex items-center gap-2 text-sm text-white/62 transition-colors hover:text-white"
+              className="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
             >
               <Mail className="h-4 w-4" />
               contact@pivota.cc
             </a>
             <div className="grid gap-2 text-sm">
-              <Link href="/privacy/merchant-app" className="text-white/62 transition-colors hover:text-white">
+              <Link href="/privacy/merchant-app" className="text-white/60 transition-colors hover:text-white">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-white/62 transition-colors hover:text-white">
+              <Link href="/terms" className="text-white/60 transition-colors hover:text-white">
                 Terms of Service
               </Link>
             </div>
