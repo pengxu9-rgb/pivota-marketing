@@ -199,8 +199,8 @@ export default function MerchantGatewayCategoryPage() {
                     Execution layer plus application layer
                   </h2>
                   <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                    Pivota Gateway is the core execution layer product. Custom Brand Agent is an
-                    application-layer product powered by Aurora on Pivota.
+                    Pivota Gateway is the core execution layer product. Shopping Agent is the
+                    application-layer product.
                   </p>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
@@ -218,7 +218,11 @@ export default function MerchantGatewayCategoryPage() {
                         <h2 className="mt-2 text-xl font-semibold tracking-tight text-foreground">
                           {card.title}
                         </h2>
-                        <p className="mt-3 text-sm leading-7 text-muted-foreground">{card.body}</p>
+                        {card.body ? (
+                          <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                            {card.body}
+                          </p>
+                        ) : null}
                         <Button asChild variant="outline" className="mt-5 h-10 px-4 text-sm">
                           {isExternal ? (
                             <a href={href}>

@@ -140,11 +140,11 @@ export const productCards = [
     href: "#pivota-gateway-details",
   },
   {
-    title: "Custom Brand Agent",
-    eyebrow: "Powered by Aurora on Pivota.",
-    body: "Launch a branded AI shopping experience with your own UI, recommendations, and merchant-native checkout.",
-    ctaLabel: "Explore Aurora",
-    href: auroraUrl,
+    title: "Shopping Agent",
+    eyebrow: undefined,
+    body: undefined,
+    ctaLabel: "Learn more",
+    href: "/shopping-agent",
   },
 ] as const;
 
