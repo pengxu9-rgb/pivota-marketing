@@ -28,6 +28,8 @@ export const routePaths = {
   merchantGateway: "/merchant-gateway-for-agent-native-commerce",
   howPivotaWorks: "/how-pivota-works",
   merchantNativeCheckout: "/merchant-native-checkout",
+  shoppingAgent: "/shopping-agent",
+  creatorAgents: "/creator-agents",
   developers: "/developers",
   developersFirstCall: "/developers/first-call",
   developersRequestTypes: "/developers/request-types",
@@ -143,8 +145,17 @@ export const productCards = [
     title: "Shopping Agent",
     eyebrow: undefined,
     body: undefined,
+    urlLabel: "https://www.pivota.cc/shopping-agent",
     ctaLabel: "Learn more",
-    href: "/shopping-agent",
+    href: routePaths.shoppingAgent,
+  },
+  {
+    title: "Creator Agent",
+    eyebrow: undefined,
+    body: undefined,
+    urlLabel: "https://www.pivota.cc/creator-agents",
+    ctaLabel: "Learn more",
+    href: routePaths.creatorAgents,
   },
 ] as const;
 

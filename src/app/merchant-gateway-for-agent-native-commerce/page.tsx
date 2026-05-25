@@ -199,11 +199,11 @@ export default function MerchantGatewayCategoryPage() {
                     Execution layer plus application layer
                   </h2>
                   <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                    Pivota Gateway is the core execution layer product. Shopping Agent is the
-                    application-layer product.
+                    Pivota Gateway is the core execution layer product. Shopping Agent and
+                    Creator Agent are application-layer products.
                   </p>
                 </div>
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="grid gap-4 md:grid-cols-3">
                   {productCards.map((card) => {
                     const href = card.href;
                     const isExternal = href.startsWith("https://");
@@ -221,6 +221,11 @@ export default function MerchantGatewayCategoryPage() {
                         {card.body ? (
                           <p className="mt-3 text-sm leading-7 text-muted-foreground">
                             {card.body}
+                          </p>
+                        ) : null}
+                        {"urlLabel" in card && card.urlLabel ? (
+                          <p className="mt-3 break-all rounded-md border border-border/70 bg-background/55 px-3 py-2 font-mono text-xs text-muted-foreground">
+                            {card.urlLabel}
                           </p>
                         ) : null}
                         <Button asChild variant="outline" className="mt-5 h-10 px-4 text-sm">
