@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 
 const interestOptions = [
-  "Seoul service provider",
   "Channel partner",
   "Merchant",
   "Agent builder",

@@ -11,7 +11,6 @@ import { emitMarketingEvent } from "@/lib/analytics";
 import { merchantSignupPath, routePaths } from "@/lib/marketing";
 
 const interestOptions = [
-  "Seoul service provider",
   "Channel partner",
   "Merchant",
   "Agent builder",
