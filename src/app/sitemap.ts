@@ -20,6 +20,7 @@ const primaryRoutes = [
   { path: routePaths.merchantGateway, changeFrequency: "weekly" as const, priority: 0.95 },
   { path: routePaths.howPivotaWorks, changeFrequency: "weekly" as const, priority: 0.9 },
   { path: routePaths.merchantNativeCheckout, changeFrequency: "weekly" as const, priority: 0.85 },
+  { path: routePaths.merchants, changeFrequency: "weekly" as const, priority: 0.78 },
   { path: routePaths.shoppingAgent, changeFrequency: "weekly" as const, priority: 0.75 },
   { path: routePaths.creatorAgents, changeFrequency: "weekly" as const, priority: 0.75 },
   { path: routePaths.developersFirstCall, changeFrequency: "weekly" as const, priority: 0.74 },

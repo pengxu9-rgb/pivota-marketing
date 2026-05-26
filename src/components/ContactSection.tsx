@@ -7,13 +7,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { merchantSignupPath } from "@/lib/marketing";
+import { emitMarketingEvent } from "@/lib/analytics";
+import { merchantSignupPath, routePaths } from "@/lib/marketing";
+
+const interestOptions = [
+  "Seoul service provider",
+  "Channel partner",
+  "Merchant",
+  "Agent builder",
+  "Other",
+] as const;
 
 const initialForm = {
   name: "",
   company: "",
   email: "",
   phone: "",
+  interest: "",
   message: "",
 };
 
@@ -29,15 +39,26 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((current) => ({ ...current, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setStatus(null);
+
+    if (!formData.interest) {
+      setStatus({
+        type: "error",
+        message: "Choose what best describes your interest.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch("/api/demo", {
@@ -50,6 +71,13 @@ const ContactSection = () => {
         const data = await response.json().catch(() => ({}));
         throw new Error((data as { error?: string }).error || "Request failed");
       }
+
+      emitMarketingEvent({
+        event: "contact_form_submit",
+        page: routePaths.home,
+        placement: "contact_section",
+        interest: formData.interest,
+      });
 
       setFormData(initialForm);
       setStatus({
@@ -156,6 +184,25 @@ const ContactSection = () => {
                     onChange={handleChange}
                   />
                 </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="interest">Interest</Label>
+                <select
+                  id="interest"
+                  name="interest"
+                  value={formData.interest}
+                  onChange={handleChange}
+                  required
+                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                >
+                  <option value="">Select an option</option>
+                  {interestOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div className="space-y-2">

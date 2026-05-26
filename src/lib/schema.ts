@@ -60,3 +60,28 @@ export function buildSoftwareApplicationJsonLd(input: {
     },
   } as const;
 }
+
+export function buildServiceJsonLd(input: {
+  name: string;
+  path: string;
+  serviceType: string;
+  areaServed?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: input.name,
+    provider: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+    serviceType: input.serviceType,
+    areaServed: input.areaServed ?? "Worldwide",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Merchants and AI agent builders",
+    },
+    url: input.path === "/" ? `${siteUrl}/` : `${siteUrl}${input.path}`,
+  } as const;
+}
