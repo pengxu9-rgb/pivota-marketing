@@ -1,0 +1,45 @@
+# Pivota
+
+> Pivota provides a Commerce Index and decision layer for agentic demand. It helps agents decide what to recommend, resolve product and offer paths, route transactions through merchant-controlled systems, and keep execution state connected to existing storefront, payment, fulfillment, and operations stacks.
+
+For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
+
+## Primary pages
+
+- [Homepage](https://pivota.cc/): Pivota's Commerce Index and decision layer for agentic demand.
+- [Product / category page](https://pivota.cc/merchant-gateway-for-agent-native-commerce): Commerce execution and optimization layer for agentic demand.
+- [Agent integration](https://pivota.cc/agent-integration): REST, SDK, MCP, authentication, webhooks, and execution flows for agent builders.
+- [Merchant onboarding](https://pivota.cc/merchant-onboarding): Practical onboarding paths for merchants connecting agent demand to existing systems.
+- [AI readiness](https://pivota.cc/ai-readiness): Readiness check for catalog, offer, checkout, payment, and write-back blockers.
+- [How Pivota works](https://pivota.cc/how-pivota-works): Execution model from demand to discovery, checkout, payment, and measurement.
+- [FAQ](https://pivota.cc/faq): Plain answers about Pivota, merchant-native checkout, rollout paths, and integrations.
+- [About](https://pivota.cc/about): Company positioning and what Pivota is building.
+- [Blog](https://pivota.cc/blog): Pivota writing on agentic commerce and merchant-controlled execution.
+
+## Developer documentation
+
+- [Developer overview](https://pivota.cc/developers): Developer entry point for Pivota's agent integration surface.
+- [First call](https://pivota.cc/developers/first-call): First authenticated API call and first order path.
+- [Request types](https://pivota.cc/developers/request-types): Search, recommendation, cart, checkout, order, status, event, webhook, and payment-aware request families.
+- [Authentication and webhooks](https://pivota.cc/developers/auth-webhooks): API keys, request signing, webhook delivery, and lifecycle signals.
+- [Protocols](https://pivota.cc/developers/protocols): REST, SDK, and MCP integration modes.
+- [API overview](https://pivota.cc/developers/api-overview): Public API overview for agent builders.
+
+## Educational pages
+
+- [What is agent-native commerce?](https://pivota.cc/what-is-agent-native-commerce): Definition of the merchant-controlled path from agent demand to catalog, checkout, payment, and post-purchase systems.
+- [What is agentic commerce?](https://pivota.cc/what-is-agentic-commerce): Market context for LLM- and agent-shaped commerce.
+- [Make products discoverable to AI shopping agents](https://pivota.cc/make-products-discoverable-to-ai-shopping-agents): How merchants improve product, variant, and offer resolution for agents.
+- [Do I need to rebuild my store?](https://pivota.cc/do-i-need-to-rebuild-my-store): Why Pivota layers on top of existing storefront and operations systems.
+- [Start before merchant-native checkout](https://pivota.cc/start-before-merchant-native-checkout): Discovery, feeds, and link-out paths before deeper checkout execution.
+- [Merchant-native checkout](https://pivota.cc/merchant-native-checkout): Checkout paths that keep merchant systems and payment relationships in control.
+- [Promotion readiness](https://pivota.cc/promotion-readiness): Offer and incentive readiness for executable agent demand.
+- [Pivota implementation effort](https://pivota.cc/pivota-implementation-effort): Rollout stages and integration effort.
+- [Pivota vs Shopify](https://pivota.cc/pivota-vs-shopify): How Pivota works with store platforms instead of replacing them.
+- [Skincare and beauty merchants](https://pivota.cc/skincare-beauty-merchants): Agent-readiness patterns for beauty and skincare merchants.
+- [Use cases](https://pivota.cc/use-cases): Representative merchant scenarios across discoverability, checkout, payment, and measurement.
+
+## Contact
+
+- Email: contact@pivota.cc
+- Sitemap: [https://pivota.cc/sitemap.xml](https://pivota.cc/sitemap.xml)

@@ -14,7 +14,7 @@ import {
   productCards,
   routePaths,
 } from "@/lib/marketing";
-import { buildBreadcrumbJsonLd } from "@/lib/schema";
+import { buildBreadcrumbJsonLd, buildServiceJsonLd } from "@/lib/schema";
 
 const executionLayerFunctions = [
   {
@@ -85,12 +85,18 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", path: routePaths.home },
   { name: "Commerce execution layer", path: routePaths.merchantGateway },
 ]);
+const serviceJsonLd = buildServiceJsonLd({
+  name: "Pivota Commerce Execution Layer",
+  path: routePaths.merchantGateway,
+  serviceType: "Commerce Index layer and execution layer for agentic commerce",
+});
 
 export default function MerchantGatewayCategoryPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <JsonLd id="merchant-gateway-breadcrumb-jsonld" data={breadcrumbJsonLd} />
+      <JsonLd id="merchant-gateway-service-jsonld" data={serviceJsonLd} />
 
       <main className="overflow-hidden">
         <section className="marketing-hero relative">

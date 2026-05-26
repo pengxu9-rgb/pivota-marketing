@@ -1,11 +1,21 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
+const interestOptions = [
+  "Channel partner",
+  "Merchant",
+  "Agent builder",
+  "Other",
+] as const;
+
+const InterestSchema = z.enum(interestOptions);
+
 const DemoSchema = z.object({
   name: z.string().min(1),
   company: z.string().min(1),
   email: z.string().email(),
   phone: z.string().optional().nullable(),
+  interest: InterestSchema,
   message: z.string().optional().nullable(),
 });
 
@@ -74,23 +84,38 @@ async function sendViaSMTP(params: {
 export async function POST(req: Request) {
   try {
     const json = await req.json();
+    const rawInterest =
+      typeof json === "object" && json !== null
+        ? (json as { interest?: unknown }).interest
+        : undefined;
+    if (typeof rawInterest !== "string" || rawInterest.trim().length === 0) {
+      return NextResponse.json({ ok: false, error: "Interest is required" }, { status: 400 });
+    }
+
     const parsed = DemoSchema.safeParse(json);
     if (!parsed.success) {
+      const hasInterestIssue = parsed.error.issues.some((issue) => issue.path[0] === "interest");
+      if (hasInterestIssue) {
+        return NextResponse.json({ ok: false, error: "Invalid interest" }, { status: 400 });
+      }
+
       return NextResponse.json({ ok: false, error: "Invalid payload" }, { status: 400 });
     }
-    const { name, company, email, phone, message } = parsed.data;
+    const { name, company, email, phone, interest, message } = parsed.data;
 
     const to = [process.env.DEMO_TO_EMAIL || "contact@pivota.cc"];
-    const subject = `New Demo Request – ${company} (${name})`;
-    const text = `New demo request received\n\nName: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone || "-"}\n\nMessage:\n${message || "-"}\n\nSubmitted at: ${new Date().toISOString()}`;
+    const submittedAt = new Date().toISOString();
+    const subject = `[${interest}] New demo request from ${company} (${name})`;
+    const text = `New demo request received\n\nInterest: ${interest}\nName: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone || "-"}\n\nMessage:\n${message || "-"}\n\nSubmitted at: ${submittedAt}`;
     const html = `
       <h2>New demo request</h2>
+      <p><strong>Interest:</strong> ${interest}</p>
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Company:</strong> ${company}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Phone:</strong> ${phone || "-"}</p>
       <p><strong>Message:</strong><br/>${(message || "-").replace(/\n/g, "<br/>")}</p>
-      <p style="color:#888">Submitted at: ${new Date().toISOString()}</p>
+      <p style="color:#888">Submitted at: ${submittedAt}</p>
     `;
 
     // Try Resend, then fallback to SMTP
@@ -110,4 +135,3 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Server error" }, { status: 500 });
   }
 }
-

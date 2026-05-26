@@ -17,7 +17,7 @@ import {
   routePaths,
 } from "@/lib/marketing";
 import { appendSearchParamRecordToPath, type SearchParamRecord } from "@/lib/merchant-signup";
-import { buildFaqJsonLd } from "@/lib/schema";
+import { buildFaqJsonLd, buildServiceJsonLd } from "@/lib/schema";
 
 const trustLayerItems = [
   {
@@ -97,6 +97,11 @@ const executionSignals = [
 ] as const;
 
 const homepageFaqJsonLd = buildFaqJsonLd(homepageFaqItems);
+const homepageServiceJsonLd = buildServiceJsonLd({
+  name: "Pivota Commerce Index and Decision Layer",
+  path: routePaths.home,
+  serviceType: "Commerce Index and decision layer for AI agents",
+});
 
 export const metadata = buildMarketingMetadata({
   title: homepageTitle,
@@ -121,6 +126,7 @@ export default async function Home({ searchParams }: HomePageProps) {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <JsonLd id="homepage-faq-jsonld" data={homepageFaqJsonLd} />
+      <JsonLd id="homepage-service-jsonld" data={homepageServiceJsonLd} />
 
       <main className="overflow-hidden">
         <section className="relative isolate min-h-[calc(100vh-3.5rem)] overflow-hidden bg-[#11100f] text-white sm:min-h-[calc(100vh-4rem)]">

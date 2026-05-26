@@ -8,8 +8,8 @@ export const developerSignupPath = "https://developer.pivota.cc/signup";
 export const developerLoginPath = "https://developer.pivota.cc/login";
 export const aiReadinessSignupPath = "/merchant/signup/ai-readiness";
 export const auroraUrl = "https://aurora.pivota.cc";
-export const lastUpdatedIso = "2026-04-09";
-export const lastUpdatedLabel = "Updated April 9, 2026";
+export const lastUpdatedIso = "2026-05-26";
+export const lastUpdatedLabel = "Updated May 26, 2026";
 
 export const routePaths = {
   home: "/",
@@ -28,6 +28,7 @@ export const routePaths = {
   merchantGateway: "/merchant-gateway-for-agent-native-commerce",
   howPivotaWorks: "/how-pivota-works",
   merchantNativeCheckout: "/merchant-native-checkout",
+  merchants: "/merchants",
   shoppingAgent: "/shopping-agent",
   creatorAgents: "/creator-agents",
   developers: "/developers",

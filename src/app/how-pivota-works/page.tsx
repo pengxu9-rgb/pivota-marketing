@@ -11,7 +11,7 @@ import {
   merchantSignupPath,
   routePaths,
 } from "@/lib/marketing";
-import { buildBreadcrumbJsonLd } from "@/lib/schema";
+import { buildBreadcrumbJsonLd, buildServiceJsonLd } from "@/lib/schema";
 
 const flowSteps = [
   {
@@ -63,12 +63,18 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", path: routePaths.home },
   { name: "How Pivota works", path: routePaths.howPivotaWorks },
 ]);
+const serviceJsonLd = buildServiceJsonLd({
+  name: "Pivota Agent-Native Commerce Execution Model",
+  path: routePaths.howPivotaWorks,
+  serviceType: "Agent-native commerce execution layer",
+});
 
 export default function HowPivotaWorksPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <JsonLd id="how-pivota-works-breadcrumb-jsonld" data={breadcrumbJsonLd} />
+      <JsonLd id="how-pivota-works-service-jsonld" data={serviceJsonLd} />
 
       <main className="overflow-hidden">
         <section className="marketing-hero relative">

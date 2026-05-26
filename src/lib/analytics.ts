@@ -3,6 +3,7 @@ export type MarketingEventPayload = {
   page: string;
   placement: string;
   href?: string;
+  interest?: string;
 };
 
 declare global {
