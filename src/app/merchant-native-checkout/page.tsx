@@ -18,6 +18,7 @@ export const metadata = buildMarketingMetadata({
   description:
     "Pivota helps merchants convert LLM and agent demand through merchant-native checkout and payment flows.",
   path: routePaths.merchantNativeCheckout,
+  ogImage: "/og-merchants.svg",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([

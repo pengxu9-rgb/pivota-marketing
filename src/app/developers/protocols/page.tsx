@@ -36,6 +36,7 @@ export const metadata = buildMarketingMetadata({
   description:
     "Public compatibility page for protocol and channel layers that sit above Pivota's default REST, API key, and webhook production contract.",
   path: routePaths.developersProtocols,
+  ogImage: "/og-developers.svg",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([

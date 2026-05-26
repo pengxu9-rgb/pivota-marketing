@@ -1,14 +1,24 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "framework": "nextjs",
   "installCommand": "npm install",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.pivota.cc"
+        }
+      ],
+      "destination": "https://pivota.cc/$1",
+      "permanent": true
+    }
+  ],
   "env": {
     "NEXT_PUBLIC_API_URL": "https://web-production-fedb.up.railway.app",
     "NEXT_PUBLIC_SITE_URL": "https://pivota.cc"
   }
 }
-
-
-
-

@@ -53,6 +53,7 @@ export const metadata = buildMarketingMetadata({
   description:
     "Yes. Many merchants start with discovery, feeds, or link-out before deeper merchant-native checkout. Pivota supports staged rollout based on merchant readiness.",
   path: routePaths.startBeforeMerchantNativeCheckout,
+  ogImage: "/og-merchants.svg",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([

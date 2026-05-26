@@ -37,6 +37,7 @@ export const metadata = buildMarketingMetadata({
   description:
     "Public auth and webhook model for Pivota, including X-API-Key usage, managed webhook receiver patterns, signature verification, and event delivery guidance.",
   path: routePaths.developersAuthWebhooks,
+  ogImage: "/og-developers.svg",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([

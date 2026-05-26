@@ -163,6 +163,7 @@ export const metadata = buildMarketingMetadata({
   description:
     "Pivota works on top of Shopify, Wix, WooCommerce, BigCommerce, and similar stacks for skincare, beauty, and cosmetics merchants. Improve ingredient, concern, routine, shade, variant, bundle, and replenishment resolution across AI agents without replatforming.",
   path: routePaths.skincareBeautyMerchants,
+  ogImage: "/og-merchants.svg",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([

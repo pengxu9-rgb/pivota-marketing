@@ -142,6 +142,7 @@ export const metadata = buildMarketingMetadata({
   description:
     "Connect once, see what is blocking conversion from agent-driven traffic, and get a merchant-facing plan to improve product resolution, checkout continuity, payments, and rollout fit.",
   path: routePaths.merchantOnboarding,
+  ogImage: "/og-merchants.svg",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([

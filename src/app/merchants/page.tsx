@@ -32,6 +32,7 @@ export const metadata = buildMarketingMetadata({
   description:
     "Connect merchant systems so LLM and agent traffic can route into merchant-native transactions without rebuilding your stack.",
   path: "/merchants",
+  ogImage: "/og-merchants.svg",
 });
 
 export default function MerchantsPage() {

@@ -79,6 +79,7 @@ export const metadata = buildMarketingMetadata({
   description:
     "Pivota is the commerce execution and optimization layer for agentic demand. It maintains a structured Commerce Index agents can search, routes demand into merchant-native checkout and payment flows, and writes execution state back into existing merchant systems.",
   path: routePaths.merchantGateway,
+  ogImage: "/og-merchants.svg",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
