@@ -45,6 +45,7 @@ export const metadata = buildMarketingMetadata({
   description:
     "Public quickstart for the first authenticated call, first order flow, and webhook validation path across the Pivota merchant-native commerce surface.",
   path: routePaths.developersFirstCall,
+  ogImage: "/og-developers.svg",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([

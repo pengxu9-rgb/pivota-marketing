@@ -1,11 +1,11 @@
 import type { NextConfig } from "next";
 
-const vercelImageOptimizationEnabled =
-  process.env.VERCEL_IMAGE_OPTIMIZATION_ENABLED === "true";
+const imageOptimizationDisabled =
+  process.env.VERCEL_IMAGE_OPTIMIZATION_ENABLED === "false";
 
 const nextConfig: NextConfig = {
   images: {
-    unoptimized: !vercelImageOptimizationEnabled,
+    unoptimized: imageOptimizationDisabled,
     formats: ["image/webp"],
     minimumCacheTTL: 2678400,
     deviceSizes: [640, 768, 1024, 1280],

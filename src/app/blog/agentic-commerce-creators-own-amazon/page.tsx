@@ -1,11 +1,15 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { routePaths } from "@/lib/marketing";
+import JsonLd from "@/components/JsonLd";
+import { routePaths, toAbsoluteUrl } from "@/lib/marketing";
+
+const title = "Creator agents still need a merchant gateway | Pivota";
+const description =
+  "What agentic commerce means for creator agents, and why they still need a merchant gateway that routes agent-native demand into merchant-native transactions.";
 
 export const metadata: Metadata = {
-  title: "Creator agents still need a merchant gateway | Pivota",
-  description:
-    "What agentic commerce means for creator agents, and why they still need a merchant gateway that routes agent-native demand into merchant-native transactions.",
+  title,
+  description,
   alternates: {
     canonical: "/blog/agentic-commerce-creators-own-amazon",
     languages: {
@@ -14,17 +18,33 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Creator agents still need a merchant gateway | Pivota",
-    description:
-      "What agentic commerce means for creator agents, and why they still need a merchant gateway that routes agent-native demand into merchant-native transactions.",
+    title,
+    description,
     images: [{ url: "/og-home.svg", width: 1200, height: 630 }],
     type: "article",
   },
 };
 
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Creator agents still need a merchant gateway",
+  description,
+  datePublished: "2025-12-05",
+  dateModified: "2025-12-05",
+  author: { "@type": "Organization", name: "Pivota Marketing" },
+  publisher: {
+    "@type": "Organization",
+    name: "Pivota",
+    logo: { "@type": "ImageObject", url: toAbsoluteUrl("/favicon.ico") },
+  },
+  image: [toAbsoluteUrl("/og-home.svg")],
+} as const;
+
 export default function CreatorsOwnAmazonPost() {
   return (
     <main className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
+      <JsonLd id="article-jsonld" data={articleJsonLd} />
       <article className="prose prose-neutral max-w-3xl rounded-lg border border-border/70 bg-card/80 p-6 shadow-[0_18px_44px_-32px_rgba(34,25,14,0.36)] prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-code:rounded prose-code:bg-background/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-foreground prose-pre:border prose-pre:border-border/70 prose-pre:bg-background/80 prose-pre:text-foreground sm:p-8">
         <h1>Creator agents still need a merchant gateway</h1>
         <p className="text-sm text-muted-foreground">12/5/2025 · 4 min read</p>

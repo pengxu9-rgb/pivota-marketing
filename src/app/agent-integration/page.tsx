@@ -137,6 +137,7 @@ export const metadata = buildMarketingMetadata({
   description:
     "Build against the merchant-native commerce layer agents call. Public guidance for REST, SDK, MCP, auth, webhooks, and execution across the Pivota integration surface.",
   path: routePaths.agentIntegration,
+  ogImage: "/og-developers.svg",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([

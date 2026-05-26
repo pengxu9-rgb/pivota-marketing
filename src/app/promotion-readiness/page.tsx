@@ -119,6 +119,7 @@ export const metadata = buildMarketingMetadata({
   path: routePaths.promotionReadiness,
   ogDescription:
     "Fix promotion logic once during onboarding. Improve every downstream agent checkout path through Pivota.",
+  ogImage: "/og-merchants.svg",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([

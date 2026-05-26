@@ -18,12 +18,12 @@ For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
 
 ## Developer documentation
 
-- [Developer overview](https://pivota.cc/developers): Developer entry point for Pivota's agent integration surface.
+- [Developer overview](https://pivota.cc/agent-integration): Developer entry point for Pivota's agent integration surface.
 - [First call](https://pivota.cc/developers/first-call): First authenticated API call and first order path.
 - [Request types](https://pivota.cc/developers/request-types): Search, recommendation, cart, checkout, order, status, event, webhook, and payment-aware request families.
 - [Authentication and webhooks](https://pivota.cc/developers/auth-webhooks): API keys, request signing, webhook delivery, and lifecycle signals.
 - [Protocols](https://pivota.cc/developers/protocols): REST, SDK, and MCP integration modes.
-- [API overview](https://pivota.cc/developers/api-overview): Public API overview for agent builders.
+- [API overview](https://pivota.cc/developers/request-types): Public API overview for agent builders.
 
 ## Educational pages
 

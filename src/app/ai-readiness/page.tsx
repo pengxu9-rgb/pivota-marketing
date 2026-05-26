@@ -96,6 +96,7 @@ export const metadata = buildMarketingMetadata({
   title: aiReadinessTitle,
   description: aiReadinessMetaDescription,
   path: routePaths.aiReadiness,
+  ogImage: "/og-merchants.svg",
 });
 
 type AiReadinessPageProps = {

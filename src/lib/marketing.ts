@@ -421,6 +421,7 @@ type MarketingMetadataInput = {
   path: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogImage?: string;
 };
 
 export function buildMarketingMetadata({
@@ -429,6 +430,7 @@ export function buildMarketingMetadata({
   path,
   ogTitle = title,
   ogDescription = description,
+  ogImage = "/og-home.svg",
 }: MarketingMetadataInput): Metadata {
   return {
     title,
@@ -448,7 +450,7 @@ export function buildMarketingMetadata({
       type: "website",
       images: [
         {
-          url: "/og-home.svg",
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: defaultOgTitle,
@@ -459,7 +461,7 @@ export function buildMarketingMetadata({
       card: "summary_large_image",
       title: ogTitle,
       description: ogDescription,
-      images: ["/og-home.svg"],
+      images: [ogImage],
     },
   };
 }

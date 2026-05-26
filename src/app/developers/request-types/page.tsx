@@ -57,6 +57,7 @@ export const metadata = buildMarketingMetadata({
   description:
     "Public request-type inventory for the Pivota commerce layer, including search, checkout intents, orders, events, and webhooks across the merchant-native integration path.",
   path: routePaths.developersRequestTypes,
+  ogImage: "/og-developers.svg",
 });
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
