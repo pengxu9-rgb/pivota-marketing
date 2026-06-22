@@ -148,7 +148,7 @@ export default async function Home({ searchParams }: HomePageProps) {
             <div className="hero-index-bottom-fade" />
           </div>
 
-          <div className="section-padding relative z-10 pb-24 pt-44 sm:pb-28 sm:pt-52 lg:pb-28 lg:pt-60">
+          <div className="section-padding relative z-10 pb-24 pt-32 sm:pb-28 sm:pt-40 lg:pb-28 lg:pt-44">
             <div className="container-max">
               <div className="max-w-5xl">
                 <h1 className="max-w-4xl text-balance font-serif text-4xl font-medium leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-7xl">
