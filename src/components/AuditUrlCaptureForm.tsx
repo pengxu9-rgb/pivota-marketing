@@ -35,9 +35,11 @@ function normalizeStoreUrl(raw: string): string | null {
 const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
   const [value, setValue] = React.useState("");
   const [error, setError] = React.useState<string | null>(null);
+  const [submitting, setSubmitting] = React.useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (submitting) return;
 
     const storeUrl = normalizeStoreUrl(value);
     if (!storeUrl) {
@@ -45,10 +47,13 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
       return;
     }
 
+    // "ai-readiness-audit" (not the page's generic "ai-readiness") so the
+    // URL-capture funnel stays separately attributable downstream.
     const signupUrl = buildMerchantSignupRedirectUrl("ai-readiness-audit", {
       store_url: storeUrl,
     });
 
+    setSubmitting(true);
     emitMarketingEvent({
       event: "audit_url_submitted",
       page,
@@ -56,7 +61,10 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
       href: signupUrl,
     });
 
-    window.location.assign(signupUrl);
+    // Give GTM a tick to flush the event before the hard navigation.
+    window.setTimeout(() => {
+      window.location.assign(signupUrl);
+    }, 150);
   };
 
   return (
@@ -69,6 +77,8 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
           name="store_url"
           placeholder="yourstore.com"
           aria-label="Your store URL"
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? "audit-url-capture-error" : undefined}
           value={value}
           onChange={(event) => {
             setValue(event.target.value);
@@ -76,13 +86,13 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
           }}
           className={inputClass}
         />
-        <Button type="submit" className={primaryButtonClass}>
+        <Button type="submit" disabled={submitting} className={primaryButtonClass}>
           Audit my store
           <ArrowRight className="h-4 w-4" />
         </Button>
       </div>
       {error ? (
-        <p role="alert" className="text-sm text-red-600">
+        <p id="audit-url-capture-error" role="alert" className="text-sm text-red-600">
           {error}
         </p>
       ) : (
