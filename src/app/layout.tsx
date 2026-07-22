@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import JsonLd from "@/components/JsonLd";
 import {
   defaultOgDescription,
@@ -87,6 +88,7 @@ export default function RootLayout({
         <meta name="baidu-site-verification" content="codeva-Z2nSoSL8VM" />
       </head>
       <body className="antialiased">
+        <GoogleAnalytics />
         <JsonLd id="pivota-organization-jsonld" data={organizationJsonLd} />
         <JsonLd id="pivota-website-jsonld" data={websiteJsonLd} />
         {children}
