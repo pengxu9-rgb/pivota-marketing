@@ -7,6 +7,10 @@ export const merchantSignupPath = "https://merchant.pivota.cc/signup?source=mark
 export const developerSignupPath = "https://developer.pivota.cc/signup";
 export const developerLoginPath = "https://developer.pivota.cc/login";
 export const aiReadinessSignupPath = "/merchant/signup/ai-readiness";
+// Public share link of a Pivota-owned demo audit (HoverAir category demo).
+// Empty until NEXT_PUBLIC_SAMPLE_AUDIT_REPORT_URL is set — the sample-report
+// section on /ai-readiness hides itself when this is empty.
+export const sampleAuditReportUrl = process.env.NEXT_PUBLIC_SAMPLE_AUDIT_REPORT_URL ?? "";
 export const auroraUrl = "https://aurora.pivota.cc";
 export const lastUpdatedIso = "2026-05-26";
 export const lastUpdatedLabel = "Updated May 26, 2026";

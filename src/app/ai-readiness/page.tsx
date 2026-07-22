@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AiReadinessHeroActions from "@/components/AiReadinessHeroActions";
 import AiReadinessMobileStickyCta from "@/components/AiReadinessMobileStickyCta";
+import AuditUrlCaptureForm from "@/components/AuditUrlCaptureForm";
 import TrackedMerchantCtaLink from "@/components/TrackedMerchantCtaLink";
 import { appendSearchParamRecordToPath, type SearchParamRecord } from "@/lib/merchant-signup";
 import {
@@ -12,6 +13,7 @@ import {
   aiReadinessTitle,
   buildMarketingMetadata,
   routePaths,
+  sampleAuditReportUrl,
 } from "@/lib/marketing";
 
 const readinessAreas = [
@@ -151,6 +153,8 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                         </div>
                       </div>
                     </div>
+
+                    <AuditUrlCaptureForm page={routePaths.aiReadiness} placement="hero_url_capture" />
 
                     <AiReadinessHeroActions signupHref={signupHref} />
 
@@ -351,6 +355,43 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
             </div>
           </div>
         </section>
+
+        {sampleAuditReportUrl ? (
+          <section className={`${pageSectionClass} bg-gradient-to-b from-[#f8f6ee] to-[#f2efe4]`}>
+            <div className="container-max">
+              <div className={`${lightPanelClass} overflow-hidden p-5 sm:p-8`}>
+                <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+                  <div className="space-y-3">
+                    <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                      Sample report
+                    </p>
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-slate-900">
+                      See a real report before you sign up
+                    </h2>
+                    <p className="max-w-3xl text-base leading-8 text-slate-600">
+                      This is a live report from a demo brand we audited — real AI-visibility
+                      scores, per-product findings, and share-of-voice across AI assistants.
+                      Your report follows the same format, run on your own store.
+                    </p>
+                  </div>
+
+                  <TrackedMerchantCtaLink
+                    href={sampleAuditReportUrl}
+                    target="_blank"
+                    rel="noopener"
+                    eventName="ai_readiness_sample_report_click"
+                    page={routePaths.aiReadiness}
+                    placement="sample_report"
+                    className={lightPrimaryButtonClass}
+                  >
+                    View the sample report
+                    <ChevronRight className="h-4 w-4" />
+                  </TrackedMerchantCtaLink>
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <section id="how-it-works" className={`${pageSectionClass} bg-gradient-to-b from-[#f2efe4] to-[#f8f6ee]`}>
           <div className="container-max space-y-6">
