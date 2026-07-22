@@ -59,9 +59,12 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
       page,
       placement,
       href: signupUrl,
+      // Short, un-truncatable dimension for the funnel report (GA4 caps
+      // parameter values at 100 chars and the href alone nearly hits it).
+      store_domain: new URL(storeUrl).hostname,
     });
 
-    // Give GTM a tick to flush the event before the hard navigation.
+    // Give the analytics beacon a tick to leave before the hard navigation.
     window.setTimeout(() => {
       window.location.assign(signupUrl);
     }, 150);
