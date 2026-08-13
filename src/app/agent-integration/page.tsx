@@ -113,7 +113,7 @@ const responseSnippet = `{
   "intent_id": "ci_...",
   "checkout_session_id": "ci_...",
   "checkout_token": "...",
-  "checkout_url": "https://checkout.pivota.cc/order?...",
+  "checkout_url": "https://agent.pivota.cc/order?...",
   "expires_at": 1760000000
 }`;
 
