@@ -93,29 +93,28 @@ const proofPoints = [
 const publicQuickstartSnippet = `curl https://api.pivota.cc/agent/v1/merchants \\
   -H "X-API-Key: YOUR_API_KEY"`;
 
-const requestSnippet = `curl -X POST "https://api.pivota.cc/agent/v1/checkouts/intent" \\
+const requestSnippet = `curl -X POST "https://api.pivota.cc/agent/v1/checkout/intents" \\
   -H "Content-Type: application/json" \\
   -H "X-API-Key: YOUR_API_KEY" \\
   -d '{
-    "merchant_id": "merch_...",
     "items": [
       {
+        "merchant_id": "merch_...",
         "product_id": "prod_...",
         "variant_id": "var_...",
-        "quantity": 1
+        "quantity": 1,
+        "currency": "USD"
       }
     ],
-    "currency": "USD"
+    "return_url": "https://your-agent.example/checkout/return"
   }'`;
 
 const responseSnippet = `{
-  "status": "ready_for_checkout",
-  "merchant_native_path": {
-    "checkout_url": "https://checkout.pivota.cc/...",
-    "rollout_stage": "merchant_native_checkout"
-  },
-  "next_action": "redirect_to_checkout",
-  "events": ["order.created", "order.payment_attempted"]
+  "intent_id": "ci_...",
+  "checkout_session_id": "ci_...",
+  "checkout_token": "...",
+  "checkout_url": "https://checkout.pivota.cc/order?...",
+  "expires_at": 1760000000
 }`;
 
 const publicDocsItems = [
