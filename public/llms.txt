@@ -25,6 +25,12 @@ For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
 - [Protocols](https://pivota.cc/developers/protocols): REST, SDK, and MCP integration modes.
 - [API overview](https://pivota.cc/developers/request-types): Public API overview for agent builders.
 
+## Machine-readable API surface
+
+- API base URL: https://api.pivota.cc
+- [OpenAPI specification](https://api.pivota.cc/openapi.json): Machine-readable OpenAPI document describing the public agent API, including product search, cart and checkout intents, orders, order events, and webhook operations.
+- Authentication: send an API key in the `X-API-Key` request header. See [Authentication and webhooks](https://pivota.cc/developers/auth-webhooks).
+
 ## Educational pages
 
 - [What is agent-native commerce?](https://pivota.cc/what-is-agent-native-commerce): Definition of the merchant-controlled path from agent demand to catalog, checkout, payment, and post-purchase systems.
