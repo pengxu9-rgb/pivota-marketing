@@ -112,7 +112,7 @@ export default function UcpInsightsSpecPage() {
                 <dt className="text-muted-foreground">Capability id</dt>
                 <dd className="font-mono">{CAPABILITY_ID}</dd>
                 <dt className="text-muted-foreground">Version</dt>
-                <dd className="font-mono">2026-08-19</dd>
+                <dd className="font-mono">2026-08-19 (the <code>version</code> field of the JSON Schema)</dd>
                 <dt className="text-muted-foreground">Spec</dt>
                 <dd className="font-mono break-all">{SPEC_URL}</dd>
                 <dt className="text-muted-foreground">Schema</dt>
@@ -191,13 +191,19 @@ export default function UcpInsightsSpecPage() {
                 <h2 className="text-2xl font-semibold tracking-tight">Errors and guarantees</h2>
                 <ul className="mt-3 max-w-3xl list-disc space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
                   <li>
-                    Every <code className="font-mono">tools/call</code> answers HTTP 200; a refusal rides in the
-                    JSON-RPC result as a tool error with a code and a message that names the field to fix
-                    (e.g. <code className="font-mono">insights.id</code>).
+                    Once authenticated, a <code className="font-mono">tools/call</code> answers HTTP 200 and a
+                    refusal rides in the JSON-RPC result as a tool error. (The door itself still answers 401 to
+                    an unauthenticated call and 404 when a capability is switched off.)
                   </li>
                   <li>
-                    Unknown product id → an empty result with <code className="font-mono">metadata.reason</code>,
-                    or <code className="font-mono">UNKNOWN_PRODUCT_ID</code> when the door can say so.
+                    A malformed request — missing <code className="font-mono">meta</code>, an unknown member under{" "}
+                    <code className="font-mono">insights</code>, a flat <code className="font-mono">product_id</code>,
+                    an out-of-range <code className="font-mono">relation</code> — is refused with{" "}
+                    <code className="font-mono">OPERATION_NOT_ALLOWED</code> and a message naming the field to fix.
+                  </li>
+                  <li>
+                    An id Pivota does not know is <em>not</em> an error: you get a normal result with{" "}
+                    <code className="font-mono">signals: []</code> and a <code className="font-mono">metadata.reason</code>.
                   </li>
                   <li>
                     Nothing is fabricated: no reviewed intelligence ⇒ <code className="font-mono">signals: []</code>;
