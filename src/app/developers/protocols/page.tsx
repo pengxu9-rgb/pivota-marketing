@@ -9,10 +9,10 @@ import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 const protocolLayers = [
   {
-    title: "Google UCP",
-    status: "Partner access",
-    availability: "Limited availability",
-    body: "Use Google UCP when a partner-approved distribution or catalog standard needs to sit on top of Pivota-managed commerce flows. It is not the default self-serve REST path.",
+    title: "UCP (Universal Commerce Protocol)",
+    status: "Live · self-serve",
+    availability: "Hosted seller door, any agent with a portal API key",
+    body: "Pivota runs a hosted UCP seller door: discover it at commerce.mcp.pivota.cc/.well-known/ucp, search and read the catalog with your developer-portal key, add OAuth buyer identity for checkout. Pivota's decision layer is published as the vendor capability cc.pivota.insights.",
     icon: Globe2,
   },
   {
