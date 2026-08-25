@@ -155,10 +155,10 @@ const notFailures = [
 ];
 
 const knownLimits = [
-  "Catalog coverage is deepest in beauty and personal care. Off-vertical queries return confident but irrelevant results rather than empty sets, often without price fields — judge coverage by relevance, never by result count. If your evaluation needs a specific category, tell us early: that is a data lead time rather than a code change.",
+  "Catalog coverage is deepest in beauty and personal care. Off-vertical queries sometimes return empty sets and sometimes confident but irrelevant results, often without price fields — judge coverage by relevance, never by result count. If your evaluation needs a specific category, tell us early: that is a data lead time rather than a code change.",
   "get_order, request_after_sales and cancel_checkout_session appear in tools/list but are not yet wired through. The capability is live over REST: read order state with GET /agent/v2/orders/{order_id}.",
   "create_payment_link and recommend_products work on the native door and are absent from the UCP dialect. Variant selection is likewise native-only today.",
-  "get_alternatives can return fewer alternatives than the requested limit, and alternative prices currently omit the currency field — read the anchor's currency until we add it.",
+  "get_alternatives can return fewer alternatives than the requested limit, and an alternative's currency field is currently null — read the anchor's currency until we populate it.",
 ];
 
 export const metadata = buildMarketingMetadata({
