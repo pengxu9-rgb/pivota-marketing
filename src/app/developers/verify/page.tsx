@@ -86,7 +86,7 @@ const lanes: Lane[] = [
       {
         call: "recommend_products",
         expect:
-          "A reasoned shortlist from a need in the buyer's own words rather than a product name. Runs a model — 20–30s cold, so keep it off your critical path. Send a numeric price_max; a prose budget is only a hint and is not enforced.",
+          "A reasoned shortlist from a need in the buyer's own words rather than a product name. Runs a model — allow up to 30s on a cold call, and keep it off your critical path. A budget is enforced only when sent as a number nested at constraints.price_max; a top-level price_max or a prose budget is not enforced.",
       },
     ],
   },
@@ -101,7 +101,7 @@ const lanes: Lane[] = [
       {
         call: "initialize, then tools/list",
         expect:
-          "An Mcp-Session-Id response header — echo it on every later call, because omitting it fails in a way that reads like an auth error. tools/list then returns fourteen tools.",
+          "200 on both. This door is stateless: no session header is returned and none is required on later calls. tools/list returns fourteen tools.",
       },
       {
         call: "get_product",
@@ -143,6 +143,11 @@ const notFailures = [
       "Deliberate. Up to 50 line items across 25 products, but one seller per checkout. The refusal message tells you how to split it.",
   },
   {
+    signal: "Result arrives as a JSON string in content[0].text",
+    meaning:
+      "Expected on the keyed door. Tool results there are a JSON document inside the text member rather than structuredContent — parse content[0].text.",
+  },
+  {
     signal: "Prices differ between doors",
     meaning:
       "Expected. The UCP dialect returns ISO minor units; the native door returns major. Do not divide by 100 yourself — currencies have different exponents.",
@@ -150,9 +155,10 @@ const notFailures = [
 ];
 
 const knownLimits = [
-  "Catalog coverage is deepest in beauty and personal care. Other categories are seeded rather than covered — tell us early if your evaluation needs a specific one, because that is a data lead time rather than a code change.",
+  "Catalog coverage is deepest in beauty and personal care. Off-vertical queries return confident but irrelevant results rather than empty sets, often without price fields — judge coverage by relevance, never by result count. If your evaluation needs a specific category, tell us early: that is a data lead time rather than a code change.",
   "get_order, request_after_sales and cancel_checkout_session appear in tools/list but are not yet wired through. The capability is live over REST: read order state with GET /agent/v2/orders/{order_id}.",
   "create_payment_link and recommend_products work on the native door and are absent from the UCP dialect. Variant selection is likewise native-only today.",
+  "get_alternatives can return fewer alternatives than the requested limit, and alternative prices currently omit the currency field — read the anchor's currency until we add it.",
 ];
 
 export const metadata = buildMarketingMetadata({
