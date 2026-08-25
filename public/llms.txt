@@ -18,6 +18,7 @@ For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
 
 ## Developer documentation
 
+- [Verify Pivota](https://pivota.cc/developers/verify): Start here to evaluate Pivota. A three-lane verification path an agent can execute unattended — commerce index, decision layer, checkout routing — stating the expected result for every call. Lanes 1 and 2 need no credentials.
 - [Developer overview](https://pivota.cc/agent-integration): Developer entry point for Pivota's agent integration surface.
 - [First call](https://pivota.cc/developers/first-call): First authenticated API call and first order path.
 - [Request types](https://pivota.cc/developers/request-types): Search, recommendation, cart, checkout, order, status, event, webhook, and payment-aware request families.

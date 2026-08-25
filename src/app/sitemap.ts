@@ -27,6 +27,7 @@ const primaryRoutes = [
   { path: routePaths.developersRequestTypes, changeFrequency: "weekly" as const, priority: 0.72 },
   { path: routePaths.developersAuthWebhooks, changeFrequency: "weekly" as const, priority: 0.72 },
   { path: routePaths.developersProtocols, changeFrequency: "weekly" as const, priority: 0.68 },
+  { path: routePaths.developersVerify, changeFrequency: "weekly" as const, priority: 0.74 },
   { path: routePaths.faq, changeFrequency: "weekly" as const, priority: 0.8 },
   { path: routePaths.useCases, changeFrequency: "weekly" as const, priority: 0.75 },
   { path: routePaths.about, changeFrequency: "monthly" as const, priority: 0.65 },
