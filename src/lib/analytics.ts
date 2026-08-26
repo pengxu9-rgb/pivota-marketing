@@ -8,6 +8,9 @@ export type MarketingEventPayload = {
    *  signup href already burns ~70, so the funnel's most important dimension
    *  gets its own short param instead of being cut off mid-URL. */
   store_domain?: string;
+  /** Which teaser card the visitor saw: ready_positive, ready_negative,
+   *  queued, inconclusive, or fallback (lane dark → plain signup redirect). */
+  teaser_state?: string;
 };
 
 declare global {
