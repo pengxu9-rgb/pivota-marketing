@@ -36,8 +36,8 @@ const integrationModes = [
   {
     icon: Cable,
     title: "MCP",
-    body: "A local orchestration and discovery surface for search and routing workflows. Published package name: pivota-mcp-server.",
-    supporting: "Not a hosted replacement for the production REST API",
+    body: "A hosted remote MCP server at https://commerce.mcp.pivota.cc/mcp with OAuth — add it to Claude, ChatGPT, or any MCP client as a connector. Search, recommendation, checkout, and order tools over the same production surface. For local development, the stdio package pivota-mcp-server wraps the same tools.",
+    supporting: "Hosted endpoint for agent surfaces; local package for development",
   },
 ] as const;
 
@@ -85,8 +85,9 @@ const executionBoundaries = [
 const proofPoints = [
   "OpenAPI is live on https://api.pivota.cc/openapi.json",
   "The branded API base is https://api.pivota.cc",
+  "The hosted remote MCP endpoint is https://commerce.mcp.pivota.cc/mcp (streamable HTTP + OAuth, RFC 9728 discovery)",
   "The published SDK package is pivota-agent",
-  "The published MCP package is pivota-mcp-server",
+  "The published local MCP package is pivota-mcp-server",
   "Managed webhook receivers follow https://api.pivota.cc/agents/{agent_id}/webhooks/managed-inbox",
 ] as const;
 
@@ -153,7 +154,7 @@ const softwareJsonLd = buildSoftwareApplicationJsonLd({
   featureList: [
     "REST API integration",
     "SDK quickstart",
-    "MCP configuration guidance",
+    "Hosted remote MCP endpoint and configuration guidance",
     "Webhook delivery and verification",
     "Execution across checkout, payment, and write-back",
   ],
