@@ -6,7 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { emitMarketingEvent } from "@/lib/analytics";
 import { buildMerchantSignupRedirectUrl } from "@/lib/merchant-signup";
-import { probeStoreForTeaser, type StoreAuditTeaser } from "@/lib/store-audit-teaser";
+import {
+  fetchPublicAuditRun,
+  probeStoreForTeaser,
+  type PublicAuditRun,
+  type StoreAuditTeaser,
+} from "@/lib/store-audit-teaser";
 
 type AuditUrlCaptureFormProps = {
   page: string;
@@ -34,6 +39,24 @@ function normalizeStoreUrl(raw: string): string | null {
 }
 
 type TeaserCard = "ready_positive" | "ready_negative" | "queued" | "inconclusive";
+
+/**
+ * Signals the deterministic tier can report, in the order a merchant would
+ * read them. A signal appears only when we OBSERVED it — there is no "not
+ * detected" here, because the backend does not record one and inventing it
+ * would tell a store it lacks a checkout route we simply never saw.
+ */
+const SIGNAL_LABEL: Record<string, string> = {
+  acceptance_signal: "Agent checkout endpoint advertised",
+  commerce_platform: "Store platform identified",
+  commerce_checkout_route: "Checkout route reachable",
+  commerce_cartability: "Cart could be built",
+};
+
+const EVIDENCE_LABEL: Record<string, string> = {
+  tested: "tested live",
+  detected: "detected",
+};
 
 function cardForTeaser(teaser: StoreAuditTeaser): TeaserCard {
   if (teaser.state === "ready") {
@@ -77,6 +100,7 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
   const [submitting, setSubmitting] = React.useState(false);
   const [card, setCard] = React.useState<TeaserCard | null>(null);
   const [signupUrl, setSignupUrl] = React.useState<string | null>(null);
+  const [auditRun, setAuditRun] = React.useState<PublicAuditRun | null>(null);
   const abortRef = React.useRef<AbortController | null>(null);
 
   React.useEffect(() => () => abortRef.current?.abort(), []);
@@ -130,14 +154,37 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
     }
 
     const nextCard = cardForTeaser(teaser);
+
+    // The visitor's own run. Threading it into the signup URL is the whole
+    // conversion mechanic: the portal claims THIS run after registration, so
+    // the check they just watched becomes their audit instead of a throwaway.
+    // Absent on the paths that reuse another lane's route — the funnel never
+    // hands out a run id it does not own.
+    const runId = teaser.audit_run_id ?? null;
+    const signupWithRun = runId
+      ? buildMerchantSignupRedirectUrl("ai-readiness-audit", {
+          store_url: storeUrl,
+          audit_run_id: runId,
+        })
+      : nextSignupUrl;
+
+    let run: PublicAuditRun | null = null;
+    if (runId) {
+      run = await fetchPublicAuditRun(runId, abortRef.current.signal);
+    }
+
     emitMarketingEvent({
       event: "audit_teaser_shown",
       page,
       placement,
       store_domain: storeDomain,
       teaser_state: nextCard,
+      // Distinguishes a visitor who leaves with a claimable audit from one who
+      // leaves with only a teaser — the funnel's actual conversion split.
+      has_claimable_run: runId ? "true" : "false",
     });
-    setSignupUrl(nextSignupUrl);
+    setAuditRun(run);
+    setSignupUrl(signupWithRun);
     setCard(nextCard);
     setSubmitting(false);
   };
@@ -157,6 +204,31 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
             <p className="mt-1 text-sm leading-6 text-slate-600">{copy.body}</p>
           </div>
         </div>
+        {auditRun && auditRun.observed_signals.length > 0 ? (
+          <dl className="space-y-1.5 rounded-xl bg-slate-50 px-4 py-3">
+            {auditRun.observed_signals.map((signal) => (
+              <div
+                key={signal.signal}
+                className="flex items-baseline justify-between gap-3 text-sm"
+              >
+                <dt className="text-slate-700">
+                  {SIGNAL_LABEL[signal.signal] ?? signal.signal}
+                </dt>
+                <dd className="shrink-0 text-xs uppercase tracking-wide text-slate-500">
+                  {signal.evidence_level
+                    ? EVIDENCE_LABEL[signal.evidence_level]
+                    : "observed"}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        ) : null}
+        {auditRun?.claimable ? (
+          <p className="text-sm leading-6 text-slate-600">
+            This check is saved as your audit. Create your free account and it
+            becomes yours — we pick up from here rather than starting over.
+          </p>
+        ) : null}
         <Button asChild className={primaryButtonClass}>
           <a
             href={signupUrl}

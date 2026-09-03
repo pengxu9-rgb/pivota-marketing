@@ -11,6 +11,13 @@ export type MarketingEventPayload = {
   /** Which teaser card the visitor saw: ready_positive, ready_negative,
    *  queued, inconclusive, or fallback (lane dark → plain signup redirect). */
   teaser_state?: string;
+  /** "true" when the visitor leaves with a claimable audit run threaded into
+   *  their signup URL, "false" when they leave with only a teaser. This is
+   *  the funnel's real conversion split — a run that follows them into the
+   *  portal is a different offer from a card that does not. String, not
+   *  boolean, because GA4 reports custom dimensions as strings anyway and a
+   *  mixed-type param is the classic unqueryable-dimension mistake. */
+  has_claimable_run?: string;
 };
 
 declare global {

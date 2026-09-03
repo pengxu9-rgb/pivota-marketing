@@ -21,6 +21,30 @@ export type StoreAuditTeaser = {
   agent_ready?: boolean | null;
   evidence_level?: "detected" | "tested" | null;
   checked_at?: string | null;
+  /**
+   * The visitor's own audit run. Threading this into the signup URL is what
+   * turns "we checked your store" into "this audit is yours" — the merchant
+   * portal claims this exact run after registration rather than starting a
+   * fresh one. Null on the paths that reuse another lane's route, where there
+   * is no run this visitor may read or claim.
+   */
+  audit_run_id?: string | null;
+};
+
+/** The deterministic projection an unregistered visitor may read. */
+export type PublicAuditRun = {
+  audit_run_id: string;
+  domain: string;
+  /**
+   * Signals we OBSERVED, never a "not detected" — the backend emits a signal
+   * only when evidence of that type exists, because saying a store lacks an
+   * agent checkout when we simply never saw one is a claim we cannot make.
+   */
+  observed_signals: Array<{
+    signal: string;
+    evidence_level: "detected" | "tested" | null;
+  }>;
+  claimable: boolean;
 };
 
 function parseTeaser(payload: unknown): StoreAuditTeaser | null {
@@ -34,6 +58,8 @@ function parseTeaser(payload: unknown): StoreAuditTeaser | null {
   }
   return {
     domain,
+    audit_run_id:
+      typeof record.audit_run_id === "string" ? record.audit_run_id : null,
     state: state as StoreAuditTeaser["state"],
     agent_ready:
       typeof record.agent_ready === "boolean" ? record.agent_ready : null,
@@ -92,13 +118,21 @@ export async function probeStoreForTeaser(
     return null;
   }
   if (!teaser) return null;
+
+  // ONLY the intake mints a run id; the teaser poll is domain-keyed and
+  // answers with audit_run_id: null. Replacing the teaser wholesale on each
+  // poll therefore threw the visitor's run away, and the signup URL lost the
+  // one parameter that makes the audit theirs — caught by running the form,
+  // not by reading it. Carry it forward across every poll.
+  const auditRunId = teaser.audit_run_id ?? null;
+
   for (
     let attempt = 0;
     teaser.state === "pending" && attempt < POLL_ATTEMPTS;
     attempt += 1
   ) {
     await new Promise((resolve) => setTimeout(resolve, POLL_INTERVAL_MS));
-    if (signal?.aborted) return teaser;
+    if (signal?.aborted) return { ...teaser, audit_run_id: auditRunId };
     try {
       const next = await fetchStoreAuditTeaser(storeUrl, signal);
       if (next) teaser = next;
@@ -106,5 +140,65 @@ export async function probeStoreForTeaser(
       break;
     }
   }
-  return teaser;
+  return { ...teaser, audit_run_id: auditRunId ?? teaser.audit_run_id ?? null };
+}
+
+/**
+ * Read the deterministic projection for one unclaimed run.
+ *
+ * 404 is a NORMAL answer, not an error: the endpoint refuses unknown ids,
+ * other lanes, and — deliberately — runs that have already been claimed, so a
+ * visitor returning with an old link simply gets nothing rather than someone
+ * else's audit. Every failure resolves to null and the caller degrades to the
+ * teaser it already has.
+ */
+export async function fetchPublicAuditRun(
+  auditRunId: string,
+  signal?: AbortSignal,
+): Promise<PublicAuditRun | null> {
+  let response: Response;
+  try {
+    response = await fetch(
+      `${PIVOTA_API_BASE}/public/store-audit/run/${encodeURIComponent(auditRunId)}`,
+      { signal },
+    );
+  } catch {
+    return null;
+  }
+  if (!response.ok) return null;
+
+  let payload: unknown;
+  try {
+    payload = await response.json();
+  } catch {
+    return null;
+  }
+  if (!payload || typeof payload !== "object") return null;
+
+  const record = payload as Record<string, unknown>;
+  const projection =
+    record.projection && typeof record.projection === "object"
+      ? (record.projection as Record<string, unknown>)
+      : {};
+  const rawSignals = Array.isArray(projection.observed_signals)
+    ? projection.observed_signals
+    : [];
+
+  return {
+    audit_run_id:
+      typeof record.audit_run_id === "string" ? record.audit_run_id : auditRunId,
+    domain: typeof record.domain === "string" ? record.domain : "",
+    observed_signals: rawSignals.flatMap((entry) => {
+      if (!entry || typeof entry !== "object") return [];
+      const item = entry as Record<string, unknown>;
+      if (typeof item.signal !== "string") return [];
+      const level = item.evidence_level;
+      return [{
+        signal: item.signal,
+        evidence_level:
+          level === "detected" || level === "tested" ? level : null,
+      }];
+    }),
+    claimable: projection.claimable === true,
+  };
 }
