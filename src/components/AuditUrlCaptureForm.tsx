@@ -250,10 +250,15 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
             ))}
           </dl>
         ) : null}
+        {/* Says only what a claim actually does today: the run becomes theirs
+            and stops being publicly readable. It does NOT populate their
+            audit — a claimed funnel run carries no report, so promising "we
+            pick up from here" would have been an overclaim the merchant would
+            immediately catch. */}
         {auditRun?.claimable ? (
           <p className="text-sm leading-6 text-slate-600">
-            This check is saved as your audit. Create your free account and it
-            becomes yours — we pick up from here rather than starting over.
+            This check is saved. Create your free account and it is linked to
+            you before anyone else can claim it.
           </p>
         ) : null}
         <Button asChild className={primaryButtonClass}>
