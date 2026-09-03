@@ -49,9 +49,27 @@ type TeaserCard = "ready_positive" | "ready_negative" | "queued" | "inconclusive
 const SIGNAL_LABEL: Record<string, string> = {
   acceptance_signal: "Agent checkout endpoint advertised",
   commerce_platform: "Store platform identified",
-  commerce_checkout_route: "Checkout route reachable",
-  commerce_cartability: "Cart could be built",
+  // OBSERVED, not achieved. The commerce probe writes these rows for every
+  // outcome its status enum allows — "unavailable", "blocked",
+  // "selection_required", "unknown" included — and the public projection
+  // strips the payload, so presence reaches us without the verdict. Labels
+  // that promised "reachable" or "could be built" would print a success for a
+  // blocked checkout: the same presence-means-positive error the backend
+  // avoids by never emitting a `detected: false`.
+  commerce_checkout_route: "Checkout route observed",
+  commerce_cartability: "Cart observed",
 };
+
+function dedupeSignals(
+  signals: PublicAuditRun["observed_signals"],
+): PublicAuditRun["observed_signals"] {
+  const seen = new Set<string>();
+  return signals.filter((entry) => {
+    if (seen.has(entry.signal)) return false;
+    seen.add(entry.signal);
+    return true;
+  });
+}
 
 const EVIDENCE_LABEL: Record<string, string> = {
   tested: "tested live",
@@ -168,11 +186,6 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
         })
       : nextSignupUrl;
 
-    let run: PublicAuditRun | null = null;
-    if (runId) {
-      run = await fetchPublicAuditRun(runId, abortRef.current.signal);
-    }
-
     emitMarketingEvent({
       event: "audit_teaser_shown",
       page,
@@ -181,12 +194,22 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
       teaser_state: nextCard,
       // Distinguishes a visitor who leaves with a claimable audit from one who
       // leaves with only a teaser — the funnel's actual conversion split.
-      has_claimable_run: runId ? "true" : "false",
+      signup_carries_run: runId ? "true" : "false",
     });
-    setAuditRun(run);
+    setAuditRun(null);
     setSignupUrl(signupWithRun);
     setCard(nextCard);
     setSubmitting(false);
+
+    // AFTER the card is on screen, never before it. The signals only decorate
+    // a card that is already correct without them, so blocking the render on
+    // this call bought nothing and made every id-bearing submit wait on a
+    // second round trip — with a hung upstream stalling the button until the
+    // load balancer gave up.
+    if (runId) {
+      const run = await fetchPublicAuditRun(runId, abortRef.current.signal);
+      if (run && !abortRef.current.signal.aborted) setAuditRun(run);
+    }
   };
 
   if (card && signupUrl) {
@@ -206,7 +229,11 @@ const AuditUrlCaptureForm = ({ page, placement }: AuditUrlCaptureFormProps) => {
         </div>
         {auditRun && auditRun.observed_signals.length > 0 ? (
           <dl className="space-y-1.5 rounded-xl bg-slate-50 px-4 py-3">
-            {auditRun.observed_signals.map((signal) => (
+            {/* Deduped by signal: the projection does not dedup, and the
+                reprobe job deposits onto the same run with a fresh
+                idempotency key, so a run can hold two acceptance_signal rows
+                — which would render the line twice under a duplicate key. */}
+            {dedupeSignals(auditRun.observed_signals).map((signal) => (
               <div
                 key={signal.signal}
                 className="flex items-baseline justify-between gap-3 text-sm"
