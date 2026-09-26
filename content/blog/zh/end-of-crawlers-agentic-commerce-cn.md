@@ -89,7 +89,8 @@ MCP 提供：
 **示例 —— 获取商品数据**
 
 ```
-GET https://api.pivota.cc/mcp/v1/products?q=headphones
+GET https://api.pivota.cc/agent/v1/products/search?query=headphones
+X-API-Key: YOUR_API_KEY
 
 ```
 
@@ -97,15 +98,24 @@ GET https://api.pivota.cc/mcp/v1/products?q=headphones
 
 ```json
 {
-  "items": [
+  "status": "success",
+  "products": [
     {
-      "id": "sku_88372",
+      "product_id": "prod_88372",
       "title": "Sony WH-1000XM5",
-      "price": { "amount": 29900, "currency": "USD" },
-      "inventory": 12,
-      "merchant_id": "m_3241"
+      "price": 299,
+      "currency": "USD",
+      "in_stock": true,
+      "merchant_id": "merch_3241",
+      "merchant_name": "Merchant One"
     }
-  ]
+  ],
+  "pagination": {
+    "total_count": 1,
+    "limit": 20,
+    "offset": 0,
+    "has_more": false
+  }
 }
 
 ```
