@@ -4,6 +4,8 @@ const imageOptimizationDisabled =
   process.env.VERCEL_IMAGE_OPTIMIZATION_ENABLED === "false";
 
 const nextConfig: NextConfig = {
+  // Cloud Run: self-contained server bundle (.next/standalone/server.js)
+  output: "standalone",
   images: {
     unoptimized: imageOptimizationDisabled,
     formats: ["image/webp"],
