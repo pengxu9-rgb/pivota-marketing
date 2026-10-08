@@ -17,6 +17,8 @@
 
     --primary: 77 67% 48%;
     --primary-foreground: 34 10% 10%;
+    /* Lime for text on light surfaces: --primary is 1.6-1.8:1 there; this clears 4.5:1 down to #efe9d9. */
+    --primary-ink: 77 67% 25%;
 
     --secondary: 176 44% 39%;
     --secondary-foreground: 42 31% 95%;
@@ -354,7 +356,8 @@
     color: rgb(255 255 255 / 0.66);
   }
 
-  .marketing-hero .text-primary {
+  .marketing-hero .text-primary,
+  .marketing-hero .text-primary-ink {
     color: hsl(77 67% 70%);
   }
 

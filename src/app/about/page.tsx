@@ -121,7 +121,7 @@ export default function AboutPage() {
         <section className="section-padding bg-gradient-to-b from-card to-background">
           <div className="container-max grid gap-6 lg:grid-cols-2">
             <div className="section-frame p-6 sm:p-8">
-              <p className="text-sm uppercase tracking-[0.22em] text-primary">What we believe</p>
+              <p className="text-sm uppercase tracking-[0.22em] text-primary-ink">What we believe</p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
                 Traffic generation is not enough.
               </h2>
@@ -134,7 +134,7 @@ export default function AboutPage() {
             </div>
 
             <div className="section-frame p-6 sm:p-8">
-              <p className="text-sm uppercase tracking-[0.22em] text-primary">What we are building</p>
+              <p className="text-sm uppercase tracking-[0.22em] text-primary-ink">What we are building</p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
                 A Commerce Index and execution layer for agents.
               </h2>
@@ -154,7 +154,7 @@ export default function AboutPage() {
             <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
               <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                 <div className="space-y-4">
-                  <p className="text-sm uppercase tracking-[0.22em] text-primary">
+                  <p className="text-sm uppercase tracking-[0.22em] text-primary-ink">
                     What we optimize for
                   </p>
                   <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">

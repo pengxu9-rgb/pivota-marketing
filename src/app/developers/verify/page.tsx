@@ -250,7 +250,7 @@ export default function DevelopersVerifyPage() {
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-xs uppercase tracking-[0.18em] text-primary">{lane.eyebrow}</p>
+                      <p className="text-xs uppercase tracking-[0.18em] text-primary-ink">{lane.eyebrow}</p>
                       <h2 className="text-xl font-semibold tracking-tight">{lane.title}</h2>
                     </div>
                     <span className="ml-auto rounded-full border border-border/70 bg-background/60 px-3 py-1 text-xs text-muted-foreground">

@@ -150,7 +150,7 @@ export default function MerchantNativeCheckoutPage() {
         <section className="section-padding bg-gradient-to-b from-card to-background">
           <div className="container-max space-y-10">
             <div className="max-w-3xl space-y-4">
-              <p className="text-sm uppercase tracking-[0.22em] text-primary">
+              <p className="text-sm uppercase tracking-[0.22em] text-primary-ink">
                 Why merchant-native checkout matters
               </p>
               <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -178,7 +178,7 @@ export default function MerchantNativeCheckoutPage() {
         <section className="section-padding bg-gradient-to-b from-background to-card">
           <div className="container-max grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
             <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.22em] text-primary">What Pivota supports</p>
+              <p className="text-sm uppercase tracking-[0.22em] text-primary-ink">What Pivota supports</p>
               <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
                 The checkout layer is part of a broader execution system.
               </h2>
@@ -202,7 +202,7 @@ export default function MerchantNativeCheckoutPage() {
             <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
               <div className="space-y-5">
                 <div className="space-y-3">
-                  <p className="text-sm uppercase tracking-[0.22em] text-primary">
+                  <p className="text-sm uppercase tracking-[0.22em] text-primary-ink">
                     Execution boundaries
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -229,7 +229,7 @@ export default function MerchantNativeCheckoutPage() {
             <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
               <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
                 <div className="space-y-4">
-                  <p className="text-sm uppercase tracking-[0.22em] text-primary">
+                  <p className="text-sm uppercase tracking-[0.22em] text-primary-ink">
                     What merchants keep
                   </p>
                   <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">

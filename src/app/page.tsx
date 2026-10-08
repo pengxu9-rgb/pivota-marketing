@@ -219,7 +219,7 @@ export default async function Home({ searchParams }: HomePageProps) {
         <section className="section-padding bg-background">
           <div className="container-max grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <div className="section-rule border-border/80 pt-6">
-              <p className="kicker text-primary">Agent Demand</p>
+              <p className="kicker text-primary-ink">Agent Demand</p>
               <h2 className="mt-5 font-serif text-4xl font-medium tracking-normal text-foreground sm:text-5xl">
                 How agents get commerce done.
               </h2>
@@ -240,7 +240,7 @@ export default async function Home({ searchParams }: HomePageProps) {
             <div className="divide-y divide-border/80 border-y border-border/80">
               {agentUseCases.map((item, index) => (
                 <article key={item.title} className="grid gap-4 py-6 sm:grid-cols-[2.1rem_1fr]">
-                  <span className="pt-1 font-mono text-xs text-primary">
+                  <span className="pt-1 font-mono text-xs text-primary-ink">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -261,7 +261,7 @@ export default async function Home({ searchParams }: HomePageProps) {
           <div className="container-max">
             <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
               <div>
-                <p className="kicker text-primary">Functionality</p>
+                <p className="kicker text-primary-ink">Functionality</p>
                 <h2 className="mt-5 font-serif text-4xl font-medium tracking-normal text-foreground sm:text-5xl">
                   Execution capabilities for your agents.
                 </h2>
@@ -277,8 +277,8 @@ export default async function Home({ searchParams }: HomePageProps) {
               {capabilityItems.map((item, index) => (
                 <article key={item.title} className="section-frame p-6">
                   <div className="flex items-center justify-between gap-4">
-                    <p className="kicker text-primary">{item.eyebrow}</p>
-                    <span className="font-mono text-xs text-primary/80">
+                    <p className="kicker text-primary-ink">{item.eyebrow}</p>
+                    <span className="font-mono text-xs text-primary-ink">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -356,7 +356,7 @@ export default async function Home({ searchParams }: HomePageProps) {
         <section className="section-padding bg-background">
           <div className="container-max grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
             <div>
-              <p className="kicker text-primary">FAQ</p>
+              <p className="kicker text-primary-ink">FAQ</p>
               <h2 className="mt-5 font-serif text-4xl font-medium tracking-normal sm:text-5xl">
                 Plain answers before you onboard.
               </h2>

@@ -103,7 +103,7 @@ const ContactSection = () => {
         <div className="container-max grid gap-10 border-y border-border/80 py-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
           <div className="space-y-7">
             <div>
-              <p className="kicker text-primary">Talk to us</p>
+              <p className="kicker text-primary-ink">Talk to us</p>
               <h2 className="mt-5 font-serif text-4xl font-medium tracking-normal text-foreground sm:text-5xl">
                 Ready to make agent demand executable?
               </h2>

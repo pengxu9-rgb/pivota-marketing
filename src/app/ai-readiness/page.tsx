@@ -124,7 +124,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
               <div className={`${lightPanelClass} overflow-hidden p-5 sm:p-6 lg:p-7`}>
                 <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
                   <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-primary">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-primary-ink">
                       <Sparkles className="h-3.5 w-3.5" />
                       Free agent revenue analysis after connection
                     </div>
@@ -184,7 +184,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
                   </div>
 
                   <div className={`${lightCardClass} p-5 sm:p-7`}>
-                    <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                    <p className="text-sm uppercase tracking-[0.18em] text-primary-ink">
                       Practical starting point
                     </p>
                     <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
@@ -220,7 +220,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
         <section className={`${pageSectionClass} bg-gradient-to-b from-[#f2efe4] to-[#f8f6ee]`}>
           <div className="container-max grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.18em] text-primary">
+              <p className="text-sm uppercase tracking-[0.18em] text-primary-ink">
                 Why merchants need this now
               </p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -245,7 +245,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
         <section className={`${pageSectionClass} bg-gradient-to-b from-[#f8f6ee] to-[#f2efe4]`}>
           <div className="container-max grid gap-6 lg:grid-cols-2">
             <div className={`${lightPanelClass} p-5 sm:p-6`}>
-              <p className="text-sm uppercase tracking-[0.18em] text-primary">
+              <p className="text-sm uppercase tracking-[0.18em] text-primary-ink">
                 What Pivota analyzes
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
@@ -265,7 +265,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
             </div>
 
             <div className={`${lightPanelClass} p-5 sm:p-6`}>
-              <p className="text-sm uppercase tracking-[0.18em] text-primary">
+              <p className="text-sm uppercase tracking-[0.18em] text-primary-ink">
                 What merchants get back
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
@@ -289,7 +289,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
         <section className={`${pageSectionClass} bg-gradient-to-b from-[#f8f6ee] to-[#f2efe4]`}>
           <div className="container-max space-y-6">
             <div className="space-y-3">
-              <p className="text-sm uppercase tracking-[0.18em] text-primary">What you&apos;ll get</p>
+              <p className="text-sm uppercase tracking-[0.18em] text-primary-ink">What you&apos;ll get</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 What you get after connecting your store
               </h2>
@@ -328,7 +328,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
             <div className={`${lightPanelClass} p-5 sm:p-6`}>
               <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
                 <div className="space-y-4">
-                  <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary-ink">
                     Sample issue overview
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-slate-900">
@@ -396,7 +396,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
         <section id="how-it-works" className={`${pageSectionClass} bg-gradient-to-b from-[#f2efe4] to-[#f8f6ee]`}>
           <div className="container-max space-y-6">
             <div className="space-y-3">
-              <p className="text-sm uppercase tracking-[0.18em] text-primary">How it works</p>
+              <p className="text-sm uppercase tracking-[0.18em] text-primary-ink">How it works</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 From connection to action in 3 steps
               </h2>
@@ -406,7 +406,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
               {steps.map((step, index) => (
                 <article key={step.title} className={`${lightCardClass} px-5 py-5 sm:px-6 sm:py-6`}>
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-semibold text-primary">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-semibold text-primary-ink">
                       {index + 1}
                     </div>
                     <h3 className="text-lg font-semibold tracking-tight text-slate-900">
@@ -425,7 +425,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
             <div className={`${lightPanelClass} overflow-hidden p-5 sm:p-8 lg:p-10`}>
               <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
                 <div className="space-y-3">
-                  <p className="text-sm uppercase tracking-[0.18em] text-primary">Next step</p>
+                  <p className="text-sm uppercase tracking-[0.18em] text-primary-ink">Next step</p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                     See what may be blocking revenue from AI agents
                   </h2>
