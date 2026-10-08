@@ -63,16 +63,16 @@ export default function MerchantsPage() {
               See{" "}
               <Link
                 href="/merchant-gateway-for-agent-native-commerce"
-                className="text-primary hover:underline"
+                className="text-foreground underline underline-offset-4 hover:decoration-primary"
               >
                 how the execution layer works
               </Link>
               , how it{" "}
-              <Link href="/how-pivota-works" className="text-primary hover:underline">
+              <Link href="/how-pivota-works" className="text-foreground underline underline-offset-4 hover:decoration-primary">
                 works
               </Link>
               , and why{" "}
-              <Link href="/merchant-native-checkout" className="text-primary hover:underline">
+              <Link href="/merchant-native-checkout" className="text-foreground underline underline-offset-4 hover:decoration-primary">
                 merchant-native checkout
               </Link>{" "}
               matters.

@@ -16,7 +16,9 @@ export function verifyPivotaSignature({ rawBody, timestamp, signature, secret })
     .update(payload, "utf8")
     .digest("hex");
 
-  return signature === \`v1=\${digest}\`;
+  const expected = Buffer.from(\`v1=\${digest}\`);
+  const received = Buffer.from(signature ?? "");
+  return received.length === expected.length && crypto.timingSafeEqual(received, expected);
 }`;
 
 const webhookEvents = [
@@ -123,13 +125,9 @@ export default function DevelopersAuthWebhooksPage() {
                     Managed receiver pattern
                   </h2>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    The branded managed receiver pattern follows
-                    {" "}
-                    <code className="rounded bg-background px-1.5 py-1 font-mono text-xs text-foreground">
-                      Account-scoped portal receiver contract; not declared in the public OpenAPI
-                    </code>
-                    {" "}
-                    and can be used to validate delivery before switching to a merchant or partner endpoint.
+                    Managed receivers are configured per account in the developer portal; this
+                    receiver contract is not declared in the public OpenAPI. Use one to validate
+                    delivery before switching to a merchant or partner endpoint.
                   </p>
                 </div>
 

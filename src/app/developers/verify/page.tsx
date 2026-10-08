@@ -164,7 +164,7 @@ const knownLimits = [
 export const metadata = buildMarketingMetadata({
   title: "Verify Pivota | Agent Verification Path",
   description:
-    "A three-lane verification path an agent can execute unattended against Pivota: commerce index, decision layer, then checkout routing — with the expected result for every call.",
+    "A three-lane verification path for agents evaluating Pivota: commerce index, decision layer, then checkout routing — with the expected result for every call. The open research tools need no credentials; keyed and checkout lanes need scoped access.",
   path: routePaths.developersVerify,
   ogImage: "/og-developers.svg",
 });
@@ -204,8 +204,8 @@ export default function DevelopersVerifyPage() {
                     Point an agent at us and see for yourself.
                   </h1>
                   <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                    Evaluating a commerce layer should not require a sales call or a signup. This is a
-                    verification path an agent can run unattended, in three lanes, with the expected
+                    Starting an evaluation should not require a sales call or a signup. This is a
+                    verification path an agent can follow in three lanes, with the expected
                     result stated for every call. The four open research tools need no credentials. recommend_products requires the keyed native door.
                   </p>
                   <div className="flex flex-wrap gap-3">
@@ -374,14 +374,14 @@ export default function DevelopersVerifyPage() {
                 <div className="flex flex-wrap gap-4 text-sm">
                   <Link
                     href={routePaths.developersAuthWebhooks}
-                    className="inline-flex items-center text-primary hover:underline"
+                    className="inline-flex items-center text-foreground underline underline-offset-4 hover:decoration-primary"
                   >
                     Auth &amp; webhooks
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                   <Link
                     href={routePaths.developersProtocols}
-                    className="inline-flex items-center text-primary hover:underline"
+                    className="inline-flex items-center text-foreground underline underline-offset-4 hover:decoration-primary"
                   >
                     Protocols
                     <ChevronRight className="ml-1 h-4 w-4" />

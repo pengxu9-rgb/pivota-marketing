@@ -84,12 +84,12 @@ export default function ShoppingAgentPage() {
             See the core category definition on{" "}
             <Link
               href="/merchant-gateway-for-agent-native-commerce"
-              className="text-primary hover:underline"
+              className="text-foreground underline underline-offset-4 hover:decoration-primary"
             >
               /merchant-gateway-for-agent-native-commerce
             </Link>
             , then follow the execution model on{" "}
-            <Link href="/how-pivota-works" className="text-primary hover:underline">
+            <Link href="/how-pivota-works" className="text-foreground underline underline-offset-4 hover:decoration-primary">
               /how-pivota-works
             </Link>
             .

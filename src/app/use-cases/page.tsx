@@ -19,7 +19,7 @@ type UseCase = {
   upstreamChange: string;
   downstreamAgents: string;
   rolloutStage: string;
-  proof: string;
+  intendedBenefit: string;
   homepageShortVersion: string;
 };
 
@@ -29,115 +29,115 @@ const useCases: UseCase[] = [
     category: "Discoverability and variant readiness",
     cardTitle: "Ingredient and variant clarity",
     summary:
-      "A specialty skin care brand improved catalog and variant readiness so downstream agents could compare products with less ambiguity.",
+      "A specialty skin care brand could improve catalog and variant readiness so downstream agents compare products with less ambiguity.",
     merchantContext:
       "A specialty skin care brand with dense ingredient claims, concern mapping, bundle logic, and closely related variants.",
     readinessGap:
-      "Catalog queryability and variant readiness were weak. The merchant could be discovered, but not consistently understood.",
+      "Catalog queryability and variant readiness are weak. The merchant can be discovered, but not consistently understood.",
     upstreamChange:
-      "Pivota improved product normalization, concern and ingredient mapping, variant structure, and the query surfaces exposed to downstream workflows. It then recommended a staged rollout starting with feeds.",
+      "Pivota would work on product normalization, concern and ingredient mapping, variant structure, and the query surfaces exposed to downstream workflows, then recommend a staged rollout starting with feeds.",
     downstreamAgents:
       "Agents could resolve products and variants with less ambiguity, compare options more confidently, and route users into a cleaner merchant-native path.",
     rolloutStage: "Feeds first, then merchant-native checkout.",
-    proof: "Better readiness for agent-driven recommendation and cleaner downstream variant resolution.",
+    intendedBenefit: "Better readiness for agent-driven recommendation and cleaner downstream variant resolution.",
     homepageShortVersion:
-      "A specialty skin care brand cleaned up ingredient and variant structure so downstream agents could recommend products more reliably.",
+      "A specialty skin care brand could clean up ingredient and variant structure so downstream agents recommend products more reliably.",
   },
   {
     slug: "seasonal-promo-complexity",
     category: "Offer and promotion readiness",
     cardTitle: "Seasonal promo complexity",
     summary:
-      "A mid-market fashion merchant reduced offer ambiguity across seasonal discounts, cart thresholds, and shipping incentives.",
+      "A mid-market fashion merchant could reduce offer ambiguity across seasonal discounts, cart thresholds, and shipping incentives.",
     merchantContext:
       "A mid-market fashion merchant with seasonal promotions, auto discounts, cart thresholds, and shipping incentives.",
     readinessGap:
-      "Visible offers were not the same as executable offers. Promotion logic was too fragmented across the merchant stack.",
+      "Visible offers are not the same as executable offers. Promotion logic is too fragmented across the merchant stack.",
     upstreamChange:
-      "Pivota reviewed discount structures, auto promos, eligibility logic, and checkout behavior during onboarding, then highlighted the highest-priority promotion blockers.",
+      "Pivota would review discount structures, auto promos, eligibility logic, and checkout behavior during onboarding, then highlight the highest-priority promotion blockers.",
     downstreamAgents:
-      "Agents got a cleaner, better-matched offer and checkout path without guessing across fragmented promotion surfaces.",
+      "Agents could get a cleaner, better-matched offer and checkout path without guessing across fragmented promotion surfaces.",
     rolloutStage: "Link-out or feeds first, then merchant-native checkout after readiness fixes.",
-    proof: "Cleaner offer matching and fewer downstream ambiguities before deeper checkout integration.",
+    intendedBenefit: "Cleaner offer matching and fewer downstream ambiguities before deeper checkout integration.",
     homepageShortVersion:
-      "A fashion merchant tightened fragmented promo logic so downstream agents could stop guessing which offer really applied.",
+      "A fashion merchant could tighten fragmented promo logic so downstream agents stop guessing which offer really applies.",
   },
   {
     slug: "eligibility-sensitive-pricing",
     category: "Offer and promotion readiness",
     cardTitle: "Eligibility-sensitive pricing",
     summary:
-      "A specialty beauty brand clarified membership and incentive logic before exposing downstream price paths.",
+      "A specialty beauty brand could clarify membership and incentive logic before exposing downstream price paths.",
     merchantContext:
       "A specialty beauty brand with gated membership pricing, first-order incentives, and loyalty-linked promotions.",
     readinessGap:
-      "Eligibility conditions were not clear enough for consistent downstream execution.",
+      "Eligibility conditions are not clear enough for consistent downstream execution.",
     upstreamChange:
-      "Pivota mapped visible offers against eligibility conditions, tightened readiness around membership and checkout handoff, and clarified what could be exposed as executable versus conditional.",
+      "Pivota would map visible offers against eligibility conditions, tighten readiness around membership and checkout handoff, and clarify what can be exposed as executable versus conditional.",
     downstreamAgents:
-      "Agents stopped over-claiming discounts and instead routed to more reliable price and checkout paths with clearer qualification logic.",
+      "Agents could stop over-claiming discounts and instead route to more reliable price and checkout paths with clearer qualification logic.",
     rolloutStage: "Feeds first, then merchant-native checkout when eligibility handling is ready.",
-    proof: "Clearer qualification logic and more reliable downstream price paths.",
+    intendedBenefit: "Clearer qualification logic and more reliable downstream price paths.",
     homepageShortVersion:
-      "A merchant with membership pricing clarified what was executable versus conditional before scaling AI traffic.",
+      "A merchant with membership pricing could clarify what is executable versus conditional before scaling AI traffic.",
   },
   {
     slug: "wallet-and-financing-readiness",
     category: "Checkout and payment execution",
     cardTitle: "Wallet and financing readiness",
     summary:
-      "A regional electronics retailer improved payment-aware checkout readiness for agent-driven traffic.",
+      "A regional electronics retailer could improve payment-aware checkout readiness for agent-driven traffic.",
     merchantContext:
       "A regional electronics retailer with wallet-heavy checkout behavior, financing options, and payment-linked incentives.",
     readinessGap:
-      "Payment readiness and checkout execution logic were not agent-ready.",
+      "Payment readiness and checkout execution logic are not agent-ready.",
     upstreamChange:
-      "Pivota analyzed payment setup, PSP-linked logic, and checkout path readiness, then recommended a path toward merchant-native checkout with cleaner payment orchestration.",
+      "Pivota would analyze payment setup, PSP-linked logic, and checkout path readiness, then recommend a path toward merchant-native checkout with cleaner payment routing through the merchant's own providers.",
     downstreamAgents:
-      "Agents got a more stable payment-aware execution path instead of handing users off into ambiguous checkout logic.",
+      "Agents could get a more stable payment-aware execution path instead of handing users off into ambiguous checkout logic.",
     rolloutStage: "Link-out or feeds initially, then merchant-native checkout.",
-    proof: "A more reliable merchant-native path for payment-aware execution.",
+    intendedBenefit: "A more reliable merchant-native path for payment-aware execution.",
     homepageShortVersion:
-      "An electronics retailer cleaned up wallet and financing logic before moving toward merchant-native checkout.",
+      "An electronics retailer could clean up wallet and financing logic before moving toward merchant-native checkout.",
   },
   {
     slug: "shipping-and-cart-rule-alignment",
     category: "Checkout and payment execution",
     cardTitle: "Shipping and cart-rule alignment",
     summary:
-      "A DTC home goods merchant reduced late-stage surprises from shipping thresholds, bundles, and cart logic.",
+      "A DTC home goods merchant could reduce late-stage surprises from shipping thresholds, bundles, and cart logic.",
     merchantContext:
       "A DTC home goods merchant with large baskets, shipping thresholds, bundle promotions, and fulfillment-sensitive checkout behavior.",
     readinessGap:
-      "Cart, shipping, and checkout logic were not cleanly exposed for downstream execution.",
+      "Cart, shipping, and checkout logic are not cleanly exposed for downstream execution.",
     upstreamChange:
-      "Pivota evaluated how cart rules, shipping thresholds, bundle logic, and merchant-native handoff behaved, then identified the readiness blockers most likely to affect conversion.",
+      "Pivota would evaluate how cart rules, shipping thresholds, bundle logic, and merchant-native handoff behave, then identify the readiness blockers most likely to affect conversion.",
     downstreamAgents:
-      "Agents received a more dependable path from recommendation to checkout, with fewer late-stage surprises.",
+      "Agents could receive a more dependable path from recommendation to checkout, with fewer late-stage surprises.",
     rolloutStage: "Feeds first, then merchant-native checkout.",
-    proof: "Cleaner handoff and fewer checkout-path surprises.",
+    intendedBenefit: "Cleaner handoff and fewer checkout-path surprises.",
     homepageShortVersion:
-      "A home goods merchant improved cart and shipping readiness so recommended paths stayed closer to final checkout reality.",
+      "A home goods merchant could improve cart and shipping readiness so recommended paths stay closer to final checkout reality.",
   },
   {
     slug: "reliability-and-write-back-visibility",
     category: "Measurement and write-back",
     cardTitle: "Reliability and write-back visibility",
     summary:
-      "A footwear brand strengthened measurement and write-back continuity before scaling agent-driven traffic.",
+      "A footwear brand could strengthen measurement and write-back continuity before scaling agent-driven traffic.",
     merchantContext:
       "A footwear brand with strict size and variant complexity, high return sensitivity, and multiple execution paths across storefront and payment systems.",
     readinessGap:
-      "Measurement readiness and downstream execution signals were weak, limiting confidence in scaling AI traffic.",
+      "Measurement readiness and downstream execution signals are weak, limiting confidence in scaling AI traffic.",
     upstreamChange:
-      "Pivota connected upstream merchant analysis to execution measurement, highlighted write-back and operational signal gaps, and recommended the right next integration stage for cleaner measurement.",
+      "Pivota would connect upstream merchant analysis to execution measurement, highlight write-back and operational signal gaps, and recommend the next integration stage for cleaner measurement.",
     downstreamAgents:
-      "Agents routed through a more measurable, more reliable path, while the merchant gained clearer attribution and better visibility into where execution broke.",
+      "Agents could route through a more measurable, more reliable path, while the merchant gains clearer attribution and better visibility into where execution breaks.",
     rolloutStage:
       "Link-out first if measurement is weak; merchant-native checkout later for stronger reliability signals.",
-    proof: "Stronger measurement and write-back continuity before scaling agent-driven demand.",
+    intendedBenefit: "Stronger measurement and write-back continuity before scaling agent-driven demand.",
     homepageShortVersion:
-      "A footwear merchant improved execution visibility before scaling agent-driven demand.",
+      "A footwear merchant could improve execution visibility before scaling agent-driven demand.",
   },
 ];
 
@@ -197,12 +197,12 @@ export default function UseCasesPage() {
               <div className="space-y-5">
                 <p className="text-sm uppercase tracking-[0.18em] text-primary">Use cases</p>
                 <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                  How merchants use Pivota to improve downstream agent execution.
+                  How merchants could use Pivota to improve downstream agent execution.
                 </h1>
                 <AnswerBlock className="max-w-3xl">
                   <p>
-                    These illustrative merchant scenarios show how merchants fix upstream
-                    execution gaps so downstream agents get cleaner offer resolution, checkout
+                    These illustrative merchant scenarios show how a merchant could fix upstream
+                    execution gaps so downstream agents could get cleaner offer resolution, checkout
                     paths, payment handling, and write-back continuity.
                   </p>
                   <p className="mt-2">
@@ -245,10 +245,10 @@ export default function UseCasesPage() {
               <div className="space-y-5">
                 <div className="space-y-2">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                    Homepage-friendly summaries
+                    Scenario summaries
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Six illustrative merchant scenarios, not generic category restatement.
+                    Six illustrative merchant scenarios.
                   </h2>
                   <div className="flex flex-wrap gap-4 text-sm">
                     <Link
@@ -328,7 +328,7 @@ export default function UseCasesPage() {
                             <div className="grid gap-4 md:grid-cols-2">
                               <div className="rounded-2xl border border-border/70 bg-background/55 p-4">
                                 <p className="text-sm font-semibold text-foreground">
-                                  Merchant context
+                                  Example merchant profile
                                 </p>
                                 <p className="mt-3 text-sm leading-7 text-muted-foreground">
                                   {useCase.merchantContext}
@@ -336,7 +336,7 @@ export default function UseCasesPage() {
                               </div>
                               <div className="rounded-2xl border border-border/70 bg-background/55 p-4">
                                 <p className="text-sm font-semibold text-foreground">
-                                  What was breaking the path
+                                  What could be breaking the path
                                 </p>
                                 <p className="mt-3 text-sm leading-7 text-muted-foreground">
                                   {useCase.readinessGap}
@@ -363,14 +363,14 @@ export default function UseCasesPage() {
                                   Intended benefit, not a measured result
                                 </p>
                                 <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                                  {useCase.proof}
+                                  {useCase.intendedBenefit}
                                 </p>
                               </div>
                             </div>
                           </div>
 
                           <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/8 px-4 py-4 text-sm leading-7 text-foreground">
-                            <span className="block font-semibold">Recommended rollout stage</span>
+                            <span className="block font-semibold">Suggested rollout stage</span>
                             <span className="mt-1 block">{useCase.rolloutStage}</span>
                           </div>
                         </article>

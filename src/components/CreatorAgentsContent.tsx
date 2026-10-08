@@ -76,12 +76,12 @@ export default function CreatorAgentsContent() {
             Start with{" "}
             <Link
               href="/merchant-gateway-for-agent-native-commerce"
-              className="text-primary hover:underline"
+              className="text-foreground underline underline-offset-4 hover:decoration-primary"
             >
               how the execution layer works
             </Link>
             , then review{" "}
-            <Link href="/about" className="text-primary hover:underline">
+            <Link href="/about" className="text-foreground underline underline-offset-4 hover:decoration-primary">
               what Pivota is building
             </Link>
             .

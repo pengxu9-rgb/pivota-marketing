@@ -19,7 +19,7 @@ export default function TermsPage() {
           <h1 className="text-4xl font-bold tracking-tight">Service terms and access</h1>
           <p className="mt-3 text-sm text-muted-foreground">Updated: 2026-10-07</p>
 
-          <div className="prose mt-10 max-w-none prose-neutral prose-a:text-primary prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground">
+          <div className="prose mt-10 max-w-none prose-neutral prose-a:text-foreground prose-a:underline prose-a:underline-offset-4 prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground">
             <p>
               This page is provided for general legal navigation. For the latest Service terms and access, please contact{" "}
               <a href="mailto:support@pivota.cc">support@pivota.cc</a>.
