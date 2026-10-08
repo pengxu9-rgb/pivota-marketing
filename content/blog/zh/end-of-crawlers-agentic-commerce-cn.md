@@ -1,31 +1,47 @@
 ---
 id: end-of-crawlers
-title: 爬虫时代的终结：什么将成为 Agentic Commerce 的底层基础设施
-description: 正确的协议名称、Pivota 当前能力范围与商家控制的资金流。
+title: 为什么 AI 购物智能体需要 API，而不是爬虫
+description: 为什么 AI 购物智能体需要结构化的商品、报价与结账接口，而不是抓取店铺页面；以及结构化接口仍然无法保证什么。
 date: 2025-11-14
 author: Pivota 工程团队
-tags: [MCP, ACP, AP2, Agentic Commerce, 爬虫]
+tags: [Agentic Commerce, 爬虫, API]
 ogImage: /og-developers-zh.svg
-updated: 2026-10-07
+updated: 2026-10-08
 ---
 
-**2026 年 10 月 7 日更正。** 本文替换了旧版协议定义，并删除未经证实的支付、清算和结算能力描述。原文发表于 2025 年 11 月 14 日。
+**2026 年 10 月 7 日更正；10 月 8 日移出协议定义。** 本文删除了未经证实的支付和结算能力描述，协议定义已移至[《MCP、ACP、AP2 和 UCP 是什么？》](/blog/what-are-mcp-acp-and-ap2)。原文发表于 2025 年 11 月 14 日。
 
-Pivota 在商家现有系统之上提供商业决策与执行层。Commerce Index 提供商品和报价信息；受支持的集成把智能体意图连接到商家控制的执行路径。Pivota 不制定下列协议，不持有客户资金，也不担任交易商户（merchant of record）。
+Pivota 在商家现有系统之上提供商业决策与执行层。Commerce Index 提供商品和报价信息；受支持的集成把智能体意图连接到商家控制的执行路径。Pivota 不持有客户资金，也不担任记录商户（merchant of record）。
 
-## 协议的正确名称与范围
+## 爬虫看到什么，又漏掉什么
 
-- **MCP — Model Context Protocol（模型上下文协议）**：连接 AI 应用与工具、上下文，不是商业结算协议。[官方说明](https://modelcontextprotocol.io/introduction)。
-- **ACP — Agentic Commerce Protocol**：由 OpenAI 和 Stripe 开发的开放商业互操作标准，协调结账与安全支付凭证交换。Pivota 的 ACP 工作流仍为**内部测试**，不是默认公开自助能力。[官方说明](https://www.agenticcommerce.dev/)。
-- **AP2 — Agent Payments Protocol**：提供委托支付的可验证授权与信任机制，不意味着 Pivota 提供清算、托管或支付处理服务。Pivota 的 AP2 工作流仍为**内部测试**。[官方说明](https://ap2-protocol.org/)。
-- **UCP — Universal Commerce Protocol**：描述可互操作的商业能力。Pivota 发布卖方发现配置与 `cc.pivota.insights` 扩展；能力声明不等于已完成购买。[UCP](https://ucp.dev/) 与 [Pivota Insights](/ucp/insights)。
+爬虫读取的是人看到的页面。这通常足以说出商品名称，却不足以买对商品。抓取的页面可能无法告诉智能体：
 
-## 区分查询、决策和交易结果
+- 购物者指的是哪个具体变体（尺码、色号或组合装），该变体是否有货；
+- 由哪个卖家提供，哪项促销真正适用于这位购物者；
+- 页面上的价格是否仍然有效；
+- 商家是否允许智能体发起结账，还是只允许跳转。
 
-公开只读工具包括 `search_catalog`、`get_product`、`get_alternatives` 和 `get_intel`。商品覆盖以美妆与个人护理为主；审核过的情报可能不存在。价格、库存与具体变体需要核实，不能根据空结果编造答案。
+智能体一旦猜错其中任何一项，购物者就可能拿到错误的商品、已变动的价格，或者商家从未向智能体开放的结账流程。
 
-结账需要相应接口权限、买家身份、准确变体与商家就绪条件。返回结账链接或待付款会话并不证明订单已付款，更不证明履约。商家与其支付服务商负责销售与资金流。持久商业身份必须单独明确选择加入；接口认证不等于用户同意建立持久身份。
+## 结构化接口带来什么
+
+结构化接口让这些信息可以被检查。智能体可以请求具体的商品和变体，看到自己读取的是哪项报价；当某个操作不受支持时，会得到明确的答复，而不必从页面布局去推断。商家决定开放哪些信息，以及智能体可以使用哪些路径。
+
+## 结构化接口仍然无法保证什么
+
+结构化接口并不是保证。价格、库存、覆盖范围和变体选择仍需核实时效；任何操作前仍需检查权限；当商家无法支持某个请求时，智能体仍需要安全的回退路径。审核过的商品情报可能不存在；空结果不等于可以编造答案。
+
+抓取也并非在所有场景都已过时。应根据接口返回的证据和其支持的契约来选择接口。
+
+## Pivota 的位置
+
+公开只读研究可通过四个 MCP 工具完成：`search_catalog`、`get_product`、`get_alternatives` 和 `get_intel`。覆盖以美妆与个人护理为主。
+
+结账是单独的步骤，有其自身的条件；商家与其支付服务商负责销售与资金流。
+
+关于 MCP、ACP、AP2 和 UCP 的含义以及 Pivota 目前支持哪些，请阅读[《MCP、ACP、AP2 和 UCP 是什么？》](/blog/what-are-mcp-acp-and-ap2)。
 
 ## 从可验证接口开始
 
-查看[公开验证路径](/developers/verify)、[当前兼容性矩阵](/developers/protocols)与 [OpenAPI](https://api.pivota.cc/agent/docs/openapi.json)。支付测试需要协调确认的沙盒凭证。采用协议不保证平台收录、流量、支付成功或所有商家的生产结账。
+先查看[公开验证路径](/developers/verify)，再查看 [OpenAPI](https://api.pivota.cc/agent/docs/openapi.json)。关于商家与渠道资格、拒绝情形和归因，请阅读[决策与执行证据](/decisions-and-execution)。

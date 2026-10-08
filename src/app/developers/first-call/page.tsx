@@ -164,6 +164,15 @@ export default function DevelopersFirstCallPage() {
                   <pre className="mt-5 overflow-x-auto rounded-2xl border border-border/70 bg-background/80 p-4 text-sm text-foreground">
                     <code>{orderSnippet}</code>
                   </pre>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                    The example shows only the API key. Purchase calls such as checkout intents and order creation also need verified buyer identity; an API key alone is not
+                    purchase authority. The{" "}
+                    <a href="https://api.pivota.cc/agent/docs/openapi.json" className="text-foreground underline underline-offset-4">
+                      OpenAPI
+                    </a>{" "}
+                    lists the buyer headers each endpoint accepts, such as{" "}
+                    <code className="font-mono text-foreground">X-Agent-User-JWT</code>.
+                  </p>
                 </div>
               </div>
 

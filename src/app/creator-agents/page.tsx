@@ -4,7 +4,7 @@ import { buildMarketingMetadata } from "@/lib/marketing";
 export const metadata = buildMarketingMetadata({
   title: "Creator Agent Surface | Pivota",
   description:
-    "Creator-facing agent surfaces built on Pivota's commerce execution layer.",
+    "Creator-facing agent surfaces built on Pivota's commerce decision and execution layer.",
   path: "/creator-agents",
 });
 

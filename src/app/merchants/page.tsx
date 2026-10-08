@@ -48,7 +48,7 @@ export default function MerchantsPage() {
               Connect merchant systems to LLM and agent demand.
             </h1>
             <p className="max-w-3xl text-lg text-muted-foreground">
-              Pivota is the commerce execution and optimization layer for agentic demand. It helps merchants become
+              Pivota is the commerce decision and execution layer for AI agents. It helps merchants become
               more discoverable, more executable, and more measurable across LLM surfaces.
             </p>
             <div className="flex flex-wrap gap-3">
