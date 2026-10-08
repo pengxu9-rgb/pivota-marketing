@@ -327,7 +327,7 @@ export default function PivotaVsShopifyPage() {
                       <ul className="space-y-2">
                         <li>• a commerce sub-agent</li>
                         <li>• a commerce skill</li>
-                        <li>• a commerce execution layer for agentic demand</li>
+                        <li>• a commerce decision and execution layer for AI agents</li>
                       </ul>
                       <p className="text-foreground/90">
                         not just an AI channel enablement tool.

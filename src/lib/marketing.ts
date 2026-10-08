@@ -54,9 +54,9 @@ export const defaultOgTitle = "Pivota — Merchant-Controlled Commerce Layer for
 export const defaultOgDescription =
   "Pivota works with Shopify, Wix, WooCommerce, BigCommerce, and other store platforms to add merchant control, execution continuity, and fallback across AI buying surfaces.";
 
-export const homepageTitle = "Pivota | Commerce Index and Decision Layer for Agents";
+export const homepageTitle = "Pivota | Commerce Decision and Execution Layer for AI Agents";
 export const homepageMetaDescription =
-  "Pivota provides the Commerce Index and decision layer for agentic demand, helping agents decide what to recommend, resolve offers, route checkout, and optimize outcomes on top of existing merchant systems.";
+  "Pivota is the commerce decision and execution layer for AI agents. Its Commerce Index helps agents decide what to recommend, resolve offers, and route checkout through existing merchant systems.";
 export const aiReadinessTitle = "Can Your Store Win Customers from AI? | Pivota";
 export const aiReadinessMetaDescription =
   "Connect your store to Pivota and see what is blocking the path from AI agent demand to completed transactions across product resolution, offers, checkout, and payments.";
@@ -264,7 +264,7 @@ export const faqItems = [
   {
     question: "Can I start before merchant-native checkout?",
     answer:
-      "Yes. Many merchants start with discovery, feeds, or link-out first. Some merchants are ready to start with merchant-native checkout on day one when their checkout, payment, and execution paths are already in good shape. Pivota works with existing PSP relationships and supports payment routing and authorization without requiring a storefront rebuild.",
+      "Yes. Many merchants start with discovery, feeds, or link-out first. Some merchants are ready to start with merchant-native checkout on day one when their checkout, payment, and execution paths are already in good shape. Pivota works with existing PSP relationships: it routes checkout to the merchant's own payment providers, which authorize the payment, without requiring a storefront rebuild.",
   },
   {
     question: "What is the difference between a visible offer and an executable offer?",
@@ -285,6 +285,11 @@ export const faqItems = [
     question: "What is the default integration path?",
     answer:
       "REST with API keys and webhooks is the default production path. The pivota-agent package on PyPI is not maintained, so build against the REST contract. Pivota hosts remote MCP endpoints: four public read-only research tools, and a keyed door with scoped capabilities.",
+  },
+  {
+    question: "Which agent commerce protocols does Pivota support?",
+    answer:
+      "As of October 2026: MCP (Model Context Protocol) has four public read-only research tools at mcp.pivota.cc/mcp, plus a keyed endpoint with scoped capabilities. UCP (Universal Commerce Protocol) has a live seller door for discovery and catalog search; checkout through it is limited. ACP (Agentic Commerce Protocol) and AP2 (Agent Payments Protocol) workflows are internal beta, not self-serve. Visa Intelligent Commerce, Visa Trusted Agent Protocol and Mastercard Agent Pay are not supported. Pivota does not author any of these standards.",
   },
   {
     question: "What happens after the first successful call?",
@@ -314,7 +319,7 @@ export const faqItems = [
   {
     question: "How do AI agents connect to merchant checkout and payment?",
     answer:
-      "Pivota connects agent demand to merchant-native checkout and payment flows. Merchants keep existing payment relationships while Pivota supports authorization, payment-state sync, and write-back.",
+      "Pivota connects agent demand to merchant-native checkout and payment flows. Merchants keep existing payment relationships: the merchant's own payment providers authorize and process the payment, while Pivota routes checkout to them and syncs payment state and write-back.",
   },
   {
     question: "What is agentic commerce?",
@@ -357,7 +362,7 @@ export const homepageFaqItems = [
   {
     question: "Can I start before merchant-native checkout?",
     answer:
-      "Yes. Many merchants start with discovery, feeds, or link-out first. Some merchants are ready to start with merchant-native checkout on day one when their checkout, payment, and execution paths are already in good shape. Pivota works with existing PSP relationships and supports payment routing and authorization without requiring a storefront rebuild.",
+      "Yes. Many merchants start with discovery, feeds, or link-out first. Some merchants are ready to start with merchant-native checkout on day one when their checkout, payment, and execution paths are already in good shape. Pivota works with existing PSP relationships: it routes checkout to the merchant's own payment providers, which authorize the payment, without requiring a storefront rebuild.",
   },
   {
     question: "How much implementation work is required?",

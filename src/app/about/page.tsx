@@ -106,7 +106,7 @@ export default function AboutPage() {
                       Category: Commerce Index for Agents
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                      Role: structured Commerce Index and execution layer between agent demand and merchant systems
+                      Role: commerce decision and execution layer, with a structured Commerce Index, between agent demand and merchant systems
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
                       Boundary: not a marketplace, not an inventory holder, not a checkout-only tool

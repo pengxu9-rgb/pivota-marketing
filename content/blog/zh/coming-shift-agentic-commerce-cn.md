@@ -298,7 +298,7 @@ Agent 需要对履约风险有可预期的判断：
 
 接入 Pivota 不保证进入某个 AI 平台的分发渠道、兼容所有 Agent、覆盖全部商品目录或获得支付受理。发送流量之前，应核对受支持的接口合同及商家、渠道范围。
 
-Pivota 不持有客户资金，也不担任交易记录商家（merchant of record）。销售与资金流由相应商家和支付服务商处理。持久商业身份需要单独、明确的选择加入。
+Pivota 不持有客户资金，也不担任记录商户（merchant of record）。销售与资金流由相应商家和支付服务商处理。持久商业身份需要单独、明确的选择加入。
 
 可从 [Verify Pivota](/developers/verify) 开始，核对[协议状态](/developers/protocols)，并阅读[决策与执行证据](/decisions-and-execution)，区分商品发现、结账交接、已付款订单和履约。
 

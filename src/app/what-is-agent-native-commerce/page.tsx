@@ -76,14 +76,14 @@ export default function WhatIsAgentNativeCommercePage() {
                       a user navigating a merchant site directly.
                     </p>
                     <p className="mt-2">
-                      Pivota is the commerce execution layer for agent-native commerce, which means it
+                      Pivota is the commerce decision and execution layer for AI agents, which means it
                       turns LLM and agent traffic into merchant-native transactions across catalog,
                       checkout, payment, and post-purchase systems.
                     </p>
                   </AnswerBlock>
                   <p className="max-w-3xl text-sm leading-7 text-foreground/90">
                     Store platforms such as Shopify, Wix, WooCommerce, and BigCommerce help
-                    merchants reach some native AI selling paths. Pivota is the commerce execution layer
+                    merchants reach some native AI selling paths. Pivota is the commerce decision and execution layer
                     that agents can call across merchant systems, including
                     fallback when those native paths are not enough.
                   </p>
@@ -154,8 +154,8 @@ export default function WhatIsAgentNativeCommercePage() {
                   <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
                     Agent-native commerce is the more precise execution framing. It describes how
                     that demand becomes merchant-native transactions across catalog, checkout,
-                    payment, and post-purchase systems. Pivota&apos;s category is the commerce execution layer
-                    for agent-native commerce.
+                    payment, and post-purchase systems. Pivota&apos;s category is the commerce decision and
+                    execution layer for AI agents.
                   </p>
                 </div>
               </div>

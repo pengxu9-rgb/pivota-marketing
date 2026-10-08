@@ -99,7 +99,7 @@ const homepageFaqJsonLd = buildFaqJsonLd(homepageFaqItems);
 const homepageServiceJsonLd = buildServiceJsonLd({
   name: "Pivota Commerce Index and Decision Layer",
   path: routePaths.home,
-  serviceType: "Commerce Index and decision layer for AI agents",
+  serviceType: "Commerce decision and execution layer for AI agents",
 });
 
 export const metadata = buildMarketingMetadata({
@@ -156,10 +156,10 @@ export default async function Home({ searchParams }: HomePageProps) {
                 <p className="mt-7 max-w-2xl text-lg leading-8 text-white/80 sm:text-xl">
                   Pivota is the{" "}
                   <span className="font-medium text-lime-200">
-                    Commerce Index and decision layer
+                    commerce decision and execution layer
                   </span>{" "}
-                  for agentic demand. It helps agents decide what to recommend, resolve
-                  offers, and route transactions through merchant-controlled systems.
+                  for AI agents. Its Commerce Index helps agents decide what to recommend,
+                  resolve offers, and route transactions through merchant-controlled systems.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">

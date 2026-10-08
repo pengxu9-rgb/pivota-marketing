@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Cable, ChevronRight, Globe2, ShieldCheck } from "lucide-react";
+import { Ban, Cable, ChevronRight, Globe2, ShieldCheck } from "lucide-react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
@@ -11,9 +11,9 @@ const protocolLayers = [
   { title: "MCP (Model Context Protocol)", status: "Public read-only; keyed capabilities are scoped", availability: "Tool and context interface", body: "MCP connects AI applications to tools and context. Pivota exposes four public research tools; keyed checkout requires buyer identity and merchant readiness. MCP does not settle funds or guarantee a tool is implemented.", icon: Cable },
   {
     title: "UCP (Universal Commerce Protocol)",
-    status: "Live · self-serve",
+    status: "Live · discovery and search",
     availability: "Hosted seller door, any agent with a portal API key",
-    body: "Pivota runs a hosted UCP seller door: discover it at commerce.mcp.pivota.cc/.well-known/ucp, search and read the catalog with your developer-portal key, add OAuth buyer identity for checkout. Pivota's decision layer is published as the vendor capability cc.pivota.insights.",
+    body: "Pivota runs a hosted UCP seller door: discover it at commerce.mcp.pivota.cc/.well-known/ucp, then search and read the catalog with your developer-portal key. Checkout through the door is limited: it needs OAuth buyer identity and merchant readiness. Pivota's decision layer is published as the vendor capability cc.pivota.insights.",
     icon: Globe2,
   },
   {
@@ -30,12 +30,19 @@ const protocolLayers = [
     body: "AP2 provides verifiable delegated-payment authorization and trust; it is a protocol layer above standard order and webhook flows. It is not a public self-serve surface in the default developer path.",
     icon: ShieldCheck,
   },
+  {
+    title: "Card-network agent programs",
+    status: "Not supported",
+    availability: "Visa Intelligent Commerce, Visa Trusted Agent Protocol, Mastercard Agent Pay",
+    body: "Pivota does not support these programs. Card acceptance stays with the merchant's own payment providers.",
+    icon: Ban,
+  },
 ] as const;
 
 export const metadata = buildMarketingMetadata({
   title: "Protocols & Compatibility | Pivota Agent Integration",
   description:
-    "Public compatibility page for protocol and channel layers that sit above Pivota's default REST, API key, and webhook production contract.",
+    "Pivota protocol support as of October 2026: public read-only MCP research tools, a live UCP seller door for discovery and search with limited checkout, ACP and AP2 in internal beta, and no support for Visa or Mastercard agent programs.",
   path: routePaths.developersProtocols,
   ogImage: "/og-developers.svg",
 });
@@ -78,6 +85,9 @@ export default function DevelopersProtocolsPage() {
                   public integration model. External developers should start with API keys, REST
                   endpoints, and webhook delivery, then introduce protocol layers only when a
                   partner program or rollout stage explicitly requires them.
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Status as of 8 October 2026. Pivota does not author any of these standards.
                 </p>
               </div>
 

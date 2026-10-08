@@ -29,7 +29,7 @@ const executionLayerFunctions = [
   },
   {
     icon: CreditCard,
-    title: "Payment routing and authorization",
+    title: "Payment routing to merchant providers",
     body: "Works with existing PSP relationships instead of replacing the merchant payment stack. Payment state stays synchronized across execution.",
   },
   {
@@ -59,7 +59,7 @@ const heroCapabilityCards = [
   {
     icon: CreditCard,
     label: "Payment & write-back",
-    desc: "Works with your existing PSP. Payment authorization, state sync, and order write-back all flow back into your systems — no new payment contract required.",
+    desc: "Works with your existing PSP, which authorizes the payment. Payment state and order write-back flow back into your systems — no new payment contract required.",
     iconStyle: "text-lime-100 bg-lime-200/10 border-lime-200/20",
     cardStyle: "border-white/20 bg-white/[0.055]",
     glow: "shadow-[0_0_24px_rgba(190,242,100,0.08)]",
@@ -75,9 +75,9 @@ const boundaries = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "Commerce Execution Layer for Agentic Demand | Pivota",
+  title: "Commerce Decision and Execution Layer for AI Agents | Pivota",
   description:
-    "Pivota is the commerce execution and optimization layer for agentic demand. It maintains a structured Commerce Index agents can search, routes demand into merchant-native checkout and payment flows, and writes execution state back into existing merchant systems.",
+    "Pivota is the commerce decision and execution layer for AI agents. It maintains a structured Commerce Index agents can search, routes demand into merchant-native checkout and payment flows, and writes execution state back into existing merchant systems.",
   path: routePaths.merchantGateway,
   ogImage: "/og-merchants.svg",
 });
@@ -118,11 +118,11 @@ export default function MerchantGatewayCategoryPage() {
                     What we build
                   </p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    The commerce execution &amp; optimization layer for agentic demand
+                    The commerce decision and execution layer for AI agents
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      Pivota is the execution layer between LLM or agent demand and
+                      Pivota is the decision and execution layer between LLM or agent demand and
                       merchant-native transactions.
                     </p>
                     <p className="mt-2">
