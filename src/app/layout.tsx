@@ -10,6 +10,7 @@ import {
   siteName,
   siteUrl,
 } from "@/lib/marketing";
+import { founder } from "@/lib/press";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -31,6 +32,7 @@ const organizationJsonLd = {
   "@id": `${siteUrl}/#organization`,
   sameAs: ["https://www.linkedin.com/company/pivota-agentic"],
   logo: `${siteUrl}/pivota-brand/svg/pivota-mark.svg`,
+  founder: { "@type": "Person", name: founder.name, jobTitle: founder.jobTitle },
 } as const;
 
 const websiteJsonLd = {
