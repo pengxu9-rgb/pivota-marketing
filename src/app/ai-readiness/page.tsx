@@ -83,15 +83,15 @@ const sampleIssueOverview = [
 ] as const;
 
 const lightPanelClass =
-  "rounded-[1.75rem] border border-slate-200/80 bg-white/88 shadow-[0_18px_42px_-22px_rgba(15,23,42,0.18)] backdrop-blur-xl";
+  "rounded-[1.75rem] border border-slate-200/80 bg-white/[0.88] shadow-[0_18px_42px_-22px_rgba(15,23,42,0.18)] backdrop-blur-xl";
 const lightCardClass =
-  "rounded-[1.5rem] border border-slate-200/80 bg-white/92 shadow-[0_18px_42px_-24px_rgba(15,23,42,0.16)]";
+  "rounded-[1.5rem] border border-slate-200/80 bg-white/[0.92] shadow-[0_18px_42px_-24px_rgba(15,23,42,0.16)]";
 const lightInlineCardClass =
-  "rounded-2xl border border-slate-200/80 bg-white/92 shadow-[0_10px_24px_-18px_rgba(15,23,42,0.12)]";
+  "rounded-2xl border border-slate-200/80 bg-white/[0.92] shadow-[0_10px_24px_-18px_rgba(15,23,42,0.12)]";
 const lightPrimaryButtonClass =
   "h-11 rounded-xl bg-[image:var(--pv-gradient-cta)] px-5 text-sm font-semibold text-white shadow-[var(--pv-shadow-glow)] transition-all hover:brightness-[1.03]";
 const lightAnswerBlockClass =
-  "max-w-3xl rounded-[1.4rem] border border-primary/18 bg-[linear-gradient(135deg,rgba(45,212,191,0.1),rgba(255,255,255,0.92),rgba(56,189,248,0.12))] text-base text-slate-700 shadow-[0_18px_30px_-22px_rgba(14,165,233,0.28)] backdrop-blur";
+  "max-w-3xl rounded-[1.4rem] border border-primary/[0.18] bg-[linear-gradient(135deg,rgba(45,212,191,0.1),rgba(255,255,255,0.92),rgba(56,189,248,0.12))] text-base text-slate-700 shadow-[0_18px_30px_-22px_rgba(14,165,233,0.28)] backdrop-blur";
 const pageSectionClass = "px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12";
 
 export const metadata = buildMarketingMetadata({
@@ -116,7 +116,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
       <main className="overflow-hidden bg-[#f6f4eb] pb-24 sm:pb-0">
         <section className="relative overflow-hidden bg-gradient-to-b from-[#fbfaf4] via-[#f7f4ea] to-[#f2efe4] pt-0">
           <div className="bg-site-grid absolute inset-0 opacity-[0.08]" />
-          <div className="absolute left-[10%] top-10 h-52 w-52 rounded-full bg-primary/12 blur-3xl" />
+          <div className="absolute left-[10%] top-10 h-52 w-52 rounded-full bg-primary/[0.12] blur-3xl" />
           <div className="absolute right-[10%] top-10 h-60 w-60 rounded-full bg-accent/10 blur-3xl" />
 
           <div className="relative px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-6">

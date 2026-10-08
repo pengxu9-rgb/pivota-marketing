@@ -69,7 +69,7 @@ const AiReadinessMobileStickyCta = ({ signupHref }: AiReadinessMobileStickyCtaPr
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+0.5rem)] z-40 px-3 sm:hidden">
-      <div className="pointer-events-auto rounded-2xl border border-slate-200/90 bg-white/94 p-2 shadow-[0_18px_40px_-24px_rgba(15,23,42,0.26)] backdrop-blur motion-safe:transition-transform motion-safe:duration-200">
+      <div className="pointer-events-auto rounded-2xl border border-slate-200/90 bg-white/[0.94] p-2 shadow-[0_18px_40px_-24px_rgba(15,23,42,0.26)] backdrop-blur motion-safe:transition-transform motion-safe:duration-200">
         <TrackedMerchantCtaLink
           href={signupHref}
           eventName="ai_readiness_mobile_sticky_cta_click"

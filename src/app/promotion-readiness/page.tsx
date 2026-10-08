@@ -353,7 +353,7 @@ export default function PromotionReadinessPage() {
                         </div>
                       </div>
                     ))}
-                    <div className="rounded-2xl border border-primary/20 bg-primary/8 px-4 py-4 text-sm leading-7 text-foreground">
+                    <div className="rounded-2xl border border-primary/20 bg-primary/[0.08] px-4 py-4 text-sm leading-7 text-foreground">
                       Optimize once at onboarding. Improve every later agent checkout path.
                     </div>
                   </div>

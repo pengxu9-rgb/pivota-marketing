@@ -369,7 +369,7 @@ export default function UseCasesPage() {
                             </div>
                           </div>
 
-                          <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/8 px-4 py-4 text-sm leading-7 text-foreground">
+                          <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/[0.08] px-4 py-4 text-sm leading-7 text-foreground">
                             <span className="block font-semibold">Suggested rollout stage</span>
                             <span className="mt-1 block">{useCase.rolloutStage}</span>
                           </div>

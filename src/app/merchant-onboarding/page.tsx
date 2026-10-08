@@ -341,7 +341,7 @@ export default async function MerchantOnboardingPage({
                       </div>
                     ))}
                   </div>
-                  <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/8 px-4 py-4 text-sm leading-7 text-foreground">
+                  <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/[0.08] px-4 py-4 text-sm leading-7 text-foreground">
                     Sample recommendation: start with feeds, improve payment and cart logic, then
                     deepen into merchant-native checkout when execution blockers are resolved.
                   </div>

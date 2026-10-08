@@ -424,7 +424,7 @@ export default function PivotaVsShopifyPage() {
                       Pivota helps merchants keep control, continuity, and fallback across systems.
                     </p>
                   </div>
-                  <div className="rounded-3xl border border-primary/20 bg-primary/8 px-5 py-5 text-sm leading-7 text-foreground">
+                  <div className="rounded-3xl border border-primary/20 bg-primary/[0.08] px-5 py-5 text-sm leading-7 text-foreground">
                     <p className="font-semibold">Store platform access is not the same as merchant control.</p>
                     <p className="mt-2">
                       Use your store platform for storefront operations and native access where

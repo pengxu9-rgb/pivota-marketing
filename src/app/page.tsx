@@ -172,7 +172,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                   <Button
                     asChild
                     variant="outline"
-                    className="h-12 border-white/20 bg-white/5 px-6 text-sm text-white hover:bg-white/12 hover:text-white"
+                    className="h-12 border-white/20 bg-white/5 px-6 text-sm text-white hover:bg-white/[0.12] hover:text-white"
                   >
                     <Link href={routePaths.agentIntegration}>Agent integration</Link>
                   </Button>
@@ -314,7 +314,7 @@ export default async function Home({ searchParams }: HomePageProps) {
               </div>
             </div>
 
-            <div className="surface-panel border-white/12 bg-white/[0.06] p-4">
+            <div className="surface-panel border-white/[0.12] bg-white/[0.06] p-4">
               <div className="grid gap-4 md:grid-cols-[0.9fr_1.1fr]">
                 <div className="space-y-3">
                   {executionSignals.map((signal) => (
@@ -334,7 +334,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                     alt="Workflow from agent demand to merchant execution"
                     className="absolute inset-0 h-full w-full object-cover opacity-50"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#11100f] via-[#11100f]/48 to-[#11100f]/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#11100f] via-[#11100f]/[0.48] to-[#11100f]/10" />
                   <div className="relative flex h-full min-h-[25rem] flex-col justify-end p-5">
                     <p className="font-mono text-xs uppercase tracking-[0.18em] text-lime-200">
                       execution_intent
