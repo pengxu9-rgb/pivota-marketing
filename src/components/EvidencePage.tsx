@@ -11,7 +11,7 @@ export default function EvidencePage({ title, summary, sections, sources = [], f
 }) {
   return <div className="min-h-screen bg-background"><Header />
     {faqs.length > 0 && <JsonLd id="evidence-faq" data={buildFaqJsonLd(faqs)} />}
-    <main className="section-padding"><div className="container-max max-w-4xl space-y-8">
+    <main id="main-content" className="section-padding"><div className="container-max max-w-4xl space-y-8">
       <nav aria-label="Evidence navigation" className="flex flex-wrap gap-4 text-sm text-foreground underline underline-offset-4"><Link href="/">Home</Link><Link href="/developers/verify">Verify Pivota</Link><Link href="/ucp/insights">UCP Insights</Link></nav>
       <div><p className="mb-4 text-sm text-muted-foreground">Evidence reviewed 7 October 2026</p><h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{title}</h1><p className="mt-6 text-lg leading-8 text-muted-foreground">{summary}</p></div>
       {sections.map(s => <section key={s.title} className="section-frame p-6 sm:p-8"><h2 className="text-2xl font-semibold">{s.title}</h2><p className="mt-4 leading-8 text-muted-foreground">{s.body}</p></section>)}

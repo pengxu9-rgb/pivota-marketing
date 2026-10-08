@@ -91,6 +91,15 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      // @tailwindcss/typography wraps inline code in literal backticks; drop them site-wide.
+      typography: {
+        DEFAULT: {
+          css: {
+            "code::before": { content: "none" },
+            "code::after": { content: "none" },
+          },
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

@@ -85,6 +85,12 @@ export default function RootLayout({
         <meta name="baidu-site-verification" content="codeva-Z2nSoSL8VM" />
       </head>
       <body className="antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#11100f] focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#534AB7]"
+        >
+          Skip to main content
+        </a>
         <GoogleAnalytics />
         <JsonLd id="pivota-organization-jsonld" data={organizationJsonLd} />
         <JsonLd id="pivota-website-jsonld" data={websiteJsonLd} />

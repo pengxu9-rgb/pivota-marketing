@@ -133,7 +133,7 @@ export default function PivotaVsShopifyPage() {
       <JsonLd id="pivota-vs-shopify-breadcrumb-jsonld" data={breadcrumbJsonLd} />
       <JsonLd id="pivota-vs-shopify-faq-jsonld" data={faqJsonLd} />
 
-      <main className="overflow-hidden">
+      <main id="main-content" className="overflow-hidden">
         <section className="marketing-hero relative">
           <div className="bg-site-grid absolute inset-0 opacity-15" />
 

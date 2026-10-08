@@ -99,7 +99,7 @@ export default function MerchantGatewayCategoryPage() {
       <JsonLd id="merchant-gateway-breadcrumb-jsonld" data={breadcrumbJsonLd} />
       <JsonLd id="merchant-gateway-service-jsonld" data={serviceJsonLd} />
 
-      <main className="overflow-hidden">
+      <main id="main-content" className="overflow-hidden">
         <section className="marketing-hero relative">
           <div className="bg-site-grid absolute inset-0 opacity-15" />
 

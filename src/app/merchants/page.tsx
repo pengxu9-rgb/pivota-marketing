@@ -40,7 +40,7 @@ export default function MerchantsPage() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
+      <main id="main-content" className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <section className="grid gap-10 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div className="space-y-6">
             <p className="text-sm uppercase tracking-[0.24em] text-primary-ink">Merchant surface</p>
