@@ -70,8 +70,8 @@ export default function AirMindsReapPilotPage() {
                 </p>
                 <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">{pilot.title}</h1>
                 <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                  AIR and Minds by Animoca Brands, Reap and Pivota announced a partnership to let an AI
-                  agent buy on behalf of a verified user: proving whom it represents, using benefits
+                  AIR and Minds by Animoca Brands, Reap and Pivota announced a partnership that aims to let
+                  an AI agent buy on behalf of a verified user: proving whom it represents, using benefits
                   the user has earned, and spending only within limits the user approved.
                 </p>
               </div>
@@ -84,7 +84,7 @@ export default function AirMindsReapPilotPage() {
             <div className="section-frame space-y-3 px-6 py-8 sm:px-10">
               <h2 className="text-2xl font-semibold tracking-tight">Status</h2>
               <p className="text-base leading-8 text-muted-foreground">
-                Announced on {pilot.announcedLabel}. The partnership starts with a controlled
+                Announced on {pilot.announcedLabel}. The partnership will start with a controlled
                 demonstration featuring a single merchant integration. As of {pressLastUpdatedLabel},
                 no transaction results have been published, so this page reports no outcomes, volumes
                 or revenue.
@@ -134,7 +134,7 @@ export default function AirMindsReapPilotPage() {
                   <li>The merchant remains the merchant of record.</li>
                   <li>Pivota does not touch the funds flow: it does not hold customer funds, issue cards or process payments.</li>
                   <li>Payment credentials come from Reap and are scoped to a merchant, an amount and a timeframe.</li>
-                  <li>The user chooses which identity credentials their agent can present, through AIR.</li>
+                  <li>Users will choose which identity credentials their agent can present, through AIR.</li>
                 </ul>
               </div>
               <div className="section-frame space-y-4 px-6 py-8 sm:px-8">

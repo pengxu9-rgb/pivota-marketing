@@ -20,7 +20,7 @@ const caseStudies = [
     title: airMindsReapPilot.title,
     status: `Announced ${airMindsReapPilot.announcedLabel} · demonstration planned`,
     summary:
-      "A Minds agent buying for a verified user: AIR for identity, Reap for scoped payment credentials, Pivota for the product, merchant and transaction path. The merchant remains the merchant of record.",
+      "A proposed architecture for a Minds agent buying for a verified user: AIR for identity, Reap for scoped payment credentials, Pivota for the product, merchant and transaction path. The merchant remains the merchant of record.",
   },
 ] as const;
 

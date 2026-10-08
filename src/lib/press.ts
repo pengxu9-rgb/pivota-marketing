@@ -41,27 +41,27 @@ export const airMindsReapPilot = {
   roles: [
     {
       party: "AIR (built by Moca Network, the identity network of Animoca Brands)",
-      role: "Lets users selectively share verified identity attributes and earned entitlements with their agent, so the agent can claim applicable offers or access without exposing underlying personal information.",
+      role: "Will let users selectively share verified identity attributes and earned entitlements with their agent, so the agent can claim applicable offers or access without exposing underlying personal information.",
     },
     {
       party: "Minds by Animoca Brands",
-      role: "The AI agents. They interpret the user's intent and coordinate the purchase journey, using AIR's credential verification.",
+      role: "A persistent agentic AI platform. Its agents will interpret the user's intent and coordinate the purchase journey, using AIR's credential verification.",
     },
     {
       party: "Reap",
-      role: "Issues cards and generates payment credentials scoped to specific merchants, amounts and timeframes, applies relevant coupons and executes the checkout.",
+      role: "Will facilitate card issuance, generate payment credentials scoped to specific merchants, amounts and timeframes, apply relevant coupons and execute the checkout.",
     },
     {
       party: "Pivota",
-      role: "The merchant decision and order execution layer. It helps the agent choose the product, merchant and transaction path from real-time pricing, availability and merchant capabilities, and carries the resulting order through the merchant's existing commerce stack.",
+      role: "Will provide the merchant decision and order execution layer: helping the agent choose the product, merchant and transaction path from real-time pricing, availability and merchant capabilities, and carrying the resulting order through the merchant's existing commerce stack.",
     },
     {
       party: "The merchant",
-      role: "Remains the merchant of record. Its existing loyalty programs, eligibility rules and promotional offers apply inside the agent-led purchase.",
+      role: "Remains the merchant of record. Its existing loyalty programs, eligibility rules and promotional offers are intended to apply inside agent-led purchases.",
     },
   ],
   lifecycle: [
-    "The agent presents cryptographic proof of the user's eligibility (AIR).",
+    "The agent presents cryptographic proof of the user's eligibility.",
     "Pivota determines the product, merchant and transaction path.",
     "An applicable offer is applied.",
     "Reap issues a payment credential scoped to the merchant, amount and timeframe.",
@@ -79,9 +79,9 @@ export const pressAnnouncements: readonly PressAnnouncement[] = [
     publisher: "Animoca Brands",
     url: animocaReleaseUrl,
     summary:
-      "AIR and Minds by Animoca Brands announced a partnership with Reap and Pivota to develop identity-powered, personalized agentic commerce: a Minds agent acting on a verified user's authority, recognizing benefits the user has earned, and completing purchases within pre-approved limits. The partnership starts with a controlled demonstration featuring a single merchant integration.",
+      "AIR and Minds by Animoca Brands announced a partnership with Reap and Pivota to develop identity-powered, personalized agentic commerce: a Minds agent acting on a verified user's authority, recognizing benefits the user has earned, and completing purchases within pre-approved limits. The partnership will start with a controlled demonstration featuring a single merchant integration.",
     pivotaRole:
-      "Pivota provides the merchant decision and order execution layer: it helps the agent choose the product, merchant and transaction path, and carries the order through the merchant's existing commerce stack. The merchant remains the merchant of record and Pivota does not touch the funds flow.",
+      "In the proposed architecture, Pivota will provide the merchant decision and order execution layer: helping the agent choose the product, merchant and transaction path, and carrying the order through the merchant's existing commerce stack. The merchant remains the merchant of record and Pivota does not touch the funds flow.",
     status:
       "Announced. The single-merchant demonstration is planned; no transaction results have been published.",
     caseStudyPath: airMindsReapPilot.path,

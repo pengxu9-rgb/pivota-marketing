@@ -42,6 +42,7 @@ const pressJsonLd = {
       item: {
         "@type": "NewsArticle",
         headline: item.title,
+        inLanguage: "en",
         datePublished: item.dateIso,
         url: item.url,
         publisher: { "@type": "Organization", name: item.publisher },
