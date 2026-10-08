@@ -11,7 +11,7 @@ type AiReadinessMobileStickyCtaProps = {
 };
 
 const stickyButtonClass =
-  "h-12 w-full rounded-xl bg-[image:var(--pv-gradient-primary)] px-5 text-sm font-semibold text-white shadow-[var(--pv-shadow-glow)] transition-all hover:brightness-[1.03] focus-visible:ring-primary/30";
+  "h-12 w-full rounded-xl bg-[image:var(--pv-gradient-cta)] px-5 text-sm font-semibold text-white shadow-[var(--pv-shadow-glow)] transition-all hover:brightness-[1.03] focus-visible:ring-primary/30";
 
 const AiReadinessMobileStickyCta = ({ signupHref }: AiReadinessMobileStickyCtaProps) => {
   const [isMobile, setIsMobile] = useState(false);

@@ -19,7 +19,7 @@ type AuditUrlCaptureFormProps = {
 };
 
 const primaryButtonClass =
-  "h-11 shrink-0 rounded-xl bg-[image:var(--pv-gradient-primary)] px-5 text-sm font-semibold text-white shadow-[var(--pv-shadow-glow)] transition-all hover:brightness-[1.03] focus-visible:ring-primary/30";
+  "h-11 shrink-0 rounded-xl bg-[image:var(--pv-gradient-cta)] px-5 text-sm font-semibold text-white shadow-[var(--pv-shadow-glow)] transition-all hover:brightness-[1.03] focus-visible:ring-primary/30";
 const inputClass =
   "h-11 rounded-xl border-slate-300 bg-white px-4 text-sm text-slate-900 shadow-[0_12px_24px_-20px_rgba(15,23,42,0.18)] placeholder:text-slate-400 focus-visible:ring-primary/30";
 
