@@ -42,4 +42,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Brand System
 
-This app uses Pivota Brand Kit v2.0 from `public/pivota-brand/`. Treat `public/pivota-brand/CLAUDE.md` as the local source of truth for logo, favicon, color, and brand-token usage.
+This app uses Pivota Brand Kit v2.0 from `public/pivota-brand/`. Brand tokens live in `public/pivota-brand/pivota-brand.css`; logo and favicon files are in `public/pivota-brand/svg/` and `public/pivota-brand/icons/`.
