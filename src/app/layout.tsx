@@ -29,7 +29,7 @@ const organizationJsonLd = {
   url: siteUrl,
   description: homepageMetaDescription,
   "@id": `${siteUrl}/#organization`,
-  sameAs: ["https://www.linkedin.com/company/pivota-commerce-index"],
+  sameAs: ["https://www.linkedin.com/company/pivota-agentic"],
   logo: `${siteUrl}/pivota-brand/svg/pivota-mark.svg`,
 } as const;
 
