@@ -284,7 +284,7 @@ export const faqItems = [
   {
     question: "What is the default integration path?",
     answer:
-      "REST with API keys and webhooks is the default production path. Python package metadata is being reconciled, so build against the REST contract. Pivota hosts remote MCP endpoints: four public read-only research tools, and a keyed door with scoped capabilities.",
+      "REST with API keys and webhooks is the default production path. The pivota-agent package on PyPI is not maintained, so build against the REST contract. Pivota hosts remote MCP endpoints: four public read-only research tools, and a keyed door with scoped capabilities.",
   },
   {
     question: "What happens after the first successful call?",

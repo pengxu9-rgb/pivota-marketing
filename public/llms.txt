@@ -8,7 +8,7 @@ For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
 
 - [Homepage](https://pivota.cc/): Pivota's Commerce Index and decision layer for agentic demand.
 - [Product / category page](https://pivota.cc/merchant-gateway-for-agent-native-commerce): Commerce execution and optimization layer for agentic demand.
-- [Agent integration](https://pivota.cc/agent-integration): REST, MCP, authentication, webhooks, and execution flows for agent builders; Python SDK package status is pending.
+- [Agent integration](https://pivota.cc/agent-integration): REST, MCP, authentication, webhooks, and execution flows for agent builders; the pivota-agent PyPI package is not maintained, so use REST.
 - [Merchant onboarding](https://pivota.cc/merchant-onboarding): Practical onboarding paths for merchants connecting agent demand to existing systems.
 - [AI readiness](https://pivota.cc/ai-readiness): Readiness check for catalog, offer, checkout, payment, and write-back blockers.
 - [How Pivota works](https://pivota.cc/how-pivota-works): Execution model from demand to discovery, checkout, payment, and measurement.

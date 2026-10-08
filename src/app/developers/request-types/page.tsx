@@ -17,7 +17,7 @@ const requestFamilies = [
   {
     family: "Search and recommendation",
     examples: "MCP search_catalog / get_product / get_alternatives / get_intel",
-    path: "REST / MCP (SDK compatibility pending)",
+    path: "REST / MCP",
     summary: "Resolve products, offers, and merchant data through a structured commerce surface instead of crawling merchant sites.",
   },
   {

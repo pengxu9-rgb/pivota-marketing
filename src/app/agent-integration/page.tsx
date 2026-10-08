@@ -30,8 +30,8 @@ const integrationModes = [
   {
     icon: Package,
     title: "SDK",
-    body: "Python package listing: pivota-agent (1.0.0). Its README still names a different installation package and old domains. Use the REST contract while package metadata is reconciled; the listing is not evidence of current runtime compatibility.",
-    supporting: "Package metadata pending; use REST for now",
+    body: "The pivota-agent 1.0.0 package on PyPI is not maintained and does not work as published: its default API host is retired and its README names the wrong install package. There is no supported Python SDK today; build against the REST contract.",
+    supporting: "Not maintained; use REST",
   },
   {
     icon: Cable,
@@ -86,7 +86,7 @@ const proofPoints = [
   "OpenAPI is live on https://api.pivota.cc/openapi.json",
   "The branded API base is https://api.pivota.cc",
   "The hosted remote MCP endpoint is https://commerce.mcp.pivota.cc/mcp (streamable HTTP + OAuth, RFC 9728 discovery)",
-  "PyPI lists pivota-agent; package metadata reconciliation remains pending",
+  "The PyPI package pivota-agent 1.0.0 is not maintained; use the REST contract",
   "Verify remote MCP capabilities before selecting a client or local wrapper",
   "Webhook receiver setup is account-scoped; confirm its current contract in the portal",
 ] as const;
@@ -133,7 +133,7 @@ const consoleItems = [
 export const metadata = buildMarketingMetadata({
   title: "Agent Integration | Pivota",
   description:
-    "Build against the merchant-native commerce layer agents call. Public guidance for REST, MCP, auth, webhooks, and execution across the Pivota integration surface, plus current Python package status.",
+    "Build against the merchant-native commerce layer agents call. Public guidance for REST, MCP, auth, webhooks, and execution across the Pivota integration surface.",
   path: routePaths.agentIntegration,
   ogImage: "/og-developers.svg",
 });
@@ -150,7 +150,6 @@ const softwareJsonLd = buildSoftwareApplicationJsonLd({
   path: routePaths.agentIntegration,
   featureList: [
     "REST API integration",
-    "Python package status (metadata reconciliation pending)",
     "Hosted remote MCP endpoint and configuration guidance",
     "Webhook delivery and verification",
     "Execution across checkout, payment, and write-back",
@@ -309,7 +308,7 @@ export default function AgentIntegrationPage() {
                     Choose your integration mode
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    REST is the default. MCP adds tool access; SDK status is pending.
+                    REST is the default. MCP adds tool access; there is no maintained SDK.
                   </h2>
                 </div>
                 <div className="grid gap-4 md:grid-cols-3">
