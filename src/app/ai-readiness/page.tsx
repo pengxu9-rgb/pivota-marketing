@@ -362,7 +362,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
               <div className={`${lightPanelClass} overflow-hidden p-5 sm:p-8`}>
                 <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
                   <div className="space-y-3">
-                    <p className="text-sm uppercase tracking-[0.18em] text-primary">
+                    <p className="text-sm uppercase tracking-[0.18em] text-primary-ink">
                       Sample report
                     </p>
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-slate-900">
