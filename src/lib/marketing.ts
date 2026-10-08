@@ -46,6 +46,8 @@ export const routePaths = {
   useCases: "/use-cases",
   about: "/about",
   blog: "/blog",
+  press: "/press",
+  caseStudies: "/case-studies",
 } as const;
 
 export const footerDescriptor = "Pivota is the commerce decision and execution layer for AI agents.";
@@ -112,6 +114,8 @@ export const footerExploreItems = [
   { label: "Verify Pivota", href: routePaths.developersVerify },
   { label: "UCP Insights", href: "/ucp/insights" },
   { label: "Decisions & execution", href: "/decisions-and-execution" },
+  { label: "Press", href: routePaths.press },
+  { label: "Case studies", href: routePaths.caseStudies },
 ] as const;
 
 export const coreAnswerBlock = [

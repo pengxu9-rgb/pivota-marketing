@@ -50,6 +50,15 @@ Pivota does not author any of these standards.
 - [Skincare and beauty merchants](https://pivota.cc/skincare-beauty-merchants): Agent-readiness patterns for beauty and skincare merchants.
 - [Use cases](https://pivota.cc/use-cases): Illustrative merchant scenarios across discoverability, checkout, payment, and measurement.
 
+## Press and announcements
+
+- [Press](https://pivota.cc/press): Dated announcements about Pivota with links to primary sources, and facts for describing Pivota. Founder and CEO: Peng Xu. Pivota does not hold customer funds and is not the merchant of record.
+- 8 October 2026 — [Animoca Brands' AIR and Minds partner with Reap and Pivota to enable identity-powered personalized agentic commerce](https://www.animocabrands.com/announcement/animoca-brands-air-and-minds-partner-with-reap-and-pivota-to-enable-identity-powered-personalized-agentic-commerce) (Animoca Brands press release; also the [AIR blog](https://air3.com/blog/air-minds-reap-pivota-agentic-commerce)). Pivota provides the merchant decision and order execution layer. Status: announced; a controlled demonstration with a single merchant integration is planned, and no transaction results have been published.
+
+## Case studies
+
+- [AIR, Minds, Reap and Pivota: an identity-powered agentic commerce pilot](https://pivota.cc/case-studies/air-minds-reap-pilot): who does what (AIR identity credentials, Minds agents, Reap scoped payment credentials, Pivota product/merchant/transaction path, merchant remains merchant of record), the proposed transaction lifecycle, and current status.
+
 ## Contact
 
 - Email: contact@pivota.cc
