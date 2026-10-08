@@ -8,6 +8,7 @@ import { buildMarketingMetadata, routePaths } from "@/lib/marketing";
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 const protocolLayers = [
+  { title: "MCP (Model Context Protocol)", status: "Public read-only; keyed capabilities are scoped", availability: "Tool and context interface", body: "MCP connects AI applications to tools and context. Pivota exposes four public research tools; keyed checkout requires buyer identity and merchant readiness. MCP does not settle funds or guarantee a tool is implemented.", icon: Cable },
   {
     title: "UCP (Universal Commerce Protocol)",
     status: "Live · self-serve",
@@ -16,17 +17,17 @@ const protocolLayers = [
     icon: Globe2,
   },
   {
-    title: "ACP",
+    title: "ACP (Agentic Commerce Protocol)",
     status: "Internal beta",
     availability: "Selected technical-partner workflows",
-    body: "ACP is an agent-commerce protocol layer used in selected LLM and partner workflows. Core APIs and webhooks remain the production control surface.",
+    body: "ACP coordinates commerce and checkout interoperability and is a protocol layer used in selected LLM and partner workflows. Core APIs and webhooks remain the production control surface.",
     icon: Cable,
   },
   {
-    title: "AP2",
+    title: "AP2 (Agent Payments Protocol)",
     status: "Internal beta",
     availability: "Selected partner and payment workflows",
-    body: "AP2 is a payment and security protocol layer above standard order and webhook flows. It is not a public self-serve surface in the default developer path.",
+    body: "AP2 provides verifiable delegated-payment authorization and trust; it is a protocol layer above standard order and webhook flows. It is not a public self-serve surface in the default developer path.",
     icon: ShieldCheck,
   },
 ] as const;

@@ -20,7 +20,7 @@ const ShoppingAgentBadge = () => {
 
       <Link
         href="/shopping-agent"
-        className="relative inline-flex items-center gap-2 px-4 py-3 rounded-full bg-[image:var(--pv-gradient-primary)] text-white text-sm font-semibold shadow-[var(--pv-shadow-glow)] hover:scale-105 transition-transform duration-300 pointer-events-auto"
+        className="relative inline-flex items-center gap-2 px-4 py-3 rounded-full bg-[image:var(--pv-gradient-cta)] text-white text-sm font-semibold shadow-[var(--pv-shadow-glow)] hover:scale-105 transition-transform duration-300 pointer-events-auto"
       >
         <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-950/40 border border-white/30">
           <Sparkles className="h-4 w-4 text-white" />

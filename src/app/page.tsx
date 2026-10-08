@@ -8,7 +8,6 @@ import JsonLd from "@/components/JsonLd";
 import { Button } from "@/components/ui/button";
 import workflowImage from "@/assets/workflow-steps.jpg";
 import {
-  aiReadinessSignupPath,
   buildMarketingMetadata,
   homepageFaqItems,
   homepageFaqPreviewItems,
@@ -117,8 +116,8 @@ type HomePageProps = {
 
 export default async function Home({ searchParams }: HomePageProps) {
   const resolvedSearchParams = (await searchParams) ?? {};
-  const onboardingHref = appendSearchParamRecordToPath(
-    aiReadinessSignupPath,
+  const readinessHref = appendSearchParamRecordToPath(
+    routePaths.aiReadiness,
     resolvedSearchParams,
   );
 
@@ -165,7 +164,7 @@ export default async function Home({ searchParams }: HomePageProps) {
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Button asChild className="h-12 bg-white px-6 text-sm font-semibold text-[#11100f] hover:bg-lime-100">
-                    <Link href={onboardingHref}>
+                    <Link href={readinessHref}>
                       Check readiness
                       <ArrowRight className="h-4 w-4" />
                     </Link>
@@ -173,7 +172,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                   <Button
                     asChild
                     variant="outline"
-                    className="h-12 border-white/20 bg-white/5 px-6 text-sm text-white hover:bg-white/12 hover:text-white"
+                    className="h-12 border-white/20 bg-white/5 px-6 text-sm text-white hover:bg-white/[0.12] hover:text-white"
                   >
                     <Link href={routePaths.agentIntegration}>Agent integration</Link>
                   </Button>
@@ -220,13 +219,13 @@ export default async function Home({ searchParams }: HomePageProps) {
         <section className="section-padding bg-background">
           <div className="container-max grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <div className="section-rule border-border/80 pt-6">
-              <p className="kicker text-primary">Agent Demand</p>
+              <p className="kicker text-primary-ink">Agent Demand</p>
               <h2 className="mt-5 font-serif text-4xl font-medium tracking-normal text-foreground sm:text-5xl">
                 How agents get commerce done.
               </h2>
               <p className="mt-5 max-w-xl text-base leading-8 text-muted-foreground">
-                Agent-driven commerce will not live in one app. Pivota gives every agent surface
-                the same reliable route into merchant-native execution.
+                Agent-driven commerce will not live in one app. Pivota gives supported agent surfaces
+                a consistent route into merchant-controlled execution.
               </p>
               <div className="mt-7 flex flex-wrap gap-4 text-sm">
                 <Link href={routePaths.merchantOnboarding} className="commerce-link">
@@ -241,7 +240,7 @@ export default async function Home({ searchParams }: HomePageProps) {
             <div className="divide-y divide-border/80 border-y border-border/80">
               {agentUseCases.map((item, index) => (
                 <article key={item.title} className="grid gap-4 py-6 sm:grid-cols-[2.1rem_1fr]">
-                  <span className="pt-1 font-mono text-xs text-primary">
+                  <span className="pt-1 font-mono text-xs text-primary-ink">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -262,7 +261,7 @@ export default async function Home({ searchParams }: HomePageProps) {
           <div className="container-max">
             <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
               <div>
-                <p className="kicker text-primary">Functionality</p>
+                <p className="kicker text-primary-ink">Functionality</p>
                 <h2 className="mt-5 font-serif text-4xl font-medium tracking-normal text-foreground sm:text-5xl">
                   Execution capabilities for your agents.
                 </h2>
@@ -278,8 +277,8 @@ export default async function Home({ searchParams }: HomePageProps) {
               {capabilityItems.map((item, index) => (
                 <article key={item.title} className="section-frame p-6">
                   <div className="flex items-center justify-between gap-4">
-                    <p className="kicker text-primary">{item.eyebrow}</p>
-                    <span className="font-mono text-xs text-primary/80">
+                    <p className="kicker text-primary-ink">{item.eyebrow}</p>
+                    <span className="font-mono text-xs text-primary-ink">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -315,7 +314,7 @@ export default async function Home({ searchParams }: HomePageProps) {
               </div>
             </div>
 
-            <div className="surface-panel border-white/12 bg-white/[0.06] p-4">
+            <div className="surface-panel border-white/[0.12] bg-white/[0.06] p-4">
               <div className="grid gap-4 md:grid-cols-[0.9fr_1.1fr]">
                 <div className="space-y-3">
                   {executionSignals.map((signal) => (
@@ -335,7 +334,7 @@ export default async function Home({ searchParams }: HomePageProps) {
                     alt="Workflow from agent demand to merchant execution"
                     className="absolute inset-0 h-full w-full object-cover opacity-50"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#11100f] via-[#11100f]/48 to-[#11100f]/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#11100f] via-[#11100f]/[0.48] to-[#11100f]/10" />
                   <div className="relative flex h-full min-h-[25rem] flex-col justify-end p-5">
                     <p className="font-mono text-xs uppercase tracking-[0.18em] text-lime-200">
                       execution_intent
@@ -357,7 +356,7 @@ export default async function Home({ searchParams }: HomePageProps) {
         <section className="section-padding bg-background">
           <div className="container-max grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
             <div>
-              <p className="kicker text-primary">FAQ</p>
+              <p className="kicker text-primary-ink">FAQ</p>
               <h2 className="mt-5 font-serif text-4xl font-medium tracking-normal sm:text-5xl">
                 Plain answers before you onboard.
               </h2>
@@ -383,6 +382,7 @@ export default async function Home({ searchParams }: HomePageProps) {
         <ContactSection />
       </main>
 
+      <section className="section-padding"><div className="container-max section-frame p-6 sm:p-8"><h2 className="text-2xl font-semibold">Inspect decisions and integration evidence</h2><p className="mt-4 text-muted-foreground">Public research is read-only. Deeper checkout needs scoped access, buyer identity and merchant readiness. Pivota does not hold customer funds or act as merchant of record.</p><div className="mt-5 flex flex-wrap gap-5 text-foreground underline underline-offset-4"><Link href="/developers/verify">Verify the public read-only tools</Link><Link href="/ucp/insights">UCP Insights</Link><Link href="/decisions-and-execution">Decisions and execution</Link></div></div></section>
       <Footer />
     </div>
   );

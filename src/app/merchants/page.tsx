@@ -43,7 +43,7 @@ export default function MerchantsPage() {
       <main className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <section className="grid gap-10 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div className="space-y-6">
-            <p className="text-sm uppercase tracking-[0.24em] text-primary">Merchant surface</p>
+            <p className="text-sm uppercase tracking-[0.24em] text-primary-ink">Merchant surface</p>
             <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
               Connect merchant systems to LLM and agent demand.
             </h1>
@@ -63,16 +63,16 @@ export default function MerchantsPage() {
               See{" "}
               <Link
                 href="/merchant-gateway-for-agent-native-commerce"
-                className="text-primary hover:underline"
+                className="text-foreground underline underline-offset-4 hover:decoration-primary"
               >
                 how the execution layer works
               </Link>
               , how it{" "}
-              <Link href="/how-pivota-works" className="text-primary hover:underline">
+              <Link href="/how-pivota-works" className="text-foreground underline underline-offset-4 hover:decoration-primary">
                 works
               </Link>
               , and why{" "}
-              <Link href="/merchant-native-checkout" className="text-primary hover:underline">
+              <Link href="/merchant-native-checkout" className="text-foreground underline underline-offset-4 hover:decoration-primary">
                 merchant-native checkout
               </Link>{" "}
               matters.

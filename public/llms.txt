@@ -8,7 +8,7 @@ For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
 
 - [Homepage](https://pivota.cc/): Pivota's Commerce Index and decision layer for agentic demand.
 - [Product / category page](https://pivota.cc/merchant-gateway-for-agent-native-commerce): Commerce execution and optimization layer for agentic demand.
-- [Agent integration](https://pivota.cc/agent-integration): REST, SDK, MCP, authentication, webhooks, and execution flows for agent builders.
+- [Agent integration](https://pivota.cc/agent-integration): REST, MCP, authentication, webhooks, and execution flows for agent builders; the pivota-agent PyPI package is not maintained, so use REST.
 - [Merchant onboarding](https://pivota.cc/merchant-onboarding): Practical onboarding paths for merchants connecting agent demand to existing systems.
 - [AI readiness](https://pivota.cc/ai-readiness): Readiness check for catalog, offer, checkout, payment, and write-back blockers.
 - [How Pivota works](https://pivota.cc/how-pivota-works): Execution model from demand to discovery, checkout, payment, and measurement.
@@ -18,12 +18,12 @@ For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
 
 ## Developer documentation
 
-- [Verify Pivota](https://pivota.cc/developers/verify): Start here to evaluate Pivota. A three-lane verification path an agent can execute unattended — commerce index, decision layer, checkout routing — stating the expected result for every call. Lanes 1 and 2 need no credentials.
+- [Verify Pivota](https://pivota.cc/developers/verify): A three-lane verification path covering commerce index, decision layer and checkout routing, with the expected result for each call. The four public read-only tools at https://mcp.pivota.cc/mcp — search_catalog, get_product, get_alternatives and get_intel — require no credentials. Lane 2 also includes recommend_products, which requires an API key on the authenticated native endpoint at https://commerce.mcp.pivota.cc/mcp and is absent from the UCP dialect. Checkout routing requires scoped access, buyer identity and merchant readiness; a ready session or payment link is not proof of payment.
 - [Developer overview](https://pivota.cc/agent-integration): Developer entry point for Pivota's agent integration surface.
 - [First call](https://pivota.cc/developers/first-call): First authenticated API call and first order path.
 - [Request types](https://pivota.cc/developers/request-types): Search, recommendation, cart, checkout, order, status, event, webhook, and payment-aware request families.
 - [Authentication and webhooks](https://pivota.cc/developers/auth-webhooks): API keys, request signing, webhook delivery, and lifecycle signals.
-- [Protocols](https://pivota.cc/developers/protocols): REST, SDK, and MCP integration modes.
+- [Protocols](https://pivota.cc/developers/protocols): REST, MCP and UCP integration modes; ACP/AP2 workflows are internal beta.
 - [API overview](https://pivota.cc/developers/request-types): Public API overview for agent builders.
 
 ## Educational pages
@@ -38,9 +38,13 @@ For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
 - [Pivota implementation effort](https://pivota.cc/pivota-implementation-effort): Rollout stages and integration effort.
 - [Pivota vs Shopify](https://pivota.cc/pivota-vs-shopify): How Pivota works with store platforms instead of replacing them.
 - [Skincare and beauty merchants](https://pivota.cc/skincare-beauty-merchants): Agent-readiness patterns for beauty and skincare merchants.
-- [Use cases](https://pivota.cc/use-cases): Representative merchant scenarios across discoverability, checkout, payment, and measurement.
+- [Use cases](https://pivota.cc/use-cases): Illustrative merchant scenarios across discoverability, checkout, payment, and measurement.
 
 ## Contact
 
 - Email: contact@pivota.cc
 - Sitemap: [https://pivota.cc/sitemap.xml](https://pivota.cc/sitemap.xml)
+
+## Decisions and integration evidence
+- https://pivota.cc/decisions-and-execution — eligibility, execution stages, funds and identity boundaries
+- https://pivota.cc/ucp/insights — vendor capability specification

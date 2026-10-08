@@ -102,7 +102,7 @@ const AiReadinessPromoPill = () => {
                 });
               }}
             >
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/14 text-white shadow-[0_0_18px_rgba(45,212,191,0.28)]">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/[0.14] text-white shadow-[0_0_18px_rgba(45,212,191,0.28)]">
                 <Sparkles className="h-4 w-4" />
               </span>
               <span className="min-w-0">
@@ -118,7 +118,7 @@ const AiReadinessPromoPill = () => {
 
             <button
               type="button"
-              className="pointer-events-auto inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white/70 transition-colors hover:bg-white/12 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              className="pointer-events-auto inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white/70 transition-colors hover:bg-white/[0.12] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               aria-label="Dismiss AI readiness promotion"
               onClick={() => {
                 try {

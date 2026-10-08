@@ -29,7 +29,7 @@ export default function CreatorAgentsContent() {
 
         <section className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div className="space-y-6">
-            <p className="text-sm uppercase tracking-[0.24em] text-primary">Creator-facing surface</p>
+            <p className="text-sm uppercase tracking-[0.24em] text-primary-ink">Creator-facing surface</p>
             <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
               Pivota Creator Agents
             </h1>
@@ -76,12 +76,12 @@ export default function CreatorAgentsContent() {
             Start with{" "}
             <Link
               href="/merchant-gateway-for-agent-native-commerce"
-              className="text-primary hover:underline"
+              className="text-foreground underline underline-offset-4 hover:decoration-primary"
             >
               how the execution layer works
             </Link>
             , then review{" "}
-            <Link href="/about" className="text-primary hover:underline">
+            <Link href="/about" className="text-foreground underline underline-offset-4 hover:decoration-primary">
               what Pivota is building
             </Link>
             .

@@ -30,7 +30,7 @@ const onboardingSteps = [
   },
   {
     title: "Set up payments and KYB",
-    body: "Merchants complete payment setup and verification so checkout, payment routing, and settlement can resolve through the same merchant identity.",
+    body: "Merchants complete payment setup and verification so checkout and payment routing can resolve through the same merchant identity. The merchant and payment providers control funds flow; Pivota does not hold customer funds.",
   },
   {
     title: "Finish integrations setup",
@@ -341,7 +341,7 @@ export default async function MerchantOnboardingPage({
                       </div>
                     ))}
                   </div>
-                  <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/8 px-4 py-4 text-sm leading-7 text-foreground">
+                  <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/[0.08] px-4 py-4 text-sm leading-7 text-foreground">
                     Sample recommendation: start with feeds, improve payment and cart logic, then
                     deepen into merchant-native checkout when execution blockers are resolved.
                   </div>

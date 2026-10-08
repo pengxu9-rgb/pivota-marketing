@@ -115,10 +115,10 @@ const Header = () => {
 
   const headerSurfaceClass = isAiReadinessPage
     ? scrolled
-      ? "border-slate-200/90 bg-[#f7f4ea]/96 backdrop-blur-xl"
-      : "border-slate-200/70 bg-[#fbfaf4]/88 backdrop-blur-md"
+      ? "border-slate-200/90 bg-[#f7f4ea]/[0.96] backdrop-blur-xl"
+      : "border-slate-200/70 bg-[#fbfaf4]/[0.88] backdrop-blur-md"
     : scrolled
-      ? "border-white/10 bg-[#11100f]/96 backdrop-blur-xl"
+      ? "border-white/10 bg-[#11100f]/[0.96] backdrop-blur-xl"
       : "border-transparent bg-[#11100f]";
 
   const inactiveNavTextClass = isAiReadinessPage
@@ -137,8 +137,8 @@ const Header = () => {
     ? "inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white/85 p-2 text-slate-900 lg:hidden"
     : "inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/[0.04] p-2 text-white lg:hidden";
   const mobileMenuClass = isAiReadinessPage
-    ? "border-t border-slate-200 bg-[#fbfaf4]/98 px-4 py-4 lg:hidden"
-    : "border-t border-white/10 bg-[#11100f]/98 px-4 py-4 lg:hidden";
+    ? "border-t border-slate-200 bg-[#fbfaf4]/[0.98] px-4 py-4 lg:hidden"
+    : "border-t border-white/10 bg-[#11100f]/[0.98] px-4 py-4 lg:hidden";
   const navShellClass = isAiReadinessPage
     ? "container-max flex h-11 items-center justify-between px-4 sm:h-12 sm:px-6 lg:px-8"
     : "container-max flex h-14 items-center justify-between px-4 sm:h-16 sm:px-6 lg:px-8";

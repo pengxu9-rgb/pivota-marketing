@@ -49,8 +49,8 @@ const choosePivotaList = [
     body: "You want checkout to resolve through merchant-native rails, not only through a platform's embedded path.",
   },
   {
-    title: "You need payment orchestration",
-    body: "You need PSP routing, payment-state sync, and reconciliation across agent-driven transactions.",
+    title: "You need payment-aware checkout routing",
+    body: "You need agent-driven checkout routed to your own payment providers, with payment-state sync back to your systems.",
   },
   {
     title: "You need order authorization and write-back",
@@ -424,7 +424,7 @@ export default function PivotaVsShopifyPage() {
                       Pivota helps merchants keep control, continuity, and fallback across systems.
                     </p>
                   </div>
-                  <div className="rounded-3xl border border-primary/20 bg-primary/8 px-5 py-5 text-sm leading-7 text-foreground">
+                  <div className="rounded-3xl border border-primary/20 bg-primary/[0.08] px-5 py-5 text-sm leading-7 text-foreground">
                     <p className="font-semibold">Store platform access is not the same as merchant control.</p>
                     <p className="mt-2">
                       Use your store platform for storefront operations and native access where
@@ -446,7 +446,7 @@ export default function PivotaVsShopifyPage() {
               <div className="section-frame px-6 py-6 sm:px-7">
                 <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
                   <div className="space-y-3">
-                    <p className="text-sm uppercase tracking-[0.18em] text-primary">Final CTA</p>
+                    <p className="text-sm uppercase tracking-[0.18em] text-primary">Next step</p>
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                       Want a merchant-controlled path on top of your store platform?
                     </h2>

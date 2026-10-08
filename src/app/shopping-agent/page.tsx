@@ -37,7 +37,7 @@ export default function ShoppingAgentPage() {
 
         <section className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div className="space-y-6">
-            <p className="text-sm uppercase tracking-[0.24em] text-primary">Agent-facing surface</p>
+            <p className="text-sm uppercase tracking-[0.24em] text-primary-ink">Agent-facing surface</p>
             <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
               Pivota Shopping Agent
             </h1>
@@ -84,12 +84,12 @@ export default function ShoppingAgentPage() {
             See the core category definition on{" "}
             <Link
               href="/merchant-gateway-for-agent-native-commerce"
-              className="text-primary hover:underline"
+              className="text-foreground underline underline-offset-4 hover:decoration-primary"
             >
               /merchant-gateway-for-agent-native-commerce
             </Link>
             , then follow the execution model on{" "}
-            <Link href="/how-pivota-works" className="text-primary hover:underline">
+            <Link href="/how-pivota-works" className="text-foreground underline underline-offset-4 hover:decoration-primary">
               /how-pivota-works
             </Link>
             .

@@ -96,7 +96,7 @@ const lanes: Lane[] = [
     title: "Checkout routing",
     auth: "API key and a buyer identity",
     summary:
-      "Every call in this lane was executed against production with a third-party agent key. Response shapes below are what we observed, not what our internal docs claim.",
+      "This lane records previously observed authenticated checkout behavior. It requires an agent key, buyer identity and merchant readiness. A ready session or payment link is not a paid-order outcome; coordinate sandbox credentials for payment completion.",
     steps: [
       {
         call: "initialize, then tools/list",
@@ -164,7 +164,7 @@ const knownLimits = [
 export const metadata = buildMarketingMetadata({
   title: "Verify Pivota | Agent Verification Path",
   description:
-    "A three-lane verification path an agent can execute unattended against Pivota: commerce index, decision layer, then checkout routing — with the expected result for every call.",
+    "A three-lane verification path for agents evaluating Pivota: commerce index, decision layer, then checkout routing — with the expected result for every call. The open research tools need no credentials; keyed and checkout lanes need scoped access.",
   path: routePaths.developersVerify,
   ogImage: "/og-developers.svg",
 });
@@ -197,16 +197,16 @@ export default function DevelopersVerifyPage() {
                 ]}
               />
 
-              <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-                <div className="space-y-5">
+              <div className="grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                <div className="min-w-0 space-y-5">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">Verify</p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
                     Point an agent at us and see for yourself.
                   </h1>
                   <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                    Evaluating a commerce layer should not require a sales call or a signup. This is a
-                    verification path an agent can run unattended, in three lanes, with the expected
-                    result stated for every call. Lanes 1 and 2 need nothing from us at all.
+                    Starting an evaluation should not require a sales call or a signup. This is a
+                    verification path an agent can follow in three lanes, with the expected
+                    result stated for every call. The four open research tools need no credentials. recommend_products requires the keyed native door.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild className="btn-hero h-11 px-5 text-sm">
@@ -221,7 +221,7 @@ export default function DevelopersVerifyPage() {
                   </div>
                 </div>
 
-                <div className="section-frame px-6 py-6 sm:px-7">
+                <div className="section-frame min-w-0 px-6 py-6 sm:px-7">
                   <p className="text-sm font-semibold tracking-tight">Start with no credentials</p>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
                     The open tier answers immediately. Paste this and you have a live capability
@@ -250,7 +250,7 @@ export default function DevelopersVerifyPage() {
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-xs uppercase tracking-[0.18em] text-primary">{lane.eyebrow}</p>
+                      <p className="text-xs uppercase tracking-[0.18em] text-primary-ink">{lane.eyebrow}</p>
                       <h2 className="text-xl font-semibold tracking-tight">{lane.title}</h2>
                     </div>
                     <span className="ml-auto rounded-full border border-border/70 bg-background/60 px-3 py-1 text-xs text-muted-foreground">
@@ -361,25 +361,27 @@ export default function DevelopersVerifyPage() {
               <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
                 <div>
                   <h2 className="text-2xl font-semibold tracking-tight">
-                    Checkout needs a buyer identity. That is one exchange.
+                    Buyer identity and persistent identity have separate scopes.
                   </h2>
                   <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
                     An agent key identifies your platform. Spending money needs a verified buyer, and
                     we would rather you register your own issuer and mint tokens for your own users
-                    than have us hand you credentials you would replace later.
+                    than have us hand you credentials you would replace later. Persistent commerce identity
+                    requires separate explicit opt-in; neither API authentication nor buyer token
+                    exchange provides blanket purchase authority.
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-4 text-sm">
                   <Link
                     href={routePaths.developersAuthWebhooks}
-                    className="inline-flex items-center text-primary hover:underline"
+                    className="inline-flex items-center text-foreground underline underline-offset-4 hover:decoration-primary"
                   >
                     Auth &amp; webhooks
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                   <Link
                     href={routePaths.developersProtocols}
-                    className="inline-flex items-center text-primary hover:underline"
+                    className="inline-flex items-center text-foreground underline underline-offset-4 hover:decoration-primary"
                   >
                     Protocols
                     <ChevronRight className="ml-1 h-4 w-4" />

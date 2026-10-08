@@ -13,6 +13,7 @@ import {
 } from "@/lib/marketing";
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
+// Order example is schema-checked, not a recorded transaction. Use confirmed test credentials.
 const firstCallSteps = [
   "Create a dedicated production or test API key and keep it outside source control.",
   "Send a first authenticated request to confirm the branded API base and key both work.",
@@ -29,6 +30,14 @@ const orderSnippet = `curl -X POST "https://api.pivota.cc/agent/v1/orders/create
   -d '{
     "merchant_id": "merch_...",
     "customer_email": "buyer@example.com",
+    "shipping_address": {
+      "name": "Test Buyer",
+      "address_line1": "123 Test Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "postal_code": "94105",
+      "country": "US"
+    },
     "items": [
       {
         "product_id": "prod_...",
@@ -81,7 +90,9 @@ export default function DevelopersFirstCallPage() {
                     Get from API key to first order flow without guessing the contract.
                   </h1>
                   <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                    The public builder path should be obvious before login. Start with the branded
+                    The example below uses placeholder IDs and requires a confirmed sandbox merchant
+                    and test payment credentials. It has been checked against OpenAPI, not executed.
+                    Start with the branded
                     API base, authenticate with an API key, then validate the first order and
                     webhook loop before promoting traffic.
                   </p>
