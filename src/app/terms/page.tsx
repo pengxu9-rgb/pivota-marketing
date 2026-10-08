@@ -21,7 +21,7 @@ export default function TermsPage() {
 
           <div className="prose mt-10 max-w-none prose-neutral prose-a:text-foreground prose-a:underline prose-a:underline-offset-4 prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground">
             <p>
-              This page is provided for general legal navigation. For the latest Service terms and access, please contact{" "}
+              This page is provided for general legal navigation. For current service terms and access, contact{" "}
               <a href="mailto:support@pivota.cc">support@pivota.cc</a>.
             </p>
           </div>
