@@ -81,7 +81,7 @@ export default function UcpInsightsSpecPage() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="overflow-hidden">
+      <main id="main-content" className="overflow-hidden">
         <section className="marketing-hero relative">
           <div className="bg-site-grid absolute inset-0 opacity-15" />
           <div className="section-padding relative">

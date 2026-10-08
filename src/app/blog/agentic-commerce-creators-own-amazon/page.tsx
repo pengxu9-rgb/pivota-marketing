@@ -43,7 +43,7 @@ const articleJsonLd = {
 
 export default function CreatorsOwnAmazonPost() {
   return (
-    <main className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
+    <main id="main-content" className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
       <JsonLd id="article-jsonld" data={articleJsonLd} />
       <article className="prose prose-neutral max-w-3xl rounded-lg border border-border/70 bg-card/80 p-6 shadow-[0_18px_44px_-32px_rgba(34,25,14,0.36)] prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-foreground prose-a:underline prose-a:underline-offset-4 prose-code:rounded prose-code:bg-background/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-foreground prose-pre:border prose-pre:border-border/70 prose-pre:bg-background/80 prose-pre:text-foreground sm:p-8">
         <h1>Creator agents still need a merchant gateway</h1>

@@ -32,7 +32,7 @@ export default function ShoppingAgentPage() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="container-max mx-auto space-y-16 px-4 py-16 sm:px-6 lg:px-8">
+      <main id="main-content" className="container-max mx-auto space-y-16 px-4 py-16 sm:px-6 lg:px-8">
         <AgentSurfacesSwitcher className="mb-2" />
 
         <section className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">

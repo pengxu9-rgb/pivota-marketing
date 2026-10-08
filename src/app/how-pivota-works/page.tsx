@@ -76,7 +76,7 @@ export default function HowPivotaWorksPage() {
       <JsonLd id="how-pivota-works-breadcrumb-jsonld" data={breadcrumbJsonLd} />
       <JsonLd id="how-pivota-works-service-jsonld" data={serviceJsonLd} />
 
-      <main className="overflow-hidden">
+      <main id="main-content" className="overflow-hidden">
         <section className="marketing-hero relative">
           <div className="bg-site-grid absolute inset-0 opacity-15" />
 

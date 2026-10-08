@@ -163,7 +163,7 @@ export default function AgentIntegrationPage() {
       <JsonLd id="agent-integration-breadcrumb-jsonld" data={breadcrumbJsonLd} />
       <JsonLd id="agent-integration-software-jsonld" data={softwareJsonLd} />
 
-      <main className="overflow-hidden">
+      <main id="main-content" className="overflow-hidden">
         <section className="marketing-hero relative">
           <div className="bg-site-grid absolute inset-0 opacity-15" />
 

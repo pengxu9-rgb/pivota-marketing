@@ -127,7 +127,7 @@ export default async function Home({ searchParams }: HomePageProps) {
       <JsonLd id="homepage-faq-jsonld" data={homepageFaqJsonLd} />
       <JsonLd id="homepage-service-jsonld" data={homepageServiceJsonLd} />
 
-      <main className="overflow-hidden">
+      <main id="main-content" className="overflow-hidden">
         <section className="relative isolate min-h-[calc(100vh-3.5rem)] overflow-hidden bg-[#11100f] text-white sm:min-h-[calc(100vh-4rem)]">
           <div className="hero-dot-field absolute inset-0 opacity-80" />
           <div className="hero-index-pattern absolute inset-x-0 bottom-0 z-0 h-[48%] min-h-[18rem]" aria-hidden="true">
@@ -380,9 +380,9 @@ export default async function Home({ searchParams }: HomePageProps) {
         </section>
 
         <ContactSection />
+        <section className="section-padding"><div className="container-max section-frame p-6 sm:p-8"><h2 className="text-2xl font-semibold">Inspect decisions and integration evidence</h2><p className="mt-4 text-muted-foreground">Public research is read-only. Deeper checkout needs scoped access, buyer identity and merchant readiness. Pivota does not hold customer funds or act as merchant of record.</p><div className="mt-5 flex flex-wrap gap-5 text-foreground underline underline-offset-4"><Link href="/developers/verify">Verify the public read-only tools</Link><Link href="/ucp/insights">UCP Insights</Link><Link href="/decisions-and-execution">Decisions and execution</Link></div></div></section>
       </main>
 
-      <section className="section-padding"><div className="container-max section-frame p-6 sm:p-8"><h2 className="text-2xl font-semibold">Inspect decisions and integration evidence</h2><p className="mt-4 text-muted-foreground">Public research is read-only. Deeper checkout needs scoped access, buyer identity and merchant readiness. Pivota does not hold customer funds or act as merchant of record.</p><div className="mt-5 flex flex-wrap gap-5 text-foreground underline underline-offset-4"><Link href="/developers/verify">Verify the public read-only tools</Link><Link href="/ucp/insights">UCP Insights</Link><Link href="/decisions-and-execution">Decisions and execution</Link></div></div></section>
       <Footer />
     </div>
   );

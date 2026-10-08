@@ -71,7 +71,7 @@ export default function DoINeedToRebuildMyStorePage() {
       <JsonLd id="rebuild-store-breadcrumb-jsonld" data={breadcrumbJsonLd} />
       <JsonLd id="rebuild-store-faq-jsonld" data={faqJsonLd} />
 
-      <main className="overflow-hidden">
+      <main id="main-content" className="overflow-hidden">
         <section className="marketing-hero relative">
           <div className="bg-site-grid absolute inset-0 opacity-15" />
 

@@ -113,7 +113,7 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
     <div className="min-h-screen bg-[#f6f4eb] text-slate-900">
       <Header />
 
-      <main className="overflow-hidden bg-[#f6f4eb] pb-24 sm:pb-0">
+      <main id="main-content" className="overflow-hidden bg-[#f6f4eb] pb-24 sm:pb-0">
         <section className="relative overflow-hidden bg-gradient-to-b from-[#fbfaf4] via-[#f7f4ea] to-[#f2efe4] pt-0">
           <div className="bg-site-grid absolute inset-0 opacity-[0.08]" />
           <div className="absolute left-[10%] top-10 h-52 w-52 rounded-full bg-primary/[0.12] blur-3xl" />

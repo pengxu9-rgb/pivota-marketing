@@ -21,7 +21,7 @@ export default async function BlogIndex() {
   );
 
   return (
-    <main className="marketing-hero relative">
+    <main id="main-content" className="marketing-hero relative">
       <div className="bg-site-grid absolute inset-0 opacity-15" />
 
       <div className="section-padding relative">

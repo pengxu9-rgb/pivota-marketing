@@ -183,7 +183,7 @@ export default function DevelopersVerifyPage() {
       <Header />
       <JsonLd id="developers-verify-breadcrumb-jsonld" data={breadcrumbJsonLd} />
 
-      <main className="overflow-hidden">
+      <main id="main-content" className="overflow-hidden">
         <section className="marketing-hero relative">
           <div className="bg-site-grid absolute inset-0 opacity-15" />
 

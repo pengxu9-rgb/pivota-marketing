@@ -115,6 +115,11 @@
     border-color: hsl(var(--border));
   }
 
+  /* Keep in-page targets (skip link, anchors) clear of the sticky header. */
+  html {
+    scroll-padding-top: 5rem;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;

@@ -217,6 +217,8 @@ const Header = () => {
               onClick={() => setIsOpen((open) => !open)}
               className={mobileToggleClass}
               aria-label={isOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -224,7 +226,7 @@ const Header = () => {
         </nav>
 
         {isOpen && !isAiReadinessCampaignMode ? (
-          <div className={mobileMenuClass}>
+          <div id="mobile-navigation" className={mobileMenuClass}>
             <div className="container-max space-y-2">
               {navItems.map((item) => (
                 <Link
