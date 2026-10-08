@@ -3,8 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Pivota",
-  description: "Terms of Service for Pivota.",
+  title: "Service terms and access | Pivota",
+  description: "Service terms and access for Pivota.",
   alternates: {
     canonical: "https://pivota.cc/terms",
   },
@@ -16,12 +16,12 @@ export default function TermsPage() {
       <Header />
       <main className="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mx-auto max-w-3xl">
-          <h1 className="text-4xl font-bold tracking-tight">Terms of Service</h1>
-          <p className="mt-3 text-sm text-muted-foreground">Last updated: 2026-01-19</p>
+          <h1 className="text-4xl font-bold tracking-tight">Service terms and access</h1>
+          <p className="mt-3 text-sm text-muted-foreground">Updated: 2026-10-07</p>
 
           <div className="prose mt-10 max-w-none prose-neutral prose-a:text-primary prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground">
             <p>
-              This page is provided for general legal navigation. For the latest Terms of Service, please contact{" "}
+              This page is provided for general legal navigation. For the latest Service terms and access, please contact{" "}
               <a href="mailto:support@pivota.cc">support@pivota.cc</a>.
             </p>
           </div>

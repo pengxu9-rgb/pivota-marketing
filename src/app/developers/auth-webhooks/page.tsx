@@ -126,7 +126,7 @@ export default function DevelopersAuthWebhooksPage() {
                     The branded managed receiver pattern follows
                     {" "}
                     <code className="rounded bg-background px-1.5 py-1 font-mono text-xs text-foreground">
-                      https://api.pivota.cc/agents/{"{agent_id}"}/webhooks/managed-inbox
+                      Account-scoped portal receiver contract; not declared in the public OpenAPI
                     </code>
                     {" "}
                     and can be used to validate delivery before switching to a merchant or partner endpoint.

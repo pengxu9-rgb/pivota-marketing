@@ -23,7 +23,7 @@ const WorkflowSection = () => {
         {
           icon: CreditCard,
           title: "支付流程",
-          description: "实时安全交易，多层加密，即时结算能力。",
+          description: "通过受支持的接口将结账请求交给商家系统；支付与订单状态需分别确认。",
         },
         {
           icon: PieChart,
@@ -48,7 +48,7 @@ const WorkflowSection = () => {
           icon: CreditCard,
           title: "Payment Flow",
           description:
-            "Real-time, secure transactions with multi-layer encryption and instant settlement capabilities.",
+            "Route supported checkout requests to merchant-controlled systems; confirm payment and order state separately.",
         },
         {
           icon: PieChart,

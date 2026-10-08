@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import { getPostBySlug } from "@/lib/blog";
-import { demotedBlogSlugs } from "@/lib/marketing";
+import { siteUrl, demotedBlogSlugs } from "@/lib/marketing";
 
 type ParamsPromise = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: ParamsPromise): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug("en", slug);
-  if (!post) return { title: "Not found" };
+  if (!post) notFound();
   const isDemoted = demotedBlogSlugs.includes(slug as (typeof demotedBlogSlugs)[number]);
   return {
     title: post.title,
@@ -30,23 +31,23 @@ export async function generateMetadata({ params }: ParamsPromise): Promise<Metad
 export default async function BlogPostPage({ params }: ParamsPromise) {
   const { slug } = await params;
   const post = await getPostBySlug("en", slug);
-  if (!post) return <main className="container-max py-16">Not found</main>;
+  if (!post) notFound();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     author: { "@type": "Organization", name: post.author },
-    publisher: { "@type": "Organization", name: "Pivota", logo: { "@type": "ImageObject", url: "/favicon.ico" } },
-    image: post.ogImage ? [post.ogImage] : undefined,
+    publisher: { "@id": `${siteUrl}/#organization` },
+    image: post.ogImage ? [new URL(post.ogImage, siteUrl).href] : undefined,
   } as const;
 
   return (
     <main className="container-max mx-auto px-4 py-16 sm:px-6 lg:px-8">
       <JsonLd id="article-jsonld" data={jsonLd} />
-      <article className="prose prose-neutral max-w-3xl rounded-lg border border-border/70 bg-card/80 p-6 shadow-[0_18px_44px_-32px_rgba(34,25,14,0.36)] prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-code:rounded prose-code:bg-background/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-foreground prose-pre:border prose-pre:border-border/70 prose-pre:bg-background/80 prose-pre:text-foreground sm:p-8">
+      <article className="prose prose-neutral max-w-3xl rounded-lg border border-border/70 bg-card/80 p-6 shadow-[0_18px_44px_-32px_rgba(34,25,14,0.36)] prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-foreground prose-a:underline prose-a:underline-offset-4 prose-code:rounded prose-code:bg-background/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-foreground prose-pre:border prose-pre:border-border/70 prose-pre:bg-background/80 prose-pre:text-foreground sm:p-8">
         <h1>{post.title}</h1>
         <p className="text-sm text-muted-foreground">
           {new Date(post.date).toLocaleDateString()} · {(post.readingMinutes ?? 3)} min read

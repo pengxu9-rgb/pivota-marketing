@@ -8,7 +8,6 @@ import JsonLd from "@/components/JsonLd";
 import { Button } from "@/components/ui/button";
 import workflowImage from "@/assets/workflow-steps.jpg";
 import {
-  aiReadinessSignupPath,
   buildMarketingMetadata,
   homepageFaqItems,
   homepageFaqPreviewItems,
@@ -117,8 +116,8 @@ type HomePageProps = {
 
 export default async function Home({ searchParams }: HomePageProps) {
   const resolvedSearchParams = (await searchParams) ?? {};
-  const onboardingHref = appendSearchParamRecordToPath(
-    aiReadinessSignupPath,
+  const readinessHref = appendSearchParamRecordToPath(
+    routePaths.aiReadiness,
     resolvedSearchParams,
   );
 
@@ -165,7 +164,7 @@ export default async function Home({ searchParams }: HomePageProps) {
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Button asChild className="h-12 bg-white px-6 text-sm font-semibold text-[#11100f] hover:bg-lime-100">
-                    <Link href={onboardingHref}>
+                    <Link href={readinessHref}>
                       Check readiness
                       <ArrowRight className="h-4 w-4" />
                     </Link>
@@ -383,6 +382,7 @@ export default async function Home({ searchParams }: HomePageProps) {
         <ContactSection />
       </main>
 
+      <section className="section-padding"><div className="container-max section-frame p-6 sm:p-8"><h2 className="text-2xl font-semibold">Inspect decisions and integration evidence</h2><p className="mt-4 text-muted-foreground">Public research is read-only. Deeper checkout needs scoped access, buyer identity and merchant readiness. Pivota does not hold customer funds or act as merchant of record.</p><div className="mt-5 flex flex-wrap gap-5 text-foreground underline underline-offset-4"><Link href="/developers/verify">Verify the public read-only tools</Link><Link href="/ucp/insights">UCP Insights</Link><Link href="/decisions-and-execution">Decisions and execution</Link></div></div></section>
       <Footer />
     </div>
   );

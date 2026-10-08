@@ -55,6 +55,7 @@ export function buildSoftwareApplicationJsonLd(input: {
     featureList: input.featureList,
     publisher: {
       "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
       name: siteName,
       url: siteUrl,
     },
@@ -73,6 +74,7 @@ export function buildServiceJsonLd(input: {
     name: input.name,
     provider: {
       "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
       name: siteName,
       url: siteUrl,
     },

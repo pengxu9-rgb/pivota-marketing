@@ -28,12 +28,16 @@ const organizationJsonLd = {
   name: siteName,
   url: siteUrl,
   description: homepageMetaDescription,
-  logo: `${siteUrl}/og-home.svg`,
+  "@id": `${siteUrl}/#organization`,
+  sameAs: ["https://www.linkedin.com/company/pivota-commerce-index"],
+  logo: `${siteUrl}/pivota-brand/svg/pivota-mark.svg`,
 } as const;
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  publisher: { "@id": `${siteUrl}/#organization` },
   name: siteName,
   url: siteUrl,
   description: homepageMetaDescription,
@@ -45,10 +49,6 @@ export const metadata: Metadata = {
   description: homepageMetaDescription,
   alternates: {
     canonical: `${siteUrl}/`,
-    languages: {
-      en: `${siteUrl}/`,
-      "x-default": `${siteUrl}/`,
-    },
   },
   openGraph: {
     type: "website",
@@ -81,9 +81,6 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/pivota-brand/icons/favicon-32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/pivota-brand/icons/favicon-16.png" />
         <link rel="apple-touch-icon" href="/pivota-brand/icons/apple-touch-icon.png" />
-        {/* hreflang for English */}
-        <link rel="alternate" href={`${siteUrl}/`} hrefLang="x-default" />
-        <link rel="alternate" href={`${siteUrl}/`} hrefLang="en" />
         {/* Baidu site verification */}
         <meta name="baidu-site-verification" content="codeva-Z2nSoSL8VM" />
       </head>

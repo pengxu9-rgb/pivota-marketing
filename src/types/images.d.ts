@@ -1,7 +1,7 @@
 type StaticImageLike = {
   src: string;
-  height?: number;
-  width?: number;
+  height: number;
+  width: number;
   blurDataURL?: string;
 };
 

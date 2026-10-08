@@ -16,20 +16,20 @@ const requestFamilies = [
   },
   {
     family: "Search and recommendation",
-    examples: "SDK searchProducts(...) and related recommendation workflows",
-    path: "REST / SDK / MCP",
+    examples: "MCP search_catalog / get_product / get_alternatives / get_intel",
+    path: "REST / MCP (SDK compatibility pending)",
     summary: "Resolve products, offers, and merchant data through a structured commerce surface instead of crawling merchant sites.",
   },
   {
     family: "Cart validation",
     examples: "POST /agent/v1/cart/validate",
-    path: "REST / SDK",
+    path: "REST (sandbox for writes)",
     summary: "Validate items and cart structure before checkout creation or deeper order flows.",
   },
   {
     family: "Checkout intents",
     examples: "POST /agent/v1/checkout/intents",
-    path: "REST / SDK",
+    path: "REST (sandbox for writes)",
     summary: "Create merchant-native checkout flows that carry execution into payment-aware paths.",
   },
   {
@@ -46,7 +46,7 @@ const requestFamilies = [
   },
   {
     family: "Webhooks",
-    examples: "GET/PUT /agents/{agent_id}/webhooks/config and related delivery endpoints",
+    examples: "Portal-managed destinations and delivery history (account-scoped contract)",
     path: "REST + portal-managed lifecycle",
     summary: "Subscribe to events, test delivery, verify signatures, and keep downstream systems aligned after execution begins.",
   },
