@@ -103,10 +103,10 @@ export default function AboutPage() {
                   </h2>
                   <div className="mt-4 grid gap-3 text-sm">
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                      Category: Commerce Index for Agents
+                      Category: commerce decision and execution layer for AI agents
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                      Role: commerce decision and execution layer, with a structured Commerce Index, between agent demand and merchant systems
+                      Role: a structured Commerce Index plus checkout routing between agent demand and merchant systems
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
                       Boundary: not a marketplace, not an inventory holder, not a checkout-only tool
@@ -136,7 +136,7 @@ export default function AboutPage() {
             <div className="section-frame p-6 sm:p-8">
               <p className="text-sm uppercase tracking-[0.22em] text-primary-ink">What we are building</p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-                A Commerce Index and execution layer for agents.
+                A commerce decision and execution layer for AI agents.
               </h2>
               <p className="mt-4 text-base leading-8 text-muted-foreground">
                 Pivota maintains a structured index of merchant catalogs, active offers, variants,

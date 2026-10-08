@@ -289,7 +289,7 @@ export const faqItems = [
   {
     question: "Which agent commerce protocols does Pivota support?",
     answer:
-      "As of October 2026: MCP (Model Context Protocol) has four public read-only research tools at mcp.pivota.cc/mcp, plus a keyed endpoint with scoped capabilities. UCP (Universal Commerce Protocol) has a live seller door for discovery and catalog search; checkout through it is limited. ACP (Agentic Commerce Protocol) and AP2 (Agent Payments Protocol) workflows are internal beta, not self-serve. Visa Intelligent Commerce, Visa Trusted Agent Protocol and Mastercard Agent Pay are not supported. Pivota does not author any of these standards.",
+      "As of 8 October 2026: MCP (Model Context Protocol) has four public read-only research tools at mcp.pivota.cc/mcp, plus a keyed endpoint with scoped capabilities. UCP (Universal Commerce Protocol) has a live seller door for discovery and catalog search; checkout through it is limited. ACP (Agentic Commerce Protocol) and AP2 (Agent Payments Protocol) workflows are internal beta, not self-serve. Visa Intelligent Commerce, Visa Trusted Agent Protocol and Mastercard Agent Pay are not supported. Pivota does not author any of these standards.",
   },
   {
     question: "What happens after the first successful call?",
@@ -302,9 +302,9 @@ export const faqItems = [
       "Webhooks carry execution and lifecycle signals after the initial call. They help builders observe order creation, payment attempts, payment outcomes, completion, refunds, cancellations, and delivery health.",
   },
   {
-    question: "What is the commerce execution layer for agent-native commerce?",
+    question: "What is a commerce decision and execution layer for AI agents?",
     answer:
-      "The commerce execution layer is the infrastructure between LLM or agent demand and merchant systems. Pivota makes catalogs queryable via a Commerce Index, routes demand into merchant-native checkout and payment flows, and writes execution state back into merchant systems.",
+      "It is the infrastructure between LLM or agent demand and merchant systems. Pivota makes catalogs queryable via a Commerce Index, routes demand into merchant-native checkout and payment flows, and writes execution state back into merchant systems.",
   },
   {
     question: "How do merchants turn LLM traffic into transactions?",
@@ -319,7 +319,7 @@ export const faqItems = [
   {
     question: "How do AI agents connect to merchant checkout and payment?",
     answer:
-      "Pivota connects agent demand to merchant-native checkout and payment flows. Merchants keep existing payment relationships: the merchant's own payment providers authorize and process the payment, while Pivota routes checkout to them and syncs payment state and write-back.",
+      "Pivota connects agent demand to merchant-native checkout and payment flows. Merchants keep existing payment relationships: the merchant's own payment providers authorize and process the payment, while Pivota routes checkout to them, syncs payment state, and writes order updates back to merchant systems.",
   },
   {
     question: "What is agentic commerce?",

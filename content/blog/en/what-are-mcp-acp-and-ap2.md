@@ -38,4 +38,4 @@ Protocol compatibility does not guarantee platform listing, distribution, paymen
 
 ## Start with a verifiable contract
 
-Begin with the [public verification path](/developers/verify) and the [OpenAPI](https://api.pivota.cc/agent/docs/openapi.json). Payment testing requires coordinated sandbox credentials. For merchant and channel eligibility, refusal cases and attribution, read [Decisions and execution evidence](/decisions-and-execution). For why agents need structured interfaces at all, read [Why merchant gateways need APIs instead of crawlers](/blog/end-of-crawlers-agentic-commerce).
+Begin with the [public verification path](/developers/verify) and the [OpenAPI](https://api.pivota.cc/agent/docs/openapi.json). Payment testing requires coordinated sandbox credentials. For merchant and channel eligibility, refusal cases and attribution, read [Decisions and execution evidence](/decisions-and-execution). For why agents need structured interfaces at all, read [Why AI shopping agents need APIs, not crawlers](/blog/end-of-crawlers-agentic-commerce).

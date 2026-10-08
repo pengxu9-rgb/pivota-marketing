@@ -1,7 +1,7 @@
 ---
 id: mcp-acp-ap2-overview
 title: MCP、ACP、AP2 和 UCP 是什么？Pivota 支持哪些？
-description: MCP、ACP、AP2 与 UCP 的简明定义，以及截至 2026 年 10 月 Pivota 对每项协议的支持情况，包括尚不支持的卡组织智能体计划。
+description: MCP、ACP、AP2 与 UCP 的简明定义，以及截至 2026 年 10 月 Pivota 对每项协议的支持情况，包括 Pivota 不支持的卡组织智能体计划。
 date: 2025-11-14
 author: Pivota 团队
 ogImage: /og-developers-zh.svg
@@ -37,4 +37,4 @@ Pivota 在商家现有系统之上提供商业决策与执行层。Pivota 不制
 
 ## 从可验证接口开始
 
-查看[公开验证路径](/developers/verify)与 [OpenAPI](https://api.pivota.cc/agent/docs/openapi.json)。支付测试需要协调确认的沙盒凭证。关于商家与渠道资格、拒绝情形和归因，请阅读[决策与执行证据](/decisions-and-execution)。关于智能体为何需要结构化接口，请阅读[《为什么商家网关需要 API，而不是爬虫》](/blog/end-of-crawlers-agentic-commerce)。
+查看[公开验证路径](/developers/verify)与 [OpenAPI](https://api.pivota.cc/agent/docs/openapi.json)。支付测试需要协调确认的沙盒凭证。关于商家与渠道资格、拒绝情形和归因，请阅读[决策与执行证据](/decisions-and-execution)。关于智能体为何需要结构化接口，请阅读[《为什么 AI 购物智能体需要 API，而不是爬虫》](/blog/end-of-crawlers-agentic-commerce)。

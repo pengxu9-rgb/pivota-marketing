@@ -75,7 +75,7 @@ const boundaries = [
 ] as const;
 
 export const metadata = buildMarketingMetadata({
-  title: "Commerce Decision and Execution Layer for AI Agents | Pivota",
+  title: "Merchant Gateway for Agent-Native Commerce | Pivota",
   description:
     "Pivota is the commerce decision and execution layer for AI agents. It maintains a structured Commerce Index agents can search, routes demand into merchant-native checkout and payment flows, and writes execution state back into existing merchant systems.",
   path: routePaths.merchantGateway,
@@ -87,9 +87,9 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Commerce execution layer", path: routePaths.merchantGateway },
 ]);
 const serviceJsonLd = buildServiceJsonLd({
-  name: "Pivota Commerce Execution Layer",
+  name: "Pivota Commerce Decision and Execution Layer",
   path: routePaths.merchantGateway,
-  serviceType: "Commerce Index layer and execution layer for agentic commerce",
+  serviceType: "Commerce decision and execution layer for AI agents",
 });
 
 export default function MerchantGatewayCategoryPage() {

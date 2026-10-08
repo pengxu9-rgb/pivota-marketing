@@ -97,7 +97,7 @@ const executionSignals = [
 
 const homepageFaqJsonLd = buildFaqJsonLd(homepageFaqItems);
 const homepageServiceJsonLd = buildServiceJsonLd({
-  name: "Pivota Commerce Index and Decision Layer",
+  name: "Pivota Commerce Decision and Execution Layer",
   path: routePaths.home,
   serviceType: "Commerce decision and execution layer for AI agents",
 });
@@ -106,7 +106,7 @@ export const metadata = buildMarketingMetadata({
   title: homepageTitle,
   description: homepageMetaDescription,
   path: routePaths.home,
-  ogTitle: "Pivota - Commerce Index and Decision Layer for Agents",
+  ogTitle: "Pivota - Commerce Decision and Execution Layer for AI Agents",
   ogDescription: homepageMetaDescription,
 });
 

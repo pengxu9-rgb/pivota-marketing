@@ -1,6 +1,6 @@
 ---
 id: end-of-crawlers
-title: 为什么商家网关需要 API，而不是爬虫
+title: 为什么 AI 购物智能体需要 API，而不是爬虫
 description: 为什么 AI 购物智能体需要结构化的商品、报价与结账接口，而不是抓取店铺页面；以及结构化接口仍然无法保证什么。
 date: 2025-11-14
 author: Pivota 工程团队
@@ -9,7 +9,7 @@ ogImage: /og-developers-zh.svg
 updated: 2026-10-08
 ---
 
-**2026 年 10 月 7 日更正。** 本文删除了未经证实的支付和结算能力描述，协议定义已移至[《MCP、ACP、AP2 和 UCP 是什么？》](/blog/what-are-mcp-acp-and-ap2)。原文发表于 2025 年 11 月 14 日。
+**2026 年 10 月 7 日更正；10 月 8 日移出协议定义。** 本文删除了未经证实的支付和结算能力描述，协议定义已移至[《MCP、ACP、AP2 和 UCP 是什么？》](/blog/what-are-mcp-acp-and-ap2)。原文发表于 2025 年 11 月 14 日。
 
 Pivota 在商家现有系统之上提供商业决策与执行层。Commerce Index 提供商品和报价信息；受支持的集成把智能体意图连接到商家控制的执行路径。Pivota 不持有客户资金，也不担任记录商户（merchant of record）。
 
@@ -38,7 +38,7 @@ Pivota 在商家现有系统之上提供商业决策与执行层。Commerce Inde
 
 公开只读研究可通过四个 MCP 工具完成：`search_catalog`、`get_product`、`get_alternatives` 和 `get_intel`。覆盖以美妆与个人护理为主。
 
-结账是单独的步骤，需要相应接口权限、经过验证的买家身份、准确的变体与商家就绪条件。返回结账链接或待付款会话并不等于订单已付款。商家与其支付服务商负责销售与资金流。
+结账是单独的步骤，有其自身的条件；商家与其支付服务商负责销售与资金流。
 
 关于 MCP、ACP、AP2 和 UCP 的含义以及 Pivota 目前支持哪些，请阅读[《MCP、ACP、AP2 和 UCP 是什么？》](/blog/what-are-mcp-acp-and-ap2)。
 

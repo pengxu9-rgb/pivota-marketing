@@ -1,6 +1,6 @@
 ---
 id: end-of-crawlers
-title: "Why merchant gateways need APIs instead of crawlers"
+title: "Why AI shopping agents need APIs, not crawlers"
 description: Why AI shopping agents need structured product, offer and checkout interfaces instead of scraped storefront pages, and what a structured interface still cannot guarantee.
 date: 2025-11-14
 author: "Pivota Engineering"
@@ -9,7 +9,7 @@ ogImage: /og-developers.svg
 updated: 2026-10-08
 ---
 
-**Corrected 7 October 2026.** This revision removes unsupported payment and settlement claims and moves protocol definitions to [What are MCP, ACP, AP2 and UCP?](/blog/what-are-mcp-acp-and-ap2). The original article was published on 14 November 2025.
+**Corrected 7 October 2026; protocol definitions moved on 8 October 2026.** This revision removes unsupported payment and settlement claims and moves protocol definitions to [What are MCP, ACP, AP2 and UCP?](/blog/what-are-mcp-acp-and-ap2). The original article was published on 14 November 2025.
 
 Pivota provides a commerce decision and execution layer over merchant systems. Its Commerce Index supplies product and offer context; supported integrations connect agent intent to merchant-controlled execution. Pivota does not hold customer funds or act as merchant of record.
 
@@ -38,7 +38,7 @@ Scraping is not universally obsolete either. Choose an interface based on the ev
 
 Public read-only research is available through four MCP tools: `search_catalog`, `get_product`, `get_alternatives` and `get_intel`. Coverage is strongest in beauty and personal care.
 
-Checkout is a separate step. It requires the applicable API access, verified buyer identity, the exact variant and merchant readiness. A returned checkout URL or a session awaiting payment is not a paid order. The merchant and its payment providers handle the sale and funds flow.
+Checkout is a separate step with its own requirements, and the merchant and its payment providers handle the sale and funds flow.
 
 For what MCP, ACP, AP2 and UCP mean, and which of them Pivota supports today, read [What are MCP, ACP, AP2 and UCP?](/blog/what-are-mcp-acp-and-ap2)
 

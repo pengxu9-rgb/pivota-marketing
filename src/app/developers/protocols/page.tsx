@@ -81,7 +81,7 @@ export default function DevelopersProtocolsPage() {
                   Keep the production path on REST and webhooks. Layer protocols on top only when required.
                 </h1>
                 <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                  Pivota supports channel and protocol layers, but they do not replace the default
+                  Protocol layers vary in status (see below), and none of them replaces the default
                   public integration model. External developers should start with API keys, REST
                   endpoints, and webhook delivery, then introduce protocol layers only when a
                   partner program or rollout stage explicitly requires them.

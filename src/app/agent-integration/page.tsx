@@ -186,7 +186,7 @@ export default function AgentIntegrationPage() {
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      Pivota is the builder surface for the commerce execution layer that sits on top of
+                      Pivota is the builder surface for the commerce decision and execution layer that sits on top of
                       existing storefront, checkout, and payment systems.
                     </p>
                     <p className="mt-2">
@@ -388,7 +388,7 @@ export default function AgentIntegrationPage() {
                       <code>{requestSnippet}</code>
                     </pre>
                     <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                      Checkout and order calls also need verified buyer identity; an API key alone is not
+                      The example shows only the API key. Purchase calls such as checkout intents and order creation also need verified buyer identity; an API key alone is not
                       purchase authority. The{" "}
                       <a href="https://api.pivota.cc/agent/docs/openapi.json" className="text-foreground underline underline-offset-4">
                         OpenAPI

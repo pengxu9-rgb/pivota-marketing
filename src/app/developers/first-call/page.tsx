@@ -165,7 +165,7 @@ export default function DevelopersFirstCallPage() {
                     <code>{orderSnippet}</code>
                   </pre>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    Checkout and order calls also need verified buyer identity; an API key alone is not
+                    The example shows only the API key. Purchase calls such as checkout intents and order creation also need verified buyer identity; an API key alone is not
                     purchase authority. The{" "}
                     <a href="https://api.pivota.cc/agent/docs/openapi.json" className="text-foreground underline underline-offset-4">
                       OpenAPI

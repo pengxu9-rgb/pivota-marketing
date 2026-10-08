@@ -23,7 +23,7 @@ const shoppingAgentColumns = [
 export const metadata = buildMarketingMetadata({
   title: "Shopping Agent Surface | Pivota",
   description:
-    "An agent-facing surface built on Pivota's commerce execution layer.",
+    "An agent-facing surface built on Pivota's commerce decision and execution layer.",
   path: "/shopping-agent",
 });
 
@@ -42,8 +42,8 @@ export default function ShoppingAgentPage() {
               Pivota Shopping Agent
             </h1>
             <p className="max-w-3xl text-lg text-muted-foreground">
-              Pivota Shopping Agent is an agent-facing surface built on the commerce execution layer for
-              agent-native commerce. It helps route LLM and agent demand into merchant-native
+              Pivota Shopping Agent is an agent-facing surface built on the commerce decision and execution
+              layer for AI agents. It helps route LLM and agent demand into merchant-native
               transactions.
             </p>
             <div className="flex flex-wrap gap-3">
