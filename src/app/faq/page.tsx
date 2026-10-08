@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import AnswerBlock from "@/components/AnswerBlock";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -7,7 +7,6 @@ import JsonLd from "@/components/JsonLd";
 import PageChrome from "@/components/PageChrome";
 import QuestionAnswerList from "@/components/QuestionAnswerList";
 import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
   buildMarketingMetadata,
   coreAnswerBlock,
@@ -116,18 +115,22 @@ export default function FaqPage() {
                     integration boundaries.
                   </p>
                 </div>
-                <Accordion type="single" collapsible>
-                  {faqItems.map((item, index) => (
-                    <AccordionItem key={item.question} value={`item-${index + 1}`}>
-                      <AccordionTrigger className="text-left text-base text-foreground">
+                {/* Native <details> keeps every answer in the server-rendered HTML (crawlers and
+                    the FAQPage JSON-LD see the same text) and stays collapsible without JS. */}
+                <div>
+                  {faqItems.map((item) => (
+                    <details key={item.question} className="group border-b">
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-base font-medium text-foreground hover:underline [&::-webkit-details-marker]:hidden">
                         {item.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-sm leading-7 text-muted-foreground">
-                        {item.answer}
-                      </AccordionContent>
-                    </AccordionItem>
+                        <ChevronDown
+                          aria-hidden="true"
+                          className="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180"
+                        />
+                      </summary>
+                      <div className="pb-4 text-sm leading-7 text-muted-foreground">{item.answer}</div>
+                    </details>
                   ))}
-                </Accordion>
+                </div>
               </div>
 
               <div className="flex flex-wrap gap-4 text-sm">
