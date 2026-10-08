@@ -452,43 +452,43 @@ export default async function AiReadinessPage({ searchParams }: AiReadinessPageP
             <div className="mt-6 flex flex-wrap gap-4 text-sm">
               <Link
                 href={routePaths.promotionReadiness}
-                className="inline-flex items-center text-primary hover:underline"
+                className="inline-flex items-center text-foreground underline underline-offset-4 hover:decoration-primary"
               >
                 Promotion readiness
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Link>
-              <Link href={routePaths.howPivotaWorks} className="inline-flex items-center text-primary hover:underline">
+              <Link href={routePaths.howPivotaWorks} className="inline-flex items-center text-foreground underline underline-offset-4 hover:decoration-primary">
                 How Pivota works
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Link>
               <Link
                 href={routePaths.merchantOnboarding}
-                className="inline-flex items-center text-primary hover:underline"
+                className="inline-flex items-center text-foreground underline underline-offset-4 hover:decoration-primary"
               >
                 Merchant onboarding
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Link>
               <Link
                 href={routePaths.merchantNativeCheckout}
-                className="inline-flex items-center text-primary hover:underline"
+                className="inline-flex items-center text-foreground underline underline-offset-4 hover:decoration-primary"
               >
                 Merchant-native checkout
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Link>
-              <Link href={routePaths.faq} className="inline-flex items-center text-primary hover:underline">
+              <Link href={routePaths.faq} className="inline-flex items-center text-foreground underline underline-offset-4 hover:decoration-primary">
                 FAQ
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Link>
               <Link
                 href={routePaths.agentIntegration}
-                className="inline-flex items-center text-primary hover:underline"
+                className="inline-flex items-center text-foreground underline underline-offset-4 hover:decoration-primary"
               >
                 Agent Integration
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Link>
               <Link
                 href={routePaths.useCases}
-                className="inline-flex items-center text-primary hover:underline"
+                className="inline-flex items-center text-foreground underline underline-offset-4 hover:decoration-primary"
               >
                 Use cases
                 <ChevronRight className="ml-1 h-4 w-4" />

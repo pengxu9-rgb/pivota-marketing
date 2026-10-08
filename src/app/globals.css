@@ -412,7 +412,7 @@
   }
 
   .commerce-link {
-    @apply inline-flex items-center gap-1 font-medium text-primary transition-colors hover:text-foreground;
+    @apply inline-flex items-center gap-1 font-medium text-foreground underline underline-offset-4 transition-colors hover:decoration-primary;
   }
 
   .pv-wordmark--light {

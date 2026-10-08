@@ -224,8 +224,8 @@ export default async function Home({ searchParams }: HomePageProps) {
                 How agents get commerce done.
               </h2>
               <p className="mt-5 max-w-xl text-base leading-8 text-muted-foreground">
-                Agent-driven commerce will not live in one app. Pivota gives every agent surface
-                the same reliable route into merchant-native execution.
+                Agent-driven commerce will not live in one app. Pivota gives supported agent surfaces
+                a consistent route into merchant-controlled execution.
               </p>
               <div className="mt-7 flex flex-wrap gap-4 text-sm">
                 <Link href={routePaths.merchantOnboarding} className="commerce-link">

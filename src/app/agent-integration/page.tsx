@@ -31,12 +31,12 @@ const integrationModes = [
     icon: Package,
     title: "SDK",
     body: "Python package listing: pivota-agent (1.0.0). Its README still names a different installation package and old domains. Use the REST contract while package metadata is reconciled; the listing is not evidence of current runtime compatibility.",
-    supporting: "Use when your runtime benefits from a client library",
+    supporting: "Package metadata pending; use REST for now",
   },
   {
     icon: Cable,
     title: "MCP",
-    body: "A hosted remote MCP server at https://commerce.mcp.pivota.cc/mcp with OAuth — add it to Claude, ChatGPT, or any MCP client as a connector. The open door at https://mcp.pivota.cc/mcp exposes four read-only tools. The keyed door adds scoped capabilities; some advertised tools are not wired through. Check the verification page before relying on checkout or order tools.",
+    body: "A hosted remote MCP server at https://commerce.mcp.pivota.cc/mcp with OAuth, for MCP clients that support remote servers; confirm your client supports remote MCP with OAuth before relying on it. The open door at https://mcp.pivota.cc/mcp exposes four read-only tools. The keyed door adds scoped capabilities; some advertised tools are not wired through. Check the verification page before relying on checkout or order tools.",
     supporting: "Open research tools; scoped authenticated execution",
   },
 ] as const;
@@ -133,7 +133,7 @@ const consoleItems = [
 export const metadata = buildMarketingMetadata({
   title: "Agent Integration | Pivota",
   description:
-    "Build against the merchant-native commerce layer agents call. Public guidance for REST, SDK, MCP, auth, webhooks, and execution across the Pivota integration surface.",
+    "Build against the merchant-native commerce layer agents call. Public guidance for REST, MCP, auth, webhooks, and execution across the Pivota integration surface, plus current Python package status.",
   path: routePaths.agentIntegration,
   ogImage: "/og-developers.svg",
 });
@@ -146,11 +146,11 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 const softwareJsonLd = buildSoftwareApplicationJsonLd({
   name: "Pivota Agent Integration",
   description:
-    "Public integration hub for the merchant-native commerce layer agents call, including REST, SDK, MCP, auth, and webhook guidance.",
+    "Public integration hub for the merchant-native commerce layer agents call, including REST, MCP, auth, and webhook guidance.",
   path: routePaths.agentIntegration,
   featureList: [
     "REST API integration",
-    "SDK quickstart",
+    "Python package status (metadata reconciliation pending)",
     "Hosted remote MCP endpoint and configuration guidance",
     "Webhook delivery and verification",
     "Execution across checkout, payment, and write-back",
@@ -192,7 +192,7 @@ export default function AgentIntegrationPage() {
                     </p>
                     <p className="mt-2">
                       Some merchants start with discovery, feeds, or link-out. When a merchant is
-                      ready for deeper flows, builders use the REST path, SDK, or MCP to work with
+                      ready for deeper flows, builders use the REST path or MCP to work with
                       checkout, orders, events, and webhooks.
                     </p>
                   </AnswerBlock>
@@ -309,7 +309,7 @@ export default function AgentIntegrationPage() {
                     Choose your integration mode
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    REST is the default. SDK and MCP sit on top.
+                    REST is the default. MCP adds tool access; SDK status is pending.
                   </h2>
                 </div>
                 <div className="grid gap-4 md:grid-cols-3">

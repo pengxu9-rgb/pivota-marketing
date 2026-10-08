@@ -38,7 +38,7 @@ For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
 - [Pivota implementation effort](https://pivota.cc/pivota-implementation-effort): Rollout stages and integration effort.
 - [Pivota vs Shopify](https://pivota.cc/pivota-vs-shopify): How Pivota works with store platforms instead of replacing them.
 - [Skincare and beauty merchants](https://pivota.cc/skincare-beauty-merchants): Agent-readiness patterns for beauty and skincare merchants.
-- [Use cases](https://pivota.cc/use-cases): Representative merchant scenarios across discoverability, checkout, payment, and measurement.
+- [Use cases](https://pivota.cc/use-cases): Illustrative merchant scenarios across discoverability, checkout, payment, and measurement.
 
 ## Contact
 

@@ -279,12 +279,12 @@ export const faqItems = [
   {
     question: "What can agents call through Pivota today?",
     answer:
-      "Agents and builders can start with the public REST path, then use SDK or MCP where useful. Public request families include search and recommendation, cart and checkout intents, orders, order status, order events, webhooks, and payment-aware execution flows.",
+      "Agents and builders can start with the four public read-only MCP research tools, then use the authenticated REST API for deeper flows. Public request families include search and recommendation, cart and checkout intents, orders, order status, order events, webhooks, and payment-aware execution flows.",
   },
   {
     question: "What is the default integration path?",
     answer:
-      "REST with API keys and webhooks is the default production path. The SDK wraps the same REST contract. MCP sits on top as a local orchestration and discovery surface.",
+      "REST with API keys and webhooks is the default production path. Python package metadata is being reconciled, so build against the REST contract. Pivota hosts remote MCP endpoints: four public read-only research tools, and a keyed door with scoped capabilities.",
   },
   {
     question: "What happens after the first successful call?",
@@ -374,42 +374,42 @@ export const useCases = [
     title: "Ingredient and variant clarity",
     prompt: "Discoverability and variant readiness",
     summary:
-      "A specialty skin care brand cleaned up ingredient and variant structure so downstream agents could recommend products more reliably.",
+      "A specialty skin care brand could clean up ingredient and variant structure so downstream agents recommend products more reliably.",
   },
   {
     slug: "seasonal-promo-complexity",
     title: "Seasonal promo complexity",
     prompt: "Offer and promotion readiness",
     summary:
-      "A fashion merchant tightened fragmented promo logic so downstream agents could stop guessing which offer really applied.",
+      "A fashion merchant could tighten fragmented promo logic so downstream agents stop guessing which offer really applies.",
   },
   {
     slug: "eligibility-sensitive-pricing",
     title: "Eligibility-sensitive pricing",
     prompt: "Offer and promotion readiness",
     summary:
-      "A merchant with membership pricing clarified what was executable versus conditional before scaling AI traffic.",
+      "A merchant with membership pricing could clarify what is executable versus conditional before scaling AI traffic.",
   },
   {
     slug: "wallet-and-financing-readiness",
     title: "Wallet and financing readiness",
     prompt: "Checkout and payment execution",
     summary:
-      "An electronics retailer cleaned up wallet and financing logic before moving toward merchant-native checkout.",
+      "An electronics retailer could clean up wallet and financing logic before moving toward merchant-native checkout.",
   },
   {
     slug: "shipping-and-cart-rule-alignment",
     title: "Shipping and cart-rule alignment",
     prompt: "Checkout and payment execution",
     summary:
-      "A home goods merchant improved cart and shipping readiness so recommended paths stayed closer to final checkout reality.",
+      "A home goods merchant could improve cart and shipping readiness so recommended paths stay closer to final checkout reality.",
   },
   {
     slug: "reliability-and-write-back-visibility",
     title: "Reliability and write-back visibility",
     prompt: "Measurement and write-back",
     summary:
-      "A footwear merchant improved execution visibility before scaling agent-driven demand.",
+      "A footwear merchant could improve execution visibility before scaling agent-driven demand.",
   },
 ] as const;
 

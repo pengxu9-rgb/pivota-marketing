@@ -15,7 +15,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/schema";
 export const metadata = buildMarketingMetadata({
   title: "About Pivota | Commerce Index for Agents",
   description:
-    "Pivota provides a commerce decision and execution layer for AI agents, with a Commerce Index and supported interfaces that lets agents search, discover, and transact with merchants across catalog, checkout, payment, and order write-back.",
+    "Pivota provides a commerce decision and execution layer for AI agents, with a Commerce Index and supported interfaces that let agents search, discover, and transact with merchants across catalog, checkout, payment, and order write-back.",
   path: routePaths.about,
 });
 
@@ -80,8 +80,8 @@ export default function AboutPage() {
                     </p>
                     <p className="mt-2">
                       Merchants connect once. Agents and developers get a structured Commerce
-                      Index they can search, resolve, and transact against — without scraping or
-                      stitching multiple merchant APIs.
+                      Index they can search and resolve, and supported merchants can route checkout — without
+                      scraping or stitching multiple merchant APIs.
                     </p>
                   </AnswerBlock>
                   <div className="flex flex-wrap gap-3">
@@ -183,13 +183,13 @@ export default function AboutPage() {
           <div className="container-max">
             <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
               <div className="flex flex-wrap gap-4 text-sm">
-                <Link href={routePaths.merchantGateway} className="text-primary hover:underline">
+                <Link href={routePaths.merchantGateway} className="text-foreground underline underline-offset-4 hover:decoration-primary">
                   Category page
                 </Link>
-                <Link href={routePaths.howPivotaWorks} className="text-primary hover:underline">
+                <Link href={routePaths.howPivotaWorks} className="text-foreground underline underline-offset-4 hover:decoration-primary">
                   How Pivota works
                 </Link>
-                <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                <Link href={routePaths.agentIntegration} className="text-foreground underline underline-offset-4 hover:decoration-primary">
                   Agent Integration
                 </Link>
               </div>

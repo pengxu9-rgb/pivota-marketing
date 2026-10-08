@@ -264,22 +264,22 @@ export default function MerchantNativeCheckoutPage() {
                   Talk to us about merchant-native checkout
                 </h2>
                 <div className="flex flex-wrap gap-4 text-sm">
-                  <Link href="/#contact" className="text-primary hover:underline">
+                  <Link href="/#contact" className="text-foreground underline underline-offset-4 hover:decoration-primary">
                     Talk to us
                   </Link>
-                  <Link href={routePaths.agentIntegration} className="text-primary hover:underline">
+                  <Link href={routePaths.agentIntegration} className="text-foreground underline underline-offset-4 hover:decoration-primary">
                     Agent Integration
                   </Link>
-                  <Link href={routePaths.developersAuthWebhooks} className="text-primary hover:underline">
+                  <Link href={routePaths.developersAuthWebhooks} className="text-foreground underline underline-offset-4 hover:decoration-primary">
                     Auth & webhooks
                   </Link>
-                  <Link href={routePaths.startBeforeMerchantNativeCheckout} className="text-primary hover:underline">
+                  <Link href={routePaths.startBeforeMerchantNativeCheckout} className="text-foreground underline underline-offset-4 hover:decoration-primary">
                     Can I start before merchant-native checkout?
                   </Link>
-                  <Link href={routePaths.pivotaImplementationEffort} className="text-primary hover:underline">
+                  <Link href={routePaths.pivotaImplementationEffort} className="text-foreground underline underline-offset-4 hover:decoration-primary">
                     How much implementation work is required?
                   </Link>
-                  <Link href={routePaths.faq} className="text-primary hover:underline">
+                  <Link href={routePaths.faq} className="text-foreground underline underline-offset-4 hover:decoration-primary">
                     Read the FAQ
                   </Link>
                 </div>
