@@ -30,14 +30,14 @@ const integrationModes = [
   {
     icon: Package,
     title: "SDK",
-    body: "A convenience wrapper over the same production REST API. Published package name: pivota-agent.",
+    body: "Python package listing: pivota-agent (1.0.0). Its README still names a different installation package and old domains. Use the REST contract while package metadata is reconciled; the listing is not evidence of current runtime compatibility.",
     supporting: "Use when your runtime benefits from a client library",
   },
   {
     icon: Cable,
     title: "MCP",
-    body: "A hosted remote MCP server at https://commerce.mcp.pivota.cc/mcp with OAuth — add it to Claude, ChatGPT, or any MCP client as a connector. Search, recommendation, checkout, and order tools over the same production surface. For local development, the stdio package pivota-mcp-server wraps the same tools.",
-    supporting: "Hosted endpoint for agent surfaces; local package for development",
+    body: "A hosted remote MCP server at https://commerce.mcp.pivota.cc/mcp with OAuth — add it to Claude, ChatGPT, or any MCP client as a connector. The open door at https://mcp.pivota.cc/mcp exposes four read-only tools. The keyed door adds scoped capabilities; some advertised tools are not wired through. Check the verification page before relying on checkout or order tools.",
+    supporting: "Open research tools; scoped authenticated execution",
   },
 ] as const;
 
@@ -86,38 +86,35 @@ const proofPoints = [
   "OpenAPI is live on https://api.pivota.cc/openapi.json",
   "The branded API base is https://api.pivota.cc",
   "The hosted remote MCP endpoint is https://commerce.mcp.pivota.cc/mcp (streamable HTTP + OAuth, RFC 9728 discovery)",
-  "The published SDK package is pivota-agent",
-  "The published local MCP package is pivota-mcp-server",
-  "Managed webhook receivers follow https://api.pivota.cc/agents/{agent_id}/webhooks/managed-inbox",
+  "PyPI lists pivota-agent; package metadata reconciliation remains pending",
+  "Verify remote MCP capabilities before selecting a client or local wrapper",
+  "Webhook receiver setup is account-scoped; confirm its current contract in the portal",
 ] as const;
 
 const publicQuickstartSnippet = `curl https://api.pivota.cc/agent/v1/merchants \\
   -H "X-API-Key: YOUR_API_KEY"`;
 
-const requestSnippet = `curl -X POST "https://api.pivota.cc/agent/v1/checkouts/intent" \\
+const requestSnippet = `curl -X POST "https://api.pivota.cc/agent/v1/checkout/intents" \\
   -H "Content-Type: application/json" \\
   -H "X-API-Key: YOUR_API_KEY" \\
   -d '{
-    "merchant_id": "merch_...",
     "items": [
       {
+        "merchant_id": "merch_...",
         "product_id": "prod_...",
         "variant_id": "var_...",
-        "quantity": 1
+        "quantity": 1,
+        "currency": "USD"
       }
-    ],
-    "currency": "USD"
+    ]
   }'`;
 
-const responseSnippet = `{
-  "status": "ready_for_checkout",
-  "merchant_native_path": {
-    "checkout_url": "https://checkout.pivota.cc/...",
-    "rollout_stage": "merchant_native_checkout"
-  },
-  "next_action": "redirect_to_checkout",
-  "events": ["order.created", "order.payment_attempted"]
-}`;
+const responseSnippet = `The published OpenAPI declares an untyped 200 response.
+Inspect the returned result; do not assume a checkout URL, payment,
+or order success from HTTP 200 alone.
+
+Schema checked: 7 October 2026. Example IDs are placeholders.
+Run only with a coordinated sandbox merchant and test credentials.`;
 
 const publicDocsItems = [
   "First call quickstart and branded API base",
@@ -337,7 +334,7 @@ export default function AgentIntegrationPage() {
                     What can be called today
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Start with the request families already proven in production.
+                    Choose request families by their verified scope and access requirements.
                   </h2>
                   <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
                     Not every merchant uses every request family on day one. Search,
@@ -365,10 +362,15 @@ export default function AgentIntegrationPage() {
                 </div>
               </div>
 
+              <div className="section-frame p-6 text-sm leading-7">
+                <Link href="/developers/verify" className="text-foreground underline underline-offset-4">Verify the public read-only tools</Link>{" · "}
+                <Link href="/ucp/insights" className="text-foreground underline underline-offset-4">UCP Insights specification</Link>{" · "}
+                <Link href="/decisions-and-execution" className="text-foreground underline underline-offset-4">Capability and funds-flow boundaries</Link>
+              </div>
               <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
                 <div className="space-y-4">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                    Example request and response
+                    Sandbox request and response limits
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                     Show builders the execution shape, not just the category story.
@@ -388,7 +390,7 @@ export default function AgentIntegrationPage() {
                     </pre>
                   </div>
                   <div className="section-frame p-6 sm:p-7">
-                    <p className="text-sm font-semibold text-foreground">Response example</p>
+                    <p className="text-sm font-semibold text-foreground">Response contract limits</p>
                     <pre className="mt-4 overflow-x-auto rounded-2xl border border-border/70 bg-background/80 p-4 text-sm text-foreground">
                       <code>{responseSnippet}</code>
                     </pre>
@@ -466,8 +468,8 @@ export default function AgentIntegrationPage() {
                       Public contract, not just conceptual positioning.
                     </h2>
                     <p className="text-base leading-8 text-muted-foreground">
-                      The developer portal already validated the public API domain, published SDK
-                      packages, MCP runtime, and managed webhook receiver pattern in production.
+                      The public API schema and MCP discovery describe available interfaces. Their
+                      publication does not establish paid orders, fulfillment, or SDK compatibility.
                     </p>
                   </div>
 

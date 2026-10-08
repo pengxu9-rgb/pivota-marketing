@@ -18,7 +18,7 @@ For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
 
 ## Developer documentation
 
-- [Verify Pivota](https://pivota.cc/developers/verify): Start here to evaluate Pivota. A three-lane verification path an agent can execute unattended — commerce index, decision layer, checkout routing — stating the expected result for every call. Lanes 1 and 2 need no credentials.
+- [Verify Pivota](https://pivota.cc/developers/verify): A three-lane verification path covering commerce index, decision layer and checkout routing, with the expected result for each call. The four public read-only tools at https://mcp.pivota.cc/mcp — search_catalog, get_product, get_alternatives and get_intel — require no credentials. Lane 2 also includes recommend_products, which requires an API key on the authenticated native endpoint at https://commerce.mcp.pivota.cc/mcp and is absent from the UCP dialect. Checkout routing requires scoped access, buyer identity and merchant readiness; a ready session or payment link is not proof of payment.
 - [Developer overview](https://pivota.cc/agent-integration): Developer entry point for Pivota's agent integration surface.
 - [First call](https://pivota.cc/developers/first-call): First authenticated API call and first order path.
 - [Request types](https://pivota.cc/developers/request-types): Search, recommendation, cart, checkout, order, status, event, webhook, and payment-aware request families.
@@ -44,3 +44,7 @@ For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
 
 - Email: contact@pivota.cc
 - Sitemap: [https://pivota.cc/sitemap.xml](https://pivota.cc/sitemap.xml)
+
+## Decisions and integration evidence
+- https://pivota.cc/decisions-and-execution — eligibility, execution stages, funds and identity boundaries
+- https://pivota.cc/ucp/insights — vendor capability specification

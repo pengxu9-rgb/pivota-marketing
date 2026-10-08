@@ -30,7 +30,7 @@ const onboardingSteps = [
   },
   {
     title: "Set up payments and KYB",
-    body: "Merchants complete payment setup and verification so checkout, payment routing, and settlement can resolve through the same merchant identity.",
+    body: "Merchants complete payment setup and verification so checkout, payment routing can resolve through the same merchant identity. The merchant and payment providers control funds flow; Pivota does not hold customer funds.",
   },
   {
     title: "Finish integrations setup",

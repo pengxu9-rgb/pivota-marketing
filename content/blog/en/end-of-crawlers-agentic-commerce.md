@@ -1,295 +1,37 @@
 ---
 id: end-of-crawlers
 title: "Why merchant gateways need APIs instead of crawlers | Pivota"
-description: "Why agentic commerce still needs the merchant gateway for agent-native commerce instead of scraping, browser automation, and brittle website flows."
+description: Correct protocol definitions, current Pivota availability, and merchant-controlled funds flow.
 date: 2025-11-14
 author: "Pivota Engineering"
 tags: ["MCP", "ACP", "AP2", "Agentic Commerce", "Crawlers"]
 ogImage: /og-developers.svg
+updated: 2026-10-07
 ---
 
-*By Pivota Engineering*
+**Corrected 7 October 2026.** This revision replaces the earlier protocol definitions and removes unsupported payment and settlement claims. The original article was published on 14 November 2025.
 
-Pivota is the **merchant gateway for agent-native commerce**. That category only works if the execution layer is built on structured APIs, merchant permissions, and payment rails instead of crawling websites or automating browsers.
+Pivota provides a commerce decision and execution layer over merchant systems. Its Commerce Index supplies product and offer context; supported integrations connect agent intent to merchant-controlled execution. Pivota does not author the standards below, hold customer funds, or act as merchant of record.
 
-In market language, this is the execution layer behind **agentic commerce** for merchants.
+## Why structured interfaces help
 
-AI agents are evolving from chat interfaces into **autonomous economic actors**.
+A page scrape may identify a product without resolving the exact variant, seller, promotion or permitted checkout path. Structured interfaces make these inputs inspectable. They still require freshness checks, permission checks and a safe fallback when the merchant cannot support the requested action. Scraping is not universally obsolete; choose an interface based on its evidence and supported contract.
 
-They browse, compare, recommend — and increasingly, they try to **purchase** things.
+## What the protocols mean
 
-The Amazon vs. Perplexity dispute made one thing painfully clear:
+- **MCP — Model Context Protocol:** connects AI applications to tools and context. It is a tool interface, not a commerce settlement protocol. See the [official MCP introduction](https://modelcontextprotocol.io/introduction).
+- **ACP — Agentic Commerce Protocol:** an open commerce interoperability standard developed by OpenAI and Stripe, covering checkout coordination and secure payment credential exchange. Pivota's ACP workflows are **internal beta**, not default public self-serve capabilities. See [ACP](https://www.agenticcommerce.dev/).
+- **AP2 — Agent Payments Protocol:** specifies verifiable authority and trust for delegated payments. It does not make Pivota a clearing house, escrow service or payment processor. Pivota's AP2 workflows are **internal beta**. See [AP2](https://ap2-protocol.org/).
+- **UCP — Universal Commerce Protocol:** describes interoperable commerce capabilities. Pivota publishes a seller discovery profile and the vendor extension `cc.pivota.insights`. A capability advertisement is not evidence of a completed purchase. See [UCP](https://ucp.dev/) and [Pivota Insights](/ucp/insights).
 
-> The future of agentic commerce cannot be built on crawling websites or puppeteering browsers.
-> 
+## Data, decisions and execution have different boundaries
 
-As platforms tighten terms of service, raise legal pressure, and detect automation more aggressively, the old “scrape + simulate user” approach hits a hard ceiling.
+Structured product data can reduce ambiguity compared with extracting a storefront page, but price, stock, coverage and variant selection still need verification. Public read-only research is available through `search_catalog`, `get_product`, `get_alternatives` and `get_intel`. Reviewed intelligence can be absent; coverage is strongest in beauty and personal care. An empty result is not permission to invent an answer.
 
-To actually scale, agents need:
+Checkout requires the applicable API access, verified buyer identity, exact variant and merchant readiness. A returned checkout URL or a session awaiting payment is not a paid order. Confirm payment and order state through the supported contract; fulfillment is a later event. The merchant and its payment providers handle the sale and funds flow. Persistent commerce identity requires separate explicit opt-in; API authentication alone does not enroll a buyer.
 
-- **Clean, permissioned, real-time merchant data**
-- **A verifiable identity and permission layer**
-- **Machine-native, programmable payment rails**
+## Start with a verifiable contract
 
-This article explains why the legacy web-scraping model is collapsing, how **MCP, ACP, and AP2** form the technical foundation of agentic commerce, and how **Pivota** sits in the middle as the merchant gateway that turns agent demand into merchant-native transactions.
+Begin with the [public verification path](/developers/verify), then inspect the [current compatibility matrix](/developers/protocols) and [OpenAPI](https://api.pivota.cc/agent/docs/openapi.json). Payment testing requires coordinated sandbox credentials. Protocol compatibility does not guarantee platform listing, distribution, payment acceptance or production checkout for every merchant.
 
-⸻
-
-## 1. The End of Crawlers & Browser Automation
-
-For years, developers:
-
-- Scraped HTML and parsed DOM trees
-- Spoofed sessions and glued together cookies
-- Automated headless browsers to imitate user clicks
-- Reverse-engineered checkout flows and private APIs
-
-All of that “worked well enough” when traffic was small and mostly experimental.
-
-But once **agents become mainstream**, platforms face real, systemic risk:
-
-- Bots imitating real users
-- Unauthorized account access
-- Unverified automated orders
-- Massive scraping load on production systems
-- Stale or incorrect data causing cancellations and fraud
-
-The message from recent platform enforcement is simple:
-
-- ❌ Crawlers break easily
-- ❌ Data becomes stale and inconsistent
-- ❌ Browser automation is untrusted by platforms
-- ❌ Compliance and legal risk grow as bots scale
-- ❌ Merchants lose visibility, attribution, and control
-
-None of this can support a **machine-driven commerce ecosystem**.
-
-If we want millions of agents interacting with millions of merchants, we need a **clean, stable, contract-level interface** — not a fragile layer of scripts pretending to be humans.
-
-⸻
-
-## 2. Agents Need a Clean Merchant Data Layer — MCP
-
-Agents don’t need HTML fragments.
-
-They need **structured, normalized, real-time commerce data**.
-
-This is why Pivota adopts **MCP (Merchant Commerce Protocol)** as the data layer for agentic commerce.
-
-MCP provides:
-
-- A clean, structured product catalog
-- Normalized price and inventory signals
-- Merchant metadata (shipping, returns, policies)
-- Rate-limited, permissioned access instead of scraping
-- No DOM parsing, no brittle selectors, no “best-effort” guesses
-
-**Example — Fetching product data**
-
-```
-GET https://api.pivota.cc/mcp/v1/products?q=headphones
-
-```
-
-Response:
-
-```json
-{
-  "items": [
-    {
-      "id": "sku_88372",
-      "title": "Sony WH-1000XM5",
-      "price": { "amount": 29900, "currency": "USD" },
-      "inventory": 12,
-      "merchant_id": "m_3241"
-    }
-  ]
-}
-
-```
-
-This is not “parsed HTML.”
-
-This is **merchant-validated, contract-level truth**.
-
-MCP gives agents a **reliable merchant data system** — a foundation you can build logic, ranking, and optimization on, without wondering whether the page layout changed overnight.
-
-⸻
-
-## 3. Agents Need Verifiable Identity & Permissions — ACP
-
-Commerce is not just **“can I see the products?”**
-
-It’s **“who are you, who are you acting for, and what are you allowed to do?”**
-
-Agents must prove:
-
-- **Who they are**
-- **Who they act on behalf of** (the end user)
-- **What permissions they have**
-- **How merchants should attribute and audit transactions**
-
-This is the role of **ACP (Agent Commerce Protocol)**.
-
-ACP guarantees:
-
-- ✔ Verifiable agent identity
-- ✔ User-granted permissions and scopes
-- ✔ Signed order intents
-- ✔ Clear attribution for commission, fees, or referral
-
-**Example — Creating an order intent**
-
-```
-POST https://api.pivota.cc/acp/v1/order-intents
-
-```
-
-```json
-{
-  "agent_id": "agent_9231",
-  "user_id": "user_4182",
-  "items": [{ "sku": "sku_88372", "quantity": 1 }],
-  "permissions_token": "perm_87af218...",
-  "callback_url": "https://myagent.com/callback"
-}
-
-```
-
-This is something browser automation can **never** provide:
-
-A **cryptographically verifiable, auditable identity and intent layer** that merchants and platforms can safely rely on — at scale.
-
-⸻
-
-## 4. Agents Need Machine-Native Payment Rails — AP2
-
-No real agent economy can depend on “pressing checkout buttons” on random websites.
-
-Payments for agents must be:
-
-- Programmable
-- Reliable
-- Auditable
-- Cross-border friendly
-- Settlement-aware
-- Compliant by design
-
-This is **AP2 (Agent Payment Protocol)** — the payment and settlement layer for agentic commerce.
-
-AP2 supports:
-
-- Cards
-- ACH / SEPA / open banking rails
-- Stablecoin-based settlement
-- Programmable wallets
-- Escrow, refund, and dispute APIs
-
-**Example — Payment execution**
-
-```
-POST https://api.pivota.cc/ap2/v1/pay
-
-```
-
-```json
-{
-  "intent_id": "intent_55892",
-  "source_wallet": "wallet_agent_0021",
-  "payment_method": "ach",
-  "merchant_id": "m_3241"
-}
-
-```
-
-The result is a **trusted machine-to-machine settlement layer**.
-
-Instead of hoping a headless browser successfully clicks “Pay,” the agent interacts with a **first-class payment protocol** that supports refunds, disputes, reconciliation, and compliance from day one.
-
-⸻
-
-## 5. Architecture: The Agent ↔ Pivota ↔ Merchant Stack
-
-At scale, you don’t want **m agents × n merchants** custom integrations.
-
-You want a single **clearing layer** that normalizes data, identity, and payments.
-
-Pivota looks like this:
-
-```
-                 ┌─────────────────────────────────────────┐
-                 │            AI Agents (m)                │
-                 │  - shopping agents                      │
-                 │  - procurement bots                     │
-                 │  - arbitrage engines                    │
-                 └─────────────────────────────────────────┘
-                                  │
-                          1. Discovery (MCP)
-                                  ▼
-                 ┌─────────────────────────────────────────┐
-                 │           PIVOTA MCP Layer              │
-                 │  - product/catalog APIs                 │
-                 │  - normalized price/inventory           │
-                 └─────────────────────────────────────────┘
-                                  │
-                     2. Identity + Permission (ACP)
-                                  ▼
-                 ┌─────────────────────────────────────────┐
-                 │           PIVOTA ACP Layer              │
-                 │  - agent identity                       │
-                 │  - signed order intents                 │
-                 │  - attribution/commission               │
-                 └─────────────────────────────────────────┘
-                                  │
-                         3. Settlement (AP2)
-                                  ▼
-                 ┌─────────────────────────────────────────┐
-                 │            PIVOTA AP2 Layer             │
-                 │  - banking rails                        │
-                 │  - card rails                           │
-                 │  - stablecoin rails                     │
-                 └─────────────────────────────────────────┘
-                                  │
-                                  ▼
-                 ┌─────────────────────────────────────────┐
-                 │         Merchants / Sellers (n)         │
-                 └─────────────────────────────────────────┘
-
-```
-
-This is how we collapse the **m × n** problem into **1 × m + 1 × n**:
-
-- Agents integrate once with Pivota
-- Merchants integrate once with Pivota
-- MCP, ACP, and AP2 do the heavy lifting in between
-
-⸻
-
-## 6. Pivota’s Role: The Clearing Layer for Agentic Commerce
-
-As platforms restrict crawling and prohibit aggressive automation, the **“scrape and simulate” era** is ending.
-
-Agentic commerce needs a different foundation:
-
-- A **clean, structured merchant data layer** (MCP)
-- A **verifiable agent identity and permission layer** (ACP)
-- **Machine-native, programmable payment rails** (AP2)
-- A unified **clearing & settlement layer** that scales beyond any single platform
-
-That is precisely where **Pivota** sits.
-
-Pivota is the **commerce and payment clearing layer** connecting millions of AI agents with millions of merchants via **MCP, ACP, and AP2**.
-
-We are not:
-
-- a marketplace,
-- a crawler,
-- or a browser bot.
-
-We are the **protocol and infrastructure base** for the agent economy —
-
-building the complete, reliable, and clean merchant + payment rails that agents need to **create value and monetize safely at scale**.
-
----
-
----
+For merchant/channel eligibility, refusal cases and attribution, read [Decisions and execution evidence](/decisions-and-execution).

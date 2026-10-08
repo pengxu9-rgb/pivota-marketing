@@ -1,219 +1,33 @@
 ---
 id: mcp-acp-ap2-overview
 title: What do MCP, ACP, and AP2 mean for the merchant gateway for agent-native commerce?
-description: A developer overview of MCP, ACP, and AP2 in the merchant gateway for agent-native commerce, and how they support merchant-native transactions.
+description: Correct protocol definitions, current Pivota availability, and merchant-controlled funds flow.
 date: 2025-11-14
 author: Pivota Team
 tags: [MCP, ACP, AP2, Standards]
 ogImage: /og-developers.svg
+updated: 2026-10-07
 ---
 
-# What do MCP, ACP, and AP2 mean for the merchant gateway for agent-native commerce?
+**Corrected 7 October 2026.** This revision replaces the earlier protocol definitions and removes unsupported payment and settlement claims. The original article was published on 14 November 2025.
 
-### A developer guide to the workflow behind merchant-native transactions
+Pivota provides a commerce decision and execution layer over merchant systems. Its Commerce Index supplies product and offer context; supported integrations connect agent intent to merchant-controlled execution. Pivota does not author the standards below, hold customer funds, or act as merchant of record.
 
-Pivota is the **merchant gateway for agent-native commerce**. **MCP**, **ACP**, and **AP2** are the protocol layers behind that execution model across catalog, checkout, payment, and post-purchase systems.
+## What the protocols mean
 
-If you are building AI agents that need to connect to merchant-native transactions, these three protocols explain how Pivota helps you:
+- **MCP — Model Context Protocol:** connects AI applications to tools and context. It is a tool interface, not a commerce settlement protocol. See the [official MCP introduction](https://modelcontextprotocol.io/introduction).
+- **ACP — Agentic Commerce Protocol:** an open commerce interoperability standard developed by OpenAI and Stripe, covering checkout coordination and secure payment credential exchange. Pivota's ACP workflows are **internal beta**, not default public self-serve capabilities. See [ACP](https://www.agenticcommerce.dev/).
+- **AP2 — Agent Payments Protocol:** specifies verifiable authority and trust for delegated payments. It does not make Pivota a clearing house, escrow service or payment processor. Pivota's AP2 workflows are **internal beta**. See [AP2](https://ap2-protocol.org/).
+- **UCP — Universal Commerce Protocol:** describes interoperable commerce capabilities. Pivota publishes a seller discovery profile and the vendor extension `cc.pivota.insights`. A capability advertisement is not evidence of a completed purchase. See [UCP](https://ucp.dev/) and [Pivota Insights](/ucp/insights).
 
-- Connect with merchants
-- Process payments
-- Build trust across the network
+## Data, decisions and execution have different boundaries
 
-Let’s break down what each of them does, why they exist, and how they fit into the merchant gateway workflow.
+Structured product data can reduce ambiguity compared with extracting a storefront page, but price, stock, coverage and variant selection still need verification. Public read-only research is available through `search_catalog`, `get_product`, `get_alternatives` and `get_intel`. Reviewed intelligence can be absent; coverage is strongest in beauty and personal care. An empty result is not permission to invent an answer.
 
-⸻
+Checkout requires the applicable API access, verified buyer identity, exact variant and merchant readiness. A returned checkout URL or a session awaiting payment is not a paid order. Confirm payment and order state through the supported contract; fulfillment is a later event. The merchant and its payment providers handle the sale and funds flow. Persistent commerce identity requires separate explicit opt-in; API authentication alone does not enroll a buyer.
 
-## 1. Why the merchant gateway needs protocol layers
+## Start with a verifiable contract
 
-Before we unpack the acronyms, it helps to look at the problem.
+Begin with the [public verification path](/developers/verify), then inspect the [current compatibility matrix](/developers/protocols) and [OpenAPI](https://api.pivota.cc/agent/docs/openapi.json). Payment testing requires coordinated sandbox credentials. Protocol compatibility does not guarantee platform listing, distribution, payment acceptance or production checkout for every merchant.
 
-Traditional e-commerce APIs were built for humans:
-
-- A human logs in
-- Fills a cart
-- Clicks “buy”
-
-But AI agents don’t behave like that. They:
-
-- Shop across multiple merchants automatically
-- Need structured access to product catalogs, prices, and availability
-- Make payments programmatically without breaking compliance
-- Require verifiable trust between **Agent ↔ Merchant ↔ Payment system**
-
-This is what Pivota’s **Agentic Commerce Protocols** solve.
-
-They form a neutral **“clearing layer”** where:
-
-- Agents can safely act on behalf of users
-- Merchants can verify, accept, and settle automated orders
-- Both sides avoid a mess of one-off, custom integrations
-
-⸻
-
-## 2. MCP: Merchant Commerce Protocol
-
-**MCP** is the foundation — it defines how merchants expose their data and services in an agent-friendly way.
-
-Think of MCP as **“OpenAPI for stores.”**
-
-With MCP, merchants standardize how agents access things like:
-
-- Product metadata (name, price, SKU, images, inventory)
-- Checkout and fulfillment endpoints
-- Return policies, ratings, and other decision signals
-
-From an agent’s point of view, that means predictable, clean endpoints such as:
-
-```
-GET /mcp/products?q=sneakers
-POST /mcp/order
-
-```
-
-…without worrying about whether the merchant runs on Shopify, WooCommerce, or a custom backend.
-
-**Why MCP matters**
-
-MCP turns merchants into **API-first, agent-ready sellers** — ready to be:
-
-- Crawled
-- Indexed
-- Transacted with
-
-by the new generation of AI agents.
-
-⸻
-
-## 3. ACP: Agent Commerce Protocol
-
-If MCP is how **merchants** speak, **ACP** is how **agents** introduce themselves and act.
-
-**ACP (Agent Commerce Protocol)** defines the handshake between Agents and Merchants, covering:
-
-- **Authentication & identity** – Who is the agent acting for?
-- **Permission scope** – Can this agent place an order, or only browse?
-- **Commission & attribution** – Who gets credit for the sale?
-- **Transparent reporting** – What shows up in the merchant’s dashboard?
-
-In simple terms, ACP lets the agent tell the merchant:
-
-> “I’m an authorized Agent acting on behalf of a verified user.
-> 
-> 
-> Here’s the signed order intent and the wallet to charge.”
-> 
-
-For developers, ACP is your **blueprint for building a compliant, trustworthy agent** that merchants are willing to accept orders from.
-
-⸻
-
-## 4. AP2: Agent Payment Protocol
-
-The last piece is **AP2 (Agent Payment Protocol)** — this is where the **money actually moves**.
-
-While MCP and ACP define **how commerce is communicated**, AP2 defines **how payments are settled**.
-
-Pivota’s AP2 layer can route over multiple rails, including:
-
-- Traditional card and PSP networks
-- Banking APIs (ACH, SEPA, Faster Payments, etc.)
-- Stablecoin-based settlement for instant, low-cost transfers
-
-Agents can:
-
-- Pay merchants directly (on behalf of users) using AP2 endpoints, or
-- Escrow funds until order fulfillment is confirmed
-
-**Example AP2 flow:**
-
-> Agent → Pivota Wallet → Merchant PSP / Bank Account
-
-Each step is **verifiable**, **auditable**, and **programmable**.
-
-You integrate with Pivota once, and:
-
-- Support multiple payment methods
-- Operate across currencies and regions
-- Avoid building a payment system from scratch
-
-⸻
-
-## 5. Putting It All Together: How Integration Works
-
-When you integrate with Pivota’s Agentic Commerce API, the three protocols work together like this:
-
-1. **Discovery (MCP)**
-    
-    The agent fetches standardized product data from merchants.
-    
-2. **Negotiation (ACP)**
-    
-    The agent authenticates, obtains permissions, and prepares a signed order intent.
-    
-3. **Settlement (AP2)**
-    
-    The payment is executed, cleared, and confirmed — potentially across borders and currencies.
-    
-
-That’s the full agentic loop:
-
-> discover → transact → settle
-> 
-
-…all in an open, interoperable format.
-
-⸻
-
-## 6. Why This Matters for Developers
-
-Today, agentic commerce suffers from an **“m × n” integration problem**:
-
-- Every Agent needs to integrate with every Merchant
-- Every Merchant needs to support multiple Agent behaviors
-
-Pivota removes that by acting as a **clearing layer**:
-
-- Agents integrate once with Pivota
-- Merchants integrate once with Pivota
-- Both sides instantly become interoperable
-
-For you, that means:
-
-- Faster onboarding for new agents and merchants
-- Consistent data and payment handling
-- Lower integration and maintenance cost
-- Built-in compliance and trust primitives
-
-In short: **you integrate once, and trade with the whole network.**
-
-⸻
-
-## 7. Getting Started
-
-If you’re ready to make your AI agent truly transactional:
-
-1. **Sign up for Pivota Developer Access**
-    
-    Visit the Pivota developers page at pivota.cc/developers.
-    
-2. **Explore the sandbox**
-    
-    Try out MCP and ACP endpoints with test merchants and sample catalogs.
-    
-3. **Implement AP2**
-    
-    Wire up payment flows and test cross-border and multi-rail settlement.
-    
-
-Once your agent speaks these three protocols, it can **browse, buy, and pay** across the agentic web — securely and autonomously.
-
-⸻
-
-## Final Thought
-
-Agentic commerce isn’t just about letting AIs “go shopping.”
-
-It’s about giving every autonomous system access to a **trusted, programmable economy**.
-
-With **MCP**, **ACP**, and **AP2**, Pivota is building that **language layer for the internet of agents** — so your software can not only understand the world, but also **participate in it economically**.
+For merchant/channel eligibility, refusal cases and attribution, read [Decisions and execution evidence](/decisions-and-execution).

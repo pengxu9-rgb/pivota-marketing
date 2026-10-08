@@ -42,7 +42,7 @@ export async function loadMarkdownPosts(locale: Locale): Promise<BlogPost[]> {
     const raw = fs.readFileSync(full, "utf8");
     const { data, content } = matter(raw);
     if (data && (data.published === false || data.draft === true)) continue;
-    const { html: body, minutes } = await mdToHtml(content);
+    const { html: body, minutes } = await mdToHtml(content.replace(/^\s*# [^\n]+\n/, "").replace(/^# /gm, "## "));
     const post: BlogPost = {
       id: (data.id as string) || slug,
       locale,
@@ -50,6 +50,7 @@ export async function loadMarkdownPosts(locale: Locale): Promise<BlogPost[]> {
       title: (data.title as string) || slug,
       description: (data.description as string) || "",
       date: (data.date as string) || new Date().toISOString(),
+      updated: data.updated ? new Date(data.updated as string).toISOString().slice(0, 10) : undefined,
       author: (data.author as string) || "Pivota Team",
       ogImage: data.ogImage as string | undefined,
       tags: (data.tags as string[]) || [],

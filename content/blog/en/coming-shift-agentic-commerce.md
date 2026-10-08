@@ -3,12 +3,15 @@ id: coming-shift-agentic-commerce
 title: "The Coming Shift to Agentic Commerce: Why Merchants Must Prepare Now"
 description: "Why agents will become the primary interface for commerce and what merchants should do now to prepare."
 date: 2025-11-14
+updated: 2026-10-08
 author: "Pivota Team"
 tags: ["Agentic Commerce", "Merchants", "Strategy"]
 ogImage: /og-merchants.svg
 ---
 
 **By Pivota Marketing**
+
+**Corrected 8 October 2026.** This November 2025 outlook describes a possible industry direction. The Pivota section below replaces earlier distribution, universal compatibility and settlement promises with the current integration boundaries. Protocol compatibility does not guarantee placement, recommendation or purchase availability in an AI platform.
 
 For the past decade, whether you sell physical goods, digital content, or subscriptions, your business has relied on platforms.
 
@@ -135,7 +138,7 @@ Agents are already moving into:
 In other words, they are assembling:
 
 - a **unified supply layer**
-- a **unified payment and settlement layer**
+- a **merchant-controlled payment handoff**
 - a **unified after-sales and support layer**
 
 Once this stack is mature, agents will **not** just recommend products:
@@ -180,9 +183,9 @@ Agents will favor merchants who provide:
 - transparent shipping SLAs and tracking
 - clear after-sales processes and APIs
 
-If you don’t provide this data, agents simply **cannot** put you in front of users — no matter how good your product is.
+Missing or unreliable data can make product comparison and checkout handoff harder for an agent.
 
-If you do, you become a **preferred supplier** for thousands of agents.
+Structured data can support those tasks, but it does not guarantee recommendation, ranking or distribution. Each platform chooses its own discovery and integration requirements.
 
 ---
 
@@ -272,47 +275,21 @@ but it **will** weaken their control — and merchants who rely only on old dist
 
 ---
 
-### 7. Pivota’s Role: A Direct Bridge to the Agent Ecosystem
+### 7. Pivota’s Role: Commerce Decisions and Supported Execution Paths
 
-**Pivota** exists to help merchants plug into the agent economy **without** rebuilding their entire tech stack.
+**Pivota** provides a commerce decision and execution layer over existing merchant systems. Its Commerce Index supplies product and offer context; supported interfaces help an agent choose a merchant path and route a checkout handoff.
 
-We provide:
+Availability depends on the integration:
 
-- ✔ A unified merchant API
-- ✔ SKU ingestion & normalization
-- ✔ Price & inventory synchronization
-- ✔ Checkout, payment, and settlement rails
-- ✔ Compliance and fraud protection
-- ✔ A distribution channel to thousands of agents
+- The public MCP research surface provides read-only catalog and product-intelligence tools. It does not create orders or complete payments.
+- Authenticated checkout and order interfaces require the appropriate credentials, buyer authorization and merchant readiness. A checkout session or payment link is not proof of payment or fulfillment.
+- Pivota's ACP and AP2 workflows are internal beta. A protocol name or discovery declaration does not establish production support for every merchant or channel.
 
-Pivota makes your products:
+Integrating with Pivota does not guarantee distribution to an AI platform, universal agent compatibility, current catalog coverage or payment acceptance. Check the supported contract and merchant/channel scope before sending traffic.
 
-- discoverable
-- comparable
-- purchasable
-- referable
-- payable
-- supportable
+Pivota does not hold customer funds or act as merchant of record. The applicable merchant and payment providers handle the sale and funds flow. Persistent commerce identity requires separate explicit opt-in.
 
-All **agent-ready** from day one.
-
-In practice, this means:
-
-> You integrate once with Pivota,
-> 
-> 
-> and instantly become compatible with the entire agent ecosystem.
-> 
-
-Agents can:
-
-> search → see your catalog → recommend → transact → settle → trigger after-sales
-> 
-> 
-> — without hacks, plugins, scraping, or browser automation.
-> 
-
-This is the **clean, reliable layer** the industry needs for Agentic Commerce to truly scale.
+Start with [Verify Pivota](/developers/verify), inspect [protocol status](/developers/protocols), and read how [decisions and execution evidence](/decisions-and-execution) distinguish discovery, checkout handoff, paid orders and fulfillment.
 
 ---
 
@@ -326,17 +303,7 @@ Just like:
 
 **agents will gradually replace platform search and feed-based discovery.**
 
-The merchants who adapt early will experience:
-
-- lower acquisition costs
-- higher conversion
-- repeatable, agent-driven sales
-- direct access to global demand
-- a new, scalable distribution channel independent of any single platform
-
-Those who wait will be left fighting for the leftovers —
-
-just like the late entrants in livestream commerce, TikTok shops, or Amazon FBA.
+Merchants can test whether a supported agent channel improves acquisition costs, conversion or repeat sales. These are evaluation goals, not demonstrated Pivota results or guaranteed benefits. Measure them against a defined baseline, traffic source and reporting period before expanding an integration.
 
 The shift to Agentic Commerce has already started.
 

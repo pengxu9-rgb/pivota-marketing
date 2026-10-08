@@ -15,7 +15,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/schema";
 export const metadata = buildMarketingMetadata({
   title: "About Pivota | Commerce Index for Agents",
   description:
-    "Pivota builds the Commerce Index for Agents and the execution infrastructure that lets agents search, discover, and transact with merchants across catalog, checkout, payment, and order write-back.",
+    "Pivota provides a commerce decision and execution layer for AI agents, with a Commerce Index and supported interfaces that lets agents search, discover, and transact with merchants across catalog, checkout, payment, and order write-back.",
   path: routePaths.about,
 });
 

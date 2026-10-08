@@ -6,6 +6,7 @@ export type BlogPost = {
   slug: string;
   title: string;
   description: string;
+  updated?: string; // substantive revision date
   date: string; // ISO
   author: string;
   ogImage?: string;

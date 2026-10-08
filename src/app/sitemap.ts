@@ -4,6 +4,8 @@ import { loadMarkdownPosts } from "@/lib/markdown";
 import { demotedBlogSlugs, lastUpdatedIso, routePaths, siteUrl } from "@/lib/marketing";
 
 const primaryRoutes = [
+  { path: "/ucp/insights", changeFrequency: "monthly" as const, priority: 0.75 },
+  { path: "/decisions-and-execution", changeFrequency: "monthly" as const, priority: 0.75 },
   { path: "/", changeFrequency: "weekly" as const, priority: 1 },
   { path: routePaths.aiReadiness, changeFrequency: "weekly" as const, priority: 0.82 },
   { path: routePaths.promotionReadiness, changeFrequency: "weekly" as const, priority: 0.78 },
@@ -39,6 +41,21 @@ const primaryRoutes = [
   { path: "/terms", changeFrequency: "yearly" as const, priority: 0.2 },
 ] as const;
 
+const routeRevisionDates: Readonly<Record<string, string>> = {
+  "/": "2026-10-08",
+  "/agent-integration": "2026-10-07",
+  "/developers/first-call": "2026-10-07",
+  "/developers/request-types": "2026-10-07",
+  "/developers/auth-webhooks": "2026-10-07",
+  "/developers/protocols": "2026-10-07",
+  "/developers/verify": "2026-10-08",
+  "/merchant-onboarding": "2026-10-07",
+  "/use-cases": "2026-10-07",
+  "/decisions-and-execution": "2026-10-07",
+  "/terms": "2026-10-07",
+  "/ucp/insights": "2026-08-19",
+};
+
 function absoluteUrl(path: string): string {
   if (path === "/") return `${siteUrl}/`;
   return `${siteUrl}${path}`;
@@ -60,7 +77,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...primaryRoutes.map((route) => ({
       url: absoluteUrl(route.path),
-      lastModified: siteLastModified,
+      lastModified: routeRevisionDates[route.path]
+        ? new Date(routeRevisionDates[route.path])
+        : siteLastModified,
       changeFrequency: route.changeFrequency,
       priority: route.priority,
       alternates: {
@@ -72,7 +91,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     ...blogPosts.map((post) => ({
       url: absoluteUrl(`/blog/${post.slug}`),
-      lastModified: new Date(post.date),
+      lastModified: new Date(post.updated ?? post.date),
       changeFrequency: "monthly" as const,
       priority: 0.6,
       alternates: {
