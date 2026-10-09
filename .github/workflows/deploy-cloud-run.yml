@@ -87,7 +87,20 @@ jobs:
           docker build -t "${REPO}:${TAG}" .
           docker push "${REPO}:${TAG}"
 
+      # IndexNow (Bing and others) wants changed URLs only: keep the sitemap the site serves
+      # BEFORE this deploy so the last step can submit just the URLs whose lastmod changed.
+      # Kept only if the download completed: a partial file would make most URLs look new.
+      - name: Snapshot the live sitemap
+        run: |
+          if curl -sf --retry 3 https://pivota.cc/sitemap.xml -o "${RUNNER_TEMP}/sitemap-before.xml.tmp"; then
+            mv "${RUNNER_TEMP}/sitemap-before.xml.tmp" "${RUNNER_TEMP}/sitemap-before.xml"
+          else
+            rm -f "${RUNNER_TEMP}/sitemap-before.xml.tmp"
+            echo "::warning::could not fetch the live sitemap; IndexNow will submit nothing"
+          fi
+
       - name: Deploy
+        id: deploy
         env:
           TAG: ${{ steps.meta.outputs.tag }}
         # --image only: env vars, secrets, scaling and ingress stay as configured on the
@@ -128,3 +141,15 @@ jobs:
             done
             echo "${url} -> ${code}"; [ "$code" = 200 ] || exit 1
           done
+
+      # Submit only what this deploy changed (new, changed-lastmod or removed URLs). Runs whenever
+      # Deploy itself succeeded, even if a later check failed, because the next run's baseline
+      # will already contain these changes. Never fails the deploy: an IndexNow outage only
+      # delays recrawling. Older commits (a rollback) predate the script and skip this step.
+      - name: Notify IndexNow of changed URLs
+        if: ${{ !cancelled() && steps.deploy.outcome == 'success' }}
+        continue-on-error: true
+        run: |
+          [ -f scripts/indexnow.mjs ] || { echo "no scripts/indexnow.mjs at this commit; skipping"; exit 0; }
+          curl -sf --retry 3 https://pivota.cc/sitemap.xml -o "${RUNNER_TEMP}/sitemap-after.xml"
+          node scripts/indexnow.mjs diff "${RUNNER_TEMP}/sitemap-before.xml" "${RUNNER_TEMP}/sitemap-after.xml"

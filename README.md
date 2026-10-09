@@ -43,3 +43,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Brand System
 
 This app uses Pivota Brand Kit v2.0 from `public/pivota-brand/`. Brand tokens live in `public/pivota-brand/pivota-brand.css`; logo and favicon files are in `public/pivota-brand/svg/` and `public/pivota-brand/icons/`.
+
+## IndexNow
+
+Each deploy tells IndexNow search engines (Bing, Yandex, Seznam, Naver and others; not Google) which pages changed. `deploy-cloud-run.yml` saves the live `sitemap.xml` before deploying, and after deploying runs `scripts/indexnow.mjs`, which submits only URLs that are new, whose `lastmod` changed, or that were removed. Keep `lastmod` accurate in `src/app/sitemap.ts` (and `updated` in blog front matter): that is what decides what gets submitted. The step never fails a deploy. If the IndexNow call itself fails, those URLs are not retried by the next deploy; resubmit them by hand.
+
+- The key is public by design and lives in `public/<key>.txt`, where `<key>` is 32 lowercase hex characters (served at `https://pivota.cc/<key>.txt`). Keep exactly one such file.
+- One-off submission: `node scripts/indexnow.mjs urls https://pivota.cc/page …` (add `--dry-run` to preview).
+- Tests: `node --test scripts/indexnow.test.mjs` (also run by `build.yml` on every PR).
