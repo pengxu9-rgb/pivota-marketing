@@ -105,15 +105,14 @@ export default function PressPage() {
                     </a>
                   </h3>
                 </div>
+                <p className="rounded-2xl border border-border/70 bg-background/70 px-4 py-3 text-sm font-semibold leading-7 text-foreground">
+                  {item.status}
+                </p>
                 <p className="text-base leading-8 text-muted-foreground">{item.summary}</p>
-                <dl className="grid gap-4 text-sm leading-7 sm:grid-cols-2">
+                <dl className="text-sm leading-7">
                   <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
                     <dt className="font-semibold text-foreground">Pivota&apos;s role</dt>
                     <dd className="mt-1 text-muted-foreground">{item.pivotaRole}</dd>
-                  </div>
-                  <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                    <dt className="font-semibold text-foreground">Status</dt>
-                    <dd className="mt-1 text-muted-foreground">{item.status}</dd>
                   </div>
                 </dl>
                 {item.caseStudyPath === airMindsReapPilot.path ? (

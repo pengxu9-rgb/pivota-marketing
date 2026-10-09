@@ -29,7 +29,7 @@ const executionLayerFunctions = [
   },
   {
     icon: CreditCard,
-    title: "Payment routing to merchant providers",
+    title: "Checkout handoff to merchant payment providers",
     body: "Works with existing PSP relationships instead of replacing the merchant payment stack. Payment state stays synchronized across execution.",
   },
   {

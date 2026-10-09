@@ -37,7 +37,7 @@ const flowSteps = [
   {
     icon: RefreshCw,
     title: "Payment",
-    body: "Payment routing, payment-state sync, and authorization stay connected to merchant systems.",
+    body: "The merchant's own payment providers authorize and process the payment; payment-state sync keeps merchant systems current.",
   },
   {
     icon: BarChart3,

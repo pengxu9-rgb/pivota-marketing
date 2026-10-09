@@ -78,7 +78,7 @@ const firstCallSteps = [
 const executionBoundaries = [
   "Pivota resolves structured commerce requests instead of forcing agents to crawl merchant pages.",
   "Merchant-native checkout begins when the executable checkout path is created or returned.",
-  "Payment routing through the merchant's own providers, and downstream status sync, stay connected to merchant systems.",
+  "Checkout hands off to the merchant's own payment providers, which authorize and process the payment; downstream status sync keeps merchant systems current.",
   "Write-back and post-purchase signals continue through APIs and webhooks after execution begins.",
 ] as const;
 

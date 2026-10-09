@@ -92,7 +92,7 @@ const useCases: UseCase[] = [
     readinessGap:
       "Payment readiness and checkout execution logic are not agent-ready.",
     upstreamChange:
-      "Pivota would analyze payment setup, PSP-linked logic, and checkout path readiness, then recommend a path toward merchant-native checkout with cleaner payment routing through the merchant's own providers.",
+      "Pivota would analyze payment setup, PSP-linked logic, and checkout path readiness, then recommend a path toward merchant-native checkout with a cleaner handoff to the merchant's own payment providers.",
     downstreamAgents:
       "Agents could get a more stable payment-aware execution path instead of handing users off into ambiguous checkout logic.",
     rolloutStage: "Link-out or feeds initially, then merchant-native checkout.",

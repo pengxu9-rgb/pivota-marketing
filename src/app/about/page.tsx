@@ -13,9 +13,9 @@ import {
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = buildMarketingMetadata({
-  title: "About Pivota | Commerce Index for Agents",
+  title: "About Pivota | Commerce Decision and Execution Layer for AI Agents",
   description:
-    "Pivota provides a commerce decision and execution layer for AI agents, with a Commerce Index and supported interfaces that let agents search and discover merchant products, and route checkout, payment and order write-back with supported merchants.",
+    "Pivota provides a commerce decision and execution layer for AI agents, with a Commerce Index and supported interfaces that let agents search and discover merchant products, and route checkout to supported merchants' own payment providers, with order state written back.",
   path: routePaths.about,
 });
 
@@ -70,13 +70,13 @@ export default function AboutPage() {
                 <div className="space-y-5">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">About Pivota</p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    Commerce Index for Agents
+                    Pivota is the commerce decision and execution layer for AI agents
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
                       Pivota builds the infrastructure between AI agent demand and merchant
-                      systems — catalog queryability, offer resolution, merchant-native checkout,
-                      payment routing, and order write-back.
+                      systems — catalog queryability, offer resolution, merchant-native checkout
+                      handed off to the merchant&apos;s own payment providers, and order write-back.
                     </p>
                     <p className="mt-2">
                       Merchants connect once. Agents and developers get a structured Commerce

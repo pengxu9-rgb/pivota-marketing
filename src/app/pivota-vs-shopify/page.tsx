@@ -80,7 +80,7 @@ const gatewayNeeds = [
   "connect to merchant systems",
   "understand commerce intent",
   "recommend products",
-  "route checkout and payments",
+  "route checkout to the merchant's own payment providers",
   "write outcomes back into existing systems",
 ] as const;
 

@@ -53,7 +53,7 @@ Pivota does not author any of these standards.
 ## Press and announcements
 
 - [Press](https://pivota.cc/press): Dated announcements about Pivota with links to primary sources, and facts for describing Pivota. Founder and CEO: Peng Xu. Pivota does not hold customer funds and is not the merchant of record.
-- 8 October 2026 — [Animoca Brands' AIR and Minds partner with Reap and Pivota to enable identity-powered personalized agentic commerce](https://www.animocabrands.com/announcement/animoca-brands-air-and-minds-partner-with-reap-and-pivota-to-enable-identity-powered-personalized-agentic-commerce) (Animoca Brands press release; also the [AIR blog](https://air3.com/blog/air-minds-reap-pivota-agentic-commerce)). In the proposed architecture, Pivota will provide the merchant decision and order execution layer. Status: announced; a controlled demonstration with a single merchant integration is planned, and no transaction results have been published.
+- 8 October 2026 — [Animoca Brands' AIR and Minds partner with Reap and Pivota to enable identity-powered personalized agentic commerce](https://www.animocabrands.com/announcement/animoca-brands-air-and-minds-partner-with-reap-and-pivota-to-enable-identity-powered-personalized-agentic-commerce) (Animoca Brands press release; also the [AIR blog](https://air3.com/blog/air-minds-reap-pivota-agentic-commerce)). In the proposed architecture, Pivota will provide the merchant decision and order execution layer. Status as of 8 October 2026: announced. The single-merchant demonstration has not run yet, and no results have been published.
 
 ## Case studies
 
