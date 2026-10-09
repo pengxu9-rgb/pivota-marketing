@@ -1,7 +1,8 @@
 // Press announcements and case-study facts. Every statement here must trace to a linked
 // primary source; partner wording is summarised, not extended. Newest announcement first.
 
-export const pressLastUpdatedIso = "2026-10-08";
+// Last change to the press and case-study pages themselves (JSON-LD dateModified).
+export const pressPageModifiedIso = "2026-10-09";
 export const pressLastUpdatedLabel = "8 October 2026";
 
 export const founder = { name: "Peng Xu", jobTitle: "Founder and CEO" } as const;

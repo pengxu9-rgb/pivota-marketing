@@ -8,7 +8,7 @@ import {
   airMindsReapPilot,
   founder,
   pressAnnouncements,
-  pressLastUpdatedIso,
+  pressPageModifiedIso,
   pressLastUpdatedLabel,
 } from "@/lib/press";
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
@@ -31,7 +31,7 @@ const pressJsonLd = {
   "@id": `${siteUrl}${routePaths.press}#page`,
   name: "Pivota press and announcements",
   url: `${siteUrl}${routePaths.press}`,
-  dateModified: pressLastUpdatedIso,
+  dateModified: pressPageModifiedIso,
   about: { "@id": `${siteUrl}/#organization` },
   mainEntity: {
     "@type": "ItemList",

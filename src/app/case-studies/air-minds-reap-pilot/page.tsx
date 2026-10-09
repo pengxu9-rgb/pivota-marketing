@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import PageChrome from "@/components/PageChrome";
 import { buildMarketingMetadata, routePaths, siteUrl } from "@/lib/marketing";
-import { airMindsReapPilot as pilot, founder, pressLastUpdatedIso, pressLastUpdatedLabel } from "@/lib/press";
+import { airMindsReapPilot as pilot, founder, pressLastUpdatedLabel, pressPageModifiedIso } from "@/lib/press";
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 const description =
@@ -31,7 +31,7 @@ const articleJsonLd = {
   description,
   url: `${siteUrl}${pilot.path}`,
   datePublished: pilot.announcedIso,
-  dateModified: pressLastUpdatedIso,
+  dateModified: pressPageModifiedIso,
   author: { "@id": `${siteUrl}/#organization` },
   publisher: { "@id": `${siteUrl}/#organization` },
   about: [

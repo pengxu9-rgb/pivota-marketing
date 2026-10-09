@@ -34,7 +34,7 @@ const onboardingSteps = [
   },
   {
     title: "Finish integrations setup",
-    body: "The dashboard then guides merchants through sales channels, payment setup, routing, and API or webhook surfaces without replacing the existing stack.",
+    body: "The dashboard then guides merchants through sales channels, payment setup, checkout routing, and API or webhook surfaces without replacing the existing stack.",
   },
   {
     title: "Review your agent revenue path",

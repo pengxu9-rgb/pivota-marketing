@@ -60,7 +60,7 @@ const routeRevisionDates: Readonly<Record<string, string>> = {
   "/merchant-gateway-for-agent-native-commerce": "2026-10-09",
   "/merchant-native-checkout": "2026-10-09",
   "/pivota-vs-shopify": "2026-10-09",
-  "/what-is-agentic-commerce": "2026-10-08",
+  "/what-is-agentic-commerce": "2026-10-09",
   "/what-is-agent-native-commerce": "2026-10-08",
   "/skincare-beauty-merchants": "2026-10-08",
   "/do-i-need-to-rebuild-my-store": "2026-10-08",
