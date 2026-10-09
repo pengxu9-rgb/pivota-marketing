@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const siteName = "Pivota";
 export const siteUrl = "https://pivota.cc";
-export const categoryAnchor = "commerce decision and execution layer for AI agents";
+export const categoryAnchor = "commerce decision and order execution layer for AI agents";
 export const merchantSignupPath = "https://merchant.pivota.cc/signup?source=marketing";
 export const developerSignupPath = "https://developer.pivota.cc/signup";
 export const developerLoginPath = "https://developer.pivota.cc/login";
@@ -50,15 +50,15 @@ export const routePaths = {
   caseStudies: "/case-studies",
 } as const;
 
-export const footerDescriptor = "Pivota is the commerce decision and execution layer for AI agents.";
+export const footerDescriptor = "Pivota is the commerce decision and order execution layer for AI agents.";
 
 export const defaultOgTitle = "Pivota — Merchant-Controlled Commerce Layer for AI Commerce";
 export const defaultOgDescription =
   "Pivota works with Shopify, Wix, WooCommerce, BigCommerce, and other store platforms to add merchant control, execution continuity, and fallback across AI buying surfaces.";
 
-export const homepageTitle = "Pivota | Commerce Decision and Execution Layer for AI Agents";
+export const homepageTitle = "Pivota | Commerce Decision and Order Execution Layer for AI Agents";
 export const homepageMetaDescription =
-  "Pivota is the commerce decision and execution layer for AI agents. Its Commerce Index helps agents decide what to recommend, resolve offers, and route checkout through existing merchant systems.";
+  "Pivota is the commerce decision and order execution layer for AI agents. Its Commerce Index helps agents decide what to recommend, resolve offers, and route checkout through existing merchant systems.";
 export const aiReadinessTitle = "Can Your Store Win Customers from AI? | Pivota";
 export const aiReadinessMetaDescription =
   "Connect your store to Pivota and see what is blocking the path from AI agent demand to completed transactions across product resolution, offers, checkout, and payments.";
@@ -119,13 +119,13 @@ export const footerExploreItems = [
 ] as const;
 
 export const coreAnswerBlock = [
-  "Pivota is the commerce decision and execution layer for AI agents.",
+  "Pivota is the commerce decision and order execution layer for AI agents.",
   "It works with store platforms such as Shopify, Wix, WooCommerce, and BigCommerce to add execution continuity, Commerce Index queryability, and fallback across AI buying surfaces.",
 ] as const;
 
 export const homepageHeroAnswerBlock = [
   "Every agentic demand surface needs a reliable way to find products, resolve offers, execute checkout, and optimize outcomes.",
-  "Pivota is the commerce decision and execution layer for AI agents. Its Commerce Index supplies context over existing merchant systems.",
+  "Pivota is the commerce decision and order execution layer for AI agents. Its Commerce Index supplies context over existing merchant systems.",
 ] as const;
 
 export const homepageResultStatements = [
@@ -198,7 +198,7 @@ export const faqItems = [
   {
     question: "What is Pivota?",
     answer:
-      "Pivota is the commerce decision and execution layer for AI agents. It works on top of existing store stacks and helps merchants turn agent demand into merchant-native execution across catalog resolution, offers, checkout, payments, and write-back.",
+      "Pivota is the commerce decision and order execution layer for AI agents. It works on top of existing store stacks and helps merchants turn agent demand into merchant-native execution across catalog resolution, offers, checkout, payments, and write-back.",
   },
   {
     question: "Does Pivota replace Shopify, Wix, WooCommerce, or BigCommerce?",
@@ -306,7 +306,7 @@ export const faqItems = [
       "Webhooks carry execution and lifecycle signals after the initial call. They help builders observe order creation, payment attempts, payment outcomes, completion, refunds, cancellations, and delivery health.",
   },
   {
-    question: "What is a commerce decision and execution layer for AI agents?",
+    question: "What is a commerce decision and order execution layer for AI agents?",
     answer:
       "It is the infrastructure between LLM or agent demand and merchant systems. Pivota makes catalogs queryable via a Commerce Index, routes demand into merchant-native checkout and payment flows, and writes execution state back into merchant systems.",
   },

@@ -66,7 +66,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 const serviceJsonLd = buildServiceJsonLd({
   name: "Pivota Agent-Native Commerce Execution Model",
   path: routePaths.howPivotaWorks,
-  serviceType: "Commerce decision and execution layer for AI agents",
+  serviceType: "Commerce decision and order execution layer for AI agents",
 });
 
 export default function HowPivotaWorksPage() {

@@ -6,12 +6,12 @@ date: 2025-11-14
 author: Pivota Team
 tags: [MCP, ACP, AP2, UCP, Standards]
 ogImage: /og-developers.svg
-updated: 2026-10-08
+updated: 2026-10-09
 ---
 
 **Corrected 7 October 2026; support status updated 8 October 2026.** This revision replaces the earlier protocol definitions and removes unsupported payment and settlement claims. The original article was published on 14 November 2025.
 
-Pivota provides a commerce decision and execution layer over merchant systems. Pivota does not author any of the standards below, hold customer funds, or act as merchant of record.
+Pivota provides a commerce decision and order execution layer over merchant systems. Pivota does not author any of the standards below, hold customer funds, or act as merchant of record.
 
 ## What the protocols mean
 

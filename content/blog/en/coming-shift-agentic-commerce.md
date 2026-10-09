@@ -3,7 +3,7 @@ id: coming-shift-agentic-commerce
 title: "The Coming Shift to Agentic Commerce: Why Merchants Must Prepare Now"
 description: "Why agents will become the primary interface for commerce and what merchants should do now to prepare."
 date: 2025-11-14
-updated: 2026-10-08
+updated: 2026-10-09
 author: "Pivota Team"
 tags: ["Agentic Commerce", "Merchants", "Strategy"]
 ogImage: /og-merchants.svg
@@ -277,7 +277,7 @@ but it **will** weaken their control — and merchants who rely only on old dist
 
 ### 7. Pivota’s Role: Commerce Decisions and Supported Execution Paths
 
-**Pivota** provides a commerce decision and execution layer over existing merchant systems. Its Commerce Index supplies product and offer context; supported interfaces help an agent choose a merchant path and route a checkout handoff.
+**Pivota** provides a commerce decision and order execution layer over existing merchant systems. Its Commerce Index supplies product and offer context; supported interfaces help an agent choose a merchant path and route a checkout handoff.
 
 Availability depends on the integration:
 

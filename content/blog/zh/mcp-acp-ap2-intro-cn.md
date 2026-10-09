@@ -5,12 +5,12 @@ description: MCP、ACP、AP2 与 UCP 的简明定义，以及截至 2026 年 10 
 date: 2025-11-14
 author: Pivota 团队
 ogImage: /og-developers-zh.svg
-updated: 2026-10-08
+updated: 2026-10-09
 ---
 
 **2026 年 10 月 7 日更正；10 月 8 日更新支持状态。** 本文替换了旧版协议定义，并删除未经证实的支付和结算能力描述。原文发表于 2025 年 11 月 14 日。
 
-Pivota 在商家现有系统之上提供商业决策与执行层。Pivota 不制定下列任何标准，不持有客户资金，也不担任记录商户（merchant of record）。
+Pivota 在商家现有系统之上提供商业决策与订单执行层。Pivota 不制定下列任何标准，不持有客户资金，也不担任记录商户（merchant of record）。
 
 ## 协议的正确名称与范围
 

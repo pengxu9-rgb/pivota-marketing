@@ -3,7 +3,7 @@ id: coming-shift-agentic-commerce
 title: "走向 Agentic Commerce：商家为什么必须现在就开始准备？"
 description: "AI 智能体将成为商业的新入口。本文用实操视角解释商家该如何尽快适配。"
 date: 2025-11-14
-updated: 2026-10-08
+updated: 2026-10-09
 author: "Pivota 团队"
 tags: ["Agentic Commerce", "商家", "策略"]
 ogImage: /og-merchants-zh.svg
@@ -288,7 +288,7 @@ Agent 需要对履约风险有可预期的判断：
 
 ### 7. Pivota 的角色：商业决策与受支持的执行路径
 
-**Pivota** 在现有商家系统之上提供商业决策与执行层。Commerce Index 提供商品和报价背景；受支持的接口帮助 Agent 选择商家路径并路由结账交接。
+**Pivota** 在现有商家系统之上提供商业决策与订单执行层。Commerce Index 提供商品和报价背景；受支持的接口帮助 Agent 选择商家路径并路由结账交接。
 
 实际能力取决于具体接入范围：
 
