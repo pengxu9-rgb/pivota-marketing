@@ -206,7 +206,7 @@ export default function SkincareBeautyMerchantsPage() {
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      Pivota is the commerce decision and execution layer that works on top of
+                      Pivota is the commerce decision and order execution layer that works on top of
                       Shopify, Wix, WooCommerce, BigCommerce, and similar stacks. No
                       replatforming is required.
                     </p>

@@ -6,12 +6,12 @@ date: 2025-11-14
 author: Pivota 工程团队
 tags: [Agentic Commerce, 爬虫, API]
 ogImage: /og-developers-zh.svg
-updated: 2026-10-08
+updated: 2026-10-09
 ---
 
 **2026 年 10 月 7 日更正；10 月 8 日移出协议定义。** 本文删除了未经证实的支付和结算能力描述，协议定义已移至[《MCP、ACP、AP2 和 UCP 是什么？》](/blog/what-are-mcp-acp-and-ap2)。原文发表于 2025 年 11 月 14 日。
 
-Pivota 在商家现有系统之上提供商业决策与执行层。Commerce Index 提供商品和报价信息；受支持的集成把智能体意图连接到商家控制的执行路径。Pivota 不持有客户资金，也不担任记录商户（merchant of record）。
+Pivota 在商家现有系统之上提供商业决策与订单执行层。Commerce Index 提供商品和报价信息；受支持的集成把智能体意图连接到商家控制的执行路径。Pivota 不持有客户资金，也不担任记录商户（merchant of record）。
 
 ## 爬虫看到什么，又漏掉什么
 

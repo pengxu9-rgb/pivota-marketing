@@ -34,7 +34,7 @@ export default function CreatorAgentsContent() {
               Pivota Creator Agents
             </h1>
             <p className="max-w-3xl text-lg text-muted-foreground">
-              Creator Agents are creator-facing surfaces built on the commerce decision and execution
+              Creator Agents are creator-facing surfaces built on the commerce decision and order execution
               layer for AI agents. They connect audience demand to merchant-native transactions
               while keeping merchant systems in control.
             </p>

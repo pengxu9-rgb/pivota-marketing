@@ -13,9 +13,9 @@ import {
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata = buildMarketingMetadata({
-  title: "About Pivota | Commerce Decision and Execution Layer for AI Agents",
+  title: "About Pivota | Commerce Decision and Order Execution Layer for AI Agents",
   description:
-    "Pivota provides a commerce decision and execution layer for AI agents, with a Commerce Index and supported interfaces that let agents search and discover merchant products, and route checkout to supported merchants' own payment providers, with order state written back.",
+    "Pivota provides a commerce decision and order execution layer for AI agents, with a Commerce Index and supported interfaces that let agents search and discover merchant products, and route checkout to supported merchants' own payment providers, with order state written back.",
   path: routePaths.about,
 });
 
@@ -70,7 +70,7 @@ export default function AboutPage() {
                 <div className="space-y-5">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">About Pivota</p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    Pivota is the commerce decision and execution layer for AI agents
+                    Pivota is the commerce decision and order execution layer for AI agents
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
@@ -103,7 +103,7 @@ export default function AboutPage() {
                   </h2>
                   <div className="mt-4 grid gap-3 text-sm">
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                      Category: commerce decision and execution layer for AI agents
+                      Category: commerce decision and order execution layer for AI agents
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
                       Role: a structured Commerce Index plus checkout routing between agent demand and merchant systems
@@ -136,7 +136,7 @@ export default function AboutPage() {
             <div className="section-frame p-6 sm:p-8">
               <p className="text-sm uppercase tracking-[0.22em] text-primary-ink">What we are building</p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-                A commerce decision and execution layer for AI agents.
+                A commerce decision and order execution layer for AI agents.
               </h2>
               <p className="mt-4 text-base leading-8 text-muted-foreground">
                 Pivota maintains a structured index of merchant catalogs, active offers, variants,

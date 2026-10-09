@@ -6,12 +6,12 @@ date: 2025-11-14
 author: "Pivota Engineering"
 tags: ["Agentic Commerce", "Crawlers", "APIs"]
 ogImage: /og-developers.svg
-updated: 2026-10-08
+updated: 2026-10-09
 ---
 
 **Corrected 7 October 2026; protocol definitions moved on 8 October 2026.** This revision removes unsupported payment and settlement claims and moves protocol definitions to [What are MCP, ACP, AP2 and UCP?](/blog/what-are-mcp-acp-and-ap2). The original article was published on 14 November 2025.
 
-Pivota provides a commerce decision and execution layer over merchant systems. Its Commerce Index supplies product and offer context; supported integrations connect agent intent to merchant-controlled execution. Pivota does not hold customer funds or act as merchant of record.
+Pivota provides a commerce decision and order execution layer over merchant systems. Its Commerce Index supplies product and offer context; supported integrations connect agent intent to merchant-controlled execution. Pivota does not hold customer funds or act as merchant of record.
 
 ## What a crawler sees, and what it misses
 

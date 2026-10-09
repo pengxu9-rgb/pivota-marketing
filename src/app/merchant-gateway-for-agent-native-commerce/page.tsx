@@ -77,7 +77,7 @@ const boundaries = [
 export const metadata = buildMarketingMetadata({
   title: "Merchant Gateway for Agent-Native Commerce | Pivota",
   description:
-    "Pivota is the commerce decision and execution layer for AI agents. It maintains a structured Commerce Index agents can search, routes demand into merchant-native checkout and payment flows, and writes execution state back into existing merchant systems.",
+    "Pivota is the commerce decision and order execution layer for AI agents. It maintains a structured Commerce Index agents can search, routes demand into merchant-native checkout and payment flows, and writes execution state back into existing merchant systems.",
   path: routePaths.merchantGateway,
   ogImage: "/og-merchants.svg",
 });
@@ -87,9 +87,9 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Commerce execution layer", path: routePaths.merchantGateway },
 ]);
 const serviceJsonLd = buildServiceJsonLd({
-  name: "Pivota Commerce Decision and Execution Layer",
+  name: "Pivota Commerce Decision and Order Execution Layer",
   path: routePaths.merchantGateway,
-  serviceType: "Commerce decision and execution layer for AI agents",
+  serviceType: "Commerce decision and order execution layer for AI agents",
 });
 
 export default function MerchantGatewayCategoryPage() {
@@ -118,11 +118,11 @@ export default function MerchantGatewayCategoryPage() {
                     What we build
                   </p>
                   <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-                    The commerce decision and execution layer for AI agents
+                    The commerce decision and order execution layer for AI agents
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      Pivota is the decision and execution layer between LLM or agent demand and
+                      Pivota is the decision and order execution layer between LLM or agent demand and
                       merchant-native transactions.
                     </p>
                     <p className="mt-2">

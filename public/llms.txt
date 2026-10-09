@@ -1,13 +1,13 @@
 # Pivota
 
-> Pivota is the commerce decision and execution layer for AI agents. Its Commerce Index helps agents decide what to recommend, resolve product and offer paths, route transactions through merchant-controlled systems, and keep execution state connected to existing storefront, payment, fulfillment, and operations stacks.
+> Pivota is the commerce decision and order execution layer for AI agents. Its Commerce Index helps agents decide what to recommend, resolve product and offer paths, route transactions through merchant-controlled systems, and keep execution state connected to existing storefront, payment, fulfillment, and operations stacks.
 
 For complete route discovery, see [sitemap.xml](https://pivota.cc/sitemap.xml).
 
 ## Primary pages
 
-- [Homepage](https://pivota.cc/): Pivota, the commerce decision and execution layer for AI agents.
-- [Product / category page](https://pivota.cc/merchant-gateway-for-agent-native-commerce): What the commerce decision and execution layer does: Commerce Index, checkout routing and write-back over existing merchant systems.
+- [Homepage](https://pivota.cc/): Pivota, the commerce decision and order execution layer for AI agents.
+- [Product / category page](https://pivota.cc/merchant-gateway-for-agent-native-commerce): What the commerce decision and order execution layer does: Commerce Index, checkout routing and write-back over existing merchant systems.
 - [Agent integration](https://pivota.cc/agent-integration): REST, MCP, authentication, webhooks, and execution flows for agent builders; the pivota-agent PyPI package is not maintained, so use REST.
 - [Merchant onboarding](https://pivota.cc/merchant-onboarding): Practical onboarding paths for merchants connecting agent demand to existing systems.
 - [AI readiness](https://pivota.cc/ai-readiness): Readiness check for catalog, offer, checkout, payment, and write-back blockers.

@@ -186,7 +186,7 @@ export default function AgentIntegrationPage() {
                   </h1>
                   <AnswerBlock className="max-w-3xl">
                     <p>
-                      Pivota is the builder surface for the commerce decision and execution layer that sits on top of
+                      Pivota is the builder surface for the commerce decision and order execution layer that sits on top of
                       existing storefront, checkout, and payment systems.
                     </p>
                     <p className="mt-2">

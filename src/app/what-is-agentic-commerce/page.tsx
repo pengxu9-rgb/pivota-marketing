@@ -34,7 +34,7 @@ const explanationCards = [
 export const metadata = buildMarketingMetadata({
   title: "What Is Agentic Commerce for Merchants? | Pivota",
   description:
-    "Agentic commerce is the broader market term for commerce shaped by LLMs and AI agents. Pivota's product category is the commerce decision and execution layer for AI agents, which turns that demand into merchant-native transactions.",
+    "Agentic commerce is the broader market term for commerce shaped by LLMs and AI agents. Pivota's product category is the commerce decision and order execution layer for AI agents, which turns that demand into merchant-native transactions.",
   path: routePaths.whatIsAgenticCommerce,
 });
 
@@ -76,7 +76,7 @@ export default function WhatIsAgenticCommercePage() {
                       agents, and agent-mediated buying flows.
                     </p>
                     <p className="mt-2">
-                      Pivota&apos;s product category is more specific: the commerce decision and execution
+                      Pivota&apos;s product category is more specific: the commerce decision and order execution
                       layer for AI agents, which turns that demand into merchant-native
                       transactions across catalog, checkout, payment, and post-purchase systems.
                     </p>
@@ -103,7 +103,7 @@ export default function WhatIsAgenticCommercePage() {
                       Market term: agentic commerce
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
-                      Product category: commerce decision and execution layer for AI agents
+                      Product category: commerce decision and order execution layer for AI agents
                     </div>
                     <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">
                       Merchant outcome: merchant-native transactions
