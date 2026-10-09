@@ -3,13 +3,14 @@
 // Google does not take part; use Search Console for it.
 //
 //   node scripts/indexnow.mjs diff <before-sitemap.xml> <after-sitemap.xml> [--dry-run]
-//       Submit URLs that are new in <after> or whose <lastmod> changed. The deploy workflow
-//       runs this with the live sitemap captured before and after a deploy.
+//       Submit URLs that are new in <after>, whose <lastmod> changed, or that were removed
+//       (IndexNow accepts removed URLs so engines drop them). The deploy workflow runs this
+//       with the live sitemap captured before and after a deploy.
 //   node scripts/indexnow.mjs urls <url> [<url> ...] [--dry-run]
 //       Submit specific URLs (for a one-off ping).
 //
-// IndexNow asks for changed URLs only, so an empty or missing <before> sitemap submits
-// nothing rather than the whole site. The key is public by design: it is served at
+// IndexNow asks for changed URLs only, so an empty, missing or truncated <before> sitemap
+// submits nothing rather than the whole site, and a truncated <after> is an error. The key is public by design: it is served at
 // https://pivota.cc/<key>.txt (public/<key>.txt), which proves the submission comes from
 // the site owner.
 
@@ -31,23 +32,39 @@ export function readKey(dir = publicDir) {
   return key;
 }
 
+const decodeXml = (s) =>
+  s.replace(/&(amp|lt|gt|quot|apos);/g, (_, e) => ({ amp: "&", lt: "<", gt: ">", quot: '"', apos: "'" })[e]);
+
+// A download cut off partway would otherwise make every missing URL look new or removed.
+export const isCompleteSitemap = (xml) => /<\/urlset>\s*$/.test(xml);
+
 export function parseSitemap(xml) {
   const entries = new Map();
   for (const [, block] of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
     const loc = block.match(/<loc>\s*([^<\s]+)\s*<\/loc>/)?.[1];
     if (!loc) continue;
-    entries.set(loc, block.match(/<lastmod>\s*([^<\s]+)\s*<\/lastmod>/)?.[1] ?? "");
+    entries.set(decodeXml(loc), block.match(/<lastmod>\s*([^<\s]+)\s*<\/lastmod>/)?.[1] ?? "");
   }
   return entries;
 }
 
+// Compare dates as instants, so a change in how the sitemap formats them is not a change.
+const sameDate = (a, b) => {
+  const [ta, tb] = [Date.parse(a), Date.parse(b)];
+  return Number.isNaN(ta) || Number.isNaN(tb) ? a === b : ta === tb;
+};
+
 export function changedUrls(beforeXml, afterXml) {
+  if (!isCompleteSitemap(afterXml)) throw new Error("the new sitemap is incomplete; refusing to diff it");
+  if (!isCompleteSitemap(beforeXml)) return [];
   const before = parseSitemap(beforeXml);
+  const after = parseSitemap(afterXml);
   if (before.size === 0) return [];
   const changed = [];
-  for (const [loc, lastmod] of parseSitemap(afterXml)) {
-    if (before.get(loc) !== lastmod) changed.push(loc);
+  for (const [loc, lastmod] of after) {
+    if (!before.has(loc) || !sameDate(before.get(loc), lastmod)) changed.push(loc);
   }
+  for (const loc of before.keys()) if (!after.has(loc)) changed.push(loc);
   return changed;
 }
 
@@ -88,7 +105,10 @@ async function main(argv) {
   if (mode === "diff" && rest.length === 2) {
     const [beforePath, afterPath] = rest;
     const before = existsSync(beforePath) ? readFileSync(beforePath, "utf8") : "";
-    if (!before.trim()) console.log("IndexNow: no baseline sitemap; nothing submitted.");
+    if (!isCompleteSitemap(before)) {
+      console.log("IndexNow: no complete baseline sitemap; nothing submitted.");
+      return 0;
+    }
     return submit(onHost(changedUrls(before, readFileSync(afterPath, "utf8"))), { dryRun });
   }
   if (mode === "urls" && rest.length > 0) {
