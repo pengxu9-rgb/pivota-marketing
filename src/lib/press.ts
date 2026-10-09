@@ -1,7 +1,8 @@
 // Press announcements and case-study facts. Every statement here must trace to a linked
 // primary source; partner wording is summarised, not extended. Newest announcement first.
 
-export const pressLastUpdatedIso = "2026-10-08";
+// Last change to the press and case-study pages themselves (JSON-LD dateModified).
+export const pressPageModifiedIso = "2026-10-09";
 export const pressLastUpdatedLabel = "8 October 2026";
 
 export const founder = { name: "Peng Xu", jobTitle: "Founder and CEO" } as const;
@@ -33,6 +34,8 @@ export const airMindsReapPilot = {
   announcedLabel: "8 October 2026",
   releaseUrl: animocaReleaseUrl,
   airBlogUrl: "https://air3.com/blog/air-minds-reap-pivota-agentic-commerce",
+  statusLine:
+    "Status as of 8 October 2026: announced. The single-merchant demonstration has not run yet, and no results have been published.",
   peng: {
     quote:
       "Product discovery is only the first step in agentic commerce. The harder problem is determining where and how a transaction should actually be executed. Pivota provides the merchant decision and order execution layer that connects agent intent with merchants, helping agents choose the right merchant and transaction path and carry the resulting order through checkout.",
@@ -82,8 +85,7 @@ export const pressAnnouncements: readonly PressAnnouncement[] = [
       "AIR and Minds by Animoca Brands announced a partnership with Reap and Pivota to develop identity-powered, personalized agentic commerce: a Minds agent acting on a verified user's authority, recognizing benefits the user has earned, and completing purchases within pre-approved limits. The partnership will start with a controlled demonstration featuring a single merchant integration.",
     pivotaRole:
       "In the proposed architecture, Pivota will provide the merchant decision and order execution layer: helping the agent choose the product, merchant and transaction path, and carrying the order through the merchant's existing commerce stack. The merchant remains the merchant of record and Pivota does not touch the funds flow.",
-    status:
-      "Announced. The single-merchant demonstration is planned; no transaction results have been published.",
+    status: airMindsReapPilot.statusLine,
     caseStudyPath: airMindsReapPilot.path,
     sources: [
       { label: "Animoca Brands press release", href: animocaReleaseUrl },

@@ -27,7 +27,7 @@ const pivotaCapabilities = [
   "catalog normalization",
   "offer & variant retrieval",
   "recommendations",
-  "checkout & payments",
+  "checkout handoff to your payment providers",
   "order write-back",
   "support sync + signals",
 ] as const;
@@ -80,7 +80,7 @@ const gatewayNeeds = [
   "connect to merchant systems",
   "understand commerce intent",
   "recommend products",
-  "route checkout and payments",
+  "route checkout to the merchant's own payment providers",
   "write outcomes back into existing systems",
 ] as const;
 
@@ -88,7 +88,7 @@ const comparisonFaqItems = [
   {
     question: "Do I need Pivota if I already use Shopify?",
     answer:
-      "Not always. If Shopify's default AI commerce path is enough for your business, Shopify may be the right first step. Pivota matters when you need merchant control, continuity, payments handling, write-back, or fallback across more agent surfaces.",
+      "Not always. If Shopify's default AI commerce path is enough for your business, Shopify may be the right first step. Pivota matters when you need merchant control, continuity, checkout handed off to your own payment providers, write-back, or fallback across more agent surfaces.",
   },
   {
     question: "Does Pivota replace Shopify, Wix, WooCommerce, or BigCommerce?",
@@ -108,7 +108,7 @@ const comparisonFaqItems = [
   {
     question: "What makes Pivota different from catalog-only AI commerce solutions?",
     answer:
-      "Pivota goes beyond discoverability. It helps merchants turn prompts into recommendations, merchant-native checkout flows, payments handling, order write-back, and measurement.",
+      "Pivota goes beyond discoverability. It helps merchants turn prompts into recommendations, merchant-native checkout flows handed off to the merchant's own payment providers, order write-back, and measurement.",
   },
 ] as const;
 

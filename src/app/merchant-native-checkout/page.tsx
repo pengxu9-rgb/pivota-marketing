@@ -63,7 +63,7 @@ const merchantsKeep = [
 const executionBoundaries = [
   "Pivota resolves structured commerce requests instead of forcing agents to crawl fragmented merchant pages.",
   "Merchant-native checkout begins when Pivota returns or creates an executable checkout path.",
-  "Payment routing through the merchant's own providers, and payment-state sync, stay connected to merchant systems after checkout begins.",
+  "Checkout hands off to the merchant's own payment providers, which authorize and process the payment; payment-state sync keeps merchant systems current after checkout begins.",
   "Order outcomes continue through merchant write-back, status sync, and event delivery after execution starts.",
 ] as const;
 

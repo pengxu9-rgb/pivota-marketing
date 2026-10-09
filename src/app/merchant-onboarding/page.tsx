@@ -30,11 +30,11 @@ const onboardingSteps = [
   },
   {
     title: "Set up payments and KYB",
-    body: "Merchants complete payment setup and verification so checkout and payment routing can resolve through the same merchant identity. The merchant and payment providers control funds flow; Pivota does not hold customer funds.",
+    body: "Merchants complete payment setup and verification so checkout can hand off to the merchant's own payment providers under the same merchant identity. The merchant and payment providers control funds flow; Pivota does not hold customer funds.",
   },
   {
     title: "Finish integrations setup",
-    body: "The dashboard then guides merchants through sales channels, payment setup, routing, and API or webhook surfaces without replacing the existing stack.",
+    body: "The dashboard then guides merchants through sales channels, payment setup, checkout routing, and API or webhook surfaces without replacing the existing stack.",
   },
   {
     title: "Review your agent revenue path",

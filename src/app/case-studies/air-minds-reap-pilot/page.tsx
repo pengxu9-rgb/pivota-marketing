@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import PageChrome from "@/components/PageChrome";
 import { buildMarketingMetadata, routePaths, siteUrl } from "@/lib/marketing";
-import { airMindsReapPilot as pilot, founder, pressLastUpdatedIso, pressLastUpdatedLabel } from "@/lib/press";
+import { airMindsReapPilot as pilot, founder, pressLastUpdatedLabel, pressPageModifiedIso } from "@/lib/press";
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 const description =
@@ -31,7 +31,7 @@ const articleJsonLd = {
   description,
   url: `${siteUrl}${pilot.path}`,
   datePublished: pilot.announcedIso,
-  dateModified: pressLastUpdatedIso,
+  dateModified: pressPageModifiedIso,
   author: { "@id": `${siteUrl}/#organization` },
   publisher: { "@id": `${siteUrl}/#organization` },
   about: [
@@ -69,6 +69,7 @@ export default function AirMindsReapPilotPage() {
                   Case study · Announced {pilot.announcedLabel}
                 </p>
                 <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">{pilot.title}</h1>
+                <p className="max-w-3xl text-base font-semibold leading-8 text-foreground">{pilot.statusLine}</p>
                 <p className="max-w-3xl text-base leading-8 text-muted-foreground">
                   AIR and Minds by Animoca Brands, Reap and Pivota announced a partnership that aims to let
                   an AI agent buy on behalf of a verified user: proving whom it represents, using benefits

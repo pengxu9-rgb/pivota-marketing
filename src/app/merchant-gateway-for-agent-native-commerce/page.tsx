@@ -29,7 +29,7 @@ const executionLayerFunctions = [
   },
   {
     icon: CreditCard,
-    title: "Payment routing to merchant providers",
+    title: "Checkout handoff to merchant payment providers",
     body: "Works with existing PSP relationships instead of replacing the merchant payment stack. Payment state stays synchronized across execution.",
   },
   {
@@ -261,7 +261,7 @@ export default function MerchantGatewayCategoryPage() {
                 <div className="space-y-2">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary">What Pivota does</p>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    One execution layer across Commerce Index, checkout, and payment.
+                    One execution layer across Commerce Index, checkout, and payment-state sync.
                   </h2>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">

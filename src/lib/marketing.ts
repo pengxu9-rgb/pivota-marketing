@@ -177,7 +177,7 @@ export const comparisonRows = [
   {
     label: "Execution layer vs payment gateway",
     pivota:
-      "Pivota spans merchant discovery, merchant-native checkout, payment routing, and write-back.",
+      "Pivota spans merchant discovery, merchant-native checkout handed off to the merchant's own payment providers, and write-back.",
     alternative: "A payment gateway handles payment processing, not the full commerce execution layer.",
   },
   {

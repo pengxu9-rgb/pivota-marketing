@@ -27,7 +27,7 @@ const explanationCards = [
   {
     icon: Building2,
     title: "The execution layer is the missing layer",
-    body: "Pivota connects discovery, checkout, payment, and write-back so merchants stay in control.",
+    body: "Pivota connects discovery, checkout, the merchant's own payment providers, and write-back so merchants stay in control.",
   },
 ] as const;
 
