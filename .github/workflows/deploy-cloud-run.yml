@@ -87,6 +87,13 @@ jobs:
           docker build -t "${REPO}:${TAG}" .
           docker push "${REPO}:${TAG}"
 
+      # IndexNow (Bing and others) wants changed URLs only: keep the sitemap the site serves
+      # BEFORE this deploy so the last step can submit just the URLs whose lastmod changed.
+      - name: Snapshot the live sitemap
+        run: |
+          curl -sf --retry 3 https://pivota.cc/sitemap.xml -o "${RUNNER_TEMP}/sitemap-before.xml" \
+            || echo "::warning::could not fetch the live sitemap; IndexNow will submit nothing"
+
       - name: Deploy
         env:
           TAG: ${{ steps.meta.outputs.tag }}
@@ -128,3 +135,13 @@ jobs:
             done
             echo "${url} -> ${code}"; [ "$code" = 200 ] || exit 1
           done
+
+      # Submit only what this deploy changed (new URLs or a changed lastmod). Never fails the
+      # deploy: the site is already live, and an IndexNow outage only delays recrawling.
+      # Older commits (a rollback) predate the script and skip this step.
+      - name: Notify IndexNow of changed URLs
+        continue-on-error: true
+        run: |
+          [ -f scripts/indexnow.mjs ] || { echo "no scripts/indexnow.mjs at this commit; skipping"; exit 0; }
+          curl -sf --retry 3 https://pivota.cc/sitemap.xml -o "${RUNNER_TEMP}/sitemap-after.xml"
+          node scripts/indexnow.mjs diff "${RUNNER_TEMP}/sitemap-before.xml" "${RUNNER_TEMP}/sitemap-after.xml"
