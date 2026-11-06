@@ -24,10 +24,19 @@ const firstCallSteps = [
 const authSnippet = `curl https://api.pivota.cc/agent/v1/merchants \\
   -H "X-API-Key: YOUR_API_KEY"`;
 
+const quoteSnippet = `curl -X POST "https://api.pivota.cc/agent/v1/quotes/preview" \\
+  -H "Content-Type: application/json" \\
+  -H "X-API-Key: YOUR_API_KEY" \\
+  -d '{
+    "merchant_id": "merch_...",
+    "items": [{ "product_id": "prod_...", "variant_id": "var_...", "quantity": 1 }]
+  }'`;
+
 const orderSnippet = `curl -X POST "https://api.pivota.cc/agent/v1/orders/create" \\
   -H "Content-Type: application/json" \\
   -H "X-API-Key: YOUR_API_KEY" \\
   -d '{
+    "quote_id": "q_...",
     "merchant_id": "merch_...",
     "customer_email": "buyer@example.com",
     "shipping_address": {
@@ -156,7 +165,9 @@ export default function DevelopersFirstCallPage() {
                     <code className="font-mono text-foreground">product_id</code>, search with{" "}
                     <code className="font-mono text-foreground">GET /agent/v1/products/search?query=...</code>.
                     Each result carries its{" "}
-                    <code className="font-mono text-foreground">merchant_id</code>.
+                    <code className="font-mono text-foreground">merchant_id</code>; only results whose{" "}
+                    <code className="font-mono text-foreground">merchant_id</code> appears in this list
+                    can be ordered through the order call.
                   </p>
                 </div>
 
@@ -172,6 +183,15 @@ export default function DevelopersFirstCallPage() {
                     first order flow on the same API contract. Then inspect order events and
                     webhook delivery.
                   </p>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                    Every order needs a live quote first. Request one, then pass its{" "}
+                    <code className="font-mono text-foreground">quote_id</code> to order creation;
+                    without it the order call returns{" "}
+                    <code className="font-mono text-foreground">400 QUOTE_REQUIRED_BEFORE_PURCHASE</code>.
+                  </p>
+                  <pre className="mt-5 overflow-x-auto rounded-2xl border border-border/70 bg-background/80 p-4 text-sm text-foreground">
+                    <code>{quoteSnippet}</code>
+                  </pre>
                   <pre className="mt-5 overflow-x-auto rounded-2xl border border-border/70 bg-background/80 p-4 text-sm text-foreground">
                     <code>{orderSnippet}</code>
                   </pre>
