@@ -12,7 +12,7 @@ const requestFamilies = [
     family: "Authentication and merchant context",
     examples: "GET /agent/v1/merchants",
     path: "REST with X-API-Key",
-    summary: "Validate the key, confirm the branded API base, and establish merchant context before deeper flows.",
+    summary: "Validate the key, confirm the branded API base, and list the merchants your key can order from (add ?scope=mine for only those you have ordered from).",
   },
   {
     family: "Search and recommendation",

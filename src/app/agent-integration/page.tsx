@@ -286,6 +286,7 @@ export default function AgentIntegrationPage() {
                       </code>
                       {" "}
                       header to validate access before building deeper order or checkout flows.
+                      The response lists the merchants your key can order from.
                     </p>
                     <pre className="mt-5 overflow-x-auto rounded-2xl border border-border/70 bg-background/80 p-4 text-sm text-foreground">
                       <code>{publicQuickstartSnippet}</code>

@@ -147,6 +147,17 @@ export default function DevelopersFirstCallPage() {
                   <pre className="mt-5 overflow-x-auto rounded-2xl border border-border/70 bg-background/80 p-4 text-sm text-foreground">
                     <code>{authSnippet}</code>
                   </pre>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                    The response lists the merchants your key can order from, and each{" "}
+                    <code className="font-mono text-foreground">merchant_id</code> is what the order
+                    call below takes. Add{" "}
+                    <code className="font-mono text-foreground">?scope=mine</code> to list only
+                    merchants you have already ordered from; that list starts empty. To find a{" "}
+                    <code className="font-mono text-foreground">product_id</code>, search with{" "}
+                    <code className="font-mono text-foreground">GET /agent/v1/products/search?query=...</code>.
+                    Each result carries its{" "}
+                    <code className="font-mono text-foreground">merchant_id</code>.
+                  </p>
                 </div>
 
                 <div className="section-frame p-6 sm:p-7">
