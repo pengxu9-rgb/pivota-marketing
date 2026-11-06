@@ -263,6 +263,14 @@ export default function DevelopersFirstCallPage() {
                   reports whether the merchant&apos;s own checkout offered an on-site card when it was
                   last checked. It describes the merchant, not a Pivota payment capability.
                 </p>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                  The list is rebuilt in the background. A{" "}
+                  <code className="font-mono text-foreground">503</code> means it is being rebuilt and
+                  carries a <code className="font-mono text-foreground">Retry-After</code> header;
+                  wait that many seconds and retry. A{" "}
+                  <code className="font-mono text-foreground">500</code> is also safe to retry after a
+                  short backoff. Neither means the merchants are gone.
+                </p>
               </div>
 
               <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
