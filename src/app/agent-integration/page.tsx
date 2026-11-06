@@ -286,7 +286,8 @@ export default function AgentIntegrationPage() {
                       </code>
                       {" "}
                       header to validate access before building deeper order or checkout flows.
-                      The response lists the merchants your key can order from.
+                      The response lists the merchants a purchase can reach through a checkout
+                      protocol, by domain and market, with the checkout routes each one takes.
                     </p>
                     <pre className="mt-5 overflow-x-auto rounded-2xl border border-border/70 bg-background/80 p-4 text-sm text-foreground">
                       <code>{publicQuickstartSnippet}</code>
