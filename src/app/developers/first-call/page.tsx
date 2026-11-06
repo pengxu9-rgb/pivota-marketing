@@ -16,12 +16,15 @@ import { buildBreadcrumbJsonLd } from "@/lib/schema";
 // Order example is schema-checked, not a recorded transaction. Use confirmed test credentials.
 const firstCallSteps = [
   "Create a dedicated production or test API key and keep it outside source control.",
-  "Send a first authenticated request: list the merchants a purchase can reach, by domain and market.",
-  "Create the first checkout through a route that merchant lists, or, for a portal merchant, the quote and order calls below.",
+  "Send a first authenticated request to confirm the branded API base and key both work.",
+  "Create the first order or checkout flow using the same merchant-native contract.",
   "Configure a webhook destination, send a test event, and verify signature handling before promoting traffic.",
 ] as const;
 
 const authSnippet = `curl https://api.pivota.cc/agent/v1/merchants \\
+  -H "X-API-Key: YOUR_API_KEY"`;
+
+const protocolSnippet = `curl "https://api.pivota.cc/agent/v1/merchants?scope=protocol&market=US" \\
   -H "X-API-Key: YOUR_API_KEY"`;
 
 const quoteSnippet = `curl -X POST "https://api.pivota.cc/agent/v1/quotes/preview" \\
@@ -157,34 +160,25 @@ export default function DevelopersFirstCallPage() {
                     <code>{authSnippet}</code>
                   </pre>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    The response lists the merchants a purchase can reach through a checkout
-                    protocol, one row per{" "}
-                    <code className="font-mono text-foreground">merchant_domain</code> and{" "}
-                    <code className="font-mono text-foreground">market</code>. None of them needs a
-                    Pivota merchant-portal integration. Each row&apos;s{" "}
-                    <code className="font-mono text-foreground">checkout_routes</code> says how a
-                    purchase completes:{" "}
-                    <code className="font-mono text-foreground">storefront_checkout</code> means the
-                    buyer finishes on the merchant&apos;s own checkout from a prefilled cart;{" "}
-                    <code className="font-mono text-foreground">agentic_checkout</code> means a payment
-                    partner places the order and the buyer approves the card on the partner&apos;s
-                    page, and it is listed only where your key is enabled for it. Filter with{" "}
-                    <code className="font-mono text-foreground">?market=US</code>. The list is rebuilt
-                    from daily checkout checks, so a merchant drops off when its last check goes stale.
+                    The response lists the merchants your key can order from, and each{" "}
+                    <code className="font-mono text-foreground">merchant_id</code> is what the order
+                    call below takes. Add{" "}
+                    <code className="font-mono text-foreground">?scope=mine</code> to list only
+                    merchants you have already ordered from; that list starts empty. To find a{" "}
+                    <code className="font-mono text-foreground">product_id</code>, search with{" "}
+                    <code className="font-mono text-foreground">GET /agent/v1/products/search?query=...</code>.
+                    Each result carries its{" "}
+                    <code className="font-mono text-foreground">merchant_id</code>; only results whose{" "}
+                    <code className="font-mono text-foreground">merchant_id</code> appears in this list
+                    can be ordered through the order call.
                   </p>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    These merchants are bought through the MCP tools: find the product with{" "}
-                    <code className="font-mono text-foreground">search_catalog</code>, then open the
-                    checkout with{" "}
-                    <code className="font-mono text-foreground">create_checkout</code>. They have no{" "}
-                    <code className="font-mono text-foreground">merchant_id</code> and cannot be ordered
-                    through the order call below. Merchants integrated through the Pivota merchant
-                    portal are listed with{" "}
-                    <code className="font-mono text-foreground">?scope=native</code>, each with the{" "}
-                    <code className="font-mono text-foreground">merchant_id</code> the quote and order
-                    calls take;{" "}
-                    <code className="font-mono text-foreground">?scope=mine</code> lists the portal
-                    merchants you have already ordered from, and starts empty.
+                    Merchants that are not integrated through the Pivota merchant portal are listed with{" "}
+                    <code className="font-mono text-foreground">?scope=protocol</code>: see{" "}
+                    <a href="#protocol-merchants" className="text-foreground underline underline-offset-4">
+                      protocol merchants
+                    </a>{" "}
+                    below.
                   </p>
                 </div>
 
@@ -193,18 +187,12 @@ export default function DevelopersFirstCallPage() {
                     <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
                       <CheckCircle2 className="h-5 w-5" />
                     </div>
-                    <h2 className="text-xl font-semibold tracking-tight">Portal merchant order path</h2>
+                    <h2 className="text-xl font-semibold tracking-tight">First order path</h2>
                   </div>
                   <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                    For a merchant listed with{" "}
-                    <code className="font-mono text-foreground">?scope=native</code>, create the order
-                    on the same API contract, then inspect order events and webhook delivery. To find
-                    its{" "}
-                    <code className="font-mono text-foreground">product_id</code>, search with{" "}
-                    <code className="font-mono text-foreground">GET /agent/v1/products/search?query=...</code>;
-                    only results whose{" "}
-                    <code className="font-mono text-foreground">merchant_id</code> appears in that list
-                    can be ordered here.
+                    Move from authenticated requests into merchant-native execution by creating the
+                    first order flow on the same API contract. Then inspect order events and
+                    webhook delivery.
                   </p>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
                     Every order needs a live quote first. Request one, then pass its{" "}
@@ -228,6 +216,53 @@ export default function DevelopersFirstCallPage() {
                     <code className="font-mono text-foreground">X-Agent-User-JWT</code>.
                   </p>
                 </div>
+              </div>
+
+              <div id="protocol-merchants" className="section-frame p-6 sm:p-7">
+                <h2 className="text-xl font-semibold tracking-tight">Protocol merchants</h2>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                  Most merchants a buyer can purchase from through Pivota are reached through a
+                  checkout protocol rather than a merchant-portal integration. List them with:
+                </p>
+                <pre className="mt-5 overflow-x-auto rounded-2xl border border-border/70 bg-background/80 p-4 text-sm text-foreground">
+                  <code>{protocolSnippet}</code>
+                </pre>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                  Each row is one{" "}
+                  <code className="font-mono text-foreground">merchant_domain</code> in one{" "}
+                  <code className="font-mono text-foreground">market</code>; there is no{" "}
+                  <code className="font-mono text-foreground">merchant_id</code>, and these merchants
+                  are not ordered through the order call above.{" "}
+                  <code className="font-mono text-foreground">market</code> filters the list (for
+                  example <code className="font-mono text-foreground">market=US</code>). The list is
+                  rebuilt from daily checkout checks, so a merchant drops off when its last check
+                  goes stale. Each row&apos;s{" "}
+                  <code className="font-mono text-foreground">checkout_routes</code> says how a
+                  purchase there completes:
+                </p>
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
+                  <li>
+                    <code className="font-mono text-foreground">storefront_checkout</code>: find the
+                    product with the MCP <code className="font-mono text-foreground">search_catalog</code>{" "}
+                    tool, then call <code className="font-mono text-foreground">create_checkout</code>.
+                    It returns a UCP checkout with status{" "}
+                    <code className="font-mono text-foreground">requires_escalation</code> and a{" "}
+                    <code className="font-mono text-foreground">continue_url</code> on the
+                    merchant&apos;s own storefront, where the buyer completes the purchase. Pivota
+                    collects no payment on this route, and the checkout totals are the last observed
+                    catalog price, not a quote.
+                  </li>
+                  <li>
+                    <code className="font-mono text-foreground">agentic_checkout</code>: a payment
+                    partner places the order and the buyer approves the card on the partner&apos;s
+                    page. It is listed only where your key is enabled for it.
+                  </li>
+                </ul>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                  <code className="font-mono text-foreground">merchant_checkout_accepts_cards</code>{" "}
+                  reports whether the merchant&apos;s own checkout offered an on-site card when it was
+                  last checked. It describes the merchant, not a Pivota payment capability.
+                </p>
               </div>
 
               <div className="section-frame px-6 py-8 sm:px-10 sm:py-10">
