@@ -83,7 +83,7 @@ const executionBoundaries = [
 ] as const;
 
 const proofPoints = [
-  "OpenAPI is live on https://api.pivota.cc/openapi.json",
+  "OpenAPI is live on https://api.pivota.cc/agent/docs/openapi.json",
   "The branded API base is https://api.pivota.cc",
   "The hosted remote MCP endpoint is https://commerce.mcp.pivota.cc/mcp (streamable HTTP + OAuth, RFC 9728 discovery)",
   "The PyPI package pivota-agent 1.0.0 is not maintained; use the REST contract",
@@ -98,6 +98,7 @@ const requestSnippet = `curl -X POST "https://api.pivota.cc/agent/v1/checkout/in
   -H "Content-Type: application/json" \\
   -H "X-API-Key: YOUR_API_KEY" \\
   -d '{
+    "quote_id": "q_...",
     "items": [
       {
         "merchant_id": "merch_...",
@@ -109,11 +110,13 @@ const requestSnippet = `curl -X POST "https://api.pivota.cc/agent/v1/checkout/in
     ]
   }'`;
 
-const responseSnippet = `The published OpenAPI declares an untyped 200 response.
-Inspect the returned result; do not assume a checkout URL, payment,
-or order success from HTTP 200 alone.
+const responseSnippet = `A 200 returns intent_id, checkout_url and expires_at.
+Send the buyer to checkout_url; the buyer pays on that page.
+An intent is not an order or a payment: confirm the order
+through order reads or webhooks before reporting success.
+Without quote_id the call returns 400 QUOTE_REQUIRED_BEFORE_PURCHASE.
 
-Schema checked: 7 October 2026. Example IDs are placeholders.
+Checked against the API: 7 November 2026. Example IDs are placeholders.
 Run only with a coordinated sandbox merchant and test credentials.`;
 
 const publicDocsItems = [
@@ -389,13 +392,21 @@ export default function AgentIntegrationPage() {
                       <code>{requestSnippet}</code>
                     </pre>
                     <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                      The example shows only the API key. Purchase calls such as checkout intents and order creation also need verified buyer identity; an API key alone is not
-                      purchase authority. The{" "}
+                      The <code className="font-mono text-foreground">quote_id</code> comes from{" "}
+                      <code className="font-mono text-foreground">POST /agent/v1/quotes/preview</code>{" "}
+                      (see{" "}
+                      <Link href={routePaths.developersFirstCall} className="text-foreground underline underline-offset-4">
+                        First call
+                      </Link>
+                      ). On this REST lane the API key is enough to quote and create the checkout; the
+                      buyer pays on the hosted page.{" "}
+                      <code className="font-mono text-foreground">X-Agent-User-JWT</code> is optional:
+                      send it to tie the order to your signed-in end user. Checkout on the MCP and UCP
+                      doors is different: it requires a verified buyer. The{" "}
                       <a href="https://api.pivota.cc/agent/docs/openapi.json" className="text-foreground underline underline-offset-4">
                         OpenAPI
                       </a>{" "}
-                      lists the buyer headers each endpoint accepts, such as{" "}
-                      <code className="font-mono text-foreground">X-Agent-User-JWT</code>.
+                      lists the headers each endpoint accepts.
                     </p>
                   </div>
                   <div className="section-frame p-6 sm:p-7">
