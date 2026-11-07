@@ -264,11 +264,18 @@ export default function DevelopersFirstCallPage() {
                     cart, the totals are the merchant&apos;s and the link opens a prefilled cart;
                     otherwise the totals are the last observed catalog price and the link opens the
                     product page. Either way the buyer sees the final price on the merchant&apos;s site.
+                    Send the buyer&apos;s market in{" "}
+                    <code className="font-mono text-foreground">checkout.context.address_country</code>{" "}
+                    (ISO 3166-1 alpha-2): without it, or when the merchant&apos;s checkout no longer takes
+                    buyers in that market, the checkout is refused with{" "}
+                    <code className="font-mono text-foreground">merchant_not_purchasable</code>. It is also
+                    refused when the merchant reports the item out of stock.
                   </li>
                   <li>
                     <code className="font-mono text-foreground">agentic_checkout</code>: a payment
                     partner places the order and the buyer approves the card on the partner&apos;s
-                    page. It is listed only where your key is enabled for it.
+                    page. It is listed only where that lane is live for the merchant and market, and,
+                    while the lane is in a limited pilot, only for keys in that pilot.
                   </li>
                 </ul>
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">
