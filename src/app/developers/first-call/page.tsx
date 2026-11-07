@@ -160,7 +160,8 @@ export default function DevelopersFirstCallPage() {
                     <code>{authSnippet}</code>
                   </pre>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    The response lists the merchants your key can order from, and each{" "}
+                    The response lists the merchants integrated through the Pivota merchant portal that
+                    your key can order from, and each{" "}
                     <code className="font-mono text-foreground">merchant_id</code> is what the order
                     call below takes. Add{" "}
                     <code className="font-mono text-foreground">?scope=mine</code> to list only
@@ -170,11 +171,16 @@ export default function DevelopersFirstCallPage() {
                     Each result carries its{" "}
                     <code className="font-mono text-foreground">merchant_id</code>; only results whose{" "}
                     <code className="font-mono text-foreground">merchant_id</code> appears in this list
-                    can be ordered through the order call.
+                    can be ordered through the order call. Results from merchants outside the portal
+                    carry <code className="font-mono text-foreground">merchant_id</code>{" "}
+                    <code className="font-mono text-foreground">&quot;external_seed&quot;</code> and the
+                    merchant&apos;s <code className="font-mono text-foreground">external_domain</code>;
+                    the order call refuses them.
                   </p>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    Merchants that are not integrated through the Pivota merchant portal are listed with{" "}
-                    <code className="font-mono text-foreground">?scope=protocol</code>: see{" "}
+                    Most merchants are not integrated through the Pivota merchant portal. List them with{" "}
+                    <code className="font-mono text-foreground">?scope=protocol</code> and buy from them
+                    through the UCP door, not the order call: see{" "}
                     <a href="#protocol-merchants" className="text-foreground underline underline-offset-4">
                       protocol merchants
                     </a>{" "}
@@ -207,13 +213,14 @@ export default function DevelopersFirstCallPage() {
                     <code>{orderSnippet}</code>
                   </pre>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    The example shows only the API key. Purchase calls such as checkout intents and order creation also need verified buyer identity; an API key alone is not
-                    purchase authority. The{" "}
+                    On this REST lane the API key is enough to quote and order.{" "}
+                    <code className="font-mono text-foreground">X-Agent-User-JWT</code> is optional:
+                    send it to tie the order to your signed-in end user. Checkout on the MCP and UCP
+                    doors is different: it requires a verified buyer. The{" "}
                     <a href="https://api.pivota.cc/agent/docs/openapi.json" className="text-foreground underline underline-offset-4">
                       OpenAPI
                     </a>{" "}
-                    lists the buyer headers each endpoint accepts, such as{" "}
-                    <code className="font-mono text-foreground">X-Agent-User-JWT</code>.
+                    lists the headers each endpoint accepts.
                   </p>
                 </div>
               </div>
@@ -235,22 +242,28 @@ export default function DevelopersFirstCallPage() {
                   are not ordered through the order call above.{" "}
                   <code className="font-mono text-foreground">market</code> filters the list (for
                   example <code className="font-mono text-foreground">market=US</code>). The list is
-                  rebuilt from daily checkout checks, so a merchant drops off when its last check
+                  rebuilt from recent checkout checks, so a merchant drops off when its last check
                   goes stale. Each row&apos;s{" "}
                   <code className="font-mono text-foreground">checkout_routes</code> says how a
                   purchase there completes:
                 </p>
                 <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
                   <li>
-                    <code className="font-mono text-foreground">storefront_checkout</code>: find the
-                    product with the MCP <code className="font-mono text-foreground">search_catalog</code>{" "}
-                    tool, then call <code className="font-mono text-foreground">create_checkout</code>.
-                    It returns a UCP checkout with status{" "}
+                    <code className="font-mono text-foreground">storefront_checkout</code>: on the UCP
+                    door (<code className="font-mono text-foreground">https://commerce.mcp.pivota.cc/ucp/mcp</code>),
+                    find the product with <code className="font-mono text-foreground">search_catalog</code>,
+                    then call <code className="font-mono text-foreground">create_checkout</code>. Checkout
+                    needs a verified buyer (OAuth sign-in, or a user token from an issuer registered in
+                    the agent portal); without one it returns{" "}
+                    <code className="font-mono text-foreground">USER_AUTH_REQUIRED</code>. It returns a UCP
+                    checkout with status{" "}
                     <code className="font-mono text-foreground">requires_escalation</code> and a{" "}
                     <code className="font-mono text-foreground">continue_url</code> on the
                     merchant&apos;s own storefront, where the buyer completes the purchase. Pivota
-                    collects no payment on this route, and the checkout totals are the last observed
-                    catalog price, not a quote.
+                    collects no payment on this route. When the merchant&apos;s own checkout can price the
+                    cart, the totals are the merchant&apos;s and the link opens a prefilled cart;
+                    otherwise the totals are the last observed catalog price and the link opens the
+                    product page. Either way the buyer sees the final price on the merchant&apos;s site.
                   </li>
                   <li>
                     <code className="font-mono text-foreground">agentic_checkout</code>: a payment
