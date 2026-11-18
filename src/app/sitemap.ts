@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { posts } from "@/lib/blog";
 import { loadMarkdownPosts } from "@/lib/markdown";
 import { demotedBlogSlugs, lastUpdatedIso, routePaths, siteUrl } from "@/lib/marketing";
+import { pressArticlePath, pressArticles, pressIndexModifiedIso } from "@/lib/press";
 
 const primaryRoutes = [
   { path: "/ucp/insights", changeFrequency: "monthly" as const, priority: 0.75 },
@@ -72,7 +73,7 @@ const routeRevisionDates: Readonly<Record<string, string>> = {
   "/merchant-onboarding": "2026-10-09",
   "/use-cases": "2026-10-09",
   "/decisions-and-execution": "2026-10-07",
-  "/press": "2026-10-09",
+  [routePaths.press]: pressIndexModifiedIso,
   "/case-studies": "2026-10-08",
   "/case-studies/air-minds-reap-pilot": "2026-10-09",
   "/terms": "2026-10-07",
@@ -111,6 +112,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           "x-default": absoluteUrl(route.path),
         },
       },
+    })),
+    ...pressArticles.map((article) => ({
+      url: absoluteUrl(pressArticlePath(article.slug)),
+      lastModified: new Date(article.dateIso),
     })),
     ...blogPosts.map((post) => ({
       url: absoluteUrl(`/blog/${post.slug}`),

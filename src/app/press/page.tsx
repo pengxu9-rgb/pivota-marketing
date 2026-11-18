@@ -8,7 +8,9 @@ import {
   airMindsReapPilot,
   founder,
   pressAnnouncements,
-  pressPageModifiedIso,
+  pressArticlePath,
+  pressIndexModifiedIso,
+  pressIndexUpdatedLabel,
   pressLastUpdatedLabel,
 } from "@/lib/press";
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
@@ -16,7 +18,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/schema";
 export const metadata = buildMarketingMetadata({
   title: "Press and announcements | Pivota",
   description:
-    "Dated announcements about Pivota with links to the primary sources, plus the facts reporters and AI assistants need: what Pivota is, who leads it, and what it does not do.",
+    "Read Pivota’s latest company news and agentic commerce announcements, including Visa’s Asia-Pacific ecosystem collaboration and the Reap and EveLab Insight beauty commerce MOU.",
   path: routePaths.press,
 });
 
@@ -31,7 +33,7 @@ const pressJsonLd = {
   "@id": `${siteUrl}${routePaths.press}#page`,
   name: "Pivota press and announcements",
   url: `${siteUrl}${routePaths.press}`,
-  dateModified: pressPageModifiedIso,
+  dateModified: pressIndexModifiedIso,
   about: { "@id": `${siteUrl}/#organization` },
   mainEntity: {
     "@type": "ItemList",
@@ -44,8 +46,11 @@ const pressJsonLd = {
         headline: item.title,
         inLanguage: "en",
         datePublished: item.dateIso,
-        url: item.url,
-        publisher: { "@type": "Organization", name: item.publisher },
+        url: item.slug ? `${siteUrl}${pressArticlePath(item.slug)}` : item.url,
+        publisher: item.slug
+          ? { "@id": `${siteUrl}/#organization` }
+          : { "@type": "Organization", name: item.publisher },
+        citation: item.slug ? item.url : undefined,
         mentions: { "@id": `${siteUrl}/#organization` },
         description: item.summary,
       },
@@ -84,7 +89,9 @@ export default function PressPage() {
                   Dated announcements about Pivota, newest first, each with a link to its primary
                   source and a plain statement of what is live and what is planned.
                 </p>
-                <p className="text-sm text-muted-foreground">Last updated {pressLastUpdatedLabel}.</p>
+                <p className="text-sm text-muted-foreground">
+                  Last updated <time dateTime={pressIndexModifiedIso}>{pressIndexUpdatedLabel}</time>.
+                </p>
               </div>
             </div>
           </div>
@@ -98,11 +105,18 @@ export default function PressPage() {
                 <div className="space-y-2">
                   <p className="text-sm uppercase tracking-[0.18em] text-primary-ink">
                     <time dateTime={item.dateIso}>{item.dateLabel}</time> · {item.publisher}
+                    {item.category ? ` · ${item.category}` : null}
                   </p>
                   <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-                    <a href={item.url} className={linkClass}>
-                      {item.title}
-                    </a>
+                    {item.slug ? (
+                      <Link href={pressArticlePath(item.slug)} className={linkClass}>
+                        {item.title}
+                      </Link>
+                    ) : (
+                      <a href={item.url} className={linkClass}>
+                        {item.title}
+                      </a>
+                    )}
                   </h3>
                 </div>
                 <p className="rounded-2xl border border-border/70 bg-background/70 px-4 py-3 text-sm font-semibold leading-7 text-foreground">
@@ -144,17 +158,19 @@ export default function PressPage() {
                       </span>
                     ))}
                   </p>
-                  <p className="text-muted-foreground">
-                    Posts:{" "}
-                    {item.socialPosts.map((post, index) => (
-                      <span key={post.href}>
-                        {index > 0 ? " · " : null}
-                        <a href={post.href} className={linkClass}>
-                          {post.label}
-                        </a>
-                      </span>
-                    ))}
-                  </p>
+                  {item.socialPosts && item.socialPosts.length > 0 ? (
+                    <p className="text-muted-foreground">
+                      Posts:{" "}
+                      {item.socialPosts.map((post, index) => (
+                        <span key={post.href}>
+                          {index > 0 ? " · " : null}
+                          <a href={post.href} className={linkClass}>
+                            {post.label}
+                          </a>
+                        </span>
+                      ))}
+                    </p>
+                  ) : null}
                 </div>
               </article>
             ))}
