@@ -65,6 +65,7 @@ export default async function PressArticlePage(props: ArticlePageProps) {
     description: article.summary,
     inLanguage: "en",
     datePublished: article.dateIso,
+    dateModified: article.modifiedIso,
     articleSection: article.category,
     author: organization,
     publisher: organization,
@@ -120,13 +121,6 @@ export default async function PressArticlePage(props: ArticlePageProps) {
           <div className="section-padding bg-gradient-to-b from-card to-background">
             <div className="container-max">
               <div className="section-frame max-w-4xl space-y-8 px-6 py-8 sm:px-10">
-                <div className="space-y-4 text-base leading-8 text-muted-foreground">
-                  <p className="rounded-2xl border border-border/70 bg-background/70 px-4 py-3 text-sm font-semibold leading-7 text-foreground">
-                    {article.status}
-                  </p>
-                  {article.introduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                </div>
-
                 {article.sections.map((section) => (
                   <section key={section.heading} className="space-y-4">
                     <h2 className="text-2xl font-semibold tracking-tight">{section.heading}</h2>
@@ -142,11 +136,6 @@ export default async function PressArticlePage(props: ArticlePageProps) {
                     ))}
                   </section>
                 ))}
-                {article.closingStatement ? (
-                  <blockquote className="border-l-2 border-primary-ink pl-5 text-base italic leading-8 text-foreground">
-                    &ldquo;{article.closingStatement}&rdquo;
-                  </blockquote>
-                ) : null}
 
                 <section className="space-y-3 border-t border-border/70 pt-6">
                   <h2 className="text-lg font-semibold">More about Pivota</h2>
