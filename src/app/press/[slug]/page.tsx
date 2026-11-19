@@ -65,6 +65,7 @@ export default async function PressArticlePage(props: ArticlePageProps) {
     description: article.summary,
     inLanguage: "en",
     datePublished: article.dateIso,
+    dateModified: article.modifiedIso,
     articleSection: article.category,
     author: organization,
     publisher: organization,
@@ -121,9 +122,11 @@ export default async function PressArticlePage(props: ArticlePageProps) {
             <div className="container-max">
               <div className="section-frame max-w-4xl space-y-8 px-6 py-8 sm:px-10">
                 <div className="space-y-4 text-base leading-8 text-muted-foreground">
-                  <p className="rounded-2xl border border-border/70 bg-background/70 px-4 py-3 text-sm font-semibold leading-7 text-foreground">
-                    {article.status}
-                  </p>
+                  {article.status ? (
+                    <p className="rounded-2xl border border-border/70 bg-background/70 px-4 py-3 text-sm font-semibold leading-7 text-foreground">
+                      {article.status}
+                    </p>
+                  ) : null}
                   {article.introduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 </div>
 

@@ -4,11 +4,11 @@ import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import PageChrome from "@/components/PageChrome";
 import { buildMarketingMetadata, routePaths, siteUrl } from "@/lib/marketing";
-import { airMindsReapPilot as pilot, founder, pressLastUpdatedLabel, pressPageModifiedIso } from "@/lib/press";
+import { airMindsReapPilot as pilot, founder } from "@/lib/press";
 import { buildBreadcrumbJsonLd } from "@/lib/schema";
 
 const description =
-  "How AIR, Minds by Animoca Brands, Reap and Pivota plan to let an AI agent buy for a verified user: who does what, the proposed transaction lifecycle, and what has and has not happened yet.";
+  "How AIR, Minds by Animoca Brands, Reap and Pivota plan to let an AI agent buy for a verified user, with each partner’s role and the proposed transaction lifecycle.";
 
 export const metadata = buildMarketingMetadata({
   title: "AIR, Minds, Reap and Pivota pilot: case study | Pivota",
@@ -31,7 +31,7 @@ const articleJsonLd = {
   description,
   url: `${siteUrl}${pilot.path}`,
   datePublished: pilot.announcedIso,
-  dateModified: pressPageModifiedIso,
+  dateModified: pilot.modifiedIso,
   author: { "@id": `${siteUrl}/#organization` },
   publisher: { "@id": `${siteUrl}/#organization` },
   about: [
@@ -69,7 +69,6 @@ export default function AirMindsReapPilotPage() {
                   Case study · Announced {pilot.announcedLabel}
                 </p>
                 <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">{pilot.title}</h1>
-                <p className="max-w-3xl text-base font-semibold leading-8 text-foreground">{pilot.statusLine}</p>
                 <p className="max-w-3xl text-base leading-8 text-muted-foreground">
                   AIR and Minds by Animoca Brands, Reap and Pivota announced a partnership that aims to let
                   an AI agent buy on behalf of a verified user: proving whom it represents, using benefits
@@ -86,9 +85,7 @@ export default function AirMindsReapPilotPage() {
               <h2 className="text-2xl font-semibold tracking-tight">Status</h2>
               <p className="text-base leading-8 text-muted-foreground">
                 Announced on {pilot.announcedLabel}. The partnership will start with a controlled
-                demonstration featuring a single merchant integration. As of {pressLastUpdatedLabel},
-                no transaction results have been published, so this page reports no outcomes, volumes
-                or revenue.
+                demonstration featuring a single merchant integration.
               </p>
             </div>
 
@@ -158,7 +155,6 @@ export default function AirMindsReapPilotPage() {
               <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
                 <li>It does not name the merchant in the demonstration.</li>
                 <li>It does not say the flow is generally available, or in which markets.</li>
-                <li>It reports no transaction count, conversion rate, order value or revenue.</li>
               </ul>
             </div>
 

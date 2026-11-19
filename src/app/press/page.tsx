@@ -119,9 +119,11 @@ export default function PressPage() {
                     )}
                   </h3>
                 </div>
-                <p className="rounded-2xl border border-border/70 bg-background/70 px-4 py-3 text-sm font-semibold leading-7 text-foreground">
-                  {item.status}
-                </p>
+                {item.status ? (
+                  <p className="rounded-2xl border border-border/70 bg-background/70 px-4 py-3 text-sm font-semibold leading-7 text-foreground">
+                    {item.status}
+                  </p>
+                ) : null}
                 <p className="text-base leading-8 text-muted-foreground">{item.summary}</p>
                 <dl className="text-sm leading-7">
                   <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">

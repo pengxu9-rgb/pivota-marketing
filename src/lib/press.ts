@@ -3,11 +3,9 @@ import { routePaths } from "@/lib/marketing";
 // Press announcements and case-study facts. Every statement here must trace to a linked
 // primary source; partner wording is summarised, not extended. Newest announcement first.
 
-export const pressIndexModifiedIso = "2026-11-18";
-export const pressIndexUpdatedLabel = "18 November 2026";
+export const pressIndexModifiedIso = "2026-11-19";
+export const pressIndexUpdatedLabel = "19 November 2026";
 
-// Dates used by the existing case study and the checked facts on the press index.
-export const pressPageModifiedIso = "2026-10-09";
 export const pressLastUpdatedLabel = "8 October 2026";
 
 export const founder = { name: "Peng Xu", jobTitle: "Founder and CEO" } as const;
@@ -25,7 +23,7 @@ export type PressAnnouncement = {
   url: string;
   summary: string;
   pivotaRole: string;
-  status: string;
+  status?: string;
   caseStudyPath?: string;
   sources: readonly PressLink[];
   socialPosts?: readonly PressLink[];
@@ -35,6 +33,7 @@ type PressArticle = PressAnnouncement & {
   slug: string;
   category: string;
   breadcrumbLabel: string;
+  modifiedIso?: string;
   introduction: readonly string[];
   sections: readonly {
     heading: string;
@@ -57,10 +56,9 @@ export const airMindsReapPilot = {
   title: "AIR, Minds, Reap and Pivota: an identity-powered agentic commerce pilot",
   announcedIso: "2026-10-08",
   announcedLabel: "8 October 2026",
+  modifiedIso: "2026-11-19",
   releaseUrl: animocaReleaseUrl,
   airBlogUrl: "https://air3.com/blog/air-minds-reap-pivota-agentic-commerce",
-  statusLine:
-    "Status as of 8 October 2026: announced. The single-merchant demonstration has not run yet, and no results have been published.",
   peng: {
     quote:
       "Product discovery is only the first step in agentic commerce. The harder problem is determining where and how a transaction should actually be executed. Pivota provides the merchant decision and order execution layer that connects agent intent with merchants, helping agents choose the right merchant and transaction path and carry the resulting order through checkout.",
@@ -155,6 +153,7 @@ export const pressArticles: readonly PressArticle[] = [
     breadcrumbLabel: "Beauty commerce MOU",
     dateIso: "2026-11-05",
     dateLabel: "5 November 2026",
+    modifiedIso: "2026-11-19",
     title: "Reap, Meitu's EveLab Insight, and Pivota Sign MOU to Explore Agentic Beauty Commerce",
     publisher: "Reap",
     url: reapReleaseUrl,
@@ -162,7 +161,6 @@ export const pressArticles: readonly PressArticle[] = [
       "Reap, Meitu’s EveLab Insight, and Pivota have signed an MOU to explore AI-powered beauty shopping, connecting personalized product discovery with merchant selection, checkout, and secure payments.",
     pivotaRole:
       "In the proposed experience, Pivota would evaluate product and merchant options, availability, and transaction paths, and coordinate commerce execution.",
-    status: "MOU signed. The proposed beauty shopping experience is exploratory.",
     sources: [{ label: "Reap’s official press release", href: reapReleaseUrl }],
     introduction: [
       "Reap, Meitu’s EveLab Insight, and Pivota announced a memorandum of understanding to explore bringing agentic commerce to personalized beauty shopping.",
@@ -218,7 +216,6 @@ export const pressAnnouncements: readonly PressAnnouncement[] = [
       "AIR and Minds by Animoca Brands announced a partnership with Reap and Pivota to develop identity-powered, personalized agentic commerce: a Minds agent acting on a verified user's authority, recognizing benefits the user has earned, and completing purchases within pre-approved limits. The partnership will start with a controlled demonstration featuring a single merchant integration.",
     pivotaRole:
       "In the proposed architecture, Pivota will provide the merchant decision and order execution layer: helping the agent choose the product, merchant and transaction path, and carrying the order through the merchant's existing commerce stack. The merchant remains the merchant of record and Pivota does not touch the funds flow.",
-    status: airMindsReapPilot.statusLine,
     caseStudyPath: airMindsReapPilot.path,
     sources: [
       { label: "Animoca Brands press release", href: animocaReleaseUrl },

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { posts } from "@/lib/blog";
 import { loadMarkdownPosts } from "@/lib/markdown";
 import { demotedBlogSlugs, lastUpdatedIso, routePaths, siteUrl } from "@/lib/marketing";
-import { pressArticlePath, pressArticles, pressIndexModifiedIso } from "@/lib/press";
+import { airMindsReapPilot, pressArticlePath, pressArticles, pressIndexModifiedIso } from "@/lib/press";
 
 const primaryRoutes = [
   { path: "/ucp/insights", changeFrequency: "monthly" as const, priority: 0.75 },
@@ -36,7 +36,7 @@ const primaryRoutes = [
   { path: routePaths.about, changeFrequency: "monthly" as const, priority: 0.65 },
   { path: routePaths.press, changeFrequency: "weekly" as const, priority: 0.7 },
   { path: routePaths.caseStudies, changeFrequency: "monthly" as const, priority: 0.7 },
-  { path: "/case-studies/air-minds-reap-pilot", changeFrequency: "monthly" as const, priority: 0.7 },
+  { path: airMindsReapPilot.path, changeFrequency: "monthly" as const, priority: 0.7 },
   { path: routePaths.blog, changeFrequency: "weekly" as const, priority: 0.65 },
   { path: "/privacy/merchant-app", changeFrequency: "yearly" as const, priority: 0.35 },
   { path: "/help/merchant-app", changeFrequency: "monthly" as const, priority: 0.4 },
@@ -75,7 +75,7 @@ const routeRevisionDates: Readonly<Record<string, string>> = {
   "/decisions-and-execution": "2026-10-07",
   [routePaths.press]: pressIndexModifiedIso,
   "/case-studies": "2026-10-08",
-  "/case-studies/air-minds-reap-pilot": "2026-10-09",
+  [airMindsReapPilot.path]: airMindsReapPilot.modifiedIso,
   "/terms": "2026-10-07",
   "/ucp/insights": "2026-08-19",
 };
@@ -115,7 +115,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     ...pressArticles.map((article) => ({
       url: absoluteUrl(pressArticlePath(article.slug)),
-      lastModified: new Date(article.dateIso),
+      lastModified: new Date(article.modifiedIso ?? article.dateIso),
     })),
     ...blogPosts.map((post) => ({
       url: absoluteUrl(`/blog/${post.slug}`),
