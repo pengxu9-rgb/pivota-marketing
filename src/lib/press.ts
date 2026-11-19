@@ -23,7 +23,6 @@ export type PressAnnouncement = {
   url: string;
   summary: string;
   pivotaRole: string;
-  status?: string;
   caseStudyPath?: string;
   sources: readonly PressLink[];
   socialPosts?: readonly PressLink[];
@@ -34,13 +33,11 @@ type PressArticle = PressAnnouncement & {
   category: string;
   breadcrumbLabel: string;
   modifiedIso?: string;
-  introduction: readonly string[];
   sections: readonly {
     heading: string;
     paragraphs: readonly string[];
     roles?: readonly { party: string; role: string }[];
   }[];
-  closingStatement?: string;
   relatedLinks: readonly PressLink[];
 };
 
@@ -108,38 +105,29 @@ export const pressArticles: readonly PressArticle[] = [
     breadcrumbLabel: "Visa collaboration",
     dateIso: "2026-11-18",
     dateLabel: "18 November 2026",
+    modifiedIso: "2026-11-19",
     title: "Visa Names Pivota Among Asia-Pacific Collaborators Exploring Agentic Commerce",
     publisher: "Visa",
     url: visaReleaseUrl,
     summary:
-      "Visa has named Pivota among its Asia-Pacific ecosystem collaborators exploring how AI agents can discover merchant products, build shopping carts, and connect to checkout and payments.",
+      "Visa named Pivota among its Asia-Pacific ecosystem collaborators exploring agent-led commerce. The work covers product discovery, shopping carts, checkout, and payments.",
     pivotaRole:
       "Pivota is building the commerce decision and order execution layer that helps AI agents evaluate products, select merchants, and execute orders through existing commerce and payment systems.",
-    status: "Visa named Pivota among its Asia-Pacific ecosystem collaborators exploring agent-led commerce.",
     sources: [{ label: "Visa’s official press release", href: visaReleaseUrl }],
-    introduction: [
-      "On November 18, 2026, Visa highlighted Pivota in its official Asia-Pacific announcement on expanding trusted agentic commerce.",
-      "Alongside companies including SHOPLINE, Shoplazza, Reap Technologies, and Clink, Pivota was named among ecosystem enablers collaborating with Visa to explore agent-led commerce experiences spanning product discovery, shopping carts, checkout, and payment.",
-    ],
     sections: [
       {
-        heading: "From Product Discovery to Commerce Execution",
+        heading: "Asia-Pacific collaboration",
         paragraphs: [
-          "As AI agents move beyond product recommendations toward completing purchases, the next challenge is connecting AI-powered discovery with real-world merchant infrastructure.",
-          "Pivota is building the commerce decision and order execution layer for AI agents, helping applications evaluate products, select merchants, determine transaction paths, and execute orders through existing commerce and payment systems.",
+          "Visa’s announcement also names SHOPLINE, Shoplazza, Reap Technologies, and Clink among its regional collaborators.",
         ],
       },
       {
-        heading: "Building an Interoperable Agentic Commerce Ecosystem",
+        heading: "Pivota’s role",
         paragraphs: [
-          "Pivota’s approach is designed to connect AI applications, merchant platforms, and payment infrastructure without requiring merchants to replace their existing commerce systems.",
-          "Our focus is on making commerce execution more accessible to AI agents while preserving merchant control over checkout, payments, and fulfillment.",
-          "Visa’s announcement marks an important milestone in the industry’s progress toward an interoperable agentic commerce ecosystem.",
+          "Pivota is building the commerce decision and order execution layer for AI agents. It helps applications evaluate products, select merchants, choose how to route the transaction, and place orders through existing merchant systems.",
         ],
       },
     ],
-    closingStatement:
-      "The future of AI commerce isn’t just about deciding what to buy. It’s about getting the transaction done.",
     relatedLinks: [
       { label: "How Pivota works", href: routePaths.howPivotaWorks },
       { label: "Agent integration", href: routePaths.agentIntegration },
@@ -154,44 +142,29 @@ export const pressArticles: readonly PressArticle[] = [
     dateIso: "2026-11-05",
     dateLabel: "5 November 2026",
     modifiedIso: "2026-11-19",
-    title: "Reap, Meitu's EveLab Insight, and Pivota Sign MOU to Explore Agentic Beauty Commerce",
+    title: "Reap, Meitu's EveLab Insight, and Pivota Sign MOU on Agentic Beauty Commerce",
     publisher: "Reap",
     url: reapReleaseUrl,
     summary:
-      "Reap, Meitu’s EveLab Insight, and Pivota have signed an MOU to explore AI-powered beauty shopping, connecting personalized product discovery with merchant selection, checkout, and secure payments.",
+      "Reap, Meitu’s EveLab Insight, and Pivota signed a memorandum of understanding on AI-powered beauty shopping, covering personalized recommendations, merchant selection, checkout, and payments.",
     pivotaRole:
-      "In the proposed experience, Pivota would evaluate product and merchant options, availability, and transaction paths, and coordinate commerce execution.",
+      "Pivota’s role under the MOU covers product and merchant selection, availability, and how orders are routed.",
     sources: [{ label: "Reap’s official press release", href: reapReleaseUrl }],
-    introduction: [
-      "Reap, Meitu’s EveLab Insight, and Pivota announced a memorandum of understanding to explore bringing agentic commerce to personalized beauty shopping.",
-      "The collaboration aims to connect AI-powered beauty recommendations with real-world commerce execution, helping consumers move from discovering relevant products to completing purchases with their approval.",
-    ],
     sections: [
       {
-        heading: "Connecting AI Beauty Discovery with Commerce Execution",
+        heading: "What the MOU covers",
         paragraphs: [
-          "Under the proposed collaboration, shoppers could receive personalized beauty insights and product recommendations through MakeupPlus, developed and published by EveLab Insight.",
-          "Pivota would help evaluate relevant products, merchant options, availability, and purchase channels.",
-          "Reap’s agentic payments infrastructure would support the checkout and payment process through applicable integrations and consumer-approved payment flows.",
+          "Reap’s announcement describes a shopping flow that starts with personalized beauty recommendations in MakeupPlus and proceeds to checkout and payment with the shopper’s approval.",
         ],
       },
       {
-        heading: "Each Partner’s Role",
+        heading: "Each partner’s role",
         roles: [
-          { party: "EveLab Insight / MakeupPlus", role: "AI-powered beauty experiences and personalized product discovery." },
-          { party: "Pivota", role: "Product and merchant decisioning, transaction-path selection, and commerce execution orchestration." },
-          { party: "Reap", role: "Agentic payment infrastructure and supported checkout capabilities." },
+          { party: "EveLab Insight", role: "Personalized beauty insights and product recommendations through its MakeupPlus app." },
+          { party: "Pivota", role: "Evaluate products, merchant options, availability, and purchase channels." },
+          { party: "Reap", role: "Support checkout and payments through its agentic payments infrastructure." },
         ],
-        paragraphs: [
-          "The proposed experience is designed to keep consumers in control of purchase approvals and payment authorization.",
-        ],
-      },
-      {
-        heading: "Exploring the Future of AI-Powered Beauty Commerce",
-        paragraphs: [
-          "Beauty commerce is a natural starting point for agentic shopping because personalized recommendations can benefit from information about consumers’ preferences and needs.",
-          "The collaboration explores how AI-powered discovery can connect with merchant infrastructure and secure payments to enable a more seamless purchase journey.",
-        ],
+        paragraphs: [],
       },
     ],
     relatedLinks: [
@@ -213,9 +186,9 @@ export const pressAnnouncements: readonly PressAnnouncement[] = [
     publisher: "Animoca Brands",
     url: animocaReleaseUrl,
     summary:
-      "AIR and Minds by Animoca Brands announced a partnership with Reap and Pivota to develop identity-powered, personalized agentic commerce: a Minds agent acting on a verified user's authority, recognizing benefits the user has earned, and completing purchases within pre-approved limits. The partnership will start with a controlled demonstration featuring a single merchant integration.",
+      "AIR and Minds by Animoca Brands announced a partnership with Reap and Pivota to develop identity-powered agentic commerce. The partnership covers verifying the shopper’s identity, applying eligible benefits, and completing purchases within limits the shopper approves.",
     pivotaRole:
-      "In the proposed architecture, Pivota will provide the merchant decision and order execution layer: helping the agent choose the product, merchant and transaction path, and carrying the order through the merchant's existing commerce stack. The merchant remains the merchant of record and Pivota does not touch the funds flow.",
+      "Pivota will help the agent choose the product, merchant, and transaction path, then carry the order through the merchant’s existing commerce system.",
     caseStudyPath: airMindsReapPilot.path,
     sources: [
       { label: "Animoca Brands press release", href: animocaReleaseUrl },

@@ -57,7 +57,7 @@ Pivota does not author any of these standards.
 
 ## Case studies
 
-- [AIR, Minds, Reap and Pivota: an identity-powered agentic commerce pilot](https://pivota.cc/case-studies/air-minds-reap-pilot): who does what in the proposed architecture (AIR identity credentials, Minds agents, Reap scoped payment credentials, Pivota product/merchant/transaction path, merchant remains merchant of record), the proposed transaction lifecycle, and current status.
+- [AIR, Minds, Reap and Pivota: an identity-powered agentic commerce pilot](https://pivota.cc/case-studies/air-minds-reap-pilot): who does what in the proposed architecture (AIR identity credentials, Minds agents, Reap scoped payment credentials, Pivota product/merchant/transaction path, merchant remains merchant of record) and the proposed transaction lifecycle.
 
 ## Contact
 

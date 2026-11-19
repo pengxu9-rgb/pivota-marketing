@@ -86,8 +86,7 @@ export default function PressPage() {
                   Pivota press and announcements
                 </h1>
                 <p className="max-w-3xl text-base leading-8 text-muted-foreground">
-                  Dated announcements about Pivota, newest first, each with a link to its primary
-                  source and a plain statement of what is live and what is planned.
+                  Company news and collaboration announcements, with links to official releases.
                 </p>
                 <p className="text-sm text-muted-foreground">
                   Last updated <time dateTime={pressIndexModifiedIso}>{pressIndexUpdatedLabel}</time>.
@@ -119,11 +118,6 @@ export default function PressPage() {
                     )}
                   </h3>
                 </div>
-                {item.status ? (
-                  <p className="rounded-2xl border border-border/70 bg-background/70 px-4 py-3 text-sm font-semibold leading-7 text-foreground">
-                    {item.status}
-                  </p>
-                ) : null}
                 <p className="text-base leading-8 text-muted-foreground">{item.summary}</p>
                 <dl className="text-sm leading-7">
                   <div className="rounded-2xl border border-border/70 bg-background/55 px-4 py-3">

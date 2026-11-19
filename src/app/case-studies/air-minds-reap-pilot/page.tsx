@@ -82,10 +82,9 @@ export default function AirMindsReapPilotPage() {
         <section className="section-padding bg-gradient-to-b from-card to-background">
           <div className="container-max space-y-6">
             <div className="section-frame space-y-3 px-6 py-8 sm:px-10">
-              <h2 className="text-2xl font-semibold tracking-tight">Status</h2>
+              <h2 className="text-2xl font-semibold tracking-tight">Pilot scope</h2>
               <p className="text-base leading-8 text-muted-foreground">
-                Announced on {pilot.announcedLabel}. The partnership will start with a controlled
-                demonstration featuring a single merchant integration.
+                The partnership will start with a controlled demonstration featuring a single merchant integration.
               </p>
             </div>
 
@@ -119,10 +118,6 @@ export default function AirMindsReapPilotPage() {
                   <li key={step}>{step}</li>
                 ))}
               </ol>
-              <p className="text-sm leading-7 text-muted-foreground">
-                This is the lifecycle the announcement describes for the demonstration. It is not a
-                record of a completed purchase.
-              </p>
             </div>
 
             <div className="grid gap-6 lg:grid-cols-2">
@@ -130,7 +125,6 @@ export default function AirMindsReapPilotPage() {
                 <h2 className="text-2xl font-semibold tracking-tight">Boundaries</h2>
                 <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
                   <li>The merchant remains the merchant of record.</li>
-                  <li>Pivota does not touch the funds flow: it does not hold customer funds, issue cards or process payments.</li>
                   <li>Payment credentials come from Reap and are scoped to a merchant, an amount and a timeframe.</li>
                   <li>Users will choose which identity credentials their agent can present, through AIR.</li>
                 </ul>
@@ -144,18 +138,9 @@ export default function AirMindsReapPilotPage() {
                   </a>{" "}
                   documents Reap purchase routes under{" "}
                   <code className="font-mono text-foreground">/agent/v2/commerce/reap/purchases</code>: prepare,
-                  start, resume, recover and read. They define how the integration is called. They are
-                  not evidence of completed purchases.
+                  start, resume, recover and read.
                 </p>
               </div>
-            </div>
-
-            <div className="section-frame space-y-4 px-6 py-8 sm:px-10">
-              <h2 className="text-2xl font-semibold tracking-tight">What this case study does not claim</h2>
-              <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
-                <li>It does not name the merchant in the demonstration.</li>
-                <li>It does not say the flow is generally available, or in which markets.</li>
-              </ul>
             </div>
 
             <figure className="section-frame space-y-3 px-6 py-8 sm:px-10">
